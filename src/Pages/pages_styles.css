@@ -1,0 +1,16 @@
+/* THIS CSS FILE IS FOR COLOR, TEXT ALIGNMENT, BACKGROUNDS, AND HOVERING, THE PLACEMENT OF THE COMPONENTS WIDTH, HIEGHT, MARGIN, BORDER, PADDING ARE DONE IN THE COMPONENTS STYLES CSS */
+
+.Cancel_btn{
+    background-color: tan;
+}
+.Search_btn{
+    background-color: pink;
+
+    display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Full viewport height */
+  width: 400px;
+  
+  
+}

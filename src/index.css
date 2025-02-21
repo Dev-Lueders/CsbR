@@ -1,0 +1,21 @@
+
+/* T_Navbar - Blue */
+.t-navbar {
+  background-color: blue;
+  color: white; /* Ensures text is visible */
+  padding: 10px;
+}
+
+/* L_Navbar - Green */
+.l-navbar {
+  background-color: green;
+  color: white;
+  padding: 10px;
+}
+
+/* B_Navbar - Yellow */
+.b-navbar {
+  background-color: yellow;
+  color: black; /* Ensures text contrast */
+  padding: 10px;
+}

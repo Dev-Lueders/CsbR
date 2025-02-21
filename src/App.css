@@ -1,0 +1,47 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Expands to fill available space */
+}
+
+.stats-box {
+  width: 100%;
+  background: #fff;
+  border-top: 5px solid lightgray;
+  box-shadow: 0px -2px 5px rgba(211, 211, 211, 0.6);
+  padding: 20px;
+  overflow-y: auto;
+  flex-grow: 1; /* Allows the Stats_Container to expand while keeping B_Navbar at the bottom */
+}
+
+.b-navbar {
+  width: 100%;
+  height: 60px; /* Adjust height as needed */
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Cancel_btn {
+  background-color: #4caf50;
+}
+
+.Search_btn{
+  background-color: red;
+
+  display: flex;
+justify-content: center; /* Centers horizontally */
+align-items: center; /* Centers vertically */
+height: 100vh; /* Full viewport height */
+width: 400px;
+z-index: 100;
+
+}

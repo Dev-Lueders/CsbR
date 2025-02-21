@@ -1,0 +1,18 @@
+/* THIS CSS FILE IS FOR THE PLACEMENT OF THE COMPONENTS  
+WIDTH, HIEGHT, MARGIN, BORDER, PADDING...COLOR, TEXT ALIGNMENT, BACKGROUNDS, AND HOVERING DONE IN THE PAGE STYLES, THEN FOR MORE SPECIFIC STYLES ARE DONE INLINE ON THE PAGE. */
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
