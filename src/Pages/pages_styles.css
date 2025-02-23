@@ -1,4 +1,5 @@
-/* THIS CSS FILE IS FOR COLOR, TEXT ALIGNMENT, BACKGROUNDS, AND HOVERING, THE PLACEMENT OF THE COMPONENTS WIDTH, HIEGHT, MARGIN, BORDER, PADDING ARE DONE IN THE COMPONENTS STYLES CSS */
+/* PAGES_STYLES.CSS 
+THIS CSS FILE IS FOR COLOR, TEXT ALIGNMENT, BACKGROUNDS, AND HOVERING, THE PLACEMENT OF THE COMPONENTS WIDTH, HIEGHT, MARGIN, BORDER, PADDING ARE DONE IN THE COMPONENTS STYLES CSS */
 
 .Cancel_btn{
     background-color: tan;
@@ -11,6 +12,27 @@
   align-items: center; /* Centers vertically */
   height: 100vh; /* Full viewport height */
   width: 400px;
+  }
+/*------LANDING PAGE--------*/
   
-  
-}
+  #T_Nav{
+    
+
+  }
+  .container-fluid{
+  }
+
+  /*------LOGIN PAGE--------*/
+  /*------SIGNUP PAGE--------*/
+  /*------ADMIN PAGE--------*/
+  /*------GUEST PAGE--------*/
+  /*------MASTER PAGE--------*/
+  /*------MODERATOR PAGE--------*/
+  /*------PROFILE PAGE--------*/
+  /*------USER PAGE--------*/
+
+                /*------GAME PAGES--------*/
+  /*------PGA2K SEARCH PAGES--------*/
+  /*------PGA2K RESULTS PAGE--------*/
+/*------GT7 SEARCH PAGE--------*/
+/*------GT7 RESULTS PAGE--------*/

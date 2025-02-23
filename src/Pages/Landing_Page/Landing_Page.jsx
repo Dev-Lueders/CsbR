@@ -1,4 +1,11 @@
+/*THIS LANDING PAGE IS THE PRIMARY PAGE FOR WHEN YOU ARE DIRECTED TO THE CREATORSANDBOXREVIEW SITE THIS WILL BE THE FIRST THING A GUEST SEES 
+ALL COMPONENTS WILL BE BUILT SEPARATELY USE ID TO DIRECTLY STYLE THEM THERE IS A CSS FILE FOR COMPONENTS AND A CSS FILE FOR PAGES AND FOR MORE DIRECT STYLING USE THE INLINE 
+*/
+
 import React from 'react';
+import "../pages_styles.css";
+import "../../components/components_styles.css"
+import ReadMe from '../Help/ReadMe.jsx'
 import Scroll_Bar from '../../components/Scroll_Bar/Scroll_Bar.jsx';
 import Main_Content from '../../components/Main_Content/Main_Content.jsx';
 import T_Navbar from '../../components/NavBar/T_Navbar.jsx';
@@ -11,13 +18,14 @@ const Landing_Page = () => {
 
   const T_Links = [
     { label: "Home", path: "/" },
-    { label: "About", path: "/about" },
-    { label: "Contact", path: "/contact" },
+    { label: "About", path: "/About" },
+    { label: "Log In", path:"/Login_Page"}
   ];
 
   const L_links = [
-    { label: "Signup", path: "/signup" },
-    { label: "Search", path: "/search" },
+    { label: "Signup", path: "/SignUp_Page" },
+    {label: "Games", path: "/Games"},
+    { label: "Search", path: "/Search_Page_PGA2K23" },
     { label: "Add Review", path: "/add_review" },
     { label: "Add Course", path: "/add_course" },
     { label: "New Features", path: "/coming_soon" },
@@ -25,17 +33,18 @@ const Landing_Page = () => {
   ];
 
   const B_Links = [
-    { path: "/signup", label: "Signup" },
-    { path: "/contact", label: "Contact Us" },
-    { path: "/help", label: "Help" },
-    { path: "/about", label: "About" },
-    { path: "/support", label: "Support" },
-    { path: "/legal", label: "Legal" },
+    { path: "/SignUp_Page", label: "Signup" },
+    { path: "/Contact", label: "Contact Us" },
+    { path: "/Help", label: "Help" },
+    { path: "/About", label: "About" },
+    { path: "/Support", label: "Support" },
+    { path: "/Legal", label: "Legal" },
+    { path: "/ReadMe", label: "ReadMe Info"},
   ];
 
   return (
     <div className="container-fluid">
-      <T_Navbar links={T_Links} />
+      <T_Navbar links={T_Links} id="T_Nav" />
       <L_Navbar links={L_links} />
 
       {/* Row for main and side content */}

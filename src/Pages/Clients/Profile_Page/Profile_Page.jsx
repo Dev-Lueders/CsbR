@@ -18,7 +18,7 @@ const Profile_Page = () => {
   const T_Links = [
     { label: "Signout", path: "/signout" },
     { label: "Creator Profile", path: "/Creator_Profile_Page" },
-    { label: "Home Page", path: "/Landing_Page" },
+    { label: "Home Page", path: "/" },
   ];
 
   const B_Links = [

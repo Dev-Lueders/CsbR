@@ -1,6 +1,6 @@
 // move the world map to the top right
 // Add functionality to search features, 
-//When selecting a real course it will switch the location for teh solar system to the Sol system, and make the planet Earth
+//When selecting a real course it will switch the location for the solar system to the Sol system, and make the planet Earth
 //When Selection a fictitious course set up, a drop down for theme types should be available, being able to search by movie, tv show, video game shuld happen
 // you should be able to search by  any feature alone or all together, mix and match possibilities
 // Enviroments should be search able to
@@ -31,7 +31,7 @@ const Search_Page_PGA2K23 = () =>{
   const T_Links = [
     { label: "Signout", path: "/signout" },
     { label: "Personal Profile", path: "/Profile_Page" },
-    { label: "Home Page", path: "/Landing_Page" },
+    { label: "Home Page", path: "/" },
   ];
 
   const L_Links = [
@@ -39,7 +39,7 @@ const Search_Page_PGA2K23 = () =>{
 
   ];
   const B_Links = [
-    { path: "/signup", label: "Signup" },
+    { path: "/SignUp_Page", label: "Signup" },
     { path: "/contact", label: "Contact Us" },
     { path: "/help", label: "Help" },
     { path: "/about", label: "About" },
