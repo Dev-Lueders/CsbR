@@ -60,7 +60,6 @@ React, Redux, Bootstrap, and Axios for building and managing the user interface 
 <ul>
 <h4>Directory Structure</h4>
 </ul>
-
 <ul>
 C:.
 </ul>
