@@ -38,17 +38,22 @@ const App = () => {
   return (
     <>
       <Routes>
+        
+        <Route path="/Games" element={<Games/>}/>
              {/* <Login_Page/> */}
         <Route path="/" element={<Landing_Page />} />
         <Route path="/About" element={<About/>}/>
               {/* <Profile_SignUp/> */}
+        
         <Route path="/Profile_Page" element={<Profile_Page />} />
-        <Route path="/SignUp_Page" element={<SignUp_Page />} />
+                <Route path="/SignUp_Page" element={<SignUp_Page />} />
               {/* <Creators_SignUp/> */}
               {/* <Creators_Page/> */}
 
         <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
               {/* <Results_Page_PGA2K23/> */}
+
+
         <Route path="Help" element={<Help/>}/>
         <Route path="/Legal" element = {<Legal/>}/>
         <Route path="/ReadMe" element = {<ReadMe/>}/>
