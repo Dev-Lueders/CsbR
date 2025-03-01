@@ -31,7 +31,8 @@ const Search_Page_PGA2K23 = () =>{
   const T_Links = [
     { label: "Signout", path: "/signout" },
     { label: "Personal Profile", path: "/Profile_Page" },
-    { label: "Home Page", path: "/" },
+    { label: "Home", path: "/" },
+    { label: "PGA2K23 Results Page", path:"/Results_Page_PGA2K23"},
   ];
 
   const L_Links = [
