@@ -25,9 +25,6 @@ const Landing_Page = () => {
   const L_links = [
     { label: "Signup", path: "/SignUp_Page" },
     {label: "Games", path: "/Games"},
-    { label: "Search", path: "/Search_Page_PGA2K23" },
-    { label: "Add Review", path: "/add_review" },
-    { label: "Add Course", path: "/add_course" },
     { label: "New Features", path: "/coming_soon" },
     { label: "Suggestion Box", path: "/add_content" },
   ];

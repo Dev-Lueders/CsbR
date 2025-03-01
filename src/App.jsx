@@ -23,14 +23,12 @@ import About from './Pages/About/About.jsx';
 import Legal from './Pages/Legal/Legal_Page.jsx'
 import SignUp_Page from './Pages/SignUp_Page/SignUp_Page.jsx';
 import Login_Page from './Pages/Login_Page/Login_Page.jsx';
-import Search_Page_PGA2K23 from './Games/PGA2K/2K23/Search/Basic/Search_Page_PGA2K23.jsx';
 import Creators_SignUp from './Pages/SignUp_Page/Creators_SignUp.jsx'
 import Landing_Page from './Pages/Landing_Page/Landing_Page.jsx';
 import Profile_Page from './Pages/Clients/Profile_Page/Profile_Page.jsx';
-import Results_Page_PGA2K23 from './Games/PGA2K/2K23/Search/Search_Results/Results_Page_PGA2K23.jsx'
 import Creators_Page from './Pages/Clients/Profile_Page/Creators_Page.jsx';
 import Profile_SignUp from './Pages/SignUp_Page/Profile_SignUp.jsx';
-import PGA2K23_C_Long from './Games/PGA2K/2K23/Adding Content/Content/Long_Form/PGA2K23_C_Long.jsx';
+
 
 
 const App = () => {
@@ -40,7 +38,7 @@ const App = () => {
       <Routes>
         
         <Route path="/Games" element={<Games/>}/>
-             {/* <Login_Page/> */}
+        <Route path="/Login" element={<Login_Page/>}/>
         <Route path="/" element={<Landing_Page />} />
         <Route path="/About" element={<About/>}/>
               {/* <Profile_SignUp/> */}
@@ -50,8 +48,8 @@ const App = () => {
               {/* <Creators_SignUp/> */}
               {/* <Creators_Page/> */}
 
-        <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
-              {/* <Results_Page_PGA2K23/> */}
+        {/* <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
+              <Results_Page_PGA2K23/> */}
 
 
         <Route path="Help" element={<Help/>}/>
