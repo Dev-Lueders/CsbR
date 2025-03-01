@@ -1,8 +1,8 @@
-import React from "react";
+mport React from "react";
 import T_Navbar from "../../components/NavBar/T_Navbar";
 import B_Navbar from "../../components/NavBar/B_Navbar";
 
-const Suggestion_Box = () =>{
+const GT7_Add_Content = () =>{
 const T_Links = [
     {label:"Home", path:"/"},
     {label:"Login", path:"Login_Page"},
@@ -25,4 +25,4 @@ const B_Links = [
         </>
     )
 };
-export default Suggestion_Box;
+export default GT7_Add_Content;

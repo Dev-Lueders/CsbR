@@ -28,7 +28,7 @@ import Landing_Page from './Pages/Landing_Page/Landing_Page.jsx';
 import Profile_Page from './Pages/Clients/Profile_Page/Profile_Page.jsx';
 import Creators_Page from './Pages/Clients/Profile_Page/Creators_Page.jsx';
 import Profile_SignUp from './Pages/SignUp_Page/Profile_SignUp.jsx';
-
+import Suggestion_Box from './Pages/Suggestion_Box/Suggestion_Box.jsx';
 
 
 const App = () => {
@@ -51,7 +51,7 @@ const App = () => {
         {/* <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
               <Results_Page_PGA2K23/> */}
 
-
+        <Route path="/Suggestion_Box" element={<Suggestion_Box/>}/>
         <Route path="Help" element={<Help/>}/>
         <Route path="/Legal" element = {<Legal/>}/>
         <Route path="/ReadMe" element = {<ReadMe/>}/>

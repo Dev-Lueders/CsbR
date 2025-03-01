@@ -12,15 +12,17 @@ const Games_Page = () => {
         { label: "Log In", path:"/Login_Page"}
     ];
     const L_Links = [
+        {label:"",path:""},
+        {label:"",path:""},
 { label: "Gran Turismo", path:"/GT"},
-{ label: "HotWheels", path:"/Hotwheels"},
-{ label: "Lego2K Drive", path:"Lego2K_Drive"},
-{ label: "Minecraft", path:"Minecraft"},
+// { label: "HotWheels", path:"/Hotwheels"},
+// { label: "Lego2K Drive", path:"Lego2K_Drive"},
+// { label: "Minecraft", path:"Minecraft"},
 { label: "PGA Tour 2K", path:"PGA2K"},
-{ label: "Fortnite", path: "Fortnite"},
-{ label: "Sims", path:"Sims"},
-{ label: "Roblox", path:"Roblox"},
-{ label: "Pokemon", path:"Pokemon"},
+// { label: "Fortnite", path: "Fortnite"},
+// { label: "Sims", path:"Sims"},
+// { label: "Roblox", path:"Roblox"},
+// { label: "Pokemon", path:"Pokemon"},
     ];
     const B_Links = [
         { path: "/SignUp_Page", label: "Signup" },

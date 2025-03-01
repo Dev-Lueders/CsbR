@@ -2,7 +2,7 @@ import React from "react";
 import T_Navbar from "../../components/NavBar/T_Navbar";
 import B_Navbar from "../../components/NavBar/B_Navbar";
 
-const Suggestion_Box = () =>{
+const GT7 = () =>{
 const T_Links = [
     {label:"Home", path:"/"},
     {label:"Login", path:"Login_Page"},
@@ -25,4 +25,4 @@ const B_Links = [
         </>
     )
 };
-export default Suggestion_Box;
+export default GT7;

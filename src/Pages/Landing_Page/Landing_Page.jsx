@@ -24,9 +24,9 @@ const Landing_Page = () => {
 
   const L_links = [
     { label: "Signup", path: "/SignUp_Page" },
-    {label: "Games", path: "/Games"},
+    { label: "Games", path: "/Games"},
     { label: "New Features", path: "/coming_soon" },
-    { label: "Suggestion Box", path: "/add_content" },
+    { label: "Suggestion Box", path: "/Suggestion_Box" },
   ];
 
   const B_Links = [
