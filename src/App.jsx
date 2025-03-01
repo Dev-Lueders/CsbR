@@ -29,8 +29,8 @@ import Profile_Page from './Pages/Clients/Profile_Page/Profile_Page.jsx';
 import Creators_Page from './Pages/Clients/Profile_Page/Creators_Page.jsx';
 import Profile_SignUp from './Pages/SignUp_Page/Profile_SignUp.jsx';
 import Suggestion_Box from './Pages/Suggestion_Box/Suggestion_Box.jsx';
-
-
+import Search_Page_PGA2K23 from './Pages/Games/PGA2K/2K23/Search/Basic/Search_Page_PGA2K23.jsx';
+import Results_Page_PGA2K23 from './Pages/Games/PGA2K/2K23/Search/Search_Results/Results_Page_PGA2K23.jsx'
 const App = () => {
 
   return (
@@ -48,8 +48,8 @@ const App = () => {
               {/* <Creators_SignUp/> */}
               {/* <Creators_Page/> */}
 
-        {/* <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
-              <Results_Page_PGA2K23/> */}
+        <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
+         <Route path="/Results_Page_PGA2K23" element={<Results_Page_PGA2K23/>}/> 
 
         <Route path="/Suggestion_Box" element={<Suggestion_Box/>}/>
         <Route path="Help" element={<Help/>}/>
