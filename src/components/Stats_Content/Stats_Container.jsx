@@ -30,17 +30,12 @@ const Stats_Container = ({ SC_Style = {}, children }) => {
 
   return (
     <div className="stats-box" style={combinedStyle}>
-      <h3 style={{ marginBottom: '10px' }}>Stats</h3>
-      <ul style={{ listStyle: 'none', padding: '0', margin: '0', width: '100%' }}>
-        {stats.length > 0 ? (
-          stats.map((stat, index) => <li key={index}>{stat}</li>)
-        ) : (
-          <li>No stats available</li>
-        )}
+    <ul style={{ listStyle: 'none', padding: '0', margin: '0', width: '100%' }}>
+       
       </ul>
       {/* Render any nested children passed to the component */}
       {children}
-      <Pagination />
+      
     </div>
   );
 };

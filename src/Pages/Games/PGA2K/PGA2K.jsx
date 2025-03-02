@@ -2,7 +2,9 @@ import React from "react";
 import T_Navbar from "../../../components/NavBar/T_Navbar";
 import B_Navbar from "../../../components/NavBar/B_Navbar";
 import L_Navbar from "../../../components/NavBar/L_Navbar";
-
+import Stats_Container from "../../../components/Stats_Content/Stats_Container";
+import Main_Content from "../../../components/Main_Content/Main_Container";
+import Media_Container from "../../../components/Media_Content/Media_Container";
 const PGA2K = () => {
     const T_Links = [
         { label: "Home", path: "/" },
@@ -29,6 +31,11 @@ const PGA2K = () => {
         <>
         <T_Navbar links={T_Links}/>
         <L_Navbar links={L_Links}/>
+        <Stats_Container/>
+        <Main_Content>
+
+        </Main_Content>
+        <Media_Container/>
         <B_Navbar links={B_Links}/>
 
         

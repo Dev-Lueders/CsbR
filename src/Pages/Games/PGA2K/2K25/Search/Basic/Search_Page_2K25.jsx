@@ -15,7 +15,7 @@ import T_Navbar from "../../../../../../components/NavBar/T_Navbar.jsx";
 import B_Navbar from "../../../../../../components/NavBar/B_Navbar.jsx";
 import MediaContainer from "../../../../../../components/Media_Content/Media_Container.jsx";
 import Stats_Container from "../../../../../../components/Stats_Content/Stats_Container.jsx";
-import Main_Content from "../../../../../../components/Main_Content/Main_Content.jsx";
+import Main_Content from "../../../../../../components/Main_Content/Main_Container.jsx";
 import L_Navbar from "../../../../../../components/NavBar/L_Navbar.jsx";
 import Drop_Down from "../../../../../../components/Drop_Down/Drop_Down.jsx";
 import Drop_Down_Searchable from "../../../../../../components/Drop_Down/Drop_Down_Searchable.jsx";
