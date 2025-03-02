@@ -1,6 +1,7 @@
 import React from "react";
 import T_Navbar from "../../../components/NavBar/T_Navbar";
 import B_Navbar from "../../../components/NavBar/B_Navbar";
+import L_Navbar from "../../../components/NavBar/L_Navbar";
 
 const PGA2K = () => {
     const T_Links = [
@@ -9,6 +10,12 @@ const PGA2K = () => {
         { label: "Log In", path:"/Login_Page"}
       ];
 
+    const L_Links= [
+        {label:"", path:""},
+        {label:"", path:""},
+        { label: "2K23 Search", path: "/Search_Page_PGA2K23"},
+        { label: "2K25 Search", path: "/Search_Page_PGA2K25"},
+    ];
       const B_Links = [
         { path: "/SignUp_Page", label: "Signup" },
         { path: "/Contact", label: "Contact Us" },
@@ -21,7 +28,7 @@ const PGA2K = () => {
     return(
         <>
         <T_Navbar links={T_Links}/>
-        
+        <L_Navbar links={L_Links}/>
         <B_Navbar links={B_Links}/>
 
         
