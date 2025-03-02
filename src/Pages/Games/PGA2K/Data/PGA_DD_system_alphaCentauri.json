@@ -1,0 +1,7 @@
+{
+    "Drop_Down_PlanetsofAlphaCentauri": [
+        { "label": "Proxima Centauri b", "value": "planet_Proxima_Centauri_b" },
+        { "label": "Proxima Centauri c", "value": "planet_Proxima_Centauri_c" },
+        { "label": "Proxima Centauri d", "value": "planet_Proxima_Centauri_d" }
+      ]
+}

@@ -1,0 +1,8 @@
+{
+    "Drop_Down_PlanetsofHR8799": [
+        { "label": "HR 8799 b", "value": "planet_HR_8799_b" },
+        { "label": "HR 8799 c", "value": "planet_HR_8799_c" },
+        { "label": "HR 8799 d", "value": "planet_HR_8799_d" },
+        { "label": "HR 8799 e", "value": "planet_HR_8799_e" }
+      ]
+}

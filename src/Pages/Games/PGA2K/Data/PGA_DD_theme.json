@@ -1,0 +1,24 @@
+{
+    "Drop_Down_Theme": [
+      { "label": "Country", "value": "theme_Country" },
+      { "label": "Rustic", "value": "theme_Rustic" },
+      { "label": "Highland", "value": "theme_Highland" },
+      { "label": "Tropical", "value": "theme_Tropical" },
+      { "label": "Delta", "value": "theme_Delta" },
+      { "label": "Autum", "value": "theme_Autum" },
+      { "label": "Boreal", "value": "theme_Boreal" },
+      { "label": "Winter", "value": "theme_Winter" },
+      { "label": "Steppe", "value": "theme_Steppe" },
+      { "label": "Desert", "value": "theme_Desert" },
+      { "label": "Harvest", "value": "theme_Harvest" },
+      { "label": "Swiss", "value": "theme_Swiss" },
+      { "label": "Woodland", "value":"theme_Woodland"},
+      { "label": "Coastal", "value":"theme_Coastal"},
+      { "label": "Forest", "value": "theme_Forest"},
+      { "label": "Mountain", "value": "theme_Mountain"},
+      { "label": "Lakeside", "value": "theme_Lakeside"},
+      { "label": "Canyon", "value": "theme_Canyon"},
+      { "label": "Other", "value": "theme_Other" },
+      { "label": "Default", "value": "theme_Default" }
+    ]
+}

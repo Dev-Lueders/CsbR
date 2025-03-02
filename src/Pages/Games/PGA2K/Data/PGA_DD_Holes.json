@@ -1,0 +1,22 @@
+{
+    "Drop_Down_Hole_Qty": [
+        { "label": "1", "value":"hole_1" },
+        { "label": "2", "value":"hole_2" },
+        { "label": "3", "value":"hole_3" },
+        { "label": "4", "value":"hole_4" },
+        { "label": "5", "value":"hole_5" },
+        { "label": "6", "value":"hole_3" },
+        { "label": "7", "value":"hole_4" },
+        { "label": "8", "value":"hole_5" },
+        { "label": "9", "value":"hole_3" },
+        { "label": "10", "value":"hole_4" },
+        { "label": "11", "value":"hole_5" },
+        { "label": "12", "value":"hole_3" },
+        { "label": "13", "value":"hole_4" },
+        { "label": "14", "value":"hole_5" },
+        { "label": "15", "value":"hole_15"},
+        { "label": "16", "value":"hole_16"},
+        { "label": "17", "value":"hole_17"},
+        { "label": "18", "value":"hole_18"}
+    ]  
+}

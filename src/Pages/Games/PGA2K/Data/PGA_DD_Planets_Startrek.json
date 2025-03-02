@@ -1,0 +1,21 @@
+{
+      
+
+    "Drop_Down_PlanetsofStarTrek": [
+        { "label": "Vulcan", "value": "planet_Vulcan" },
+        { "label": "Romulus", "value": "planet_Romulus" },
+        { "label": "Andoria", "value": "planet_Andoria" },
+        { "label": "Betazed", "value": "planet_Betazed" },
+        { "label": "Cardassia", "value": "planet_Cardassia" },
+        { "label": "Ferenginar", "value": "planet_Ferenginar" },
+        { "label": "Trill", "value": "planet_Trill" },
+        { "label": "Bajor", "value": "planet_Bajor" },
+        { "label": "Earth", "value": "planet_Earth" },
+        { "label": "Qo'noS", "value": "planet_Qo'noS" },
+        { "label": "Nimbus III", "value": "planet_Nimbus_III" },
+        { "label": "Risa", "value": "planet_Risa" },
+        { "label": "Delta IV", "value": "planet_Delta_IV" },
+        { "label": "Torma IV", "value": "planet_Torma_IV" },
+        { "label": "Breen", "value": "planet_Breen" }
+      ]
+}

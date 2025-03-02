@@ -1,0 +1,11 @@
+{
+    "Drop_Down_PlanetsofTrppist_1": [
+        { "label": "TRAPPIST-1b", "value": "planet_TRAPPIST-1b" },
+        { "label": "TRAPPIST-1c", "value": "planet_TRAPPIST-1c" },
+        { "label": "TRAPPIST-1d", "value": "planet_TRAPPIST-1d" },
+        { "label": "TRAPPIST-1e", "value": "planet_TRAPPIST-1e" },
+        { "label": "TRAPPIST-1f", "value": "planet_TRAPPIST-1f" },
+        { "label": "TRAPPIST-1g", "value": "planet_TRAPPIST-1g" },
+        { "label": "TRAPPIST-1h", "value": "planet_TRAPPIST-1h" }
+      ]
+}

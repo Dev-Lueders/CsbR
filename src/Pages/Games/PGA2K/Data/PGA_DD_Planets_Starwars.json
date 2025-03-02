@@ -1,0 +1,20 @@
+{
+    "Drop_Down_PlanetsofStarWars": [
+      { "label": "Coruscant", "value": "planet_Coruscant" },
+      { "label": "Alderaan", "value": "planet_Alderaan" },
+      { "label": "Chandrila", "value": "planet_Chandrila" },
+      { "label": "Kuat", "value": "planet_Kuat" },
+      { "label": "Bothawui", "value": "planet_Bothawui" },
+      { "label": "Dathomir", "value": "planet_Dathomir" },
+      { "label": "Mandalore", "value": "planet_Mandalore" },
+      { "label": "Tatooine", "value": "planet_Tatooine" },
+      { "label": "Hoth", "value": "planet_Hoth" },
+      { "label": "Endor", "value": "planet_Endor" },
+      { "label": "Yavin 4", "value": "planet_Yavin_4" },
+      { "label": "Dagobah", "value": "planet_Dagobah" },
+      { "label": "Kessel", "value": "planet_Kessel" },
+      { "label": "Ilum", "value": "planet_Ilum" },
+      { "label": "Exegol", "value": "planet_Exegol" },
+      { "label": "Csilla", "value": "planet_Csilla" }
+    ]
+}

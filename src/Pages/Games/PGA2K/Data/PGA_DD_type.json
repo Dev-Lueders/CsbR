@@ -1,0 +1,16 @@
+{
+    "Drop_Down_Type": [
+    { "label": "Realistic", "value": "Realistic" },
+    { "label": "Fantasy", "value": "Fantasy" },
+    { "label": "Futuristic", "value": "Futuristic" },
+    { "label": "Modern", "value": "Modern" },
+    { "label": "Putt Putt", "value": "Putt_Putt" },
+    { "label": "Holiday", "value": "Holiday" },
+    { "label": "Scary Holiday", "value": "Scary_Holiday" },
+    { "label": "Old World", "value": "Old_World" },
+    { "label": "Post Apocoliptic", "value": "Post_Apocoliptic" },
+    { "label": "Movie Themed", "value": "Movie" },
+    { "label": "Silly", "value": "Silly" },
+    { "label": "Story", "value": "Story" }
+  ]
+}

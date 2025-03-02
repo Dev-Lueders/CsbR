@@ -1,0 +1,11 @@
+{
+    "Drop_Down_PlanetsofHD10180": [
+        { "label": "HD 10180 b", "value": "planet_HD_10180_b" },
+        { "label": "HD 10180 c", "value": "planet_HD_10180_c" },
+        { "label": "HD 10180 d", "value": "planet_HD_10180_d" },
+        { "label": "HD 10180 e", "value": "planet_HD_10180_e" },
+        { "label": "HD 10180 f", "value": "planet_HD_10180_f" },
+        { "label": "HD 10180 g", "value": "planet_HD_10180_g" },
+        { "label": "HD 10180 h", "value": "planet_HD_10180_h" }
+      ]
+}

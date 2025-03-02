@@ -1,0 +1,13 @@
+{
+        
+    "Drop_Down_PlanetsofDune": [
+        { "label": "Arrakis", "value": "planet_Arrakis" },
+        { "label": "Caladan", "value": "planet_Caladan" },
+        { "label": "Giedi Prime", "value": "planet_Giedi_Prime" },
+        { "label": "Salusa Secundus", "value": "planet_Salusa_Secundus" },
+        { "label": "Kaitain", "value": "planet_Kaitain" },
+        { "label": "Ix", "value": "planet_Ix" },
+        { "label": "Richese", "value": "planet_Richese" },
+        { "label": "Wallach IX", "value": "planet_Wallach_9" }
+      ]
+}
