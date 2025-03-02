@@ -10,11 +10,17 @@ import { Form } from "react-router-dom";
 
 const PGA2K23_C_Long = () => {
 
+    const T_Links = [
+        { label: "Home", path: "/" },
+        { label: "About", path: "/About" },
+        { label: "Log In", path:"/Login_Page"}
+      ];
+
 return (
     <>
 
     <h3>Long Form for Content</h3>
-<T_Navbar/>
+<T_Navbar links={T_Links}/>
 
 <Form>
  <Text_Box>  {/* Course Name */}
