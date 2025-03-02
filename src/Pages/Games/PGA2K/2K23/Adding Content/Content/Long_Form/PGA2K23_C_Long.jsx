@@ -5,7 +5,6 @@ import B_Navbar from "../../../../../../../components/NavBar/B_Navbar";
 import L_Navbar from "../../../../../../../components/NavBar/L_Navbar";
 import Text_Box from "../../../../../../../components/Input_Container/Text_Box";
 import Check_Box from "../../../../../../../components/Check_Box/Check_Box";
-import React from "react";
 import { Form } from "react-router-dom";
 
 
@@ -14,13 +13,18 @@ const PGA2K23_C_Long = () => {
     const [txtBX_Course_Name, settxtBX_Course_Name] = useState("");
     const [txtBX_Par_Level, settxtBX_Par_Level] = useState("");
     const [txtBX_Course_Distance, settxtBX_Course_Distance] = useState("");
-    const [txtBX_, settxtBX_] = useState("");
-    const [txtBX_, settxtBX_] = useState("");
-    const [txtBX_, settxtBX_] = useState("");
-    const [txtBX_, settxtBX_] = useState("");
-    const [txtBX_, settxtBX_] = useState("");
-
-    const T_Links = [
+    const [txtBX_Tee1, settxtBX_Tee1] = useState("");
+    const [txtBX_Tee2, settxtBX_Tee2] = useState("");
+    const [txtBX_Tee3, settxtBX_Tee3] = useState("");
+    const [txtBX_Tee4, settxtBX_Tee4] = useState("");
+    const [txtBX_Tee5, settxtBX_Tee5] = useState("");
+    const [txtBX_Country, settxtBX_Country] = useState("");
+    const [txtBX_Province,settxtBX_Province]= useState("");
+    const [txtBX_City,settxtBX_City]= useState("");
+    const [txtBX_Course_Description,settxtBX_Course_Description]= useState("");
+    const [txtBX_County,settxtBX_County]= useState("");
+    const [txtBX_,settxtBX_]= useState("");
+        const T_Links = [
         { label: "Home", path: "/" },
         { label: "About", path: "/About" },
         { label: "Log In", path: "/Login_Page" }
@@ -64,25 +68,25 @@ const PGA2K23_C_Long = () => {
                 <Text_Box 
                 labelText="Tee #2 Distance"
                 value={txtBX_Tee2}
-                onChange={(e)=> settxtBX_Tee2}
+                onChange={(e)=> settxtBX_Tee2(e.target.value)}
                 />  {/*2th Tee Distance */}
 
                 <Text_Box 
                 labelText="Tee #3 Distance"
                 value={txtBX_Tee3}
-                onChange={(e)=> settxtBX_Tee3}
+                onChange={(e)=> settxtBX_Tee3(e.target.value)}
                 />   {/*3nd Tee Distance */}
 
                 <Text_Box 
                 labelText="Tee #4 Distance"
                 value={txtBX_Tee4}
-                onChange={(e)=> settxtBX_Tee4}
+                onChange={(e)=> settxtBX_Tee4(e.target.value)}
                 />   {/* 4rd Tee Distance */}
 
                 <Text_Box
                 labelText="Tee #5 Distance"
                 value={txtBX_Tee5}
-                onChange={(e)=> settxtBX_Tee5}
+                onChange={(e)=> settxtBX_Tee5(e.target.value)}
                 />    {/* 5th Tee Distance */}
 
                 <Check_Box />    {/*HCP Rated */}
@@ -91,7 +95,7 @@ const PGA2K23_C_Long = () => {
                 <Text_Box 
                 labelText="Course Description"
                 value={txtBX_Course_Description}
-                onChange={(e)=> settxtBX_Course_Description}
+                onChange={(e)=> settxtBX_Course_Description(e.target.value)}
                 />    {/* Course Description */}
                 
                 <Drop_Down />    {/* Course Theme */}
@@ -104,28 +108,28 @@ const PGA2K23_C_Long = () => {
 
                 <Text_Box 
                 labelText="Country"
-                value={txtBX_Course_Country}
-                onChange={(e)=> settxtBX_Course_Country}
+                value={txtBX_Country}
+                onChange={(e)=> settxtBX_Country(e.target.value)}
                 />    {/* Country Location */}
 
                 <Text_Box 
                 labelText="State/Province"
-                value={txtBX_State}
-                onChange={(e)=> settxtBX_State}
+                value={txtBX_Province}
+                onChange={(e)=> settxtBX_Province(e.target.value)}
                 />    {/* State/ Province Loctaion */}
 
                 <Text_Box 
                 labelText="City"
                 value={txtBX_City}
-                onChange={(e)=> settxtBX_City}
+                onChange={(e)=> settxtBX_City(e.target.value)}
                 />    {/* City Location*/}
 
                 <Text_Box 
                 labelText="County"
                 value={txtBX_County}
-                onChange={(e)=> settxtBX_County}
+                onChange={(e)=> settxtBX_County(e.target.value)}
                 />    {/* County Location*/}
-                
+
                 <Check_Box />    {/*Is it a real Course or based off a real course*/}
             </Form>
             <L_Navbar>
