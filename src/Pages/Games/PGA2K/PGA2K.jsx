@@ -7,6 +7,22 @@ import Main_Content from "../../../components/Main_Content/Main_Container";
 import Media_Container from "../../../components/Media_Content/Media_Container";
 import Drop_Down from "../../../components/Drop_Down/Drop_Down";
 
+import PGA_DD_Holes from '../../Games/PGA2K/Data/PGA_DD_Holes.json';
+import PGA_DD_Planets_Dune from '../../Games/PGA2K/Data/PGA_DD_Planets_Dune.json';
+import PGA_DD_Planets_HD10180 from '../../Games/PGA2K/Data/PGA_DD_Planets_HD10180.json';
+import PGA_DD_Planets_HR8799 from '../../Games/PGA2K/Data/PGA_DD_Planets_HR8799.json';
+import PGA_DD_Planets_Kepler from '../../Games/PGA2K/Data/PGA_DD_Planets_Kepler.json';
+import PGA_DD_Planets_Pegasi from '../../Games/PGA2K/Data/PGA_DD_Planets_Pegasi.json';
+import PGA_DD_Planets_Startrek from '../../Games/PGA2K/Data/PGA_DD_Planets_Startrek.json';
+import PGA_DD_Planets_Starwars from '../../Games/PGA2K/Data/PGA_DD_Planets_Starwars.json';
+import PGA_DD_Planets_Trappist from '../../Games/PGA2K/Data/PGA_DD_Planets_Trappist.json';
+import PGA_DD_Tees from '../../Games/PGA2K/Data/PGA_DD_Tees.json';
+import PGA_DD_difficulty from '../../Games/PGA2K/Data/PGA_DD_difficulty.json';
+import PGA_DD_realSolarsystem from '../../Games/PGA2K/Data/PGA_DD_realSolarsystem.json';
+import PGA_DD_system_alphaCentauri from '../../Games/PGA2K/Data/PGA_DD_system_alphaCentauri.json';
+import PGA_DD_theme from '../../Games/PGA2K/Data/PGA_DD_theme.json';
+import PGA_DD_type from '../../Games/PGA2K/Data/PGA_DD_type.json';
+
 const PGA2K = () => {
     const T_Links = [
         { label: "Home", path: "/" },

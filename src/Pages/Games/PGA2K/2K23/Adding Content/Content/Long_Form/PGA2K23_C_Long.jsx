@@ -6,7 +6,24 @@ import L_Navbar from "../../../../../../../components/NavBar/L_Navbar";
 import Text_Box from "../../../../../../../components/Input_Container/Text_Box";
 import Check_Box from "../../../../../../../components/Check_Box/Check_Box";
 import { Form } from "react-router-dom";
-import Drop_Down_Data from "../Data/Drop_Down.json";
+
+
+
+import PGA_DD_Holes from '../../../../Data/PGA_DD_Holes.json';
+import PGA_DD_Planets_Dune from '../../../../Data/PGA_DD_Planets_Dune.json';
+import PGA_DD_Planets_HD10180 from '../../../../Data/PGA_DD_Planets_HD10180.json';
+import PGA_DD_Planets_HR8799 from '../../../../Data/PGA_DD_Planets_HR8799.json';
+import PGA_DD_Planets_Kepler from '../../../../Data/PGA_DD_Planets_Kepler.json';
+import PGA_DD_Planets_Pegasi from '../../../../Data/PGA_DD_Planets_Pegasi.json';
+import PGA_DD_Planets_Startrek from '../../../../Data/PGA_DD_Planets_Startrek.json';
+import PGA_DD_Planets_Starwars from '../../../../Data/PGA_DD_Planets_Starwars.json';
+import PGA_DD_Planets_Trappist from '../../../../Data/PGA_DD_Planets_Trappist.json';
+import PGA_DD_Tees from '../../../../Data/PGA_DD_Tees.json';
+import PGA_DD_difficulty from '../../../../Data/PGA_DD_difficulty.json';
+import PGA_DD_realSolarsystem from '../../../../Data/PGA_DD_realSolarsystem.json';
+import PGA_DD_system_alphaCentauri from '../../../../Data/PGA_DD_system_alphaCentauri.json';
+import PGA_DD_theme from '../../../../Data/PGA_DD_theme.json';
+import PGA_DD_type from '../../../../Data/PGA_DD_type.json';
 
 const PGA2K23_C_Long = () => {
 
@@ -23,8 +40,24 @@ const PGA2K23_C_Long = () => {
     const [txtBX_City,settxtBX_City]= useState("");
     const [txtBX_Course_Description,settxtBX_Course_Description]= useState("");
     const [txtBX_County,settxtBX_County]= useState("");
-    const [txtBX_,settxtBX_]= useState("");
-        const T_Links = [
+
+    const [DD_Holes,setDD_Holes]= useState(null);
+    const [DD_Difficulty,setDD_Difficulty]= useState(null);
+    const [DD_Planets_Dune,setDD_Planets_Dune]= useState(null);
+    const [DD_Planets_HD10180,setDD_Planets_HD10180]= useState(null);
+    const [DD_Planets_HR8799,setDD_Planets_HR8799]= useState(null);
+    const [DD_Planets_Kepler,setDD_Planets_Kepler]= useState(null);
+    const [DD_Planets_Pegasi,setDD_Planets_Pegasi]= useState(null);
+    const [DD_Planets_Startrek,setDD_Planets_Startrek]= useState(null);
+    const [DD_Planets_Starwars,setDD_Planets_Starwars]= useState(null);
+    const [DD_Planets_Trappist,setDD_Planets_Trappist]= useState(null);
+    const [DD_realSolarSystem,setDD_realSolarSystem]= useState(null);
+    const [DD_System_AlphaCentauri,setDD_System_AlphaCentauri]= useState(null);
+    const [DD_Tees,setDD_Tees]= useState(null);
+    const [DD_Theme,setDD_Theme]= useState(null);
+    const [DD_Type,setDD_Type]= useState(null);
+    
+    const T_Links = [
         { label: "Home", path: "/" },
         { label: "About", path: "/About" },
         { label: "Log In", path: "/Login_Page" }
@@ -57,7 +90,10 @@ const PGA2K23_C_Long = () => {
                     value={txtBX_Course_Distance}
                     onChange={(e)=> settxtBX_Course_Distance(e.target.value)}
                 /> {/*What is the distance of the course */}
-                <Drop_Down />  {/* How many holes */}
+                <Drop_Down
+                lable = "Hole Quantity"
+                options={PGA_DD_Holes}
+                onSelect={setSelectedHoles} />  {/* How many holes */}
                 <Drop_Down /> {/*How Many Tees */}
                 <Text_Box 
                     labelText="Tee #1 Distance"
