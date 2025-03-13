@@ -70,32 +70,33 @@ return(
 <T_Navbar links = {T_Links}/>
 {/* <L_Navbar links = {L_Links}/> */}
 <div/>
-<br></br><div/>
-<br></br><div/>
-<br></br><div/>
-<br></br><div/>
-<br></br>
-<Drop_Down_Searchable
+<br/><div/>
+<br/><div/>
+<br/><div/>
+<br/><div/>
+<br/><div/>
+
+<Drop_Down
 id="srch_Difficulty"
 label="Difficulty" 
-options={Drop_Down_Searchable_Difficulty} 
+options={Drop_Down}
 onChange={(value) => console.log("Selected:", value)} 
 containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
 selectStyle={{ width: "200px" }}
 />
 
-<Drop_Down_Searchable
+<Drop_Down
 id="srch_Type"
 label="Type" 
-options={Drop_Down_Searchable_Type} 
+options={Drop_Down} 
 onChange={(value) => console.log("Selected:", value)} 
 containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
 selectStyle={{ width: "200px" }}
 />
-<Drop_Down_Searchable
+<Drop_Down
 id="srch_Theme"
 label="Theme" 
-options={Drop_Down_Searchable_Theme} 
+options={Drop_Down} 
 onChange={(value) => console.log("Selected:", value)} 
 containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
 selectStyle={{ width: "200px" }}
