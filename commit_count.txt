@@ -2,6 +2,5 @@
 1) GitHub Username: Dev-Lueders
 2) Windows Username: Nicho
 3) Type in Your Initials:
-User chose GitHub Username: Dev-Lueders
 Dev-Lueders
 2

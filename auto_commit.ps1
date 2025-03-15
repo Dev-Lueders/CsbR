@@ -11,25 +11,26 @@ function SetUpUserName {
     # Prompt user to select an option
     $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to Type your initials: "
 
-    # Based on the user's choice, assign the name
+    # Based on the user's choice, return the appropriate name
     if ($choice -eq "1" -and $gitHubName) {
-        Write-Output "User chose GitHub Username: $gitHubName"
-        return $gitHubName
+        return $gitHubName  # Return the GitHub username
     } elseif ($choice -eq "2") {
-        Write-Output "User chose Windows Username: $windowsName"
-        return $windowsName
+        return $windowsName  # Return the Windows username
     } elseif ($choice -eq "3") {
         $initials = Read-Host "Your initials please"
-        Write-Output "User chose initials: $initials"
-        return $initials
+        return $initials  # Return the initials
     } else {
-        Write-Output "Invalid Choice. Defaulting to Windows Username."
-        return $windowsName
+        return $windowsName  # Default to Windows username if invalid choice
     }
 }
 
 # Path to commit_count.txt (This file stores the username and commit number)
 $commitFile = "commit_count.txt"
+
+# Create a variable to store the user's chosen name
+$chosenName = SetUpUserName  # Assign the value returned by SetUpUserName to $chosenName
+
+Write-Output "Chosen name: $chosenName"  # Display the chosen name
 
 # Check if the commit_count.txt file exists
 if (Test-Path $commitFile) {
@@ -38,49 +39,46 @@ if (Test-Path $commitFile) {
 
     # Check if the file has exactly 2 lines
     if ($commitData.Count -eq 2) {
-        # Check if the first line is a string and the second line is a valid number
+        # Validate the format of the data in commit_count.txt
         if ($commitData[0] -match "^[a-zA-Z0-9_]+$" -and $commitData[1] -match "^\d+$") {
-            $name = $commitData[0]   # This is the final name to store
+            $name = $commitData[0]  # Assign the name from commit_count.txt if valid
             $commitNum = [int]$commitData[1]
         } else {
-            Write-Output "Invalid format in commit_count.txt."
-            Write-Output "The first line should be a string (username or initials)"
-            Write-Output "The second line should be a number (commit count)."
+            Write-Output "Invalid format in commit_count.txt. Re-initializing..."
             # Clear the file and re-initialize setup
             Clear-Content $commitFile
-            $chosenName = SetUpUserName  # Assigning to a different variable
-            $name = $chosenName  # Assigning to the name variable
+            # Store the final chosen name into the file
+            $chosenName | Out-File -Encoding utf8 $commitFile  # Only store the username
             $commitNum = 1
-            # Only store the username (not the prompts)
-            $name | Out-File -Encoding utf8 $commitFile
             $commitNum | Out-File -Append -Encoding utf8 $commitFile
         }
     } else {
         Write-Output "commit_count.txt not a valid format. Re-initializing..."
+        # Re-initialize if the format is incorrect
         Clear-Content $commitFile
-        $chosenName = SetUpUserName  # Assigning to a different variable
-        $name = $chosenName  # Assigning to the name variable
+        $chosenName | Out-File -Encoding utf8 $commitFile  # Only store the username
         $commitNum = 1
-        # Only store the username (not the prompts)
-        $name | Out-File -Encoding utf8 $commitFile
         $commitNum | Out-File -Append -Encoding utf8 $commitFile
     }
 } else {
     Write-Output "commit_count.txt does not exist. Setting it up..."
-    $chosenName = SetUpUserName  # Assigning to a different variable
-    $name = $chosenName  # Assigning to the name variable
+    # Set up the file with the chosen name and initial commit count
+    $chosenName | Out-File -Encoding utf8 $commitFile  # Only store the username
     $commitNum = 1
-    # Only store the username (not the prompts)
-    $name | Out-File -Encoding utf8 $commitFile
     $commitNum | Out-File -Append -Encoding utf8 $commitFile
 }
+
+# Assign the chosen name to $name
+$name = $chosenName  # Now the $name variable holds the final value
 
 # Increment the commit number for the new commit
 $commitNum++
 
 # Save the updated username and commit number back to commit_count.txt
-$name | Out-File -Encoding utf8 $commitFile
+$name | Out-File -Encoding utf8 $commitFile  # Store the final name
 $commitNum | Out-File -Append -Encoding utf8 $commitFile
+
+Write-Output "Commit count updated. User: $name - Commit #$commitNum"
 
 # Timestamp for commit
 $timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
