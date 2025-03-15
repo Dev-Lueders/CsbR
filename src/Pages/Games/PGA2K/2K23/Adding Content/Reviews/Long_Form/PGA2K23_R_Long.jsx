@@ -36,10 +36,11 @@ const PGA2K23_R_Long = () => {
 return(
 <>
 <T_Navbar links = {T_Links}/>
+<Form>
+    <Drop_Down label="Hole" options={PGA_DD_Holes}/>
+</Form>
 
 </>
-
-
 )
 
 
