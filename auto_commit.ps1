@@ -1,29 +1,64 @@
+
+
 # Auto Location 
 $repoPath = Get-Location 
 
 # Changes directory to the installed location
 cd $repoPath
 
-# Path
+# Paths
 $commitFile = "commit_count.txt"
 $gitignoreFile = ".gitignore"
 $autoCommitFile = "auto_commit.ps1"
 
-# Checks for commit_count file; if it's there, adds auto_commit to gitignore
 if (Test-Path $commitFile) {
-    $gitignoreContent = Get-Content $gitignoreFile
-    Add-Content $gitignoreFile "`n$autoCommitFile"
-    Write-Host "Added $autoCommitFile to gitignore to prevent tracking by Git."
-} else {
-    Write-Host "Adding commit_count.txt for auto Time Stamping and Commit Count"
-    Write-Host "Running auto_commit.ps1 again, moves auto_commit.ps1 to gitignore"
-    Write-Host "Will use Git Hub username or Windows Systems Name to add to comments"
-}
+    Write-Output "commit_count.txt found. Proceeding with auto commit..."
 
-# Checks for name in commit_count.txt, If not there will ask for initials
-if (Test-Path $commitFile) {
-    $name = Get-Content $commitFile
+    # Ensure .gitignore exists and doesn't already contain auto_commit.ps1
+    if (!(Test-Path $gitignoreFile)) {
+        Write-Output ".gitignore not found. Creating one..."
+        New-Item -Path $gitignoreFile -ItemType File -Force | Out-Null
+    }
+
+    $gitignoreContent = Get-Content $gitignoreFile
+    if ($gitignoreContent -notcontains $autoCommitFile) {
+        Add-Content $gitignoreFile "`n$autoCommitFile"
+        Write-Host "Added $autoCommitFile to .gitignore to prevent tracking by Git."
+    } else {
+        Write-Host "$autoCommitFile is already in .gitignore."
+    }
+
+    # Get commit data
+    $commitData = Get-Content $commitFile
+    $name = $commitData[0]
+    $commitNum = [int]$commitData[1]
+    Write-Output "$($name) will be used for comments"
+    Write-Output "$($commitNum) commits before this commit"
+
+    # Increment commit count
+    $commitNum++
+    $commitData[1] = $commitNum.ToString()
+
+    # Prepare commit message
+    $timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
+    $customComment = Read-Host "Enter commit message"
+    $commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $name)"
+
+    # Git operations
+    $currentBranch = git rev-parse --abbrev-ref HEAD
+    git add .
+    git commit -m "$commitMessage"
+    git push origin $currentBranch
+
+    Write-Output "Committed with message: $commitMessage"
+
+    # Update commit_count.txt
+    $commitData -join "`r`n" | Set-Content -Path $commitFile -Encoding utf8
+
 } else {
+    Write-Host "commit_count.txt not found. Initializing..."
+
+    # Prompt for user selection
     $gitHubName = git config user.name
     $windowsName = $env:USERNAME
 
@@ -31,58 +66,25 @@ if (Test-Path $commitFile) {
     Write-Host "1) GitHub Username: $gitHubName"
     Write-Host "2) Windows Username: $windowsName"
     Write-Host "3) Type in Your Initials:"
-    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to choose your name: "
-    
+
+    $finalChoice = ""
+    $choice = Read-Host "Enter 1 for GitHub, 2 for Windows username, or 3 for initials"
+
     if ($choice -eq "1" -and $gitHubName) {
-        $name = $gitHubName
+        $finalChoice = $gitHubName
     } elseif ($choice -eq "2") {
-        $name = $windowsName
+        $finalChoice = $windowsName
     } elseif ($choice -eq "3") {
-        $name = Read-Host "Your initials please "
+        $finalChoice = Read-Host "Enter your initials"
     } else {
-        Write-Host "Invalid Choice. Defaulting to Windows Username."
-        $name = $windowsName
+        Write-Host "Invalid Choice. Defaulting to Windows Username: $($windowsName)"
+        $finalChoice = $windowsName
+        Write-Host "You can change this by modifying commit_count.txt manually."
     }
 
-    # Adds name to commit_count file
-    $name | Out-File -Encoding utf8 $commitFile
+    # Create commit_count.txt and write user choice
+    $commitData = @($finalChoice, "0")
+    $commitData -join "`r`n" | Set-Content -Path $commitFile -Encoding utf8
+
+    Write-Output "commit_count.txt created. Please rerun auto_commit.ps1 to proceed."
 }
-
-$name = Get-Content $commitFile
-
-# Checks for commit count.txt If not, start at 1
-if (Test-Path $commitFile) {
-    $commitNum = [int](Get-Content $commitFile) + 1
-} else {
-    $commitNum = 1
-}
-
-# Reads Username from commit_count.txt
-$name | Out-File -Encoding utf8 $commitFile
-
-# Commit number added
-$commitNum | Out-File $commitFile
-
-# Time stamp
-$timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
-
-# Enter your own comment
-$customComment = Read-Host "Enter commit message"
-
-# Make commit
-$commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $name)"
-
-# No comment, no problem
-if ($customComment) {
-    $commitMessage += " - $customComment"
-}
-
-# Getting current branch
-$currentBranch = git rev-parse --abbrev-ref HEAD
-
-# Adding to git
-git add .
-git commit -m "$commitMessage"
-git push origin $currentBranch
-
-Write-Output "Committed with message: $commitMessage"
