@@ -1,6 +1,1 @@
-﻿Choose a name to store in commit_count.txt:
-1) GitHub Username: Dev-Lueders
-2) Windows Username: Nicho
-3) Type in Your Initials:
-Dev-Lueders
-2
+﻿2

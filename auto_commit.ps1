@@ -13,22 +13,42 @@ function SetUpUserName {
 
     # Based on the user's choice, return the appropriate name
     if ($choice -eq "1" -and $gitHubName) {
-        return $gitHubName  # Return the GitHub username
+        return $githubChoice=$gitHubName  # Return the GitHub username
     } elseif ($choice -eq "2") {
-        return $windowsName  # Return the Windows username
+        return $windowsChoice=$windowsName  # Return the Windows username
     } elseif ($choice -eq "3") {
         $initials = Read-Host "Your initials please"
-        return $initials  # Return the initials
+        return $intitalsChoice = $initials  # Return the initials
     } else {
-        return $windowsName  # Default to Windows username if invalid choice
+        return $defaultChoice = $windowsName  # Default to Windows username if invalid choice
     }
+
+# Set the choice to a variable (assume $choice is set from user input or earlier in the script)
+$finalChoice = ""
+
+if ($choice -eq "1" -and $gitHubName) {
+    $finalChoice = $gitHubName  # Set $finalChoice to GitHub username
+} elseif ($choice -eq "2") {
+    $finalChoice = $windowsName  # Set $finalChoice to Windows username
+} elseif ($choice -eq "3") {
+    $initials = Read-Host "Your initials please"
+    $finalChoice = $initials  # Set $finalChoice to initials
+} else {
+    $finalChoice = $windowsName  # Default to Windows username if invalid choice
 }
+
+# Return the final choice
+return $finalChoice
+	
+}
+
+
 
 # Path to commit_count.txt (This file stores the username and commit number)
 $commitFile = "commit_count.txt"
 
 # Create a variable to store the user's chosen name
-$chosenName = SetUpUserName  # Assign the value returned by SetUpUserName to $chosenName
+$chosenName = $finalChoice  # Assign to $chosenName
 
 Write-Output "Chosen name: $chosenName"  # Display the chosen name
 
