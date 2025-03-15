@@ -1,29 +1,5 @@
-# Auto Location 
-$repoPath = Get-Location 
-
-# Changes directory to the installed location
-cd $repoPath
-
-# Path
-$commitFile = "commit_count.txt"
-$gitignoreFile = ".gitignore"
-$autoCommitFile = "auto_commit.ps1"
-
-# Checks for commit_count file; if it's there, adds auto_commit to gitignore
-if (Test-Path $commitFile) {
-    $gitignoreContent = Get-Content $gitignoreFile
-    Add-Content $gitignoreFile "`n$autoCommitFile"
-    Write-Host "Added $autoCommitFile to gitignore to prevent tracking by Git."
-} else {
-    Write-Host "Adding commit_count.txt for auto Time Stamping and Commit Count"
-    Write-Host "Running auto_commit.ps1 again, moves auto_commit.ps1 to gitignore"
-    Write-Host "Will use Git Hub username or Windows Systems Name to add to comments"
-}
-
-# Checks for name in commit_count.txt, If not there will ask for initials
-if (Test-Path $commitFile) {
-    $name = Get-Content $commitFile
-} else {
+# Function to set up the user name
+function SetUpUserName {
     $gitHubName = git config user.name
     $windowsName = $env:USERNAME
 
@@ -31,56 +7,88 @@ if (Test-Path $commitFile) {
     Write-Host "1) GitHub Username: $gitHubName"
     Write-Host "2) Windows Username: $windowsName"
     Write-Host "3) Type in Your Initials:"
-    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to choose your name: "
-    
+
+    # Prompt user to select an option
+    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to Type your initials: "
+
+    # Based on the user's choice, assign the name
     if ($choice -eq "1" -and $gitHubName) {
-        $name = $gitHubName
+        Write-Host "User chose GitHub Username: $gitHubName"
+        return $gitHubName
     } elseif ($choice -eq "2") {
-        $name = $windowsName
+        Write-Host "User chose Windows Username: $windowsName"
+        return $windowsName
     } elseif ($choice -eq "3") {
-        $name = Read-Host "Your initials please "
+        $initials = Read-Host "Your initials please"
+        Write-Host "User chose initials: $initials"
+        return $initials
     } else {
         Write-Host "Invalid Choice. Defaulting to Windows Username."
-        $name = $windowsName
+        return $windowsName
     }
-
-    # Adds name to commit_count file
-    $name | Out-File -Encoding utf8 $commitFile
 }
 
-$name = Get-Content $commitFile
+# Path to commit_count.txt (This file stores the username and commit number)
+$commitFile = "commit_count.txt"
 
-# Checks for commit count.txt If not, start at 1
+# Check if the commit_count.txt file exists
 if (Test-Path $commitFile) {
-    $commitNum = [int](Get-Content $commitFile) + 1
+    # Read the content of the commit_count.txt file
+    $commitData = Get-Content $commitFile
+
+    # Check if the file has exactly 2 lines
+    if ($commitData.Count -eq 2) {
+        # Check if the first line is a string and the second line is a valid number
+        if ($commitData[0] -match "^[a-zA-Z0-9_]+$" -and $commitData[1] -match "^\d+$") {
+            $name = $commitData[0]
+            $commitNum = [int]$commitData[1]
+        } else {
+            Write-Host "Invalid format in commit_count.txt."
+            Write-Host "The first line should be a string (username or initials)"
+            WriteHost "The second line should be a number (commit count)."
+            # Clear the file and re-initialize setup
+            Clear-Content $commitFile
+            $name = SetUpUserName
+            $commitNum = 1
+            $name | Out-File -Encoding utf8 $commitFile
+            $commitNum | Out-File -Append -Encoding utf8 $commitFile
+        }
+    } else {
+        Write-Host "commit_count.txt not a valid format. Re-initializing..."
+        Clear-Content $commitFile
+        $name = SetUpUserName
+        $commitNum = 1
+        $name | Out-File -Encoding utf8 $commitFile
+        $commitNum | Out-File -Append -Encoding utf8 $commitFile
+    }
 } else {
+    Write-Host "commit_count.txt does not exist. Setting it up..."
+    $name = SetUpUserName
     $commitNum = 1
+    $name | Out-File -Encoding utf8 $commitFile
+    $commitNum | Out-File -Append -Encoding utf8 $commitFile
 }
 
-# Reads Username from commit_count.txt
+# Increment the commit number for the new commit
+$commitNum++
+
+# Save the updated username and commit number back to commit_count.txt
 $name | Out-File -Encoding utf8 $commitFile
+$commitNum | Out-File -Append -Encoding utf8 $commitFile
 
-# Commit number added
-$commitNum | Out-File $commitFile
-
-# Time stamp
+# Timestamp for commit
 $timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
 
-# Enter your own comment
+# Prompt for a custom commit message
 $customComment = Read-Host "Enter commit message"
 
-# Make commit
+# Generate the commit message
 $commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $name)"
 
-# No comment, no problem
-if ($customComment) {
-    $commitMessage += " - $customComment"
-}
-
-# Getting current branch
+# Get current branch name
 $currentBranch = git rev-parse --abbrev-ref HEAD
 
-# Adding to git
+# Stage changes, commit, and push to GitHub
 git add .
 git commit -m "$commitMessage"
 git push origin $currentBranch
