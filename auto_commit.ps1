@@ -11,12 +11,11 @@ function SetUpUserName {
     Write-Output "3) Type in Your Initials:"
 
     # Prompt user to select an option
-    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to Type your initials:"
+    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows or 3 to Your initials:"
 
     # Set the choice to a variable (assume $choice is set from user input or earlier in the script)
+
     $finalChoice = ""
-
-
 
     if ($choice -eq "1" -and $gitHubName) {
 
@@ -26,7 +25,6 @@ function SetUpUserName {
 
         $finalChoice = $windowsName  # Set $finalChoice to Windows username
 
-
     } elseif ($choice -eq "3") {
 
         $initials = Read-Host "Enter your initials"
@@ -35,10 +33,10 @@ function SetUpUserName {
     } else {
 
         $finalChoice = $windowsName  # Default to Windows username if invalid choice
-
     }
 
     # Return the final choice
+	Write-Ouptut $finalChoice
     return $finalChoice
 }
 
@@ -110,6 +108,7 @@ $fileContent = Get-Content $filePath
 
 # Ensure the file has at least 4 lines before modifying
 if ($fileContent.Count -gt 3) {
+
     # Keep only lines from index 3 (4th line) onward
     $fileContent[4..($fileContent.Count - 1)] | Set-Content $filePath
     "1" | Out-File -FilePath $commitFile -Encoding utf8 -Append
