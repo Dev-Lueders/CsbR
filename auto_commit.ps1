@@ -77,8 +77,8 @@ if (Test-Path $commitFile) {
 
         $name = $commitData[0]
 	$commitNum = [int]$commitData[1]
-	Write-Output $name
-	Write-Output $commitNum
+	Write-Output "$($name) will be used for comments"
+	Write-Output "$($commitNum) commits before this commit"
 	$commitNum++
 
 # Timestamp for commit
