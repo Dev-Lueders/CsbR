@@ -3,27 +3,27 @@ function SetUpUserName {
     $gitHubName = git config user.name
     $windowsName = $env:USERNAME
 
-    Write-Host "Choose a name to store in commit_count.txt:"
-    Write-Host "1) GitHub Username: $gitHubName"
-    Write-Host "2) Windows Username: $windowsName"
-    Write-Host "3) Type in Your Initials:"
+    Write-Output "Choose a name to store in commit_count.txt:"
+    Write-Output "1) GitHub Username: $gitHubName"
+    Write-Output "2) Windows Username: $windowsName"
+    Write-Output "3) Type in Your Initials:"
 
     # Prompt user to select an option
     $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to Type your initials: "
 
     # Based on the user's choice, assign the name
     if ($choice -eq "1" -and $gitHubName) {
-        Write-Host "User chose GitHub Username: $gitHubName"
+        Write-Output "User chose GitHub Username: $gitHubName"
         return $gitHubName
     } elseif ($choice -eq "2") {
-        Write-Host "User chose Windows Username: $windowsName"
+        Write-Output "User chose Windows Username: $windowsName"
         return $windowsName
     } elseif ($choice -eq "3") {
         $initials = Read-Host "Your initials please"
-        Write-Host "User chose initials: $initials"
+        Write-Output "User chose initials: $initials"
         return $initials
     } else {
-        Write-Host "Invalid Choice. Defaulting to Windows Username."
+        Write-Output "Invalid Choice. Defaulting to Windows Username."
         return $windowsName
     }
 }
@@ -43,9 +43,9 @@ if (Test-Path $commitFile) {
             $name = $commitData[0]
             $commitNum = [int]$commitData[1]
         } else {
-            Write-Host "Invalid format in commit_count.txt."
-            Write-Host "The first line should be a string (username or initials)"
-            WriteHost "The second line should be a number (commit count)."
+            Write-Output "Invalid format in commit_count.txt."
+            Write-Output "The first line should be a string (username or initials)"
+            Write-Output "The second line should be a number (commit count)."
             # Clear the file and re-initialize setup
             Clear-Content $commitFile
             $name = SetUpUserName
@@ -54,7 +54,7 @@ if (Test-Path $commitFile) {
             $commitNum | Out-File -Append -Encoding utf8 $commitFile
         }
     } else {
-        Write-Host "commit_count.txt not a valid format. Re-initializing..."
+        Write-Output "commit_count.txt not a valid format. Re-initializing..."
         Clear-Content $commitFile
         $name = SetUpUserName
         $commitNum = 1
@@ -62,7 +62,7 @@ if (Test-Path $commitFile) {
         $commitNum | Out-File -Append -Encoding utf8 $commitFile
     }
 } else {
-    Write-Host "commit_count.txt does not exist. Setting it up..."
+    Write-Output "commit_count.txt does not exist. Setting it up..."
     $name = SetUpUserName
     $commitNum = 1
     $name | Out-File -Encoding utf8 $commitFile
