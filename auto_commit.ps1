@@ -1,51 +1,57 @@
 # Auto Location
-	$repoPath = Get-Location 
+$repoPath = Get-Location 
 
-#changes directory to installed location
-	cd $repoPath
+# Changes directory to the installed location
+cd $repoPath
 
-#counts the commits
-	$commitFile = "commit_count.txt"
+# Path
+$commitFile = "commit_count.txt"
+$gitignoreFile = ".gitignore"
+$autoCommitFile = "auto_commit.ps1"
 
-# seeing how many commit files there are. If not start @ 1
-	if( Test-Path $commitFile) {
-		$commitNum = [int](Get-Content $commitFile) + 1
-	} else {
-		$commitNum = 1
-	}
+# Checks for commit_count file; if it's there, adds auto_commit to gitignore
+if (Test-Path $commitFile) {
+    $gitignoreContent = Get-Content $gitignoreFile
+    Add-Content $gitignoreFile "`n$autoCommitFile"
+    Write-Host "Added $autoCommitFile to gitignore to prevent tracking by Git."
+} else {
+    Write-Host "Adding commit_count.txt for auto Time Stamping and Commit Count"
+    Write-Host "Running auto_commit.ps1 again, moves auto_commit.ps1 to gitignore"
+}
 
-# new commmit number added
-	$commitNum | Out-File $commitFile
+# Counts the commits
+$commitFile = "commit_count.txt"
 
-# time stamp
-	$timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
+# Seeing how many commit files there are. If not, start at 1
+if (Test-Path $commitFile) {
+    $commitNum = [int](Get-Content $commitFile) + 1
+} else {
+    $commitNum = 1
+}
 
+# New commit number added
+$commitNum | Out-File $commitFile
 
-#enter your own comment
-	$customComment = Read-Host "Enter commit message"
+# Time stamp
+$timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
 
+# Enter your own comment
+$customComment = Read-Host "Enter commit message"
 
-#make commit
-	$commitMessage = "#$commitNum - $customComment - $timestamp"
+# Make commit
+$commitMessage = "#$commitNum - $customComment - $timestamp"
 
-#no comment, no problem
-	if ($customComment) {
-	$customMessage += " - $customComment"
-	}
+# No comment, no problem
+if ($customComment) {
+    $customMessage += " - $customComment"
+}
 
 # Getting current branch
-	$currentBranch = git ref-parse --abbrev-rev HEAD
+$currentBranch = git rev-parse --abbrev-ref HEAD
 
-# adding to git 
+# Adding to git
+git add .
+git commit -m "$commitMessage"
+git push origin $currentBranch
 
-	git add .
-
-	git commit -m "$commitMessage"
-	
-	git push origin $currentBranch	
-
-	Write -Output "Committed with message: $commitMessage"
-
-
-
-
+Write-Output "Committed with message: $commitMessage"
