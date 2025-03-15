@@ -1,0 +1,13 @@
+{
+    "Drop_Down_SolSys_List": [
+        
+        { "label": "Sol System", "value": "RealSolar_System" },
+        { "label": "Alpha Centauri System", "value": "sys_Alpha_Centauri" },
+        { "label": "TRAPPIST-1 System", "value": "sys_TRAPPIST-1" },
+        { "label": "Kepler-90 System", "value": "sys_Kepler-90" },
+        { "label": "51 Pegasi System", "value": "sys_51_Pegasi" },
+        { "label": "Tau Ceti System", "value": "sys_Tau_Ceti" },
+        { "label": "HD 10180 System", "value": "sys_HD_10180" },
+        { "label": "HR 8799 System", "value": "sys_HR_8799" }
+      ]
+}

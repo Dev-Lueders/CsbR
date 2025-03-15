@@ -5,6 +5,7 @@ import T_Navbar from "../../../../../../../components/NavBar/T_Navbar";
 import B_Navbar from "../../../../../../../components/NavBar/B_Navbar";
 import { Form } from "react-router-dom";
 
+import PGA_DD_Game_Version from '../../../../Data/PGA_DD_Game_Version.json';
 import PGA_DD_Holes from '../../../../Data/PGA_DD_Holes.json';
 import PGA_DD_Planets_Dune from '../../../../Data/PGA_DD_Planets_Dune.json';
 import PGA_DD_Planets_HD10180 from '../../../../Data/PGA_DD_Planets_HD10180.json';
@@ -33,11 +34,30 @@ const PGA2K23_R_Long = () => {
 
     ];
 
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedPlanet, setSelectedPlanet] = useState(null);
+    const [ planetOptions, setPlanetOptions] = useState([]);
+
+    const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+       
+        }
+    }
 return(
 <>
 <T_Navbar links = {T_Links}/>
 <Form>
-    <Drop_Down label="Hole" options={PGA_DD_Holes}/>
+    <Text_Box label="Course Review" placeholder="Course Review"/>
+    <Drop_Down label="Game Version" options={PGA_DD_Game_Version}/>
+    <Drop_Down label="How Many Holes" options={PGA_DD_Holes}/>
+    <Drop_Down label="Select Solar System" options={categories.map(category =>({
+        label:category.label,
+        value: category
+            }))}
+            onSelect={handleCategorySelect}
+            />
+    
+
 </Form>
 
 </>
