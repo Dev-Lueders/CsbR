@@ -1,13 +1,16 @@
 {
     "Drop_Down_SolSys_List": [
         
-        { "label": "Sol System", "value": "RealSolar_System" },
-        { "label": "Alpha Centauri System", "value": "sys_Alpha_Centauri" },
-        { "label": "TRAPPIST-1 System", "value": "sys_TRAPPIST-1" },
-        { "label": "Kepler-90 System", "value": "sys_Kepler-90" },
-        { "label": "51 Pegasi System", "value": "sys_51_Pegasi" },
-        { "label": "Tau Ceti System", "value": "sys_Tau_Ceti" },
-        { "label": "HD 10180 System", "value": "sys_HD_10180" },
-        { "label": "HR 8799 System", "value": "sys_HR_8799" }
+        { "label": "Sol System", "data": "PGA_DD_RealSolarSystem.json" },
+        { "label": "Alpha Centauri System", "data": "PGA_DD_System_AlphaCentauri.json" },
+        { "label": "TRAPPIST-1 System", "data": "PGA_DD_Planets_Trappist.json" },
+        { "label": "Kepler-90 System", "data": "PGA_DD_Planets_Kepler.json" },
+        { "label": "51 Pegasi System", "data": "PGA_DD_Planets_Pegasi.json" },
+        { "label": "Dune", "data": "PGA_DD_Planets_Dune.json" },
+        { "label": "HD 10180 System", "data": "PGA_DD_Planets_HD_10180.json" },
+        { "label": "HR 8799 System", "data": "PGA_DD_Planets_HR_8799.json" },
+        {"label": "Star Wars", "data": "PGA_DD_Planets_Starwars.json"},
+        {"label": "Star Trek", "data": "PGA_DD_Planets_Startrek.json"}
+               
       ]
 }

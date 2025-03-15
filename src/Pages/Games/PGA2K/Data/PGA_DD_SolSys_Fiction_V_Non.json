@@ -1,0 +1,14 @@
+{
+    "fictional":[
+        "Star Wars",
+        "Star Trek",
+        "Dune"
+        ],
+    "nonFictional":[
+        "Solar System",
+        "Alpha Centauri",
+        "TRAPPIST-1",
+        "Kepler-90",    
+        "51 Pegasi"
+        ]
+}
