@@ -40,7 +40,7 @@ if (Test-Path $commitFile) {
     if ($commitData.Count -eq 2) {
         # Check if the first line is a string and the second line is a valid number
         if ($commitData[0] -match "^[a-zA-Z0-9_]+$" -and $commitData[1] -match "^\d+$") {
-            $name = $commitData[0]
+            $name = $commitData[0]   # This is the final name to store
             $commitNum = [int]$commitData[1]
         } else {
             Write-Output "Invalid format in commit_count.txt."
@@ -48,23 +48,29 @@ if (Test-Path $commitFile) {
             Write-Output "The second line should be a number (commit count)."
             # Clear the file and re-initialize setup
             Clear-Content $commitFile
-            $name = SetUpUserName
+            $chosenName = SetUpUserName  # Assigning to a different variable
+            $name = $chosenName  # Assigning to the name variable
             $commitNum = 1
+            # Only store the username (not the prompts)
             $name | Out-File -Encoding utf8 $commitFile
             $commitNum | Out-File -Append -Encoding utf8 $commitFile
         }
     } else {
         Write-Output "commit_count.txt not a valid format. Re-initializing..."
         Clear-Content $commitFile
-        $name = SetUpUserName
+        $chosenName = SetUpUserName  # Assigning to a different variable
+        $name = $chosenName  # Assigning to the name variable
         $commitNum = 1
+        # Only store the username (not the prompts)
         $name | Out-File -Encoding utf8 $commitFile
         $commitNum | Out-File -Append -Encoding utf8 $commitFile
     }
 } else {
     Write-Output "commit_count.txt does not exist. Setting it up..."
-    $name = SetUpUserName
+    $chosenName = SetUpUserName  # Assigning to a different variable
+    $name = $chosenName  # Assigning to the name variable
     $commitNum = 1
+    # Only store the username (not the prompts)
     $name | Out-File -Encoding utf8 $commitFile
     $commitNum | Out-File -Append -Encoding utf8 $commitFile
 }
