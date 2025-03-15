@@ -9,34 +9,30 @@ function SetUpUserName {
     Write-Output "3) Type in Your Initials:"
 
     # Prompt user to select an option
-    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to Type your initials: "
+    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to Type your initials:"
 
-# Set the choice to a variable (assume $choice is set from user input or earlier in the script)
-$finalChoice = ""
+    # Set the choice to a variable (assume $choice is set from user input or earlier in the script)
+    $finalChoice = ""
 
-if ($choice -eq "1" -and $gitHubName) {
-    $finalChoice = $gitHubName  # Set $finalChoice to GitHub username
-} elseif ($choice -eq "2") {
-    $finalChoice = $windowsName  # Set $finalChoice to Windows username
-} elseif ($choice -eq "3") {
-    $initials = Read-Host "Your initials please"
-    $finalChoice = $initials  # Set $finalChoice to initials
-} else {
-    $finalChoice = $windowsName  # Default to Windows username if invalid choice
-}
+    if ($choice -eq "1" -and $gitHubName) {
+        $finalChoice = $gitHubName  # Set $finalChoice to GitHub username
+    } elseif ($choice -eq "2") {
+        $finalChoice = $windowsName  # Set $finalChoice to Windows username
+    } elseif ($choice -eq "3") {
+        $initials = Read-Host "Your initials please"
+        $finalChoice = $initials  # Set $finalChoice to initials
+    } else {
+        $finalChoice = $windowsName  # Default to Windows username if invalid choice
+    }
 
-# Return the final choice
-return $finalChoice
-	
+    # Return the final choice
+    return $finalChoice
 }
 
 # Path to commit_count.txt (This file stores the username and commit number)
 $commitFile = "commit_count.txt"
 
-# Create a variable to store the user's chosen name
-$chosenName = $finalChoice  # Assign to $chosenName
-
-Write-Output "Chosen name: $chosenName"  # Display the chosen name
+Write-Output "Chosen name: $finalChoice"  # Display the chosen name
 
 # Check if the commit_count.txt file exists
 if (Test-Path $commitFile) {
@@ -54,7 +50,7 @@ if (Test-Path $commitFile) {
             # Clear the file and re-initialize setup
             Clear-Content $commitFile
             # Store the final chosen name into the file
-            $chosenName | Out-File -Encoding utf8 $commitFile  # Only store the username
+            $finalChoice | Out-File -Encoding utf8 $commitFile  # Only store the username
             $commitNum = 1
             $commitNum | Out-File -Append -Encoding utf8 $commitFile
         }
@@ -62,24 +58,25 @@ if (Test-Path $commitFile) {
         Write-Output "commit_count.txt not a valid format. Re-initializing..."
         # Re-initialize if the format is incorrect
         Clear-Content $commitFile
-        $chosenName | Out-File -Encoding utf8 $commitFile  # Only store the username
+	$fileSetup = SetUpUserName
+        $finalChoice | Out-File -Encoding utf8 $commitFile  # Only store the username
         $commitNum = 1
         $commitNum | Out-File -Append -Encoding utf8 $commitFile
     }
 } else {
     Write-Output "commit_count.txt does not exist. Setting it up..."
     # Set up the file with the chosen name and initial commit count
-    $chosenName | Out-File -Encoding utf8 $commitFile  # Only store the username
+	$fileSetup = SetUpUserName
+    $finalChoice | Out-File -Encoding utf8 $commitFile  # Only store the username
     $commitNum = 1
     $commitNum | Out-File -Append -Encoding utf8 $commitFile
 }
-
 
 # Increment the commit number for the new commit
 $commitNum++
 
 # Save the updated username and commit number back to commit_count.txt
-$chosenName | Out-File -Encoding utf8 $commitFile  # Store the final name
+$finalChoice | Out-File -Encoding utf8 $commitFile  # Store the final name
 $commitNum | Out-File -Append -Encoding utf8 $commitFile
 
 Write-Output "Commit count updated. User: $name - Commit #$commitNum"
@@ -91,7 +88,7 @@ $timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
 $customComment = Read-Host "Enter commit message"
 
 # Generate the commit message
-$commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $chosenName)"
+$commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $finalChoice)"
 
 # Get current branch name
 $currentBranch = git rev-parse --abbrev-ref HEAD
