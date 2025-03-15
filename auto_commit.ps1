@@ -54,7 +54,7 @@ function SetUpUserName {
     }
 
     # Return the final choice
-	Write-Ouptut "$finalChoice"
+
     return $finalChoice
 }
 
