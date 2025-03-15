@@ -1,10 +1,6 @@
-
-
 # Auto Location 
 $repoPath = Get-Location 
-
-# Changes directory to the installed location
-cd $repoPath
+cd $repoPath  # Change directory to the installed location
 
 # Paths
 $commitFile = "commit_count.txt"
@@ -28,8 +24,18 @@ if (Test-Path $commitFile) {
         Write-Host "$autoCommitFile is already in .gitignore."
     }
 
-    # Get commit data
-    $commitData = Get-Content $commitFile
+    # Get commit data (force array format)
+    $commitData = @(Get-Content $commitFile)
+
+    # Check if file is corrupted or missing data
+    if ($commitData.Count -lt 2) {
+        Write-Host "Error: commit_count.txt is missing data or corrupted."
+        Write-Host "Resetting commit_count.txt..."
+        $commitData = @("UnknownUser", "0")
+        $commitData -join "`r`n" | Set-Content -Path $commitFile -Encoding utf8
+    }
+
+    # Assign values safely
     $name = $commitData[0]
     $commitNum = [int]$commitData[1]
     Write-Output "$($name) will be used for comments"
