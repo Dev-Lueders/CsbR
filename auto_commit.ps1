@@ -1,140 +1,88 @@
-# Path to the commit_count.txt file
+# Auto Location 
+$repoPath = Get-Location 
+
+# Changes directory to the installed location
+cd $repoPath
+
+# Path
 $commitFile = "commit_count.txt"
+$gitignoreFile = ".gitignore"
+$autoCommitFile = "auto_commit.ps1"
 
-function SetUpUserName {
-    $gitHubName = git config user.name
-    $windowsName = $env:USERNAME
-
-    Write-Output "Choose a name to store in commit_count.txt:"
-    Write-Output "1) GitHub Username: $gitHubName"
-    Write-Output "2) Windows Username: $windowsName"
-    Write-Output "3) Type in Your Initials:"
-
-    # Prompt user to select an option
-    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows or 3 to Your initials:"
-
-    # Set the choice to a variable (assume $choice is set from user input or earlier in the script)
-
-    $finalChoice = ""
-
-    if ($choice -eq "1" -and $gitHubName) {
-
-        $finalChoice = $gitHubName  # Set $finalChoice to GitHub username
-
-    } elseif ($choice -eq "2") {
-
-        $finalChoice = $windowsName  # Set $finalChoice to Windows username
-
-    } elseif ($choice -eq "3") {
-
-        $initials = Read-Host "Enter your initials"
-        $finalChoice = $initials  # Set $finalChoice to user-entered initials
-
-} elseif ($choice -ge "4") {
-
-    $gitHubName = git config user.name
-    $windowsName = $env:USERNAME
-    
-    Write-Output "PLEASE SELECT ONLY ONE OF THESE OPTIONS"
-    Write-Output "Choose a name to store in commit_count.txt:"
-    Write-Output "1) GitHub Username: $gitHubName"
-    Write-Output "2) Windows Username: $windowsName"
-    Write-Output "3) Type in Your Initials:"
-
-    # Prompt user to select an option
-    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows or 3 to Your initials:"
-
-    # Set the choice to a variable (assume $choice is set from user input or earlier in the script)
-
-    $finalChoice = ""
-
-    } else {
-
-        $finalChoice = $windowsName  # Default to Windows username if invalid choice
-    }
-
-    # Return the final choice
-
-    return $finalChoice
+# Checks for commit_count file; if it's there, adds auto_commit to gitignore
+if (Test-Path $commitFile) {
+    $gitignoreContent = Get-Content $gitignoreFile
+    Add-Content $gitignoreFile "`n$autoCommitFile"
+    Write-Host "Added $autoCommitFile to gitignore to prevent tracking by Git."
+} else {
+    Write-Host "Adding commit_count.txt for auto Time Stamping and Commit Count"
+    Write-Host "Running auto_commit.ps1 again, moves auto_commit.ps1 to gitignore"
+    Write-Host "Will use Git Hub username or Windows Systems Name to add to comments"
 }
 
-#-----------FUNCTION ABOVE--------------------------
-
-# Check if the file exists
-
-$commitFile ="commit_count.txt"
-
+# Checks for name in commit_count.txt, If not there will ask for initials
 if (Test-Path $commitFile) {
+    $name = Get-Content $commitFile
+} else {
+    $gitHubName = git config user.name
+    $windowsName = $env:USERNAME
 
-    # Get the content of the file
-  
-  $commitData = Get-Content $commitFile
+    Write-Host "Choose a name to store in commit_count.txt:"
+    Write-Host "1) GitHub Username: $gitHubName"
+    Write-Host "2) Windows Username: $windowsName"
+    Write-Host "3) Type in Your Initials:"
+    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to choose your name: "
     
+    if ($choice -eq "1" -and $gitHubName) {
+        $name = $gitHubName
+    } elseif ($choice -eq "2") {
+        $name = $windowsName
+    } elseif ($choice -eq "3") {
+        $name = Read-Host "Your initials please "
+    } else {
+        Write-Host "Invalid Choice. Defaulting to Windows Username."
+        $name = $windowsName
+    }
 
-    # Check if the file has exactly two lines
+    # Adds name to commit_count file
+    $name | Out-File -Encoding utf8 $commitFile
+}
 
-    if ($commitData.Count -eq 2) {
+$name = Get-Content $commitFile
 
-        $name = $commitData[0]
-	$commitNum = [int]$commitData[1]
-	Write-Output "$($name) will be used for comments"
-	Write-Output "$($commitNum) commits before this commit"
-	$commitNum++
+# Checks for commit count.txt If not, start at 1
+if (Test-Path $commitFile) {
+    $commitNum = [int](Get-Content $commitFile) + 1
+} else {
+    $commitNum = 1
+}
 
-# Timestamp for commit
+# Reads Username from commit_count.txt
+$name | Out-File -Encoding utf8 $commitFile
+
+# Commit number added
+$commitNum | Out-File $commitFile
+
+# Time stamp
 $timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
 
-# Prompt for a custom commit message
+# Enter your own comment
 $customComment = Read-Host "Enter commit message"
 
-# Generate the commit message
+# Make commit
 $commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $name)"
 
-# Get current branch name
+# No comment, no problem
+if ($customComment) {
+    $commitMessage += " - $customComment"
+}
+
+# Getting current branch
 $currentBranch = git rev-parse --abbrev-ref HEAD
 
-# Stage changes, commit, and push to GitHub
+# Adding to git
 git add .
 git commit -m "$commitMessage"
 git push origin $currentBranch
 
 Write-Output "Committed with message: $commitMessage"
-
-	Write-Output "commits incremented to $commitNum"
-	$commitData[1] = $commitNum.ToString()
-	Set-Content -Path $commitFile -Value ($commitData -join "`r`n") -Encoding utf8
-
-    } else {
-
-        Write-Output "Delete commit_count.txt and re run file ./auto_commit.ps1 "
-
-	    }
-} else {
-
-$fileSetup = SetUpUserName
-
-Out-File -FilePath $commitFile -Encoding utf8 -InputObject $fileSetup
-
-# Define the file path
-$filePath = "commit_count.txt"
-
-# Read all lines from the file
-$fileContent = Get-Content $filePath
-
-# Ensure the file has at least 4 lines before modifying
-if ($fileContent.Count -gt 3) {
-
-    # Keep only lines from index 3 (4th line) onward
-    $fileContent[4..($fileContent.Count - 1)] | Set-Content $filePath
-    "1" | Out-File -FilePath $commitFile -Encoding utf8 -Append
-	
-
-} else {
-    Write-Host "File does not have more than 3 lines. No changes made."
-}
-
-
-  
-
-
-}
