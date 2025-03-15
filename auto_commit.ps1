@@ -30,19 +30,40 @@ function SetUpUserName {
         $initials = Read-Host "Enter your initials"
         $finalChoice = $initials  # Set $finalChoice to user-entered initials
 
+} elseif ($choice -ge "4") {
+
+    $gitHubName = git config user.name
+    $windowsName = $env:USERNAME
+    
+    Write-Output "PLEASE SELECT ONLY ONE OF THESE OPTIONS"
+    Write-Output "Choose a name to store in commit_count.txt:"
+    Write-Output "1) GitHub Username: $gitHubName"
+    Write-Output "2) Windows Username: $windowsName"
+    Write-Output "3) Type in Your Initials:"
+
+    # Prompt user to select an option
+    $choice = Read-Host "Enter 1 for GitHub or 2 for Windows or 3 to Your initials:"
+
+    # Set the choice to a variable (assume $choice is set from user input or earlier in the script)
+
+    $finalChoice = ""
+
     } else {
 
         $finalChoice = $windowsName  # Default to Windows username if invalid choice
     }
 
     # Return the final choice
-	Write-Ouptut $finalChoice
+	Write-Ouptut "$finalChoice"
     return $finalChoice
 }
 
 #-----------FUNCTION ABOVE--------------------------
 
 # Check if the file exists
+
+$commitFile ="commit_count.txt"
+
 if (Test-Path $commitFile) {
 
     # Get the content of the file
@@ -79,21 +100,15 @@ git push origin $currentBranch
 
 Write-Output "Committed with message: $commitMessage"
 
-
-
 	Write-Output "commits incremented to $commitNum"
 	$commitData[1] = $commitNum.ToString()
 	Set-Content -Path $commitFile -Value ($commitData -join "`r`n") -Encoding utf8
 
-
-
-
     } else {
 
-        Write-Output "commit_count.txt does not have exactly two lines."
+        Write-Output "Delete commit_count.txt and re run file ./auto_commit.ps1 "
 
-
-    }
+	    }
 } else {
 
 $fileSetup = SetUpUserName
