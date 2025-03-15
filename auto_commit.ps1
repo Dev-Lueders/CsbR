@@ -11,18 +11,6 @@ function SetUpUserName {
     # Prompt user to select an option
     $choice = Read-Host "Enter 1 for GitHub or 2 for Windows username or 3 to Type your initials: "
 
-    # Based on the user's choice, return the appropriate name
-    if ($choice -eq "1" -and $gitHubName) {
-        return $githubChoice=$gitHubName  # Return the GitHub username
-    } elseif ($choice -eq "2") {
-        return $windowsChoice=$windowsName  # Return the Windows username
-    } elseif ($choice -eq "3") {
-        $initials = Read-Host "Your initials please"
-        return $intitalsChoice = $initials  # Return the initials
-    } else {
-        return $defaultChoice = $windowsName  # Default to Windows username if invalid choice
-    }
-
 # Set the choice to a variable (assume $choice is set from user input or earlier in the script)
 $finalChoice = ""
 
@@ -41,8 +29,6 @@ if ($choice -eq "1" -and $gitHubName) {
 return $finalChoice
 	
 }
-
-
 
 # Path to commit_count.txt (This file stores the username and commit number)
 $commitFile = "commit_count.txt"
@@ -88,14 +74,12 @@ if (Test-Path $commitFile) {
     $commitNum | Out-File -Append -Encoding utf8 $commitFile
 }
 
-# Assign the chosen name to $name
-$name = $chosenName  # Now the $name variable holds the final value
 
 # Increment the commit number for the new commit
 $commitNum++
 
 # Save the updated username and commit number back to commit_count.txt
-$name | Out-File -Encoding utf8 $commitFile  # Store the final name
+$chosenName | Out-File -Encoding utf8 $commitFile  # Store the final name
 $commitNum | Out-File -Append -Encoding utf8 $commitFile
 
 Write-Output "Commit count updated. User: $name - Commit #$commitNum"
@@ -107,7 +91,7 @@ $timestamp = Get-Date -Format "dd_HH-mm_MM-yyyy"
 $customComment = Read-Host "Enter commit message"
 
 # Generate the commit message
-$commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $name)"
+$commitMessage = "#$commitNum - $customComment - $timestamp - (Committed by: $chosenName)"
 
 # Get current branch name
 $currentBranch = git rev-parse --abbrev-ref HEAD
