@@ -1,9 +1,9 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
-import Text_Box from "../../components/atoms/Input_Container/Text_Box";
-import Button_btn from "../../components/atoms/Buttons/Button";
-import Check_Box from "../../components/atoms/Check_Box/Check_Box";
+import Text_Box from "../../components/Input_Container/Text_Box";
+import Button_btn from "../../components/Buttons/Button";
+import Check_Box from "../../components/Check_Box/Check_Box";
 
 
 const Login_Page = () => {

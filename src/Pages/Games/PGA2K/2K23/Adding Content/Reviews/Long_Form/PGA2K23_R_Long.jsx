@@ -1,16 +1,24 @@
-import Text_Box from "../../../../../../../components/atoms/Input_Container/Text_Box";
-import Drop_Down from "../../../../../../../components/atoms/Drop_Down/Drop_Down";
-import Button_btn from "../../../../../../../components/atoms/Buttons/Button";
-import T_Navbar from "../../../../../../../components/atoms/NavBar/T_Navbar";
-import B_Navbar from "../../../../../../../components/atoms/NavBar/B_Navbar";
-// import { form } from "react-router-dom";
-import {useState} from 'react';
+import Text_Box from "../../../../../../../components/Input_Container/Text_Box";
+import Drop_Down from "../../../../../../../components/Drop_Down/Drop_Down";
+import Button_btn from "../../../../../../../components/Buttons/Button";
+import T_Navbar from "../../../../../../../components/NavBar/T_Navbar";
+import B_Navbar from "../../../../../../../components/NavBar/B_Navbar";
+import { Form } from "react-router-dom";
 
 import PGA_DD_Game_Version from '../../../../Data/PGA_DD_Game_Version.json';
 import PGA_DD_Holes from '../../../../Data/PGA_DD_Holes.json';
-import PGA_DD_SolSys_List from '../../../../Data/PGA_DD_SolSys_List.json';
+import PGA_DD_Planets_Dune from '../../../../Data/PGA_DD_Planets_Dune.json';
+import PGA_DD_Planets_HD10180 from '../../../../Data/PGA_DD_Planets_HD10180.json';
+import PGA_DD_Planets_HR8799 from '../../../../Data/PGA_DD_Planets_HR8799.json';
+import PGA_DD_Planets_Kepler from '../../../../Data/PGA_DD_Planets_Kepler.json';
+import PGA_DD_Planets_Pegasi from '../../../../Data/PGA_DD_Planets_Pegasi.json';
+import PGA_DD_Planets_Startrek from '../../../../Data/PGA_DD_Planets_Startrek.json';
+import PGA_DD_Planets_Starwars from '../../../../Data/PGA_DD_Planets_Starwars.json';
+import PGA_DD_Planets_Trappist from '../../../../Data/PGA_DD_Planets_Trappist.json';
 import PGA_DD_Tees from '../../../../Data/PGA_DD_Tees.json';
 import PGA_DD_difficulty from '../../../../Data/PGA_DD_difficulty.json';
+import PGA_DD_realSolarsystem from '../../../../Data/PGA_DD_realSolarsystem.json';
+import PGA_DD_system_alphaCentauri from '../../../../Data/PGA_DD_system_alphaCentauri.json';
 import PGA_DD_theme from '../../../../Data/PGA_DD_theme.json';
 import PGA_DD_type from '../../../../Data/PGA_DD_type.json';
 
@@ -26,50 +34,36 @@ const PGA2K23_R_Long = () => {
 
     ];
 
-    const [selectedSystem, setSelectedSystem ] = useState('null');
-    const [planetOptions, setplanetOptions] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedPlanet, setSelectedPlanet] = useState(null);
+    const [ planetOptions, setPlanetOptions] = useState([]);
 
-    const handleSystemSelect = async (selectedValue) => {
-        setSelectedSystem(selectedValue);
-     const systemFile = selectedValue.data;
-        try {
-        const response = await fetch (`/Data/${systemFile}`);
-        const planets = await response.json();
-        setplanetOptions(planets);
-    } catch (error) {
-        console.error("Error Loading Planet Data", error);
-        setplanetOptions([]);
+    const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+       
+        }
     }
-};
-return (
-    <>
-    <T_Navbar links ={T_Links}/>
+return(
+<>
+<T_Navbar links = {T_Links}/>
+<Form>
+    <Text_Box label="Course Review" placeholder="Course Review"/>
+    <Drop_Down label="Game Version" options={PGA_DD_Game_Version}/>
+    <Drop_Down label="How Many Holes" options={PGA_DD_Holes}/>
+    <Drop_Down label="Select Solar System" options={categories.map(category =>({
+        label:category.label,
+        value: category
+            }))}
+            onSelect={handleCategorySelect}
+            />
     
-    <form>
 
-    <Text_Box label="Review Course" placeholder="Course review" />
-    <Drop_Down label="Game Version" options={PGA_DD_Game_Version} />
-    <Drop_Down label="Holes" options={PGA_DD_Holes} />
-    <Drop_Down label="Tees" options={PGA_DD_Tees} />
-    <Drop_Down label="Difficulty" options={PGA_DD_difficulty} />        
-    <Drop_Down label="Theme" options={PGA_DD_theme} />
-    <Drop_Down label="Type" options={PGA_DD_type} />
-    <Drop_Down
-    label="Select Solar System"
-    options={PGA_DD_SolSys_List}
-    onSelect={handleSystemSelect}
-    />
-    <Drop_Down
-    label="Select Planet"
-    options={planetOptions} 
-    onSelect={(selectedPlanet) => console.log(selectedPlanet)}
-    />
+</Form>
 
+</>
+)
 
-    </form>  
-    
-    </>
-);
 
 }
+
 export default PGA2K23_R_Long;

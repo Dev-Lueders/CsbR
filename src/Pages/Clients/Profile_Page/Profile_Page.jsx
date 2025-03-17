@@ -4,12 +4,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col, Form } from "react-bootstrap";
-import T_Navbar from "../../../components/atoms/NavBar/T_Navbar";
-import B_Navbar from "../../../components/atoms/NavBar/B_Navbar";
-import Button_btn from "../../../components/atoms/Buttons/Button";
-import Text_Box from "../../../components/atoms/Input_Container/Text_Box";
-import Check_Box from "../../../components/atoms/Check_Box/Check_Box";
-import Scroll_Bar from "../../../components/atoms/Scroll_Bar/Scroll_Bar";
+import T_Navbar from "../../../components/NavBar/T_Navbar";
+import B_Navbar from "../../../components/NavBar/B_Navbar";
+import Button_btn from "../../../components/Buttons/Button";
+import Text_Box from "../../../components/Input_Container/Text_Box";
+import Check_Box from "../../../components/Check_Box/Check_Box";
+import Scroll_Bar from "../../../components/Scroll_Bar/Scroll_Bar";
 
 
 import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap is loaded
