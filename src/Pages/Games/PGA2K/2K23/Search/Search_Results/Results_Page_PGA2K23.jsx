@@ -1,9 +1,9 @@
-import WorldMap from "../../../../../../components/atoms/World_Map/World_Map.jsx";
-import T_Navbar from "../../../../../../components/atoms/NavBar/T_Navbar.jsx";
-import B_Navbar from "../../../../../../components/atoms/NavBar/B_Navbar.jsx";
-import MediaContainer from "../../../../../../components/atoms/Media_Content/Media_Container.jsx";
-import Stats_Container from "../../../../../../components/atoms/Stats_Content/Stats_Container.jsx";
-import Main_Content from "../../../../../../components/atoms/Main_Content/Main_Container.jsx";
+import WorldMap from "../../../../../../components/World_Map/World_Map.jsx";
+import T_Navbar from "../../../../../../components/NavBar/T_Navbar.jsx";
+import B_Navbar from "../../../../../../components/NavBar/B_Navbar.jsx";
+import MediaContainer from "../../../../../../components/Media_Content/Media_Container.jsx";
+import Stats_Container from "../../../../../../components/Stats_Content/Stats_Container.jsx";
+import Main_Content from "../../../../../../components/Main_Content/Main_Container.jsx";
 
 const Results_Page_PGA2K23 = () => {
     const B_NavLink = [
