@@ -73,6 +73,8 @@ const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdo
     };
   }, [handleClickOutside]);
 
+  Drop_Down.displayName = "Drop_Down";
+  
   const maxHeight = filteredOptions.length > maxOptionsVisible ? "180px" : "none";
 
   return (
