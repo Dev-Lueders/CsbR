@@ -6,13 +6,13 @@ import React from 'react';
 import "../pages_styles.css";
 import "../../components/components_styles.css"
 import ReadMe from '../Help/ReadMe.jsx'
-import Scroll_Bar from '../../components/Scroll_Bar/Scroll_Bar.jsx';
-import Main_Content from '../../components/Main_Content/Main_Container.jsx';
-import T_Navbar from '../../components/NavBar/T_Navbar.jsx';
-import L_Navbar from '../../components/NavBar/L_Navbar.jsx'; 
-import Media_Container from '../../components/Media_Content/Media_Container.jsx'; 
-import Stats_Container from '../../components/Stats_Content/Stats_Container.jsx';
-import B_Navbar from '../../components/NavBar/B_Navbar.jsx';
+import Scroll_Bar from '../../components/Atoms/Scroll_Bar/Scroll_Bar.jsx';
+import Main_Content from '../../components/Atoms/Main_Content/Main_Container.jsx';
+import T_Navbar from '../../components/Atoms/NavBar/T_Navbar.jsx';
+import L_Navbar from '../../components/Atoms/NavBar/L_Navbar.jsx'; 
+import Media_Container from '../../components/Atoms/Media_Content/Media_Container.jsx'; 
+import Stats_Container from '../../components/Atoms/Stats_Content/Stats_Container.jsx';
+import B_Navbar from '../../components/Atoms/NavBar/B_Navbar.jsx';
 
 const Landing_Page = () => {
 

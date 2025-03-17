@@ -10,18 +10,17 @@
 // and Course Name
   
 
-import WorldMap from "../../../../../../components/World_Map/World_Map.jsx";
-import T_Navbar from "../../../../../../components/NavBar/T_Navbar.jsx";
-import B_Navbar from "../../../../../../components/NavBar/B_Navbar.jsx";
-import MediaContainer from "../../../../../../components/Media_Content/Media_Container.jsx";
-import Stats_Container from "../../../../../../components/Stats_Content/Stats_Container.jsx";
-import Main_Content from "../../../../../../components/Main_Content/Main_Container.jsx";
-import L_Navbar from "../../../../../../components/NavBar/L_Navbar.jsx";
-import Drop_Down from "../../../../../../components/Drop_Down/Drop_Down.jsx";
-import Drop_Down_Searchable from "../../../../../../components/Drop_Down/Drop_Down_Searchable.jsx";
-import Scroll_Bar from "../../../../../../components/Scroll_Bar/Scroll_Bar.jsx";
-import Check_Box from "../../../../../../components/Check_Box/Check_Box.jsx";
-import Button_btn from "../../../../../../components/Buttons/Button.jsx";
+import WorldMap from "../../../../../../components/Atoms/World_Map/World_Map.jsx";
+import T_Navbar from "../../../../../../components/Atoms/NavBar/T_Navbar.jsx";
+import B_Navbar from "../../../../../../components/Atoms/NavBar/B_Navbar.jsx";
+import MediaContainer from "../../../../../../components/Atoms/Media_Content/Media_Container.jsx";
+import Stats_Container from "../../../../../../components/Atoms/Stats_Content/Stats_Container.jsx";
+import Main_Content from "../../../../../../components/Atoms/Main_Content/Main_Container.jsx";
+import L_Navbar from "../../../../../../components/Atoms/NavBar/L_Navbar.jsx";
+import Drop_Down from "../../../../../../components/Atoms/Drop_Down/Drop_Down.jsx";
+import Scroll_Bar from "../../../../../../components/Atoms/Scroll_Bar/Scroll_Bar.jsx";
+import Check_Box from "../../../../../../components/Atoms/Check_Box/Check_Box.jsx";
+import Button_btn from "../../../../../../components/Atoms/Buttons/Button.jsx";
 
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import B_Navbar from "../../components/NavBar/B_Navbar";
+import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
 
 
 const ReadMe = () => {

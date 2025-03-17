@@ -1,6 +1,6 @@
-import T_Navbar from "../../components/NavBar/T_Navbar";
-import B_Navbar from "../../components/NavBar/B_Navbar";
-import Text_Box from "../../components/Input_Container/Text_Box";
+import T_Navbar from "../../components/Atoms/NavBar/T_Navbar";
+import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
+import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 
 import "../../Pages/pages_styles.css"
 import { Form } from "react";

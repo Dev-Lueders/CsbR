@@ -1,12 +1,12 @@
 
 
 import React, { useState } from "react";
-import T_Navbar from "../../components/NavBar/T_Navbar";
-import B_Navbar from "../../components/NavBar/B_Navbar";
-import Button_Component from "../../components/Buttons/Button";
-import Text_Box from "../../components/Input_Container/Text_Box";
-import Drop_Down from "../../components/Drop_Down/Drop_Down";
-import Check_Box from "../../components/Check_Box/Check_Box";
+import T_Navbar from "../../components/Atoms/NavBar/T_Navbar";
+import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
+import Button_Component from "../../components/Atoms/Buttons/Button";
+import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
+import Drop_Down from "../../components/Atoms/Drop_Down/Drop_Down";
+import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
 
 const Creators_SignUp = () => {
 
