@@ -6,13 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import './components/components_styles.css';
 import './App.css';
-import Radio_btn from './components/Buttons/Radio.jsx'
-import Button_btn from './components/Buttons/Button.jsx';
-import Text_Box from './components/Input_Container/Text_Box.jsx';
-import Scroll_Bar from './components/Scroll_Bar/Scroll_Bar.jsx';
-import Check_Box from './components/Check_Box/Check_Box.jsx';
-import WorldMap from './components/World_Map/World_Map.jsx';
-import Drop_Down from './components/Drop_Down/Drop_Down.jsx';
+import Radio_btn from './components/atoms/Buttons/Radio.jsx'
+import Button_btn from './components/atoms/Buttons/Button.jsx';
+import Text_Box from './components/atoms/Input_Container/Text_Box.jsx';
+import Scroll_Bar from './components/atoms/Scroll_Bar/Scroll_Bar.jsx';
+import Check_Box from './components/atoms/Check_Box/Check_Box.jsx';
+import WorldMap from './components/atoms/World_Map/World_Map.jsx';
+import Drop_Down from './components/atoms/Drop_Down/Drop_Down.jsx';
 // import Up_Loading from './components/Up_Load/Up_Loading.jsx';
 
 

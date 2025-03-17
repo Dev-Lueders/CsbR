@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../components_styles.css" // Ensures styles align with your approach
+import "../../components_styles.css" // Ensures styles align with your approach
 
 const Radio_btn= ({ name, value, checked, onChange, children }) => {
   return (

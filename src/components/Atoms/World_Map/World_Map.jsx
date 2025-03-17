@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { PropTypes } from 'prop-types';
 
 const WorldMap = ({ containerId = "world_map", width = "50vw", height = "50vh" }) => {
   useEffect(() => {
@@ -28,4 +29,9 @@ const WorldMap = ({ containerId = "world_map", width = "50vw", height = "50vh" }
   return <div id={containerId} style={{ width, height }}></div>;
 };
 
+WorldMap.propTypes = {
+  containerId: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+};
 export default WorldMap;

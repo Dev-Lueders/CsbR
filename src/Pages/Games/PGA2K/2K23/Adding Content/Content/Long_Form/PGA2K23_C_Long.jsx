@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Drop_Down from "../../../../../../../components/Drop_Down/Drop_Down";
-import T_Navbar from "../../../../../../../components/NavBar/T_Navbar";
-import B_Navbar from "../../../../../../../components/NavBar/B_Navbar";
-import L_Navbar from "../../../../../../../components/NavBar/L_Navbar";
-import Text_Box from "../../../../../../../components/Input_Container/Text_Box";
-import Check_Box from "../../../../../../../components/Check_Box/Check_Box";
+import Drop_Down from "../../../../../../../components/atoms/Drop_Down/Drop_Down";
+import T_Navbar from "../../../../../../../components/atoms/NavBar/T_Navbar";
+import B_Navbar from "../../../../../../../components/atoms/NavBar/B_Navbar";
+import L_Navbar from "../../../../../../../components/atoms/NavBar/L_Navbar";
+import Text_Box from "../../../../../../../components/atoms/Input_Container/Text_Box";
+import Check_Box from "../../../../../../../components/atoms/Check_Box/Check_Box";
 import { Form } from "react-router-dom";
 
 

@@ -26,7 +26,9 @@ const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdo
 
   const handleSelect = useCallback((option) => {
     setSelectedOption(option);
-    onSelect(option.value);
+    if (onSelect) {
+      onSelect(option.value);
+    }
     setIsOpen(false);
     setHighlightedIndex(null);
     setSearchTerm("");

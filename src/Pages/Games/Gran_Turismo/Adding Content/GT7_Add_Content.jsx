@@ -1,6 +1,6 @@
-mport React from "react";
-import T_Navbar from "../../components/NavBar/T_Navbar";
-import B_Navbar from "../../components/NavBar/B_Navbar";
+import React from "react";
+import T_Navbar from "../../components/atoms/NavBar/T_Navbar";
+import B_Navbar from "../../components/atoms/NavBar/B_Navbar";
 
 const GT7_Add_Content = () =>{
 const T_Links = [
