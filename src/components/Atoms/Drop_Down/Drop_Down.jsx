@@ -1,7 +1,8 @@
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import DD_Default_Props from './DD_Default_Props';
 
-const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdownStyle, optionStyle, maxOptionsVisible = 4 }) => {
+const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdownStyle, optionStyle, maxOptionsVisible }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [highlightedIndex, setHighlightedIndex] = useState(null);
@@ -188,5 +189,7 @@ Drop_Down.propTypes = {
   optionStyle: PropTypes.object,
   maxOptionsVisible: PropTypes.number,
 };
+
+Drop_Down.defaultProps = DD_Default_Props;
 
 export default Drop_Down;

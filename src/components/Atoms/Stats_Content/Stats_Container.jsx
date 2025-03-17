@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../components_styles.css";
+import "../../components_styles.css";
 import Pagination from '../Pagination/pagination_component.jsx';
 
 const Stats_Container = ({ SC_Style = {}, children }) => {

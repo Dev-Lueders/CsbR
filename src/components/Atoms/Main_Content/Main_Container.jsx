@@ -1,6 +1,6 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../components_styles.css";
+import "../../components_styles.css";
 
 // Accept both MC_Style and children props
 const Main_Container = ({ MC_Style = {}, children }) => {
