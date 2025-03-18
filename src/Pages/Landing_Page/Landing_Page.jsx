@@ -1,7 +1,7 @@
 /*THIS LANDING PAGE IS THE PRIMARY PAGE FOR WHEN YOU ARE DIRECTED TO THE CREATORSANDBOXREVIEW SITE THIS WILL BE THE FIRST THING A GUEST SEES 
 ALL COMPONENTS WILL BE BUILT SEPARATELY USE ID TO DIRECTLY STYLE THEM THERE IS A CSS FILE FOR COMPONENTS AND A CSS FILE FOR PAGES AND FOR MORE DIRECT STYLING USE THE INLINE 
 */
-
+import Component_Testing from '../Test Page/Component_Testing.jsx';
 import React from 'react';
 import "../pages_styles.css";
 import "../../components/components_styles.css"
@@ -19,7 +19,8 @@ const Landing_Page = () => {
   const T_Links = [
     { label: "Home", path: "/" },
     { label: "About", path: "/About" },
-    { label: "Log In", path:"/Login_Page"}
+    { label: "Log In", path:"/Login_Page"},
+    { label: "Testing Components", path: "/Component_Testing" }
   ];
 
   const L_links = [

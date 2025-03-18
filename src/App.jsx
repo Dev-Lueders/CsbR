@@ -38,13 +38,15 @@ import PGA2K23_R_Long from './Pages/Games/PGA2K/2K23/Adding Content/Reviews/Long
 
 import Search_Page_PGA2K25 from './Pages/Games/PGA2K/2K25/Search/Basic/Search_Page_2K25.jsx';
 import Results_Page_PGA2K25 from './Pages/Games/PGA2K/2K25/Search/Search_Results/Results_Page_2K25.jsx';
-
+import Component_Testing from './Pages/Test Page/Component_Testing.jsx';
 
 const App = () => {
  return (
     <>
       <Routes>
-        
+        <Route path="/Component_Testing" element={<Component_Testing/>}/>
+
+
         <Route path="/Games" element={<Games/>}/>
         <Route path="/Login" element={<Login_Page/>}/>
         <Route path="/" element={<Landing_Page />} />
