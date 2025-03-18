@@ -51,12 +51,13 @@ const App = () => {
         <Route path="/Login" element={<Login_Page/>}/>
         <Route path="/" element={<Landing_Page />} />
         <Route path="/About" element={<About/>}/>
-              {/* <Profile_SignUp/> */}
-        
+              
+        <Route path="/Creators_Page" element={<Creators_Page/>}/>
+        <Route path="/Creators_SignUp" element={<Creators_SignUp/>}/>
         <Route path="/Profile_Page" element={<Profile_Page />} />
-                <Route path="/SignUp_Page" element={<SignUp_Page />} />
-              {/* <Creators_SignUp/> */}
-              {/* <Creators_Page/> */}
+        <Route path="/SignUp_Page" element={<SignUp_Page />} />
+              
+              
 
         <Route path="/PGA2K" element={<PGA2K/>}/>
         <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
@@ -69,7 +70,7 @@ const App = () => {
         <Route path="/Results_Page_PGA2K25" element={<Results_Page_PGA2K25/>}/> 
 
         <Route path="/Suggestion_Box" element={<Suggestion_Box/>}/>
-        <Route path="Help" element={<Help/>}/>
+        <Route path="/Help" element={<Help/>}/>
         <Route path="/Legal" element = {<Legal/>}/>
         <Route path="/ReadMe" element = {<ReadMe/>}/>
       </Routes>

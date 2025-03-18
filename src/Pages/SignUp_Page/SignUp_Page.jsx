@@ -3,6 +3,7 @@ import "../../Pages/pages_styles.css"
 import React from "react";
 import Adding_Form from "../../components/Molecules/Form/Adding_Form";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
+import Button_btn from "../../components/Atoms/Buttons/Button";
 
 
 
@@ -12,6 +13,8 @@ const SignUp_Page = () => {
 return(
 <>
 <Adding_Form>
+  
+ 
   <Text_Box
     label="Username"
     placeholder="Enter Username"
@@ -61,6 +64,15 @@ return(
     name="phone_number"
     id="phone_number"
     required/>
+  
+  <Button_btn navigateTo="/Creators_SignUp">
+  Creators Profile
+  </Button_btn>
+  
+  <Button_btn navigateTo="/Profile_SignUp">
+  Personal Profile
+  </Button_btn>
+
   <Text_Box
     label="Address"
     placeholder="Enter Address"

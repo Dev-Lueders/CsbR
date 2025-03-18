@@ -7,7 +7,7 @@ import Main_Content from "../../../../../../components/Atoms/Main_Content/Main_C
 
 const Results_Page_PGA2K23 = () => {
     const B_NavLink = [
-        { path: "/signup", label: "Signup" },
+        { path: "/SignUp_Page", label: "Signup" },
         { path: "/contact", label: "Contact Us" },
         { path: "/help", label: "Help" },
         { path: "/about", label: "About" },

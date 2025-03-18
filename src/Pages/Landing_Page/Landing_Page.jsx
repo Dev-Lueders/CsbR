@@ -24,10 +24,10 @@ const Landing_Page = () => {
   ];
 
   const L_links = [
-    { label: "Signup", path: "/SignUp_Page" },
-    { label: "Games", path: "/Games"},
-    { label: "New Features", path: "/coming_soon" },
-    { label: "Suggestion Box", path: "/Suggestion_Box" },
+    { path: "/Signup_Page", label: "SignUp" },
+    { path: "/Games", label: "Games"},
+    { path: "/coming_soon", label: "New Features" },
+    { path: "/Suggestion_Box", label: "Suggestion Box" },
   ];
 
   const B_Links = [

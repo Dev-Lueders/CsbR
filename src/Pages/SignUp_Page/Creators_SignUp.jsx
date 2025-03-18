@@ -24,7 +24,7 @@ const [About_You, setAbout_You] = useState("");
   ];
 
   const B_Links = [
-    { path: "/signup", label: "Signup" },
+    { path: "/SignUp_Page", label: "Signup" },
     { path: "/contact", label: "Contact Us" },
     { path: "/help", label: "Help" },
     { path: "/about", label: "About" },
