@@ -1,33 +1,147 @@
-import T_Navbar from "../../components/Atoms/NavBar/T_Navbar";
-import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
-
 import "../../Pages/pages_styles.css"
-import { Form } from "react";
 import React from "react";
+import Adding_Form from "../../components/Molecules/Form/Adding_Form";
+import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
+
 
 
 const SignUp_Page = () => {
-    const T_Links = [
-        { label: "Home", path: "/" },
-        { label: "About", path: "/about" },
-        { label: "Contact", path: "/contact" },
-      ];
-    
-      const B_Links = [
-        { path: "/contact", label: "Contact Us" },
-        { path: "/help", label: "Help" },
-        { path: "/about", label: "About" },
-        { path: "/support", label: "Support" },
-        { path: "/legal", label: "Legal" },
-        {path:"/ReadMe", label:"ReadMe Info"},
-      ];
+  
     
 return(
 <>
-<T_Navbar links= {T_Links}/>
+<Adding_Form>
+  <Text_Box
+    label="Username"
+    placeholder="Enter Username"
+    type="text"
+    name="username"
+    id="username"
+    required/>
+  <Text_Box
+    label="Email"
+    placeholder="Enter Email"
+    type="email"
+    name="email"
+    id="email"
+    required/>
+  <Text_Box
+    label="Password"
+    placeholder="Enter Password"
+    type="password"
+    name="password"
+    id="password"
+    required/>
+  <Text_Box
+    label="Confirm Password"
+    placeholder="Confirm Password"
+    type="password"
+    name="confirm_password"
+    id="confirm_password"
+    required/>
+  <Text_Box
+    label="First Name"
+    placeholder="Enter First Name"
+    type="text"
+    name="first_name"
+    id="first_name"
+    required/>  
+  <Text_Box
+    label="Last Name"
+    placeholder="Enter Last Name"
+    type="text"
+    name="last_name"
+    id="last_name"
+    required/>
+  <Text_Box
+    label="Phone Number"
+    placeholder="Enter Phone Number"
+    type="tel"
+    name="phone_number"
+    id="phone_number"
+    required/>
+  <Text_Box
+    label="Address"
+    placeholder="Enter Address"
+    type="text"
+    name="address"
+    id="address"
+    required/>
+  <Text_Box
+    label="City"
+    placeholder="Enter City"
+    type="text"
+    name="city"
+    id="city"
+    required/>
+  <Text_Box
+    label="State"
+    placeholder="Enter State"
+    type="text"
+    name="state"
+    id="state"
+    required/>
+  <Text_Box
+    label="Zip Code"
+    placeholder="Enter Zip Code"
+    type="text"
+    name="zip_code"
+    id="zip_code"
+    required/>
+  <Text_Box
+    label="Country"
+    placeholder="Enter Country"
+    type="text"
+    name="country"
+    id="country"
+    required/>
+  <Text_Box
+    label="Profile Picture"
+    placeholder="Enter Profile Picture"
+    type="file"
+    name="profile_picture"
+    id="profile_picture"
+    required/>
+  <Text_Box
+    label="Bio"
+    placeholder="Enter Bio"
+    type="text"
+    name="bio"
+    id="bio"
+    required/>
+  <Check_Box
+    label="I agree to the Terms and Conditions"
+    name="terms"
+    id="terms"
+    required/>
+  <Check_Box
+    label="Playstation Series"
+    name="Game_system"
+    id="Playstation"
+    required/>
+  <Check_Box
+    label="Xbox Series"
+    name="Game_system"
+    id="Xbox"
+    required/>
+  <Check_Box
+    label="PC"
+    name="Game_system"
+    id="PC"
+    required/>
+  <Check_Box
+    label="Nintendo Systems"
+    name="Game_system"
+    id="Nintendo"
+    required/>
+  <Check_Box
+    label="Steam"
+    name="Game_system"
+    id="Steam"
+    required/>
+</Adding_Form>
 
-<B_Navbar links= {B_Links}/>
 </>
 
 )

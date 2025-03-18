@@ -34,7 +34,7 @@ const Adding_Form = ({ children, onSubmit }) => {
           {children}
   
           <Button_btn 
-            label="Add This Content" 
+            label="SUBMIT" 
             onClickAction="SUBMIT_FORM"
             type="submit" 
             style={{

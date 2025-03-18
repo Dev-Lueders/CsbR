@@ -1,0 +1,18 @@
+{
+    "DD_Game_Systems": [
+        {"label": "Playstation 6", "value": "ps6"},
+        {"label": "Playstation 5", "value": "ps5"},
+        {"label": "Playstation 4", "value": "ps4"},
+        {"label": "Playstation 3", "value": "ps3"},
+        {"label": "Playstation 2", "value": "ps2"},
+        {"label": "Playstation 1", "value": "ps1"},
+        {"lable": "Xbox Series X", "value": "xsx"},
+        {"label": "Xbox Series S", "value": "xss"},
+        {"label": "Xbox One", "value": "xo"},
+        {"label": "Xbox 360", "value": "xb360"},
+        {"label": "Xbox", "value": "xb"},
+        {"label": "Nintendo Switch", "value": "ns"},
+        {"label": "Nintendo Switch 2", "value": "ns2"},
+        {"label": "PC", "value": "pc"}
+    ]
+}
