@@ -1,7 +1,7 @@
 const DD_Default_Props = {
     options: [],
     label: "Select an option",
-    onSelect: () => {},
+    onChange: () => {},
     containerStyle: {},
     dropdownStyle: {},
     optionStyle: {},

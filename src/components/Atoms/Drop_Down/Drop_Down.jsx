@@ -1,8 +1,10 @@
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import DD_Default_Props from './DD_Default_Props';
+// import DD_Default_Props from '../../Components_Data/Def_Atom/DD_Default_Props';
 
-const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdownStyle, optionStyle, maxOptionsVisible }) => {
+
+const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdownStyle, optionStyle, maxOptionsVisible }) => {
+ 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [highlightedIndex, setHighlightedIndex] = useState(null);
@@ -12,11 +14,14 @@ const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdo
   const inputRef = useRef(null);
   const liveRegionRef = useRef(null);
 
-  const filteredOptions = useMemo(
-    () => options.filter(option => option.label.toLowerCase().includes(searchTerm.toLowerCase())),
-    [options, searchTerm]
-  );
 
+
+  const filteredOptions = useMemo(
+    () => (Array.isArray(options) ? options.filter(option => option.label.toLowerCase().includes(searchTerm.toLowerCase())) : []),
+    [options, searchTerm]
+    
+  );
+  
   const toggleDropdown = useCallback(() => {
     setIsOpen((prev) => !prev);
     if (!isOpen) {
@@ -27,7 +32,7 @@ const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdo
 
   const handleSelect = useCallback((option) => {
     setSelectedOption(option);
-    onSelect(option.value);
+    onChange(option.value);
     setIsOpen(false);
     setHighlightedIndex(null);
     setSearchTerm("");
@@ -35,7 +40,7 @@ const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdo
     if (liveRegionRef.current) {
       liveRegionRef.current.textContent = `Selected: ${option.label}`;
     }
-  }, [onSelect]);
+  }, [onChange]);
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === "ArrowDown") {
@@ -185,13 +190,13 @@ const Drop_Down = React.memo(({ options, label, onSelect, containerStyle, dropdo
 Drop_Down.propTypes = {
   options: PropTypes.array.isRequired,
   label: PropTypes.string.isRequired,
-  onSelect: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   containerStyle: PropTypes.object,
   dropdownStyle: PropTypes.object,
   optionStyle: PropTypes.object,
   maxOptionsVisible: PropTypes.number,
 };
 
-Drop_Down.defaultProps = DD_Default_Props;
+
 
 export default Drop_Down;

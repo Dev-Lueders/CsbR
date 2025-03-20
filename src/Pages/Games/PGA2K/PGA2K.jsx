@@ -74,12 +74,12 @@ const PGA2K = () => {
         {/* <Drop_Down
                 options={Drop_Course}
                 label="Course Forms"
-                onSelect={handleSelect}        
+                onChange={handleSelect}        
         > */}   {/*uncomment when content pages are done */}
          {/* <Drop_Down 
                 options={Drop_Review} 
                 label="Review Forms"
-                onSelect={handleSelect}/> */}
+                onChange={handleSelect}/> */}
                 
         </Main_Content>
         <Media_Container/>

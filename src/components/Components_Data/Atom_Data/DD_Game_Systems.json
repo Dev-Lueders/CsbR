@@ -1,0 +1,11 @@
+{"DD_Game_Systems" : [
+    { "label": "Game System", "value": "" },
+    { "label": "PlayStation 3", "value": "PS3" },
+    { "label": "Playstation 4", "value": "PS4" },
+    { "label": "Playstation 5", "value": "PS5" },
+    { "label": "Xbox", "value":"Xbox"},
+    { "label": "Xbox One", "value":"Xbox1"},
+    { "label":"Xbox 360", "value":"Xbox360"},
+    { "label":"Steam", "value":"Steam"}
+  ]
+}

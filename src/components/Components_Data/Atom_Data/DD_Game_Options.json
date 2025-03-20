@@ -1,0 +1,11 @@
+{
+   "DD_Game_Options" : [
+        {"label": "PGA Tour 2K19", "value":"PGA2K19"},
+        {"label": "PGA Tour 2K21", "value":"PGA2K21"},
+        {"label": "PGA Tour 2K23", "value":"PGA2K23"},
+        {"label": "PGA Tour 2K25", "value":"PGA2K25"},
+        {"label": "HotWheels", "value":"HotWheels"},
+        {"label": "Lego Drive 2K", "value":"LegoDrive2K"},
+        {"label":"Gran Turismo 7", "value":"GT7"}
+          ]
+}

@@ -8,6 +8,7 @@
 // - onChange: The function to call when the input changes.
 // - ...props: Any additional props (such as styling or className) that you want to pass to the input.
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Text_Box = ({
   labelText = 'Label:',
@@ -31,7 +32,7 @@ const Text_Box = ({
         id={id}
         placeholder={placeholderText}
         value={value}
-        onChange={onChange}
+        onChange={(e) => onChange (e.target.value)}
         maxLength={maxLength} // Limits the character count
         style={{ padding: '0.5rem', ...inputStyle }}
         {...props}
@@ -40,4 +41,11 @@ const Text_Box = ({
   );
 };
 
+Text_Box.PropTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  ariaLabel: PropTypes.string,
+  name:PropTypes.string,
+}
 export default Text_Box;
