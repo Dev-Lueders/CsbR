@@ -24,7 +24,7 @@ return(
 <ul>Welcome to CreatorsanboxReview, the ultimate platform for user-generated content (UGC) built for the creator, by the creator. Our mission is to provide a space where gamers, content creators, and enthusiasts can share, discover, and review in-game creations with ease.
 </ul>
 <h3>What We Offer</h3>
-<ul>🔹 Comprehensive Search & Review System – Easily find and evaluate the best user-generated content, from custom builds to detailed game strategies.
+<ul>🔹 Comprehensive Search & Review System – Easily find and evaluate the best user-generated content.
 </ul>
 <ul>🔹 Seamless Sharing – Share your favorite game content, character builds, and challenges across multiple platforms.
 </ul>

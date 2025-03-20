@@ -2,7 +2,7 @@ import "../../components_styles.css";
 import { Link } from "react-router-dom"; // Fixed import
 import { Navbar, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import PropTypes from "prop-types"
 const L_Navbar = ({ links = [], children }) => {
   return (
     <>

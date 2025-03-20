@@ -16,49 +16,49 @@ return(
   
  
   <Text_Box
-    label="Username"
+    labelText="Username"
     placeholder="Enter Username"
     type="text"
     name="username"
     id="username"
     required/>
   <Text_Box
-    label="Email"
+    labelText="Email"
     placeholder="Enter Email"
     type="email"
     name="email"
     id="email"
     required/>
   <Text_Box
-    label="Password"
+    labelText="Password"
     placeholder="Enter Password"
     type="password"
     name="password"
     id="password"
     required/>
   <Text_Box
-    label="Confirm Password"
+    labelText="Confirm Password"
     placeholder="Confirm Password"
     type="password"
     name="confirm_password"
     id="confirm_password"
     required/>
   <Text_Box
-    label="First Name"
+    labelText="First Name"
     placeholder="Enter First Name"
     type="text"
     name="first_name"
     id="first_name"
     required/>  
   <Text_Box
-    label="Last Name"
+    labelText="Last Name"
     placeholder="Enter Last Name"
     type="text"
     name="last_name"
     id="last_name"
     required/>
   <Text_Box
-    label="Phone Number"
+    labelText="Phone Number"
     placeholder="Enter Phone Number"
     type="tel"
     name="phone_number"
@@ -74,49 +74,49 @@ return(
   </Button_btn>
 
   <Text_Box
-    label="Address"
+    labelText="Address"
     placeholder="Enter Address"
     type="text"
     name="address"
     id="address"
     required/>
   <Text_Box
-    label="City"
+    labelText="City"
     placeholder="Enter City"
     type="text"
     name="city"
     id="city"
     required/>
   <Text_Box
-    label="State"
+    labelText="State"
     placeholder="Enter State"
     type="text"
     name="state"
     id="state"
     required/>
   <Text_Box
-    label="Zip Code"
+    labelText="Zip Code"
     placeholder="Enter Zip Code"
     type="text"
     name="zip_code"
     id="zip_code"
     required/>
   <Text_Box
-    label="Country"
+    labelText="Country"
     placeholder="Enter Country"
     type="text"
     name="country"
     id="country"
     required/>
   <Text_Box
-    label="Profile Picture"
+    labelText="Profile Picture"
     placeholder="Enter Profile Picture"
     type="file"
     name="profile_picture"
     id="profile_picture"
     required/>
   <Text_Box
-    label="Bio"
+    labelText="Bio"
     placeholder="Enter Bio"
     type="text"
     name="bio"

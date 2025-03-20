@@ -19,7 +19,7 @@ const Landing_Page = () => {
   const T_Links = [
     { label: "Home", path: "/" },
     { label: "About", path: "/About" },
-    { label: "Log In", path:"/Login_Page"},
+    { label: "Log In", path:"/Login"},
     { label: "Testing Components", path: "/Component_Testing" }
   ];
 

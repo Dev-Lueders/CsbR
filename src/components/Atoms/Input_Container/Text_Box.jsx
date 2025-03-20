@@ -8,7 +8,7 @@
 // - onChange: The function to call when the input changes.
 // - ...props: Any additional props (such as styling or className) that you want to pass to the input.
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const Text_Box = ({
   labelText = 'Label:',
@@ -41,11 +41,18 @@ const Text_Box = ({
   );
 };
 
-Text_Box.PropTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  ariaLabel: PropTypes.string,
-  name:PropTypes.string,
+Text_Box.propTypes = {
+  value: propTypes.string.isRequired,
+  onChange: propTypes.func.isRequired,
+  placeholderText: propTypes.string,
+  ariaLabel: propTypes.string,
+  name:propTypes.string,
+  labelText: propTypes.string,
+  labelStyle:propTypes.object,
+  id: propTypes.string,
+  maxLength: propTypes.number,
+  inputStyle: propTypes.object,
+  containerStyle:propTypes.object,
+
 }
 export default Text_Box;

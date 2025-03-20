@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+// import {memoizedSelectStats} from '../../selectors';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../components_styles.css";
 import Pagination from '../Pagination/pagination_component.jsx';
