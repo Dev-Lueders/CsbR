@@ -6,16 +6,16 @@ import PropTypes from "prop-types";
 
 const Adding_Form = ({ children, onSubmit }) => {
     const T_Links = [
-      { label: "Home", href: "/" },
-      { label: "Sign Up", href: "/SignUp_Page" },
-      { label: "Login", href: "/Login" },
-      { label: "Logout", href: "/" },
+      { label: "Home", path: "/" },
+      { label: "Sign Up", path: "/SignUp_Page" },
+      { label: "Login", path: "/Login" },
+      { label: "Logout", path: "/" },
     ];
   
     const B_Links = [
-      { label: "About", href: "/About" },
-      { label: "Games", href: "/Games" },
-      { label: "Help", href: "/Help" },
+      { label: "About", path: "/About" },
+      { label: "Games", path: "/Games" },
+      { label: "Help", path: "/Help" },
     ];
   
     return (
