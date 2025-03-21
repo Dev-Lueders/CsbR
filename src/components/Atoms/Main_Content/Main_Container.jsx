@@ -1,16 +1,32 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../components_styles.css";
+import PropTypes from 'prop-types';
 
-// Accept both MC_Style and children props
-const Main_Container = ({ MC_Style = {}, children }) => {
+const Main_Container = ({ MC_Style, children }) => {
+  const selector_Main_Container = useSelector(state => state.MC_Box || []);
   return (
-    <div className="main-content-box" style={MC_Style}>
-      <h3 style={{ marginBottom: '5vh' }}>Main Content</h3>
-      {/* Render any nested components here */}
+    <div className="Main_Content"
+      style={MC_Style}
+      role="region"
+      aria-label="Main Content">
+
+      <h3 className="MC_class">Main Content</h3>
       {children}
     </div>
   );
+};
+
+Main_Container.propTypes = {
+  MC_Style: PropTypes.object,
+  children: PropTypes.node,
+  mediaType: PropTypes.oneOf(['map', 'image', 'video'])
+
+};
+
+Main_Container.defaultProps = {
+  MC_Style: {},
 };
 
 export default Main_Container;

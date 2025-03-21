@@ -2,34 +2,32 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../components_styles.css";
+import PropTypes from 'prop-types';
 
-const MediaContainer = ({ children }) => { 
-  const selector_MediaContainer = useSelector(state => state.boxState);
+const Media_Container = ({ ME_Style, children }) => {
+  const selector_Media_Container = useSelector(state => state.ME_Box || []);
 
   return (
-    <div
-      className="box-container"
-      style={{
-        position: 'absolute',
-        top: '6.8vh',
-        right: '0vw',
-        width: 'calc(50vw - 10vw)',
-        height: '39.3vh',
-        margin: '0',
-        border: '2px solid black',
-        padding: '20px',
-        boxShadow: '10px 15px 5px rgba(211, 211, 211, 0.6)',
-        backgroundColor: '#fff',
-        zIndex: 10,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: 'hidden',
-      }}
-    >
-      {children} {/* Accepts WorldMap as a child component */}
+    <div className="Media_Content"
+      style={ME_Style}
+      role="region"
+      aria-label="Media Section">
+
+      <h3 className="ME_class">Media Content</h3>
+      {children}
     </div>
   );
 };
 
-export default MediaContainer;
+Media_Container.propTypes = {
+  ME_Style: PropTypes.object,
+  children: PropTypes.node,
+  mediaType: PropTypes.oneOf(['map', 'image', 'video'])
+
+};
+
+Media_Container.defaultProps = {
+  ME_Style: {},
+};
+
+export default Media_Container;

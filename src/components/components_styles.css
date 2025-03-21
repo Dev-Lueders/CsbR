@@ -1,7 +1,46 @@
 /* THIS CSS FILE IS FOR THE PLACEMENT OF THE COMPONENTS  
 WIDTH, HIEGHT, MARGIN, BORDER, PADDING...COLOR, TEXT ALIGNMENT, BACKGROUNDS, AND HOVERING DONE IN THE PAGE STYLES, FOR MORE SPECIFIC STYLES ARE DONE INLINE ON THE PAGE. */
 
+.Main_Content{
+  width:30%;
+  border: 42px;
+  background-color: blue;
+  padding: 50vh;
+  margin:0 10vw
+}
 
+.Media_Content{
+  width:30%;
+  border-radius: 42px;
+  background-color: blue;
+  padding: 50vh;
+  margin:0 10vw
+}
+.Stats_Content{
+  width:30%;
+  border-radius: 42px;
+  background-color: blue;
+  padding: 50vh;
+  margin:0 10vw
+}
+
+.UGC_Card{
+
+  display: inline-block;
+  white-space: nowrap;
+  animation: moveCard 10s linear infinite;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: chartreuse;
+}
+
+@keyframes moveCard {
+  0% { transform: translateX(100%);
+  }
+  100%{
+     transform: translateX(-100%);
+  }
+}
 
 .pagination button {
     padding: 8px 12px;
