@@ -11,14 +11,14 @@ WIDTH, HIEGHT, MARGIN, BORDER, PADDING...COLOR, TEXT ALIGNMENT, BACKGROUNDS, AND
 
 .Media_Content{
   width:30%;
-  border-radius: 42px;
+  border: 42px;
   background-color: blue;
   padding: 50vh;
   margin:0 10vw
 }
 .Stats_Content{
   width:30%;
-  border-radius: 42px;
+  border: 42px;
   background-color: blue;
   padding: 50vh;
   margin:0 10vw

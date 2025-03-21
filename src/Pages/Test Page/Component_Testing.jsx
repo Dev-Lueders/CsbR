@@ -12,7 +12,7 @@ const Component_Testing = () => {
   <Main_Container/>
   <Stats_Container/>
   <Media_Container/>
-        
+        <UGC_Card/>
         </>
     );
     }

@@ -1,0 +1,9 @@
+{
+    "Drop_Down_Difficulty": [
+      { "label": "Easiest", "value": "dif_Easiest" },
+      { "label": "Easy", "value": "dif_Easy" },
+      { "label": "Medium", "value": "dif_Medium" },
+      { "label": "Hard", "value": "dif_Hard" },
+      { "label": "Hardest", "value": "dif_Hardest" }
+    ]
+}

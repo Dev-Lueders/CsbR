@@ -12,6 +12,8 @@ const UGC_Card =({UGC_Style, children }) => {
         aria-label="User Generated Content"
         >
         
+
+        
         </div>
     );
 };
