@@ -4,11 +4,20 @@ import { useState } from "react";
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Button_btn from "../../components/Atoms/Buttons/Button";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
-
+import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
 
 const Login_Page = () => {
 const [username, setUsername] = useState("");
 const [password,setPassword] = useState("");
+const B_Links= [
+        {label: "Home", path:"/"},
+        {label: "About", path:"/About"},
+        {label: "Legal", path:"/Legal_Page"},
+        {label: "Contact Us", path: "/Contact"},
+        {label: "SignUp", path:"/SignUp_Page"},
+        {label: "Support", path:"/Support"}
+]
+        
 return(
 <>
 <Form>
@@ -49,6 +58,7 @@ label="Select here to Remember Me"
           style={{ padding: "10px 20px" }} 
         />
 </Form>
+<B_Navbar links = {B_Links}/>
 </>
 )}
 export default Login_Page;
