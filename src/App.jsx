@@ -2,19 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container, Navbar, Nav, Row, Col } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Page_Grid from './components/Atoms/Page_Grid/Page_Grid.jsx'
 
 import './components/components_styles.css';
 import './App.css';
-import Radio_btn from './components/Atoms/Buttons/Radio.jsx'
-import Button_btn from './components/Atoms/Buttons/Button.jsx';
-import Text_Box from './components/Atoms/Input_Container/Text_Box.jsx';
-import Scroll_Bar from './components/Atoms/Scroll_Bar/Scroll_Bar.jsx';
-import Check_Box from './components/Atoms/Check_Box/Check_Box.jsx';
-import WorldMap from './components/Atoms/World_Map/World_Map.jsx';
-import Drop_Down from './components/Atoms/Drop_Down/Drop_Down.jsx';
-// import Up_Loading from './components/Up_Load/Up_Loading.jsx';
-
 
 import ReadMe from './Pages/Help/Readme.jsx'
 import Games from './Pages/Games/Games_Page';
@@ -43,37 +34,38 @@ import Component_Testing from './Pages/Test Page/Component_Testing.jsx';
 const App = () => {
  return (
     <>
-      <Routes>
+     <Routes>
         <Route path="/Component_Testing" element={<Component_Testing/>}/>
 
 
-        <Route path="/Games" element={<Games/>}/>
-        <Route path="/Login" element={<Login_Page/>}/>
-        <Route path="/" element={<Landing_Page />} />
-        <Route path="/About" element={<About/>}/>
+        <Route path="/Games" element={<Page_Grid><Games/></Page_Grid>}/>
+        <Route path="/Login" element={<Page_Grid><Login_Page/></Page_Grid>}/>
+        <Route path="/" element={<Page_Grid><Landing_Page /></Page_Grid>} />
+        <Route path="/About" element={<Page_Grid><About/></Page_Grid>}/>
               
-        <Route path="/Creators_Page" element={<Creators_Page/>}/>
-        <Route path="/Creators_SignUp" element={<Creators_SignUp/>}/>
-        <Route path="/Profile_Page" element={<Profile_Page />} />
-        <Route path="/SignUp_Page" element={<SignUp_Page />} />
+        <Route path="/Creators_Page" element={<Page_Grid><Creators_Page/></Page_Grid>}/>
+        <Route path="/Creators_SignUp" element={<Page_Grid><Creators_SignUp/></Page_Grid>}/>
+        <Route path="/Profile_Page" element={<Page_Grid><Profile_Page /></Page_Grid>} />
+        <Route path="/SignUp_Page" element={<Page_Grid><SignUp_Page /></Page_Grid>} />
               
               
 
-        <Route path="/PGA2K" element={<PGA2K/>}/>
-        <Route path="/Search_Page_PGA2K23" element={<Search_Page_PGA2K23 />} />
-        <Route path="/Results_Page_PGA2K23" element={<Results_Page_PGA2K23/>}/> 
+        <Route path="/PGA2K" element={<Page_Grid><PGA2K/></Page_Grid>}/>
+        <Route path="/Search_Page_PGA2K23" element={<Page_Grid><Search_Page_PGA2K23 /></Page_Grid>} />
+        <Route path="/Results_Page_PGA2K23" element={<Page_Grid><Results_Page_PGA2K23/></Page_Grid>}/> 
 
-        <Route path="/PGA2K23_C_Long" element={<PGA2K23_C_Long/>}/>
-        <Route path="/PGA2K23_R_Long" element={<PGA2K23_R_Long/>}/>
+        <Route path="/PGA2K23_C_Long" element={<Page_Grid><PGA2K23_C_Long/></Page_Grid>}/>
+        <Route path="/PGA2K23_R_Long" element={<Page_Grid><PGA2K23_R_Long/></Page_Grid>}/>
         
-        <Route path="/Search_Page_PGA2K25" element={<Search_Page_PGA2K25 />} />
-        <Route path="/Results_Page_PGA2K25" element={<Results_Page_PGA2K25/>}/> 
+        <Route path="/Search_Page_PGA2K25" element={<Page_Grid><Search_Page_PGA2K25 /></Page_Grid>} />
+        <Route path="/Results_Page_PGA2K25" element={<Page_Grid><Results_Page_PGA2K25/></Page_Grid>}/> 
 
-        <Route path="/Suggestion_Box" element={<Suggestion_Box/>}/>
-        <Route path="/Help" element={<Help/>}/>
-        <Route path="/Legal" element = {<Legal/>}/>
-        <Route path="/ReadMe" element = {<ReadMe/>}/>
-      </Routes>
+        <Route path="/Suggestion_Box" element={<Page_Grid><Suggestion_Box/></Page_Grid>}/>
+        <Route path="/Help" element={<Page_Grid><Help/></Page_Grid>}/>
+        <Route path="/Legal" element = {<Page_Grid><Legal/></Page_Grid>}/>
+        <Route path="/ReadMe" element = {<Page_Grid><ReadMe/></Page_Grid>}/>
+     
+     </Routes>
 
     </>
   )

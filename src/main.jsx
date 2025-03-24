@@ -12,8 +12,8 @@ createRoot(document.getElementById('root')).render(
   <Provider store ={store}>
       <StrictMode>
           <Router>
-                  <App/>
-          </Router>
+          <App />
+        </Router>
       </StrictMode>
   </Provider> 
   </>
