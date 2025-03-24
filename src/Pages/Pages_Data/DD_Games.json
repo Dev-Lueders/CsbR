@@ -1,0 +1,23 @@
+{
+    "DD_Game_Systems": [
+        {"label": "PGA Tour 2k23", "value": "2K23"},
+        {"label": "PGA Tour 2K25", "value": "2K25"},
+        {"label": "PGA Tour 2K27", "value": "2K27"},
+        {"label": "Minecraft","value":"Minecraft"},
+        {"label": "Lego 2K Drive","value":"Lego_2K_Drive"},
+        {"label": "Hotwheels","value":"HotWheels"},
+        {"label": "Roblox","value":"Roblox"},
+        {"label": "Gran Turismo 7","value":"Turismo7"},
+        {"label": "Sims 4","value":"Sims_4"},
+        {"label": "Sims 3","value":"Sims_3"},
+        {"label": "Little Big Planet","value":"LBP"},
+        {"label": "Super Mario Maker 1","value":"SMM1"},
+        {"label": "Super Mario Maker 2","value":"SMM2"},
+        {"label": "Fallout 4","value":"FO4"},
+        {"label": "Skyrim","value":"Skyrim"},
+        {"label": "Dreams","value":"Dreams"},
+        {"label": "City Skylines","value":"City_Skylines"},
+        {"label": "Kerbal Space Program","value":"Kerbal_Space_Program"},
+        {"label": "Tony Hawk Pro Skater 2", "value": "THPS2"}
+    ]
+}

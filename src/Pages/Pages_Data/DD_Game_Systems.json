@@ -6,7 +6,7 @@
         {"label": "Playstation 3", "value": "ps3"},
         {"label": "Playstation 2", "value": "ps2"},
         {"label": "Playstation 1", "value": "ps1"},
-        {"lable": "Xbox Series X", "value": "xsx"},
+        {"label": "Xbox Series X", "value": "xsx"},
         {"label": "Xbox Series S", "value": "xss"},
         {"label": "Xbox One", "value": "xo"},
         {"label": "Xbox 360", "value": "xb360"},
