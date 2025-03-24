@@ -27,20 +27,20 @@ top right bottom left
   background-color: red;
   
   border: 5px;
-  padding: 4% 4% 4% 4%;
-  margin: 17% 5% 2% 7%
+  padding: 1% 1% 1% 1%;
+  margin: 17% 0% auto 0%
 }
 .Stats_Content{
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  flex-direction: row;
 
-  width:25vw;
-  height:5vh;
+  width:30vw;
+  height:63.5vh;
   background-color: green;
   
   border: 42px;
   padding: auto;
-  margin: auto 0% 0% 74.5%4
+  margin: 0% 70% 30% 0%
 }
 
 .UGC_Card{
