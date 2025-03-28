@@ -1,24 +1,28 @@
-// Still needs functionality
-
-
 import React from "react";
-import PropTypes from 'prop-types';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../components_styles.css';
+import PropTypes from "prop-types";
+import "../../components_styles.css";
 
 const Scroll_Bar = ({ height, width, children, gridPosition }) => {
+  // Define grid styles using optional chaining
+  const gridStyles = {
+    gridColumn: gridPosition?.col || "auto",
+    gridRow: gridPosition?.row || "auto",
+  };
+
   return (
     <div
       className="custom-scrollbar"
       style={{
+        ...gridStyles,
         height,
         width,
-        overflowY: 'auto',
-        display: 'grid',
-        gridColumn: gridPosition?.col || 'auto',
-        gridRow: gridPosition?.row || 'auto',
+        overflowY: "auto",
+        overflowX: "hidden", // Prevent horizontal overflow
+        display: "grid",
+        WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
       }}
       aria-label="Scrollable container"
+      aria-live="polite" // Accessibility for dynamic content
     >
       {children}
     </div>
@@ -26,8 +30,8 @@ const Scroll_Bar = ({ height, width, children, gridPosition }) => {
 };
 
 Scroll_Bar.propTypes = {
-  height: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   children: PropTypes.node.isRequired,
   gridPosition: PropTypes.shape({
     col: PropTypes.string,
@@ -37,8 +41,8 @@ Scroll_Bar.propTypes = {
 
 Scroll_Bar.defaultProps = {
   gridPosition: {
-    col: 'auto',
-    row: 'auto',
+    col: "auto",
+    row: "auto",
   },
 };
 

@@ -28,6 +28,7 @@ const Landing_Page = () => {
     { path: "/Games", label: "Games" },
     { path: "/coming_soon", label: "New Features" },
     { path: "/Suggestion_Box", label: "Suggestion Box" },
+    { path: "/Client_Front_Page", label: "Client Pages"}
   ];
 
   const B_Links = [

@@ -6,7 +6,7 @@
 //  Master
 //  (A Member can be a User, Moderator, Admin, Master)
 
-import react from "@vitejs/plugin-react-swc";
+import React from 'react'
 import T_Navbar from "../../../components/Atoms/NavBar/T_Navbar";
 import L_Navbar from "../../../components/Atoms/NavBar/L_Navbar";
 import B_Navbar from "../../../components/Atoms/NavBar/B_Navbar";

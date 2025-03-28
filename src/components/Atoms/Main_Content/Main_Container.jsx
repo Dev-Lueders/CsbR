@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../../components_styles.css";
 import PropTypes from 'prop-types';
 
@@ -12,7 +11,7 @@ const Main_Container = ({ MC_Style, children }) => {
       role="region"
       aria-label="Main Content">
 
-      <h3 className="MC_class">Main Content</h3>
+      <h3 className="MC_class"></h3>
       {children}
     </div>
   );

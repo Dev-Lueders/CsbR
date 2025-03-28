@@ -9,9 +9,9 @@
 import T_Navbar from "../../../components/Atoms/NavBar/T_Navbar";
 import L_Navbar from "../../../components/Atoms/NavBar/L_Navbar";
 import B_Navbar from "../../../components/Atoms/NavBar/B_Navbar";
-import MediaContainer from "../../../components/Atoms/Media_Content/Media_Container";
+import Media_Container from "../../../components/Atoms/Media_Content/Media_Container";
 import Stats_Container from "../../../components/Atoms/Stats_Content/Stats_Container";
-import Main_Content from "../../../components/Atoms/Main_Content/Main_Content";
+import Main_Container from "../../../components/Atoms/Main_Content/Main_Container";
 
 
 const User_Page = () =>{
@@ -39,8 +39,8 @@ const User_Page = () =>{
 <T_Navbar links={T_Links}/>
 <L_Navbar links={L_Links}/>
 <B_Navbar links={B_Links}/>
-<Main_Content/>
-<MediaContainer/>
+<Main_Container/>
+<Media_Container/>
 <Stats_Container/>
 </>
     )
