@@ -1,0 +1,72 @@
+{
+  "default": {
+    "backgroundColor": "#007bff",
+    "color": "#ffffff",
+    "padding": "10px 20px",
+    "fontSize": "16px",
+    "borderRadius": "8px",
+    "border": "none",
+    "cursor": "pointer",
+    "transition": "background-color 0.3s ease"
+  },
+  "variants": {
+    "primary": {
+      "backgroundColor": "#007bff",
+      "color": "#ffffff"
+    },
+    "secondary": {
+      "backgroundColor": "#6c757d",
+      "color": "#ffffff"
+    },
+    "success": {
+      "backgroundColor": "#28a760",
+      "color": "#000000"
+    },
+    "danger": {
+      "backgroundColor": "#dc3545",
+      "color": "#ffffff"
+    },
+    "warning": {
+      "backgroundColor": "#ffc107",
+      "color": "#212529"
+    },
+    "info": {
+      "backgroundColor": "#17a2b8",
+      "color": "#ffffff"
+    },
+    "light": {
+      "backgroundColor": "#f8f9fa",
+      "color": "#212529"
+    },
+    "dark": {
+      "backgroundColor": "#343a40",
+      "color": "#ffffff"
+    },
+    "CsbR": {
+      "backgroundColor": "#ffc103",
+      "color": "#ffffff"
+    }
+  },
+  "sizes": {
+    "xsm": {
+      "padding": "2px 4px",
+      "fontSize": "7px"
+    },
+    "sm": {
+      "padding": "5px 10px",
+      "fontSize": "13px"
+    },
+    "md": {
+      "padding": "10px 20px",
+      "fontSize": "18px"
+    },
+    "lg": {
+      "padding": "14px 28px",
+      "fontSize": "24px"
+    },
+    "xlg": {
+      "padding": "21px 33px",
+      "fontSize": "30px"
+    }
+  }
+}

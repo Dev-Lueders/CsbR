@@ -1,0 +1,39 @@
+{
+  "container": {
+    "display": "flex",
+    "alignItems": "center",
+    "gap": "8px",
+    "cursor": "pointer",
+    "userSelect": "none"
+  },
+  "checkboxInput": {
+    "width": "16px",
+    "height": "16px",
+    "accentColor": "#007bff",
+    "cursor": "pointer"
+  },
+  "checkboxLabel": {
+    "fontSize": "14px",
+    "color": "#333"
+  },
+  "disabledLabel": {
+    "color": "#ccc",
+    "cursor": "not-allowed"
+  },
+  "checkedLabel": {
+    "color": "#007bff"
+  },
+  "hover": {
+    "checkboxLabel": {
+      "color": "#0056b3"
+    }
+  },
+  "focus": {
+    "checkboxInput": {
+      "outline": "2px solid #007bff"
+    }
+  },
+  "gridPosition": {
+    "gridArea": "auto"
+  }
+}

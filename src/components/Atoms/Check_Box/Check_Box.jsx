@@ -1,19 +1,39 @@
-// File: components/Input_Container/CheckBox.jsx
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
+const Check_Box = ({
+  id,
+  label,
+  checked = false,
+  onChange = () => {},
+  disabled = false,
+  className = "",
+  style = {},
+  gridPosition = "auto",
+}) => {
+  const handleChange = (e) => {
+    onChange(e.target.checked);
+  };
 
-const Check_Box = ({ id, label, checked, onChange }) => {
   return (
-    <div className="checkbox-container">
+    <div
+      className={`checkbox-container ${className}`}
+      style={{ ...style, gridArea: gridPosition }}
+    >
       <input
         type="checkbox"
         id={id}
         className="checkbox-input"
         checked={checked}
-        onChange={onChange}
+        onChange={handleChange}
+        disabled={disabled}
+        aria-checked={checked}
+        aria-disabled={disabled}
       />
-      <label htmlFor={id} className="checkbox-label">
+      <label
+        htmlFor={id}
+        className={`checkbox-label ${disabled ? "disabled" : ""}`}
+      >
         {label}
       </label>
     </div>
@@ -25,11 +45,10 @@ Check_Box.propTypes = {
   label: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
-};
-
-Check_Box.defaultProps = {
-  checked: false,
-  onChange: () => {},
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  gridPosition: PropTypes.string,
 };
 
 export default Check_Box;

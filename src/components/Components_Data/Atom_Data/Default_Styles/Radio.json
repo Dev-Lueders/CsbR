@@ -1,0 +1,53 @@
+{
+  "container": {
+    "display": "inline-flex",
+    "alignItems": "center",
+    "cursor": "pointer",
+    "position": "relative",
+    "padding": "8px 12px",
+    "gap": "8px"
+  },
+  "input": {
+    "position": "absolute",
+    "opacity": "0",
+    "cursor": "pointer"
+  },
+  "checkmark": {
+    "height": "16px",
+    "width": "16px",
+    "borderRadius": "50%",
+    "border": "2px solid #ccc",
+    "display": "inline-block",
+    "position": "relative",
+    "transition": "background-color 0.2s, border-color 0.2s"
+  },
+  "checkmarkChecked": {
+    "backgroundColor": "#007bff",
+    "borderColor": "#007bff"
+  },
+  "checkmarkInner": {
+    "content": "''",
+    "height": "8px",
+    "width": "8px",
+    "backgroundColor": "#fff",
+    "borderRadius": "50%",
+    "position": "absolute",
+    "top": "50%",
+    "left": "50%",
+    "transform": "translate(-50%, -50%)",
+    "display": "none"
+  },
+  "label": {
+    "fontSize": "14px",
+    "color": "#333",
+    "userSelect": "none"
+  },
+  "labelDisabled": {
+    "color": "#aaa",
+    "cursor": "not-allowed"
+  },
+  "focusStyle": {
+    "outline": "2px solid #0056b3",
+    "outlineOffset": "4px"
+  }
+}

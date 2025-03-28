@@ -1,56 +1,65 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../components_styles.css"; // Ensures styles align with your approach
 
-const Radio_btn = ({
+const RadioButton = ({
+  label,
   name,
   value,
-  checked = false, // Default to false if not provided
+  checked,
   onChange,
-  children,
-  gridPosition = {}, // Optional prop to handle grid positioning
-  className = "", // For custom className to be passed if needed
+  disabled = false,
+  className = "",
+  style = {},
+  gridPosition,
 }) => {
+  const handleChange = (e) => {
+    if (onChange) {
+      onChange(e.target.value);
+    }
+  };
+
   return (
-    <div
-      className={`form-check ${className}`}
-      style={gridPosition} // Inline styles to manage position on the grid
+    <label
+      className={`radio-button-container ${className}`}
+      style={{ ...style, gridArea: gridPosition }}
+      aria-label={label}
     >
       <input
         type="radio"
-        className="form-check-input"
         name={name}
         value={value}
         checked={checked}
-        onChange={onChange}
-        aria-labelledby={`${name}-${value}`} // Accessible label for screen readers
+        onChange={handleChange}
+        disabled={disabled}
+        aria-checked={checked}
+        role="radio"
       />
-      <label
-        className="form-check-label"
-        id={`${name}-${value}`} // Associating label with input
-      >
-        {children || value} {/* Default to value if no children */}
-      </label>
-    </div>
+      <span className="radio-checkmark"></span>
+      {label && <span className="radio-label">{label}</span>}
+    </label>
   );
 };
 
-// Define PropTypes for better documentation and validation
-Radio_btn.propTypes = {
+// PropTypes Validation
+RadioButton.propTypes = {
+  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
-  children: PropTypes.node,
-  gridPosition: PropTypes.object, // Optional prop for positioning
-  className: PropTypes.string, // Optional custom className
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  gridPosition: PropTypes.string,
 };
 
-// Define Default Props
-Radio_btn.defaultProps = {
-  checked: false, // Default to unchecked
-  gridPosition: {}, // Default empty, no inline styles
-  className: "", // No extra className by default
+// Default Props
+RadioButton.defaultProps = {
+  checked: false,
+  disabled: false,
+  className: "",
+  style: {},
+  gridPosition: "auto",
 };
 
-export default Radio_btn;
+export default RadioButton;
