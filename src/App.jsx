@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container, Navbar, Nav, Row, Col } from 'react-bootstrap';
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import Page_Grid from './components/Atoms/Page_Grid/Page_Grid.jsx'
 
 import './components/components_styles.css';

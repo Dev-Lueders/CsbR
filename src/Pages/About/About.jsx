@@ -1,6 +1,7 @@
 import "../../components/components_styles.css"
 import T_Navbar from "../../components/Atoms/NavBar/T_Navbar";
 import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
+import Main_Container from "../../components/Atoms/Main_Content/Main_Container";
 import React from "react";
 
 const About = () => {
@@ -20,7 +21,7 @@ const About = () => {
 return(
 <>
 <T_Navbar links = {T_Links}/>
-
+<Main_Container className= "Main_Content" style={{gridColumn:4/38, gridRow:4/38}}>
 <h1>About Us</h1>
 <ul>Welcome to CreatorsanboxReview, the ultimate platform for user-generated content (UGC) built for the creator, by the creator. Our mission is to provide a space where gamers, content creators, and enthusiasts can share, discover, and review in-game creations with ease.
 </ul>
@@ -43,7 +44,8 @@ return(
 We believe that gaming communities thrive on creativity and collaboration. That’s why we’ve built a scalable, modular platform where players can discover, share, and engage like never before. Whether you’re a casual gamer, a dedicated content creator, or a competitive strategist, our goal is to empower you with the tools to showcase your work and connect with others.
 
 Join us as we build the future of in-game UGC discovery. 🚀
-</ul>
+            </ul>
+            </Main_Container>
 <B_Navbar links = {B_Links}/>
 </>
 
