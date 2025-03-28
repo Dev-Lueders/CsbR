@@ -1,31 +1,26 @@
 import "../../components_styles.css";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
+
+
+
 
 const T_Navbar = ({ links = [], children }) => {
   return (
     <Navbar
+      className="t_NavBar"
       bg="dark"
       variant="dark"
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "8vh",
         zIndex: 2, // Ensure it's above other content
-        display: "flex",
         justifyContent: "center", // Center items
       }}
     >
       <Nav
-        className="t_NavBar"
+      
         style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
           justifyContent: "center",
         }}
       >

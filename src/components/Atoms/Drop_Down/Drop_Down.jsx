@@ -100,7 +100,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
           border: "none",
           borderRadius: "5px",
           cursor: "pointer",
-          display: "flex",
+          display: "grid",
           alignItems: "center",
           justifyContent: "space-between",
           width: "200px",
@@ -111,7 +111,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
         aria-controls="dropdown-menu"
       >
         {selectedOption ? selectedOption.label : label}
-        <span style={{ marginLeft: "10px" }}>▼</span>
+        <span style={{ display:"grid"}}>▼</span>
       </button>
 
       {/* Live region for ARIA announcements */}
@@ -123,7 +123,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
           id="dropdown-menu"
           ref={dropdownRef}
           style={{
-            position: "absolute",
+            
             top: "100%",
             left: "0",
             width: "100%",
@@ -158,7 +158,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
 
           {/* Option rendering */}
           {filteredOptions.length === 0 && (
-            <div style={{ padding: "10px" }}>No options found</div>
+            <div style={{}}>No options found</div>
           )}
 
           {filteredOptions.map((option, index) => (

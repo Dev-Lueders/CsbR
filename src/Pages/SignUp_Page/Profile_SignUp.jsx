@@ -35,18 +35,7 @@ const Profile_SignUp = () => {
     <>
       <T_Navbar links={T_Links} />
 
-      <Container>
-        {/* Full-width Scroll Bar */}
-        <Row className="justify-content-center my-4">
-          <Col md={12}>
-            <Scroll_Bar />
-          </Col>
-        </Row>
-
-        {/* Two-Column Form */}
-        <Row className="justify-content-center">
-          {/* Left Column */}
-          <Col md={6} className="d-flex flex-column align-items-center">
+     
             <Text_Box
               id="F_NAME"
               label="First Name"
@@ -75,10 +64,7 @@ const Profile_SignUp = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
-          </Col>
-
-          {/* Right Column */}
-          <Col md={6} className="d-flex flex-column align-items-center">
+    
             <Text_Box
               id="CLIENT_NAME"
               label="Your User Name"
@@ -101,16 +87,11 @@ const Profile_SignUp = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <Check_Box id="ShowPassword" label="Click here to show your password" />
-          </Col>
-        </Row>
+       
 
-        {/* Submit Button (Centered) */}
-        <Row className="justify-content-center my-3">
-          <Col md={6} className="text-center">
+     
             <Button_btn label="Submit" variant="success" />
-          </Col>
-        </Row>
-      </Container>
+      
 
       <B_Navbar links={B_Links} />
     </>

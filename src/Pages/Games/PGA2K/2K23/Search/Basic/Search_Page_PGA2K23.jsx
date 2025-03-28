@@ -9,7 +9,7 @@
 // Basic search should consist of tee qty, pin qty, designer name, Search through the reviews the best review or worst,
 // and Course Name
   
-
+import "../../../../../../components/components_styles.css"
 import WorldMap from "../../../../../../components/Atoms/World_Map/World_Map.jsx";
 import T_Navbar from "../../../../../../components/Atoms/NavBar/T_Navbar.jsx";
 import B_Navbar from "../../../../../../components/Atoms/NavBar/B_Navbar.jsx";
@@ -65,17 +65,11 @@ const Search_Page_PGA2K23 = () =>{
   
 return(
 <>
-<Scroll_Bar>
-<T_Navbar links = {T_Links}/>
-{/* <L_Navbar links = {L_Links}/> */}
-<div/>
-<br/><div/>
-<br/><div/>
-<br/><div/>
-<br/><div/>
-<br/><div/>
 
-<Drop_Down
+<T_Navbar links = {T_Links}/>
+
+    <L_Navbar> 
+     <Drop_Down
 id="srch_Difficulty"
 label="Difficulty" 
 options={Drop_Down}
@@ -99,15 +93,16 @@ options={Drop_Down}
 onChange={(value) => console.log("Selected:", value)} 
 containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
 selectStyle={{ width: "200px" }}
-/>
+/> 
+    
+    </L_Navbar>
 
-{/* <L_Navbar/> */}
-<MediaContainer/>
+<MediaContainer>
   <WorldMap/>
- 
+</MediaContainer>
 <Stats_Container/>
 <Main_Content/>
-</Scroll_Bar>
+
 <B_Navbar links = {B_Links}/>
 </>
 

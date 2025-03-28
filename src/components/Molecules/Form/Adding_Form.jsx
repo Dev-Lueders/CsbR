@@ -1,3 +1,4 @@
+import "../../../components/components_styles.css"
 import T_Navbar from "../../Atoms/NavBar/T_Navbar";
 import B_Navbar from "../../Atoms/NavBar/B_Navbar";
 import Button_btn from "../../Atoms/Buttons/Button";
@@ -24,9 +25,7 @@ const Adding_Form = ({ children, onSubmit }) => {
         <form
           onSubmit={onSubmit}
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+       
           }}
           aria-labelledby="form"
           role="form"

@@ -3,6 +3,7 @@ import T_Navbar from "../../../components/Atoms/NavBar/T_Navbar";
 import B_Navbar from "../../../components/Atoms/NavBar/B_Navbar";
 import Button_Component from "../../../components/Atoms/Buttons/Button";
 import Text_Box from "../../../components/Atoms/Input_Container/Text_Box";
+import "../../../components/components_styles.css"
 
 const Creators_Page = () => {
   const T_Links = [

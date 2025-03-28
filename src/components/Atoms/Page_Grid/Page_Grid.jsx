@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 const Page_Grid = ({ children, className = '', role ='main', style={}, ...props }) => {
     return (
-        <div className={`Page-Grid ${className}`} role={role} style={style} {...props}>
+        <div className={`Page_Grid ${className}`} role={role} style={style} {...props}>
             {children}
 
         </div>

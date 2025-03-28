@@ -1,3 +1,4 @@
+import "../../../../../../components/components_styles.css"
 import WorldMap from "../../../../../../components/Atoms/World_Map/World_Map.jsx";
 import T_Navbar from "../../../../../../components/Atoms/NavBar/T_Navbar.jsx";
 import B_Navbar from "../../../../../../components/Atoms/NavBar/B_Navbar.jsx";
@@ -25,31 +26,16 @@ const Results_Page_PGA2K23 = () => {
 
     
         // Define your desired custom styles for this page
-        const mc_props = {
-          position: 'absolute',
-          top: '6.8vh',
-          bottom: '7vh',
-          right: 'calc(49.75vw - 10vw)',
-          width: 'calc(51vw - 10vw)',
-          height: '86.2vh',
-          border: '2px solid black',
-          padding: '1vw',
-          boxShadow: '10px 15px 5px rgba(211, 211, 211, 0.6)',
-          backgroundColor: '#fff',
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          alignItems: 'center'
-        };
+
       
 return(
 <>
     <T_Navbar links= {T_NavLink}/>
-    <MediaContainer>
-        <WorldMap containerId ="Media_map"/>
+    <Main_Content />
+        <MediaContainer>
+        <WorldMap />
     </MediaContainer>
-    <Main_Content MC_Style = {mc_props}/>
+    
     <Stats_Container/>
 
     <B_Navbar links={B_NavLink}/>

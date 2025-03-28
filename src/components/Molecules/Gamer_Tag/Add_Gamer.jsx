@@ -2,6 +2,7 @@ import { useState } from "react";
 import Drop_Down from "../../Atoms/Drop_Down/Drop_Down";
 import Text_Box from "../../Atoms/Input_Container/Text_Box";
 import Check_Box from "../../Atoms/Check_Box/Check_Box";
+import "../../../components/components_styles.css"
 import PropTypes from 'prop-types';
 
 import DD_Game_Options from "../../Components_Data/Atom_Data/DD_Game_Options.json";

@@ -5,7 +5,7 @@
 // **********NOTICE THERE ARE NOTES AMONGST THE LEAGAL EASE STUFF*****************
 
 
-
+// import "../../Atoms/components/component_styles.css"
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import T_Navbar from "../../components/Atoms/NavBar/T_Navbar";
 import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";

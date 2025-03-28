@@ -30,27 +30,27 @@ import PGA2K23_R_Long from './Pages/Games/PGA2K/2K23/Adding Content/Reviews/Long
 import Search_Page_PGA2K25 from './Pages/Games/PGA2K/2K25/Search/Basic/Search_Page_2K25.jsx';
 import Results_Page_PGA2K25 from './Pages/Games/PGA2K/2K25/Search/Search_Results/Results_Page_2K25.jsx';
 import Component_Testing from './Pages/Test Page/Component_Testing.jsx';
-
+import "./components/components_styles.css"
 const App = () => {
  return (
     <>
      <Routes>
-        <Route path="/Component_Testing" element={<Component_Testing/>}/>
+        <Route path="/Component_Testing" element={<Page_Grid><Component_Testing/></Page_Grid>}/> {/*components.css applied */}
 
 
-        <Route path="/Games" element={<Page_Grid><Games/></Page_Grid>}/>
-        <Route path="/Login" element={<Page_Grid><Login_Page/></Page_Grid>}/>
-        <Route path="/" element={<Page_Grid><Landing_Page /></Page_Grid>} />
-        <Route path="/About" element={<Page_Grid><About/></Page_Grid>}/>
+        <Route path="/Games" element={<Page_Grid><Games/></Page_Grid>}/> {/*components.css  applied */}
+        <Route path="/Login" element={<Page_Grid><Login_Page/></Page_Grid>}/>  {/*components.css applied */}
+        <Route path="/" element={<Page_Grid><Landing_Page /></Page_Grid>} />  {/*components.css  applied */}
+        <Route path="/About" element={<Page_Grid><About/></Page_Grid>}/>  {/*components.css not applied */}
               
-        <Route path="/Creators_Page" element={<Page_Grid><Creators_Page/></Page_Grid>}/>
-        <Route path="/Creators_SignUp" element={<Page_Grid><Creators_SignUp/></Page_Grid>}/>
-        <Route path="/Profile_Page" element={<Page_Grid><Profile_Page /></Page_Grid>} />
-        <Route path="/SignUp_Page" element={<Page_Grid><SignUp_Page /></Page_Grid>} />
+        <Route path="/Creators_Page" element={<Page_Grid><Creators_Page/></Page_Grid>}/>{/*components.css not fully applied looks like the form is part of the issue*/ }
+          <Route path="/Creators_SignUp" element={<Page_Grid><Creators_SignUp /></Page_Grid>} />{/*components.css not fully applied looks like the form is part of the issue*/ }
+        <Route path="/Profile_Page" element={<Page_Grid><Profile_Page /></Page_Grid>} /> {/*components.css not fully applied looks like the form is part of the issue*/ }
+        <Route path="/SignUp_Page" element={<Page_Grid><SignUp_Page /></Page_Grid>} />  {/*components.css not applied */}
               
               
 
-        <Route path="/PGA2K" element={<Page_Grid><PGA2K/></Page_Grid>}/>
+        <Route path="/PGA2K" element={<Page_Grid><PGA2K/></Page_Grid>}/> {/*copmonents.css works beautifully */}
         <Route path="/Search_Page_PGA2K23" element={<Page_Grid><Search_Page_PGA2K23 /></Page_Grid>} />
         <Route path="/Results_Page_PGA2K23" element={<Page_Grid><Results_Page_PGA2K23/></Page_Grid>}/> 
 

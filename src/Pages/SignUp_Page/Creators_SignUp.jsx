@@ -1,5 +1,5 @@
 
-
+import "../../components/components_styles.css"
 import React, { useState } from "react";
 import T_Navbar from "../../components/Atoms/NavBar/T_Navbar";
 import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";

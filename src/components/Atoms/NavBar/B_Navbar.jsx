@@ -6,17 +6,15 @@ import PropTypes from "prop-types"
 const B_Navbar = ({ links = [], children }) => {
     return (
         <Navbar 
+            className="b_NavBar"
             bg="dark" 
             variant="dark"
             style={{
-                position: "fixed",
-                bottom: 0,
-                left: "0vw",
-                width: "100vw",
+             
                 zIndex: 1
             }}
         >
-            <Nav className="ms-auto b_NavBar">
+            <Nav >
                 {links.map((link, index) => (
                     <Nav.Link key={index} as={Link} to={link.path}>
                         {link.label}

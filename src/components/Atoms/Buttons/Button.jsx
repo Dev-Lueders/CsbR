@@ -22,6 +22,7 @@ const Button_btn = ({
   icon = null,
   children, // Allows passing JSX content instead of just a label
   navigateTo, 
+  gridPosition,
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -70,6 +71,8 @@ Button_btn.propTypes = {
   icon: PropTypes.node,
   children: PropTypes.node,
   navigateTo: PropTypes.string,
+  gridPosition: PropTypes.object,
 };
 
 export default Button_btn;
+
