@@ -60,6 +60,8 @@ const App = () => {
         <Route path="/Guest_Page" element={<Page_Grid>              <Guest_Page/>               </Page_Grid>} />
         <Route path="/User_Page" element={<Page_Grid>               <User_Page />               </Page_Grid>} /> 
         <Route path="/Moderator_Page" element={<Page_Grid>          <Moderator_Page/>           </Page_Grid>}/>
+        <Route path="/Admin_Page" element={<Page_Grid>               <Admin_Page />               </Page_Grid>} />
+        <Route path="/Master_Page" element={<Page_Grid>              <Master_Page/>              </Page_Grid>}/>
 
         <Route path="/PGA2K" element={<Page_Grid>                   <PGA2K/>                    </Page_Grid>}/> {/*components.css works beautifully */}
         <Route path="/Search_Page_PGA2K23" element={<Page_Grid>     <Search_Page_PGA2K23 />     </Page_Grid>} />
