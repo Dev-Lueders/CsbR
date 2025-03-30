@@ -9,37 +9,36 @@ import Stats_Container from '../../components/Atoms/Stats_Content/Stats_Containe
 import Media_Container from '../../components/Atoms/Media_Content/Media_Container';
 import UGC_Card from '../../components/Atoms/UGC_Cards/UGC_Cards';
 const Component_Testing = () => {
-    return (<></>)
-    //     const T_Links = [
-    //      { label: "Home", path: "/" },
-    //     ]
-    //     const L_Links = [
-    //     { path: "/Signup_Page", label: "SignUp" },
-    //     { path: "/Games", label: "Games"},
-    //     { path: "/coming_soon", label: "New Features" },
-    //     { path: "/Suggestion_Box", label: "Suggestion Box" },
-    //     ]
-    //     const B_Links = [
-    //     { path: "/SignUp_Page", label: "Signup" },
-    //     { path: "/Contact", label: "Contact Us" },
-    //     { path: "/Help", label: "Help" },
-    //     { path: "/About", label: "About" },
-    //     { path: "/Support", label: "Support" },
-    //     { path: "/Legal", label: "Legal" },
-    //     { path: "/ReadMe", label: "ReadMe Info"},]
-    //     return (
-
-    //         <>
-    //             <T_Navbar links={T_Links} />
-    //             <L_Navbar links={L_Links} />
+    const T_Links = [
+        { label: "Home", path: "/" },
+    ]
+    const L_Links = [
+        { path: "/Signup_Page", label: "SignUp" },
+        { path: "/Games", label: "Games" },
+        { path: "/coming_soon", label: "New Features" },
+        { path: "/Suggestion_Box", label: "Suggestion Box" },
+    ]
+    const B_Links = [
+        { path: "/SignUp_Page", label: "Signup" },
+        { path: "/Contact", label: "Contact Us" },
+        { path: "/Help", label: "Help" },
+        { path: "/About", label: "About" },
+        { path: "/Support", label: "Support" },
+        { path: "/Legal", label: "Legal" },
+        { path: "/ReadMe", label: "ReadMe Info" },]
+    return (
+        <>
+        
+            <T_Navbar links={T_Links} />
+            <L_Navbar links={L_Links} />
+            <Main_Container>
+                <UGC_Card />
+            </Main_Container>
+            <Stats_Container />
+            <Media_Container />
             
-    //   <Main_Container/>
-    //   <Stats_Container/>
-    //   <Media_Container/>
-    //             <UGC_Card />
-    //             <B_Navbar links={B_Links}/>
-    //         </>
-    //     );
-    //     }
+            <B_Navbar links={B_Links} />
+        </>
+    )
 }
     export default Component_Testing;

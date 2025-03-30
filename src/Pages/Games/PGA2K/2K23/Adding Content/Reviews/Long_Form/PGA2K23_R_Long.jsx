@@ -16,10 +16,16 @@ import PGA_DD_SolSys_List from '../../../../Data/PGA_DD_SolSys_List.json';
 
 
 const PGA2K23_R_Long = () => {
-
-<>
-</>
-
+return (
+  <>
+    <h1>Long Review Form for a PGA 2K23 Course</h1>
+        <form>
+            <Text_Box/>
+        
+        
+    </form>
+  </>
+);
 
 
 }
