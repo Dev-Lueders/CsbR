@@ -10,12 +10,12 @@ const Course_Review = () => {
       <>
             <Adding_Form>
                 
-                <Drop_Down label ="What Version is the Course on?" options={PGA_DD_Game_Version} />
+                {/* <Drop_Down label ="What Version is the Course on?" options={PGA_DD_Game_Version} />
                 <Text_Box label="Course Name" placeholder="Course Name" />
                 <Text_Box label="Designer" placeholder="Designer Name" />
                 <Drop_Down label="Would you play this course again?" options={PGA_DD_Play} />
                 <Drop_Down label="How would you rate the Fairways?" options={PGA_DD_Review_Score_1to5}/>
-                <Drop_Down label="How would you rate the Greens?" options={PGA_DD_Review_Score_1to5} />
+                <Drop_Down label="How would you rate the Greens?" options={PGA_DD_Review_Score_1to5} /> */}
                 
 
         </Adding_Form>

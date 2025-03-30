@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Adding_Form from '../../components/Molecules/Form/Adding_Form';
+
 import "../../components/components_styles.css"
 import T_Navbar from '../../components/Atoms/NavBar/T_Navbar';
 import L_Navbar from '../../components/Atoms/NavBar/L_Navbar';
@@ -11,6 +13,7 @@ import UGC_Card from '../../components/Atoms/UGC_Cards/UGC_Cards';
 const Component_Testing = () => {
     const T_Links = [
         { label: "Home", path: "/" },
+        { label: "Review",path:"Course_Review"}
     ]
     const L_Links = [
         { path: "/Signup_Page", label: "SignUp" },
@@ -30,12 +33,13 @@ const Component_Testing = () => {
         <>
         
             <T_Navbar links={T_Links} />
-            <L_Navbar links={L_Links} />
-            <Main_Container>
+            <L_Navbar links={L_Links} /> 
+        
+             <Main_Container>
                 <UGC_Card />
             </Main_Container>
             <Stats_Container />
-            <Media_Container />
+            <Media_Container /> 
             
             <B_Navbar links={B_Links} />
         </>

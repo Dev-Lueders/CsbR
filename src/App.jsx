@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Container, Navbar, Nav, Row, Col } from 'react-bootstrap';
+
 
 import Page_Grid from './components/Atoms/Page_Grid/Page_Grid.jsx'
 
@@ -33,9 +33,10 @@ import Search_Page_PGA2K23 from './Pages/Games/PGA2K/2K23/Search/Basic/Search_Pa
 import Results_Page_PGA2K23 from './Pages/Games/PGA2K/2K23/Search/Search_Results/Results_Page_PGA2K23.jsx'
 import PGA2K23_C_Long from './Pages/Games/PGA2K/2K23/Adding Content/Content/Long_Form/PGA2K23_C_Long.jsx';
 import PGA2K23_R_Long from './Pages/Games/PGA2K/2K23/Adding Content/Reviews/Long_Form/PGA2K23_R_Long.jsx';
-
 import Search_Page_PGA2K25 from './Pages/Games/PGA2K/2K25/Search/Basic/Search_Page_2K25.jsx';
 import Results_Page_PGA2K25 from './Pages/Games/PGA2K/2K25/Search/Search_Results/Results_Page_2K25.jsx';
+import Course_Review from './Pages/Games/PGA2K/Content/Course_Review.jsx';
+
 import Client_Front_Page from './Pages/Clients/Client_Front_Page.jsx';
 
 import Component_Testing from './Pages/Test Page/Component_Testing.jsx';
@@ -66,13 +67,12 @@ const App = () => {
         <Route path="/PGA2K" element={<Page_Grid>                   <PGA2K/>                    </Page_Grid>}/> {/*components.css works beautifully */}
         <Route path="/Search_Page_PGA2K23" element={<Page_Grid>     <Search_Page_PGA2K23 />     </Page_Grid>} />
         <Route path="/Results_Page_PGA2K23" element={<Page_Grid>    <Results_Page_PGA2K23/>     </Page_Grid>}/> 
-
         <Route path="/PGA2K23_C_Long" element={<Page_Grid>          <PGA2K23_C_Long/>           </Page_Grid>}/>
         <Route path="/PGA2K23_R_Long" element={<Page_Grid>          <PGA2K23_R_Long/>           </Page_Grid>}/>
-        
         <Route path="/Search_Page_PGA2K25" element={<Page_Grid>     <Search_Page_PGA2K25 />     </Page_Grid>} />
         <Route path="/Results_Page_PGA2K25" element={<Page_Grid>    <Results_Page_PGA2K25/>     </Page_Grid>}/> 
 
+        <Route path="/Course_Review" element={<Page_Grid>           <Course_Review/>            </Page_Grid>}/>
         
         <Route path="/Suggestion_Box" element={<Page_Grid>          <Suggestion_Box />          </Page_Grid>} />
         <Route path="/Help" element={<Page_Grid>                    <Help/>                     </Page_Grid>}/>
