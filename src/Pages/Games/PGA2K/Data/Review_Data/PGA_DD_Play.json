@@ -1,0 +1,9 @@
+{
+    "PGA_DD_Play":[
+    { "label": "I'll Play it Again and Again and Again", "value": 25},
+      { "label": "Yes", "value": 20},
+      { "label": "Maybe", "value": 15},
+      { "label": "No", "value": 10},
+      { "label": "I couldn't finish it", "value": 5 }
+    ]
+}
