@@ -1,10 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import Styles_Button from "../../Components_Data/Atom_Data/Default_Styles/Styles_Button.json"
 // Action Placeholder (Modify when adding logic)
 const buttonAction = (type, payload) => ({
   type,
@@ -19,14 +18,23 @@ const Button_btn = ({
   apiUrl,
   className = "",
   style = {},
-  icon = null,
-  children, // Allows passing JSX content instead of just a label
+   children, // Allows passing JSX content instead of just a label
   navigateTo, 
   gridPosition,
+  isVisible
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const defaultStyles = Styles_Button.default;
+  const variantStyles = Styles_Button.variants[variant] || {};
+  const sizeStyles = Styles_Button.sizes[size] || {};
+  const combinedStyles = {
+    ...defaultStyles,
+    ...variantStyles,
+    ...sizeStyles,
+    ...style,
+  };
   const handleClick = async () => {
     if (onClickAction) {
       dispatch(buttonAction(onClickAction, {}));
@@ -45,18 +53,15 @@ const Button_btn = ({
     }
   };
 
-  return (
-    <Button 
-      variant={variant} 
-      size={size} 
+  return isVisible ?(
+    <button 
       onClick={handleClick} 
       className={className} 
-      style={style}
+      style={combinedStyles}
     >
-      {icon && <span className="me-2">{icon}</span>}
-      {children || label}
-    </Button>
-  );
+    {children || label}
+    </button>
+  ):null;
 };
 
 // Define PropTypes for better documentation and validation
@@ -68,10 +73,10 @@ Button_btn.propTypes = {
   apiUrl: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object,
-  icon: PropTypes.node,
   children: PropTypes.node,
   navigateTo: PropTypes.string,
   gridPosition: PropTypes.object,
+  isVisible:PropTypes.bool
 };
 
 export default Button_btn;

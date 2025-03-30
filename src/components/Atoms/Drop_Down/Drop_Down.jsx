@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 // import DD_Default_Props from '../../Components_Data/Def_Atom/DD_Default_Props';
 
 
-const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdownStyle, optionStyle, maxOptionsVisible }) => {
+const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdownStyle, optionStyle, maxOptionsVisible,isVisible}) => {
  
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [highlightedIndex, setHighlightedIndex] = useState(null);
@@ -13,7 +14,6 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
   const buttonRef = useRef(null);
   const inputRef = useRef(null);
   const liveRegionRef = useRef(null);
-
 
 
   const filteredOptions = useMemo(
@@ -82,7 +82,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
   
   const maxHeight = filteredOptions.length > maxOptionsVisible ? "180px" : "none";
 
-  return (
+  return isVisible ? (
     <div
       style={{ position: "relative", display: "inline-block", ...containerStyle }}
       onKeyDown={handleKeyDown}
@@ -184,7 +184,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
         </div>
       )}
     </div>
-  );
+  ): null;
 });
 
 Drop_Down.propTypes = {
@@ -195,6 +195,7 @@ Drop_Down.propTypes = {
   dropdownStyle: PropTypes.object,
   optionStyle: PropTypes.object,
   maxOptionsVisible: PropTypes.number,
+  isVisible:PropTypes.bool
 };
 
 
