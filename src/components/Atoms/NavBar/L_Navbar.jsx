@@ -3,17 +3,24 @@ import { Link } from "react-router-dom"; // Fixed import
 import { Navbar, Nav } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
-const L_Navbar = ({ links = [], children, style = [] }) => {
+const L_Navbar = ({ links = [], children, gridPosition = {}, style = [] }) => {
   return (
     <>
       {/* Left Navbar */}
-      <Navbar className="l_NavBar" style={{ zIndex: 1, color: 'white'}}>
+      <Navbar
+        className="l_NavBar"
+        style={{
+          zIndex: 1,
+          ...gridPosition,
+          ...style
+          color: 'white'
+        }}>
           {children}
         <Nav style={{ display: 'flex', flexDirection: 'column', color: 'white' }}>
 
           {links.map((link, index) => (
           
-        <Nav.Link key={index} as={Link} to={link.path} className="Llink" style={{color:'white'}}>
+        <Nav.Link key={index} as={Link} to={link.path} className="Link" style={{color:'white'}}>
               {link.label}
         </Nav.Link>
           ))}
@@ -23,13 +30,21 @@ const L_Navbar = ({ links = [], children, style = [] }) => {
   );
 };
 
-L_Navbar.defaultProps = {
-  style: {},
-};
+
 L_Navbar.propTypes = {
   links: PropTypes.array,
   children: PropTypes.node,
+  gridPosition:PropTypes.object,
   style: PropTypes.object,
+};
+L_Navbar.defaultProps = {
+  links: [],
+  children: null,
+  gridPosition: {
+    gridColumn: "1/6",
+    gridRow:"4/36"
+  },
+  style: {},
 };
 
 export default L_Navbar;

@@ -15,7 +15,7 @@ top right bottom left
   /* Border to visualize the grid */
 }
 
-/* MAIN CONTENT: Blue background, spans columns 3 to 10 and rows 1 to 13 */
+/* MAIN CONTENT: Blue background, spans columns 6 to 28 and rows 4 to 35 */
 .Main_Content {
   grid-column: 6 / 28;
   grid-row: 4 / 35;
@@ -23,7 +23,7 @@ top right bottom left
   border: 1px solid black;
 }
 
-/* MEDIA CONTENT: Red background, spans columns 1 to 3 and rows 1 to 8 */
+/* MEDIA CONTENT: Red background, spans columns 28 to 38 and rows 4 to 15 */
 .Media_Content {
   grid-column: 28 / 38;
   grid-row: 4 / 15;
@@ -31,7 +31,7 @@ top right bottom left
   border: 1px solid black;
 }
 
-.t_NavBar{      /*need to adjust to make use of the page grid */
+.t_NavBar{      
   grid-column: 4 / 38;
   grid-row: 1 / 4;
 }
@@ -50,7 +50,7 @@ top right bottom left
   
 }
 
-/* STATS CONTENT: Green background, spans columns 10 to 13 and rows 1 to 8 */
+/* STATS CONTENT: Green background, spans columns 28 to 38 and rows 15 to 35 */
 .Stats_Content {
   grid-column: 28 / 38;
   grid-row:   15 / 35;

@@ -38,7 +38,7 @@ import Course_Review from './Pages/Games/PGA2K/Content/Course_Review.jsx';
 
 import Client_Front_Page from './Pages/Clients/Client_Front_Page.jsx';
 
-import Show_offpage from './Pages/Show_offpage.jsx';
+import Show_offpage from './Pages/Test Page/Show_offpage.jsx';
 import Component_Testing from './Pages/Test Page/Component_Testing.jsx';
 import "./components/components_styles.css"
 const App = () => {

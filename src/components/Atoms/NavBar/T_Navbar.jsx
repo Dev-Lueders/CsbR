@@ -4,10 +4,7 @@ import { Navbar, Nav } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 
-
-
-
-const T_Navbar = ({ links = [], children }) => {
+const T_Navbar = ({ links = [], children, gridPosition = {}, style=[] }) => {
   return (
     <Navbar
       className="t_NavBar"
@@ -16,6 +13,8 @@ const T_Navbar = ({ links = [], children }) => {
       style={{
         zIndex: 2, // Ensure it's above other content
         justifyContent: "center", // Center items
+        ...gridPosition,
+        ...style,
       }}
     >
       <Nav
@@ -34,5 +33,21 @@ const T_Navbar = ({ links = [], children }) => {
     </Navbar>
   );
 };
+T_Navbar.propTypes = {
+  links: PropTypes.array,
+  children: PropTypes.node,
+  gridPosition: PropTypes.object,
+  style:PropTypes.object,
+};
+T_Navbar.defaultProps = {
+  links: [],
+  children: null,
+  gridPosition: {
+    gridColumn: "4/38",
+    gridRow: "1/4"
+  },
+  style: {}
+};
+
 
 export default T_Navbar;
