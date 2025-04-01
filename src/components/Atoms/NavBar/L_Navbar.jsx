@@ -12,7 +12,7 @@ const L_Navbar = ({ links = [], children, gridPosition = {}, style = [] }) => {
         style={{
           zIndex: 1,
           ...gridPosition,
-          ...style
+          ...style,
           color: 'white'
         }}>
           {children}
