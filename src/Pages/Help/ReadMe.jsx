@@ -6,10 +6,10 @@ const ReadMe = () => {
     
     const B_Links = [
 
-        {path:"/Help", label : "Help"},
-        {path:"/Contact", label : "Contact Us"},
+        {path:"/info/Help", label : "Help"},
+        {path:"/info/Contact", label : "Contact Us"},
         {path:"/", label:"Home"},
-        {path:"/about",label:"About Us"},
+        {path:"/info/About",label:"About Us"},
 
     ];
     return(

@@ -9,12 +9,12 @@ const T_Links = [
     
 ];
 const B_Links = [
-    { path: "/SignUp_Page", label: "Signup" },
-    { path: "/Contact", label: "Contact Us" },
-    { path: "/About", label: "About" },
-    { path: "/Support", label: "Support" },
-    { path: "/Legal", label: "Legal" },
-    { path: "/ReadMe", label: "ReadMe Info"},
+    { path: "/signup/SignUp_Page", label: "Signup" },
+    { path: "/info/Contact", label: "Contact Us" },
+    { path: "/info/About", label: "About" },
+    { path: "/info/Support", label: "Support" },
+    { path: "/info/Legal", label: "Legal" },
+    { path: "/info/ReadMe", label: "ReadMe Info"},
 ];
 
     return(

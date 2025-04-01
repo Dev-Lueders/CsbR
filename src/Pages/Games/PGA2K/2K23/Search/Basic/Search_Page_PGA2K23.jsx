@@ -41,19 +41,19 @@ import PGA_DD_type from "../../../../../Games/PGA2K/Data/PGA_DD_type.json";
 const Search_Page_PGA2K23 = () => {
   const T_Links = [
     { label: "Signout", path: "/signout" },
-    { label: "Personal Profile", path: "/Profile_Page" },
+    { label: "Personal Profile", path: "/client/Profile_Page" },
     { label: "Home", path: "/" },
-    { label: "PGA2K23 Results Page", path: "/Results_Page_PGA2K23" },
+    { label: "PGA2K23 Results Page", path: "/games/Results_Page_PGA2K23" },
   ];
 
   const L_Links = [];
   const B_Links = [
-    { path: "/SignUp_Page", label: "Signup" },
-    { path: "/contact", label: "Contact Us" },
-    { path: "/help", label: "Help" },
-    { path: "/about", label: "About" },
-    { path: "/support", label: "Support" },
-    { path: "/legal", label: "Legal" },
+    { path: "/signup/SignUp_Page", label: "Signup" },
+    { path: "/info/contact", label: "Contact Us" },
+    { path: "/info/help", label: "Help" },
+    { path: "/info/about", label: "About" },
+    { path: "/info/support", label: "Support" },
+    { path: "/info/legal", label: "Legal" },
   ];
 
   return (

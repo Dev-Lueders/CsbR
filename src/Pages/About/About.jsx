@@ -1,4 +1,4 @@
-//need to fix t_navbar location to span the entire width also to need to fet the main container to move to the top of the b_navbar
+
 
 import "../../components/components_styles.css"
 import T_Navbar from "../../components/Atoms/NavBar/T_Navbar";
@@ -10,20 +10,20 @@ import React from "react";
 const About = () => {
 
     const T_Links = [
-            { label: "Sign Up", path: "/SignUp_Page"},
-            { label: "Profile" , path:"/Profile_Page"},
+            { label: "Sign Up", path: "/signup/SignUp_Page"},
+            { label: "Profile" , path:"/client/Profile_Page"},
             { label: "Home", path:"/"},
     ];
 
     const B_Links =  [
-        { path: "/Legal", label: "Legal"},
-        { path: "/Contact", label: "Contact Us" },
-        { path: "/Help", label: "Help" },
-        { path: "/Support", label: "Support" },
+        { path: "/info/Legal", label: "Legal"},
+        { path: "/info/Contact", label: "Contact Us" },
+        { path: "/info/Help", label: "Help" },
+        { path: "/info/Support", label: "Support" },
     ];
 return (
   <>
-        <T_Navbar links={T_Links} style={{gridColumn:"1/38", gridRow:"1 / 4", display: "grid"}} />
+        <T_Navbar links={T_Links}/>
     <Scroll_Bar
       height="80vh"
       width="100%"
