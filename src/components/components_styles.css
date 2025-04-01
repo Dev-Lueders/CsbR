@@ -32,7 +32,7 @@ top right bottom left
 }
 
 .t_NavBar{      /*need to adjust to make use of the page grid */
-  grid-column: 6 / 38;
+  grid-column: 4 / 38;
   grid-row: 1 / 4;
 }
 
