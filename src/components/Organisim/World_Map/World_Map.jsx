@@ -9,9 +9,12 @@ import World_Map_Styles from "../../components_data/Organism_Data/World_Map_Styl
 
 
 const WorldMap = ({ containerId = "world_map",
-  gridPosition = "1/1/ span 2 /span 2",
+  gridPosition = "1 / 1 / span 1 /span 1",
   ariaLabel = "World Map displaying global locations",
-  locations =[]
+  locations = [],
+  mapStyle = {},
+  zIndex = 1,
+  opacity = 1
    }) => {
 
 
@@ -62,6 +65,8 @@ WorldMap.propTypes = {
   containerId: PropTypes.string,
   gridPosition: PropTypes.string,
   ariaLabel: PropTypes.string,
+  zIndex: PropTypes.object,
+  mapStyle: PropTypes.object,
   locations: PropTypes.arrayOf(
     PropTypes.shape({
       latitude: PropTypes.number.isRequired,
@@ -75,9 +80,13 @@ WorldMap.defaultProps = {
   containerId: "world_map",
   gridPosition: "1 / 1 / span 2/ span 2",
   ariaLabel: "World Map displaying global locations",
-  locations: [
-    {latitude:0.00,longitude:0.00,label: "Null Island"}
-  ]
-}
+  zIndex: 1,
+  opacity: 1,
+  mapStyle: {
+    width: "100%",
+    height: "500px",
+  },
+  locations: [{ latitude: 0.0, longitude: 0.0, label: "Null Island" }],
+};
 
 export default WorldMap;
