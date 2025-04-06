@@ -1,7 +1,7 @@
 //Also need to review the whole legal ease stuff BEFORE GOING LIVE
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Page_Grid from "../components/Atoms/Page_Grid/Page_Grid";
+import Page_Grid from "../components/Util/Page_Grid/Page_Grid"
 
 import Games_Page from "../Pages/Games/Games_Page";
 import PGA2K from "../Pages/Games/PGA2K/PGA2K";

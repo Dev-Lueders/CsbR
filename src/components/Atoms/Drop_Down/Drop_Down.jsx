@@ -22,7 +22,8 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
     
   );
   
-  const toggleDropdown = useCallback(() => {
+  const toggleDropdown = useCallback((e) => {
+    e.stopPropagation();
     setIsOpen((prev) => !prev);
     if (!isOpen) {
       // When dropdown opens, focus on the search field

@@ -15,7 +15,7 @@ const Page_Grid = ({ children, className = '', role ='main', style={}, ...props 
     
 }
 Page_Grid.defaultProps = {
-    className: '',
+    className: 'def_PageGrid',
     role: 'main',
     style: {},
 

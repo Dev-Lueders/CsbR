@@ -5,18 +5,21 @@ top right bottom left
 /* PAGE GRID: Full viewport width and height, 36 columns and rows */
 .Page_Grid {
   display: grid;
-  grid-template-columns: repeat(36, 1fr);
-  grid-template-rows: repeat(36, 1fr);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
   gap: 1px;
   width: 100vw;
   height: 100vh;
   border: 1px solid black;
   background-color: blueviolet;
-  /* Border to visualize the grid */
+  
 }
 
 /* MAIN CONTENT: Blue background, spans columns 6 to 28 and rows 4 to 35 */
 .Main_Content {
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-column: 5 / 28;
   grid-row: 4 / 35;
   background-color: pink;
@@ -25,6 +28,9 @@ top right bottom left
 
 /* MEDIA CONTENT: Red background, spans columns 28 to 38 and rows 4 to 15 */
 .Media_Content {
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-column: 28 / 38;
   grid-row: 4 / 15;
   background-color: red;
@@ -32,11 +38,17 @@ top right bottom left
 }
 
 .t_NavBar{      
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-column: 5 / 38;
   grid-row: 1 / 4;
 }
 
 .l_NavBar{
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-column: 1 / 5;
   grid-row: 4 / 36;
   background-color: black;
@@ -45,6 +57,9 @@ top right bottom left
 
 
 .b_NavBar{
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-column: 1 /38; 
   grid-row: 35 /38;
   
@@ -52,6 +67,9 @@ top right bottom left
 
 /* STATS CONTENT: Green background, spans columns 28 to 38 and rows 15 to 35 */
 .Stats_Content {
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-column: 28 / 38;
   grid-row:   15 / 35;
   background-color: green;
@@ -59,7 +77,9 @@ top right bottom left
 }
 
 .UGC_Card{
-
+display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
   display: inline-block;
   white-space: nowrap;
   animation: moveCard 10s linear infinite;
@@ -77,6 +97,9 @@ top right bottom left
 }
 
 .pagination button {
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
     padding: 8px 12px;
     margin: 0 5px;
     border: none;
@@ -85,6 +108,9 @@ top right bottom left
   }
   
 .pagination button:disabled {
+  display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
     background-color: green;
     cursor: not-allowed;
   }

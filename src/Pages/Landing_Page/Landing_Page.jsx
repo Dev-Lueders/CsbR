@@ -13,7 +13,7 @@ import L_Navbar from "../../components/Atoms/NavBar/L_Navbar.jsx";
 import Media_Container from "../../components/Atoms/Media_Content/Media_Container.jsx";
 import Stats_Container from "../../components/Atoms/Stats_Content/Stats_Container.jsx";
 import B_Navbar from "../../components/Atoms/NavBar/B_Navbar.jsx";
-
+import Page_Grid from "../../components/Util/Page_Grid/Page_Grid.jsx";
 const Landing_Page = () => {
   const T_Links = [
     { label: "Home", path: "/" },

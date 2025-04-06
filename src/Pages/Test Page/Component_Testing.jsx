@@ -9,7 +9,7 @@ import B_Navbar from '../../components/Atoms/NavBar/B_Navbar';
 import Main_Container from '../../components/Atoms/Main_Content/Main_Container';
 import Stats_Container from '../../components/Atoms/Stats_Content/Stats_Container';
 import Media_Container from '../../components/Atoms/Media_Content/Media_Container';
-import UGC_Card from '../../components/Atoms/UGC_Cards/UGC_Cards';
+import UGC_Card from '../../components/Atoms/Cards/UGC_Cards';
 const Component_Testing = () => {
     const T_Links = [
         { label: "Home", path: "/" },
