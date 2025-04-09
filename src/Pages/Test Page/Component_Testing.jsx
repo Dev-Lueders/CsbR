@@ -13,9 +13,7 @@ import UGC_Card from '../../components/Atoms/UGC_Cards/UGC_Cards';
 const Component_Testing = () => {
     const T_Links = [
         { label: "Home", path: "/" },
-        { label: "Review", path: "/Course_Review" },
-        { label: "About", path: "/About" },
-        {label: "Show Off",path: "/Show_offpage"}
+        { label: "Review",path:"Course_Review"}
     ]
     const L_Links = [
         { path: "/Signup_Page", label: "SignUp" },
