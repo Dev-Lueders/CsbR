@@ -21,7 +21,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Page_Grid><Landing_Page /></Page_Grid>}/>
+        <Route path="/" element= {<Landing_Page />}/>
         <Route path="/auth/*" element={<AuthRoutes />} />
         <Route path="/client/*" element={<ClientRoutes />} />
         <Route path="/games/*" element={<GameRoutes />} />

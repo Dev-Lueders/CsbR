@@ -1,5 +1,6 @@
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Modular_Wrapper from "../../Util/Modular_Wrapper/M_Wrapper.jsx"; 
 // import DD_Default_Props from '../../Components_Data/Def_Atom/DD_Default_Props';
 
 
@@ -85,38 +86,49 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
 
   return isVisible ? (
     <div
-      style={{ position: "relative", display: "inline-block", ...containerStyle }}
+      style={{
+        position: "relative",
+        display: "inline-block",
+        ...containerStyle,
+      }}
       onKeyDown={handleKeyDown}
       aria-labelledby="dropdown-button"
     >
       {/* Dropdown button */}
-      <button
-        id="dropdown-button"
-        onClick={toggleDropdown}
-        ref={buttonRef}
-        style={{
-          backgroundColor: "#007bff",
-          color: "#fff",
-          padding: "10px 15px",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-          display: "grid",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "200px",
-          ...dropdownStyle,
-        }}
-        aria-haspopup="listbox"
-        aria-expanded={isOpen}
-        aria-controls="dropdown-menu"
-      >
-        {selectedOption ? selectedOption.label : label}
-        <span style={{ display:"grid"}}>▼</span>
-      </button>
+      
+        <button
+          id="dropdown-button"
+          onClick={toggleDropdown}
+          ref={buttonRef}
+          style={{
+            backgroundColor: "#007bff",
+            color: "#fff",
+            padding: "10px 15px",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            display: "grid",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "200px",
+            ...dropdownStyle,
+          }}
+          aria-haspopup="listbox"
+          aria-expanded={isOpen}
+          aria-controls="dropdown-menu"
+        >
+          {selectedOption ? selectedOption.label : label}
+          <span style={{ display: "grid" }}>▼</span>
+        </button>
+      
 
       {/* Live region for ARIA announcements */}
-      <div ref={liveRegionRef} aria-live="assertive" role="status" style={{ position: "absolute", top: "-9999px" }}></div>
+      <div
+        ref={liveRegionRef}
+        aria-live="assertive"
+        role="status"
+        style={{ position: "absolute", top: "-9999px" }}
+      ></div>
 
       {/* Dropdown menu */}
       {isOpen && (
@@ -124,7 +136,6 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
           id="dropdown-menu"
           ref={dropdownRef}
           style={{
-            
             top: "100%",
             left: "0",
             width: "100%",
@@ -134,7 +145,8 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
             boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
             zIndex: "1000",
             maxHeight: maxHeight,
-            overflowY: filteredOptions.length > maxOptionsVisible ? "auto" : "visible",
+            overflowY:
+              filteredOptions.length > maxOptionsVisible ? "auto" : "visible",
             ...dropdownStyle,
           }}
           role="listbox"
@@ -169,8 +181,12 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
               style={{
                 padding: "10px",
                 cursor: "pointer",
-                borderBottom: index !== filteredOptions.length - 1 ? "1px solid #ddd" : "none",
-                backgroundColor: highlightedIndex === index ? "#f1f1f1" : "#fff",
+                borderBottom:
+                  index !== filteredOptions.length - 1
+                    ? "1px solid #ddd"
+                    : "none",
+                backgroundColor:
+                  highlightedIndex === index ? "#f1f1f1" : "#fff",
                 transition: "background 0.2s",
                 ...optionStyle,
               }}
@@ -185,7 +201,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
         </div>
       )}
     </div>
-  ): null;
+  ) : null;
 });
 
 Drop_Down.propTypes = {

@@ -1,10 +1,13 @@
+import React, { useEffect } from 'react';
 import "../../../components/components_styles.css";
 import T_Navbar from "../../Atoms/NavBar/T_Navbar";
 import B_Navbar from "../../Atoms/NavBar/B_Navbar";
 import Button_btn from "../../Atoms/Buttons/Button";
 import PropTypes from "prop-types";
 
+
 const Adding_Form = ({ children, onSubmit, passProps }) => {
+  console.log("Props received Adding_Form:", passProps)
   const T_Links = [
     { label: "Home", path: "/" },
     { label: "Sign Up", path: "/SignUp_Page" },
@@ -18,32 +21,40 @@ const Adding_Form = ({ children, onSubmit, passProps }) => {
     { label: "Help", path: "/Help" },
   ];
 
+ 
   return (
     <>
-      <T_Navbar links={T_Links}
-        style={{
-          gridColumn: "1/37",
-          gridRow:"1/ 5",
-        }} />
-      <form onSubmit={onSubmit} aria-labelledby="form" role="form" >
-        {children}
+      
+        <T_Navbar
+          links={T_Links}
+          style={{
+            gridColumn: "1/1",
+            gridRow: "1/ 1",
+          }}
+        >
+          {" "}
+        </T_Navbar>
+        <form onSubmit={onSubmit} aria-labelledby="form" role="form">
+          {children}
 
-        <Button_btn
-          id="def_btn"
-          label="SUBMIT"
-          ariaLabeledBy="form"
-          onClickAction="SUBMIT_FORM"
-          type="submit"
-          isVisible={true}
-          gridColumn="18/25"
-          gridRow="15/20"
-          zIndex="1"
-          opacity="1"
-          passProps={passProps}
-          className="def_btn"
-          style="" />
-      </form>
-      <B_Navbar links={B_Links} />
+          <Button_btn
+            id="def_btn"
+            label="SUBMIT"
+            ariaLabeledBy="form"
+            onClickAction="SUBMIT_FORM"
+            type="submit"
+            isVisible={true}
+            gridColumn="18/25"
+            gridRow="15/20"
+            zIndex="1"
+            opacity="1"
+            passProps={passProps}
+            className="def_btn"
+          />
+        </form>
+
+        <B_Navbar links={B_Links} />
+      
     </>
   );
 };
@@ -61,7 +72,7 @@ Adding_Form.propTypes = {
   zIndex: PropTypes.number,
   role: PropTypes.string,
   isVisible: PropTypes.bool,
-  passProps: PropTypes.string,
+  passProps: PropTypes.object,
   
 };
 
@@ -76,7 +87,7 @@ Adding_Form.defaultProps = {
   zIndex: 2,
   style: {},
   role: "form",
-  passProps: "",
+  passProps: {},
   ariaLabeledBy: "Adding_Form",
   name: "Adding Form",
 

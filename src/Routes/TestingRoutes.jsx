@@ -14,9 +14,9 @@ const TestingRoutes = () => {
           <Route
             path="/Component_Testing"
             element={
-              <Page_Grid>
+              
                 <Component_Testing />
-              </Page_Grid>
+              
             }
           />
         </Routes>

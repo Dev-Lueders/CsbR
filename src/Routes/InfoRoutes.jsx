@@ -15,41 +15,41 @@ const InfoRoutes = () => {
         <Route
           path="/Suggestion_Box"
           element={
-            <Page_Grid>
+            
               <Suggestion_Box />
-            </Page_Grid>
+            
           }
         />
         <Route
           path="/About"
           element={
-            <Page_Grid>
+            
               <About />
-            </Page_Grid>
+            
           }
         />
         <Route
           path="/Help"
           element={
-            <Page_Grid>
+            
               <Help />
-            </Page_Grid>
+            
           }
         />
         <Route
           path="/Legal"
           element={
-            <Page_Grid>
+            
               <Legal />
-            </Page_Grid>
+            
           }
         />
         <Route
           path="/ReadMe"
           element={
-            <Page_Grid>
+            
               <ReadMe />
-            </Page_Grid>
+            
           }
         />
       </Routes>

@@ -1,10 +1,11 @@
 const defProps = {
     "id": "def_comp",
     "className": "def_comp",
-    "gridPosition": { gridColumn: "1 / 1", gridRow: " 1 / 1" },
+    "gridColumn": 1 / 1,
+    "gridRow":  1 / 1,
     "isVisible": false,
     "opacity": .5,
-    "zIndex": 42,
+    "zIndex": 1,
     "passProps": {},
     "style": {
         display: "grid",
