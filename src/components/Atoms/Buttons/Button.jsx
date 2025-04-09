@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Styles_Button from "../../Components_Data/Atom_Data/Default_Styles/Styles_Button.json"
-import defProps from "../../Util/Props/def_Props/defProps_components.jsx"
-import mergeProps from '../../Util/Props/mergeProps.jsx';
-
-import export_props from '../../Util/Props/exportProps.jsx';
-
+import defProps from "../../Components_Data/Molecules_Data/def_Props/defProps_components.jsx"
 // Action Placeholder (Modify when adding logic)
 const buttonAction = (type, payload) => ({
   type,
@@ -19,26 +15,23 @@ const Button_btn = ({
   label,
   onClickAction,
   defProps,
+  size = "md",
   apiUrl,
   className = "",
-  style,
+  style = {},
    children, // Allows passing JSX content instead of just a label
   navigateTo, 
+  
   isVisible,
-  gridPosition,
-  passProps
  
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
-  console.log("Button Props before Merge:", defProps, passProps);
 
-  const mergedProps = mergeProps(defProps, {
-    style, gridPosition
-  })
-      const handleClick = async () => {
+
+ 
+  const handleClick = async () => {
     if (onClickAction) {
       dispatch(buttonAction(onClickAction, {}));
     }
@@ -57,22 +50,16 @@ const Button_btn = ({
   };
 
   return isVisible ?(
-  
     <button 
       onClick={handleClick}
       className={className}
-      style={mergedProps.style}
-      aria-label={label || "button"}
+      style={defProps}     aria-label={label || "button"}
       role="button"
       onKeyDown ={(e) => (e.key === "Enter" || e.key === " ") && handleClick ()}
     >
-      
     {children || label}
-  
     </button>
-  
-  ) : null;
-  
+  ):null;
 };
 
 // Define PropTypes for better documentation and validation
@@ -90,9 +77,7 @@ Button_btn.propTypes = {
   isVisible: PropTypes.bool,
   opacity:PropTypes.number,
   zIndex: PropTypes.number,
-  defProps: PropTypes.object,
-  props:PropTypes.object,
-  passProps: PropTypes.object
+  defProps: PropTypes.object
 };
 
 Button_btn.defaultProps = {

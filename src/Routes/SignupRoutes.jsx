@@ -14,17 +14,17 @@ const SignupRoutes = () => {
         <Route
           path="/Creators_SignUp"
           element={
-            
+            <Page_Grid>
               <Creators_SignUp />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/SignUp_Page"
           element={
-            
+            <Page_Grid>
               <SignUp_Page />
-            
+            </Page_Grid>
           }
         />
         <Route path="/" element={Page_Grid > <Landing_Page />} />

@@ -19,65 +19,65 @@ const ClientRoutes = () => {
         <Route
           path="/Creators_Page"
           element={
-            
+            <Page_Grid>
               <Creators_Page />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/Profile_Page"
           element={
-            
+            <Page_Grid>
               <Profile_Page />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/Guest_Page"
           element={
-            
+            <Page_Grid>
               <Guest_Page />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/User_Page"
           element={
-            
+            <Page_Grid>
               <User_Page />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/Moderator_Page"
           element={
-            
+            <Page_Grid>
               <Moderator_Page />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/Admin_Page"
           element={
-            
+            <Page_Grid>
               <Admin_Page />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/Master_Page"
           element={
-            
+            <Page_Grid>
               <Master_Page />
-            
+            </Page_Grid>
           }
         />
         <Route
           path="/Client_Front_Page"
           element={
-            
+            <Page_Grid>
               <Client_Front_Page />
-            
+            </Page_Grid>
           }
         />
       </Routes>

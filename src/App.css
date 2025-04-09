@@ -1,12 +1,6 @@
 :root{
     --grid-columns: 36;
     --grid-rows: 36;
-    --cell-size-fr: 1fr;
     --grid-gap: 1px;
-}
-.grid{
-    display:grid;
-    grid-template-columns: repeat(var(--grid-columns), var(--cell-size-fr));
-    grid-template-rows: repeat(var(--grid-rows), var(--cell-size-fr));
-    gap:var(--grid-gap);
+
 }
