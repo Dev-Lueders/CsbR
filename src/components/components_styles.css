@@ -17,7 +17,7 @@ top right bottom left
 
 /* MAIN CONTENT: Blue background, spans columns 6 to 28 and rows 4 to 35 */
 .Main_Content {
-  grid-column: 5 / 28;
+  grid-column: 6 / 28;
   grid-row: 4 / 35;
   background-color: pink;
   border: 1px solid black;
@@ -32,12 +32,12 @@ top right bottom left
 }
 
 .t_NavBar{      
-  grid-column: 5 / 38;
+  grid-column: 4 / 38;
   grid-row: 1 / 4;
 }
 
 .l_NavBar{
-  grid-column: 1 / 5;
+  grid-column: 1 / 6;
   grid-row: 4 / 36;
   background-color: black;
  color: white !important;
