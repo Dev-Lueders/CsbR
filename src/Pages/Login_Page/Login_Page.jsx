@@ -20,7 +20,7 @@ const B_Links= [
         
 return(
 <>
-<form>
+<Form>
 <Text_Box 
 id="username"
 labelText="User"
@@ -57,7 +57,7 @@ label="Select here to Remember Me"
           containerStyle={{ marginTop: "10px" }} 
           style={{ padding: "10px 20px" }} 
         />
-</form>
+</Form>
 <B_Navbar links = {B_Links}/>
 </>
 )}

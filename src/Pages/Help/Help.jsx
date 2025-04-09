@@ -5,16 +5,16 @@ import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
 const Help = () => {
 const T_Links = [
     { label: "Home", path: "/" },
-    { label: "About", path: "/info/About" },
-    { label: "Log In", path:"/auth/Login_Page"}
+    { label: "About", path: "/About" },
+    { label: "Log In", path:"/Login_Page"}
 ];
 
 const B_Links = [
-    { path: "/auth/SignUp_Page", label: "Signup" },
-    { path: "/info/Contact", label: "Contact Us" },
-    { path: "/info/About", label: "About" },
-    { path: "/info/Support", label: "Support" },
-    { path: "/info/Legal", label: "Legal" },
+    { path: "/SignUp_Page", label: "Signup" },
+    { path: "/Contact", label: "Contact Us" },
+    { path: "/About", label: "About" },
+    { path: "/Support", label: "Support" },
+    { path: "/Legal", label: "Legal" },
 ];
 
     return(

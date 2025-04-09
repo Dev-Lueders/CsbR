@@ -24,19 +24,19 @@ import Button_btn from "../../../../../../components/Atoms/Buttons/Button.jsx";
 const Search_Page_PGA2K25 = () => {
   const T_Links = [
     { label: "Signout", path: "/signout" },
-    { label: "Personal Profile", path: "/client/Profile_Page" },
+    { label: "Personal Profile", path: "/Profile_Page" },
     { label: "Home", path: "/" },
-    { label: "PGA2K25 Results Page", path: "/games/Results_Page_PGA2K25" },
+    { label: "PGA2K25 Results Page", path: "/Results_Page_PGA2K25" },
   ];
 
   const L_Links = [];
   const B_Links = [
-    { path: "/signup/SignUp_Page", label: "Signup" },
-    { path: "/info/contact", label: "Contact Us" },
-    { path: "/info/help", label: "Help" },
-    { path: "/info/about", label: "About" },
-    { path: "/info/support", label: "Support" },
-    { path: "/info/legal", label: "Legal" },
+    { path: "/SignUp_Page", label: "Signup" },
+    { path: "/contact", label: "Contact Us" },
+    { path: "/help", label: "Help" },
+    { path: "/about", label: "About" },
+    { path: "/support", label: "Support" },
+    { path: "/legal", label: "Legal" },
   ];
 
   const Drop_Down_Searchable_Type = [

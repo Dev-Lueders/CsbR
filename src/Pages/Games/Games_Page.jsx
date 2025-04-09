@@ -8,30 +8,30 @@ import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 const Games_Page = () => {
     const T_Links = [
         { label: "Home", path: "/" },
-        { label: "About", path: "/info/About" },
-        { label: "Log In", path:"/auth/Login_Page"}
+        { label: "About", path: "/About" },
+        { label: "Log In", path:"/Login_Page"}
     ];
     const L_Links = [
         {label:"",path:""},
         {label:"",path:""},
-{ label: "Gran Turismo", path:"/games/GT"},
+{ label: "Gran Turismo", path:"/GT"},
 // { label: "HotWheels", path:"/Hotwheels"},
 // { label: "Lego2K Drive", path:"Lego2K_Drive"},
 // { label: "Minecraft", path:"Minecraft"},
-{ label: "PGA Tour 2K", path:"/games/PGA2K"},
+{ label: "PGA Tour 2K", path:"/PGA2K"},
 // { label: "Fortnite", path: "Fortnite"},
 // { label: "Sims", path:"Sims"},
 // { label: "Roblox", path:"Roblox"},
 // { label: "Pokemon", path:"Pokemon"},
     ];
     const B_Links = [
-        { path: "/signup/SignUp_Page", label: "Signup" },
-        { path: "/info/Contact", label: "Contact Us" },
-        { path: "/info/Help", label: "Help" },
-        { path: "/info/About", label: "About" },
-        { path: "/info/Support", label: "Support" },
-        { path: "/info/Legal", label: "Legal" },
-        { path: "/info/ReadMe", label: "ReadMe Info"},
+        { path: "/SignUp_Page", label: "Signup" },
+        { path: "/Contact", label: "Contact Us" },
+        { path: "/Help", label: "Help" },
+        { path: "/About", label: "About" },
+        { path: "/Support", label: "Support" },
+        { path: "/Legal", label: "Legal" },
+        { path: "/ReadMe", label: "ReadMe Info"},
     ];
     return(
     <>

@@ -2,7 +2,6 @@
 // need to create a warning checkbox for every upload of any media content and a link to this page included
 // Need to comply with the copyright laws
 //also need a warning about publishing copyrighted material. done with a checkbox stating that they will not upload copyrighted material
-//Also need to review the whole legal ease stuff BEFORE GOING LIVE
 // **********NOTICE THERE ARE NOTES AMONGST THE LEAGAL EASE STUFF*****************
 
 
@@ -17,18 +16,18 @@ const Legal = () => {
     const T_Links = [
 
         { label: "Home Page", path: "/" },
-        { label: "Log Out" , path: "/auth/SignOut"},
+        { label: "Log Out" , path: "/SignOut"},
         // { label: "", path: ""},
 
     ];
 
     const B_Links = [ 
 
-        { path: "/signup/SignUp_Page", label: "Signup" },
-        { path: "/info/contact", label: "Contact Us" },
-        { path: "/info/help", label: "Help" },
-        { path: "/info/About", label: "About" },
-        { path: "/info/support", label: "Support" },
+        { path: "/SignUp_Page", label: "Signup" },
+        { path: "/contact", label: "Contact Us" },
+        { path: "/help", label: "Help" },
+        { path: "/about", label: "About" },
+        { path: "/support", label: "Support" },
         
 
     ];

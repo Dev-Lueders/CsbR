@@ -1,5 +1,3 @@
-//Also need to review the whole legal ease stuff BEFORE GOING LIVE
-
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -46,26 +44,20 @@ import AuthRoutes from "./Routes/AuthRoutes.jsx";
 import ClientRoutes from "./Routes/ClientRoutes.jsx";
 import GameRoutes from "./Routes/GameRoutes.jsx";
 import InfoRoutes from "./Routes/InfoRoutes.jsx";
+import MiscRoutes from "./Routes/MiscRoutes.jsx";
 import SignupRoutes from "./Routes/SignupRoutes.jsx";
 const App = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Page_Grid>
-              <Landing_Page />
-            </Page_Grid>
-          }
-        />
-        <Route path="/auth/*" element={<AuthRoutes />} />
-        <Route path="/client/*" element={<ClientRoutes />} />
-        <Route path="/games/*" element={<GameRoutes />} />
+        <Route path="/" element={<Page_Grid><Landing_Page/></Page_Grid>}/>
+        <Route path="/auth/*" element ={<AuthRoutes />}/>
+        <Route path="/client/*" element={<ClientRoutes />}/>
+        <Route path="/games/*" element={<GameRoutes />}/>
         <Route path="/info/*" element={<InfoRoutes />} />
-
-        <Route path="/signup/*" element={<SignupRoutes />} />
-        <Route
+        <Route path="/misc/*" element={<MiscRoutes />}/>
+        <Route path="/signup/*" element={<SignupRoutes />}/>
+        {/* <Route
           path="/Component_Testing"
           element={
             <Page_Grid>
@@ -73,7 +65,7 @@ const App = () => {
             </Page_Grid>
           }
         />
-        {/*
+        
         <Route
           path="/Show_offpage"
           element={
