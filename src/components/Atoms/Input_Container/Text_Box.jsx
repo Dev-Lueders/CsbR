@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import "../../components_styles.css"; // Ensure styling consistency
 
 const Text_Box = ({
-  labelText = '',
+  labelText = 'Label:',
   placeholderText = 'Enter text here...',
   value,
   onChange,
@@ -29,7 +29,7 @@ const Text_Box = ({
   return (
     <div
       className={`text-box-container ${className}`}
-      style={{ display: 'flex', ...containerStyle, ...gridPosition }}
+      style={{ display: 'flex', alignItems: 'center', ...containerStyle, ...gridPosition }}
     >
       <label htmlFor={id} style={{ marginRight: '0.5rem', ...labelStyle }}>
         {labelText}

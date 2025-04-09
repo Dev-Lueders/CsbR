@@ -8,39 +8,16 @@ const Course_Review = () => {
     
     return (
       <>
-        <Adding_Form style={{
-          gridColumn: "1/37", gridRow: "1/37"
-        }}
-        id="frm_AddReview">
-          <Drop_Down
-            label="What Version is the Course on?"
-            options={PGA_DD_Game_Version}
-            style={{ gridColumn: "20/30", gridRow: "5/10"}}
-            isVisible={true}
-          />
-          <Text_Box label="Course Name" id="txt_crsNM_crsReview" placeholder="Course Name" />
-          <Text_Box label="Designer" id="txt_dsnNM_crsReview"placeholder="Designer Name" />
-          <Drop_Down
-            id="dd_play_crsReview"
-            label="Would you play this course again?"
-            options={PGA_DD_Play}
-            style={{ gridColumn: "10/20", gridRow: "9/13" }}
-            isVisible={true}
-          />
-          <Drop_Down
-            id="dd_rtFW_crsReview"
-            label="How would you rate the Fairways?"
-            options={PGA_DD_Review_Score_1to5}
-            style={{ gridColumn: "13/16", gridRow: "18/23" }}
-            isVisible={true}  
-          />
-          <Drop_Down
-            id="dd_rtGrn_crsReview"
-            label="How would you rate the Greens?"
-            options={PGA_DD_Review_Score_1to5}
-            style={{ gridColumn: "13/16", gridRow: "23/28" }}
-            isVisible={true}
-          />
+            <Adding_Form>
+                
+                {/* <Drop_Down label ="What Version is the Course on?" options={PGA_DD_Game_Version} />
+                <Text_Box label="Course Name" placeholder="Course Name" />
+                <Text_Box label="Designer" placeholder="Designer Name" />
+                <Drop_Down label="Would you play this course again?" options={PGA_DD_Play} />
+                <Drop_Down label="How would you rate the Fairways?" options={PGA_DD_Review_Score_1to5}/>
+                <Drop_Down label="How would you rate the Greens?" options={PGA_DD_Review_Score_1to5} /> */}
+                
+
         </Adding_Form>
       </>
     );

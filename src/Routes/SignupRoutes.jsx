@@ -1,7 +1,7 @@
 //Also need to review the whole legal ease stuff BEFORE GOING LIVE
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Page_Grid from "../components/Util/Page_Grid/Page_Grid";
+import Page_Grid from "../components/Atoms/Page_Grid/Page_Grid";
 
 import Landing_Page from "../Pages/Landing_Page/Landing_Page";
 import SignUp_Page from "../Pages/SignUp_Page/SignUp_Page";

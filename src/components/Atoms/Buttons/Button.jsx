@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Styles_Button from "../../Components_Data/Atom_Data/Default_Styles/Styles_Button.json"
-import defProps from "../../Components_Data/Molecules_Data/def_Props/defProps_components.jsx"
 // Action Placeholder (Modify when adding logic)
 const buttonAction = (type, payload) => ({
   type,
@@ -14,23 +13,34 @@ const buttonAction = (type, payload) => ({
 const Button_btn = ({
   label,
   onClickAction,
-  defProps,
+  variant = "primary",
   size = "md",
   apiUrl,
   className = "",
   style = {},
    children, // Allows passing JSX content instead of just a label
   navigateTo, 
-  
+  gridPosition,
   isVisible,
- 
+  opacity,
+  zIndex
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const defaultStyles = Styles_Button.default;
+  const variantStyles = Styles_Button.variants[variant] || {};
+  const sizeStyles = Styles_Button.sizes[size] || {};
+  const combinedStyles = {
+    ...defaultStyles,
+    ...variantStyles,
+    ...sizeStyles,
+    ...style,
+    opacity,
+    gridArea: gridPosition,
+    zIndex
 
-
- 
+  };
   const handleClick = async () => {
     if (onClickAction) {
       dispatch(buttonAction(onClickAction, {}));
@@ -53,7 +63,8 @@ const Button_btn = ({
     <button 
       onClick={handleClick}
       className={className}
-      style={defProps}     aria-label={label || "button"}
+      style={combinedStyles}
+      aria-label={label || "button"}
       role="button"
       onKeyDown ={(e) => (e.key === "Enter" || e.key === " ") && handleClick ()}
     >
@@ -76,8 +87,7 @@ Button_btn.propTypes = {
   gridPosition: PropTypes.object,
   isVisible: PropTypes.bool,
   opacity:PropTypes.number,
-  zIndex: PropTypes.number,
-  defProps: PropTypes.object
+  zIndex: PropTypes.number
 };
 
 Button_btn.defaultProps = {

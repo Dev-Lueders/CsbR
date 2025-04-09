@@ -3,7 +3,7 @@
 
 import React from "react";
 import { BrowserRouter as  Router, Route, Routes } from "react-router-dom";
-import Page_Grid from "./components/Util/Page_Grid/Page_Grid.jsx";
+import Page_Grid from "./components/Atoms/Page_Grid/Page_Grid.jsx";
 import "./components/components_styles.css";
 import "./App.css";
 import Landing_Page from "./Pages/Landing_Page/Landing_Page.jsx";
