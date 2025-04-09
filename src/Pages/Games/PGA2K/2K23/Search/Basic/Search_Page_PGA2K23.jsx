@@ -103,7 +103,6 @@ const Search_Page_PGA2K23 = () => {
       <MediaContainer>
         <WorldMap />
       </MediaContainer>
-
       <Stats_Container />
       <Main_Content />
 

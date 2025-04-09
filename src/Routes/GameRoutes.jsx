@@ -17,15 +17,78 @@ const GameRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="" element={<Page_Grid><Games_Page /></Page_Grid>}/>
-        <Route path="/PGA2K" element={<Page_Grid><PGA2K /></Page_Grid>}/>
-        <Route path="/Search_Page_PGA2K23" element={<Page_Grid><Search_Page_PGA2K23 /></Page_Grid>}/>
-        <Route path="/Results_Page_PGA2K23" element={<Page_Grid><Results_Page_PGA2K23 /></Page_Grid>}/>
-        <Route path="/PGA2K23_C_Long" element={<Page_Grid><PGA2K23_C_Long /></Page_Grid>}/>
-        <Route path="/PGA2K23_R_Long" element={<Page_Grid><PGA2K23_R_Long /></Page_Grid>}/>
-        <Route path="/Search_Page_PGA2K25" element={<Page_Grid><Search_Page_PGA2K25 /></Page_Grid>}/>
-        <Route path="/Results_Page_PGA2K25" element={<Page_Grid><Results_Page_PGA2K25 /></Page_Grid>}/>
-        <Route path="/Course_Review" element={<Page_Grid><Course_Review /></Page_Grid>} />
+        <Route
+          path="/Games_Page"
+          element={
+            <Page_Grid>
+              <Games_Page />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/PGA2K"
+          element={
+            <Page_Grid>
+              <PGA2K />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/Search_Page_PGA2K23"
+          element={
+            <Page_Grid>
+              <Search_Page_PGA2K23 />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/Results_Page_PGA2K23"
+          element={
+            <Page_Grid>
+              <Results_Page_PGA2K23 />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/PGA2K23_C_Long"
+          element={
+            <Page_Grid>
+              <PGA2K23_C_Long />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/PGA2K23_R_Long"
+          element={
+            <Page_Grid>
+              <PGA2K23_R_Long />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/Search_Page_PGA2K25"
+          element={
+            <Page_Grid>
+              <Search_Page_PGA2K25 />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/Results_Page_PGA2K25"
+          element={
+            <Page_Grid>
+              <Results_Page_PGA2K25 />
+            </Page_Grid>
+          }
+        />
+        <Route
+          path="/Course_Review"
+          element={
+            <Page_Grid>
+              <Course_Review />
+            </Page_Grid>
+          }
+        />
       </Routes>
     </>
   );

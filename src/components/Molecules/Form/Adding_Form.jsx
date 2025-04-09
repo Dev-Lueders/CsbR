@@ -28,12 +28,10 @@ const Adding_Form = ({ children, onSubmit }) => {
           label="SUBMIT"
           onClickAction="SUBMIT_FORM"
           type="submit"
-          isVisible={true}
           style={{
             width: "10rem",
             marginBottom: "60px",
             marginTop: "60px",
-            isVisible: true,
           }}
         />
       </form>

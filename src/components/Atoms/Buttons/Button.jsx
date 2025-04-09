@@ -21,9 +21,7 @@ const Button_btn = ({
    children, // Allows passing JSX content instead of just a label
   navigateTo, 
   gridPosition,
-  isVisible,
-  opacity,
-  zIndex
+  isVisible
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,10 +34,6 @@ const Button_btn = ({
     ...variantStyles,
     ...sizeStyles,
     ...style,
-    opacity,
-    gridArea: gridPosition,
-    zIndex
-
   };
   const handleClick = async () => {
     if (onClickAction) {
@@ -61,12 +55,9 @@ const Button_btn = ({
 
   return isVisible ?(
     <button 
-      onClick={handleClick}
-      className={className}
+      onClick={handleClick} 
+      className={className} 
       style={combinedStyles}
-      aria-label={label || "button"}
-      role="button"
-      onKeyDown ={(e) => (e.key === "Enter" || e.key === " ") && handleClick ()}
     >
     {children || label}
     </button>
@@ -85,21 +76,7 @@ Button_btn.propTypes = {
   children: PropTypes.node,
   navigateTo: PropTypes.string,
   gridPosition: PropTypes.object,
-  isVisible: PropTypes.bool,
-  opacity:PropTypes.number,
-  zIndex: PropTypes.number
-};
-
-Button_btn.defaultProps = {
-  label: "Click Me",
-  variant: "primary",
-  size: "md",
-  className: "",
-  style: {},
-  gridPosition: {gridColumn: "30/ 34", gridRow: "2/5"},
-  isVisible: true,
-  opacity: 1,
-  zIndex:3
+  isVisible:PropTypes.bool
 };
 
 export default Button_btn;
