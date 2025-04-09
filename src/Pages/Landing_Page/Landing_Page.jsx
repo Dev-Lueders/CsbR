@@ -19,7 +19,7 @@ const Landing_Page = () => {
     { label: "Home", path: "/" },
     { label: "About", path: "/info/About" },
     { label: "Log In", path: "/auth/Login_Page" },
-    { label: "Testing Components", path: "/testing/Component_Testing" },
+    { label: "Testing Components", path: "/Component_Testing" },
   ];
 
   const L_links = [
