@@ -41,7 +41,19 @@ import Client_Front_Page from './Pages/Clients/Client_Front_Page.jsx';
 
 import Component_Testing from './Pages/Test Page/Component_Testing.jsx';
 import "./components/components_styles.css"
+import { useSelector, useDispatch } from 'react-redux';
 const App = () => {
+
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.settings?.theme);
+  const user = useSelector((state) => state.user?.user);
+  const isLocked = useSelector((state) => state.lock?.isLocked);
+
+  console.log("Theme:", theme);
+  console.log("User:", user);
+  console.log("isLocked:", isLocked);
+
+
  return (
     <>
      <Routes>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import DD_Default_Props from '../../Components_Data/Def_Atom/DD_Default_Props';
 
 
-const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdownStyle, optionStyle, maxOptionsVisible,isVisible}) => {
+const Drop_Down = React.memo(({ options, label, onChange, style, maxOptionsVisible,isVisible}) => {
  
 
   const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +84,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
 
   return isVisible ? (
     <div
-      style={{ position: "relative", display: "inline-block", ...containerStyle }}
+      style={{ position: "relative", display: "grid", ...style }}
       onKeyDown={handleKeyDown}
       aria-labelledby="dropdown-button"
     >
@@ -94,17 +94,11 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
         onClick={toggleDropdown}
         ref={buttonRef}
         style={{
-          backgroundColor: "#007bff",
-          color: "#fff",
-          padding: "10px 15px",
-          border: "none",
-          borderRadius: "5px",
+          backgroundColor: "green",
+          color: "White",
           cursor: "pointer",
           display: "grid",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "200px",
-          ...dropdownStyle,
+          ...style,
         }}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -115,7 +109,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
       </button>
 
       {/* Live region for ARIA announcements */}
-      <div ref={liveRegionRef} aria-live="assertive" role="status" style={{ position: "absolute", top: "-9999px" }}></div>
+      <div ref={liveRegionRef} aria-live="assertive" role="status" style={{ position: "relative", top: "-9999px" }}></div>
 
       {/* Dropdown menu */}
       {isOpen && (
@@ -127,14 +121,10 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
             top: "100%",
             left: "0",
             width: "100%",
-            backgroundColor: "#fff",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
             zIndex: "1000",
             maxHeight: maxHeight,
             overflowY: filteredOptions.length > maxOptionsVisible ? "auto" : "visible",
-            ...dropdownStyle,
+            ...style,
           }}
           role="listbox"
           aria-labelledby="dropdown-button"
@@ -148,10 +138,7 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
               width: "100%",
-              padding: "8px",
-              border: "none",
-              borderBottom: "1px solid #ccc",
-              outline: "none",
+            
             }}
             aria-label="Search options"
           />
@@ -166,12 +153,12 @@ const Drop_Down = React.memo(({ options, label, onChange, containerStyle, dropdo
               key={index}
               onClick={() => handleSelect(option)}
               style={{
-                padding: "10px",
+                // padding: "10px",
                 cursor: "pointer",
                 borderBottom: index !== filteredOptions.length - 1 ? "1px solid #ddd" : "none",
-                backgroundColor: highlightedIndex === index ? "#f1f1f1" : "#fff",
+                // backgroundColor: highlightedIndex === index ? "#f1f1f1" : "#fff",
                 transition: "background 0.2s",
-                ...optionStyle,
+                ...style,
               }}
               onMouseEnter={() => setHighlightedIndex(index)}
               onMouseLeave={() => setHighlightedIndex(null)}
@@ -191,13 +178,21 @@ Drop_Down.propTypes = {
   options: PropTypes.array.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  containerStyle: PropTypes.object,
-  dropdownStyle: PropTypes.object,
-  optionStyle: PropTypes.object,
+  gridColumns: PropTypes.number,
+  gridRows: PropTypes.number,
+  style: PropTypes.object,
   maxOptionsVisible: PropTypes.number,
   isVisible:PropTypes.bool
 };
 
-
+Drop_Down.defaultProps = {
+  gridColumns: 1,
+  gridRows: 1,
+  style: {},
+  isVisible: false,
+  gridTemplateColumn: 'repeat(36, 1fr)',
+  gridTemplateRow: 'repeat(36, 1fr)',
+    
+}
 
 export default Drop_Down;

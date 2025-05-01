@@ -1,4 +1,4 @@
-import Adding_Form from "../../../../components/Molecules/Form/Adding_Form"
+import PGA_DD_Holes from "../Data/PGA_DD_Holes.json"
 import PGA_DD_Review_Score_1to5 from "../Data/Review_Data/PGA_DD_Review_Score_1to5.json"
 import PGA_DD_Game_Version from "../Data/PGA_DD_Game_Version.json"
 import PGA_DD_Play from "./../Data/Review_Data/PGA_DD_Play.json"
@@ -8,17 +8,78 @@ const Course_Review = () => {
     
     return (
       <>
-            <Adding_Form>
-                
-                {/* <Drop_Down label ="What Version is the Course on?" options={PGA_DD_Game_Version} />
-                <Text_Box label="Course Name" placeholder="Course Name" />
-                <Text_Box label="Designer" placeholder="Designer Name" />
-                <Drop_Down label="Would you play this course again?" options={PGA_DD_Play} />
-                <Drop_Down label="How would you rate the Fairways?" options={PGA_DD_Review_Score_1to5}/>
-                <Drop_Down label="How would you rate the Greens?" options={PGA_DD_Review_Score_1to5} /> */}
-                
+        <Drop_Down
+          label="What Version is the Course on?"
+          options={Object.values(PGA_DD_Game_Version)[0]}
+          isVisible={true}
+          style={{ display: 'grid', gridColumn: "10/15", gridRow: "5/7" }}
+        />
 
-        </Adding_Form>
+        <Text_Box
+          label="Course Name"
+          id="txt_crsNM_crsReview"
+          placeholder="Course Name"
+          style={{ display: 'grid', gridColumn: "15/25", gridRow: "15/25" }}
+        />
+
+        {/* <Text_Box
+          label="Designer"
+          id="txt_dsnNM_crsReview"
+          placeholder="Designer Name"
+          style={{ display: 'grid', gridColumn: "6/10", gridRow: "1/3" }}
+          isVisible={true}
+        /> */}
+
+        <Drop_Down
+          id="dd_play_crsReview"
+          label="Would you play this course again?"
+          options={Object.values(PGA_DD_Play)[0]}
+          isVisible={true}
+          style={{ display: 'grid', gridColumn: "15/20", gridRow: "5/7" }}
+        />
+
+        <Drop_Down
+          id="dd_rtFW_crsReview"
+          label="How would you rate the Fairways?"
+          options={Object.values(PGA_DD_Review_Score_1to5)[0]}
+          isVisible={true}
+          style={{ display: 'grid', gridColumn: "5/10", gridRow: "5/7" }}
+        />
+        {/* <Text_Box
+          label="FWthgt_Thoughts"
+          id="txt_FWThgt_crsFW"
+          placeholder="Thoughts on the Fairways"
+          style={{ display: 'grid', gridColumn: "5/10", gridRow: "1/15" }}
+          isVisible={true}
+        /> */}
+        <Drop_Down
+          id="dd_rtGrn_crsReview"
+          label="How would you rate the Greens?"
+          options={Object.values(PGA_DD_Review_Score_1to5)[0]}
+          isVisible={true}
+          style={{ display: 'grid', gridColumn: "20/25", gridRow: "5/7" }}
+        />
+        {/* <Text_Box
+          label="GRNthgt_Thoughts"
+          id="txt_GRNThgt_crsGrn"
+          placeholder="Thoughts on the Greens"
+          style={{ display: 'grid', gridColumn: "2/2", gridRow: "10/12" }}
+          isVisible={true}
+        /> */}
+        {/* <Text_Box
+          label="Course_Thoughts"
+          id="txt_crsThgt_crsReview"
+          placeholder="Thoughts on the Course"
+          style={{ display: 'grid', gridColumn: "2/2", gridRow: "10/12" }}
+          isVisible={true}
+        /> */}
+        <Drop_Down
+          id="dd_holes_crsReview"
+          label="How many holes are in this course?"
+          options={Object.values(PGA_DD_Holes)[0]}
+          isVisible={true}
+          style={{ display: 'grid', gridColumn: "5/10", gridRow: "15/20" }}
+        />
       </>
     );
 

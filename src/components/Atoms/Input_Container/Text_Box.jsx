@@ -1,5 +1,6 @@
 
-
+// will need to dynamically have the grid placed
+// write some conditional statements for how much text can be received
 // This component renders a label next to an input box.
 // Props:
 // - labelText: The text to display in the label.
@@ -7,50 +8,52 @@
 // - value: The current value of the input.
 // - onChange: The function to call when the input changes.
 // - ...props: Any additional props (such as styling or className) that you want to pass to the input.
+// use teh start and end grid with gridColumn and gridRow to position the text box
+// minimize the amount of variables to pass, have one universal variable for everything that is not either gridColumn, gridRow,zIndex,isVisible, opacity, these will be the building  blocks to using the gridPage
+
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import "../../components_styles.css"; // Ensure styling consistency
+import "../../components_styles.css";
 
 const Text_Box = ({
-  labelText = 'Label:',
-  placeholderText = 'Enter text here...',
+  labelText = "",
+  placeholderText = " Add Inline styling to change this text",
   value,
   onChange,
-  id = 'text-box',
-  name = '',
-  maxLength = 50,
-  inputStyle = {},
-  containerStyle = {},
-  labelStyle = {},
-  gridPosition = {}, // Allows precise positioning
-  className = '', // Enables custom classNames
+  id = "def_text-box",
+  maxLength = 400,
+  style = {},
+  className = "",
+  isVisible = false,
   ...props
 }) => {
+  if (!isVisible) return null;
+
   return (
     <div
       className={`text-box-container ${className}`}
-      style={{ display: 'flex', alignItems: 'center', ...containerStyle, ...gridPosition }}
-    >
-      <label htmlFor={id} style={{ marginRight: '0.5rem', ...labelStyle }}>
-        {labelText}
-      </label>
-      <input
-        type="text"
-        id={id}
-        name={name}
-        placeholder={placeholderText}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        maxLength={maxLength}
-        style={{ padding: '0.5rem', ...inputStyle }}
-        aria-label={labelText}
-        {...props}
-      />
-    </div>
+        style = {{
+        display: "grid",
+        alignItems: "center",
+        ...style,
+        
+      }}
+
+>
+<input id={id}
+  name={name}
+  placeholder={placeholderText}
+  value={value}
+  onChange={(e) => onChange(e.target.value)}
+  maxLength={maxLength}
+  aria-label={labelText}
+  {...props}
+  />
+  </div>
   );
 };
 
-// PropTypes Validation
 Text_Box.propTypes = {
   labelText: PropTypes.string,
   placeholderText: PropTypes.string,
@@ -59,25 +62,20 @@ Text_Box.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   maxLength: PropTypes.number,
-  inputStyle: PropTypes.object,
-  containerStyle: PropTypes.object,
-  labelStyle: PropTypes.object,
-  gridPosition: PropTypes.object,
+  style: PropTypes.object,
   className: PropTypes.string,
+  isVisible: false,
 };
 
-// DefaultProps
 Text_Box.defaultProps = {
-  labelText: 'Label:',
-  placeholderText: 'Enter text here...',
-  id: 'text-box',
-  name: '',
-  maxLength: 50,
-  inputStyle: {},
-  containerStyle: {},
-  labelStyle: {},
-  gridPosition: {},
-  className: '',
-};
+  labelText: "",
+  placeholderText: "",
+  id: "text-box",
+  name: "",
+  maxLength: '400',
+  style: {},
+  className: "",
+  isVisible:false,
+}
 
 export default Text_Box;
