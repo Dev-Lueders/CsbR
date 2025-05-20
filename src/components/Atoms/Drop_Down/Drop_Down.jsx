@@ -1,169 +1,87 @@
-import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
-import PropTypes from 'prop-types';
-// import DD_Default_Props from '../../Components_Data/Def_Atom/DD_Default_Props';
-
-
-const Drop_Down = React.memo(({ options, label, onChange, style, maxOptionsVisible,isVisible}) => {
- 
-
+import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
+const Drop_Down = ({ options = [], onChange, style, isVisible = true, label }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [highlightedIndex, setHighlightedIndex] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
-  const inputRef = useRef(null);
-  const liveRegionRef = useRef(null);
 
-
-  const filteredOptions = useMemo(
-    () => (Array.isArray(options) ? options.filter(option => option.label.toLowerCase().includes(searchTerm.toLowerCase())) : []),
-    [options, searchTerm]
-    
-  );
-  
-  const toggleDropdown = useCallback(() => {
-    setIsOpen((prev) => !prev);
-    if (!isOpen) {
-      // When dropdown opens, focus on the search field
-      inputRef.current?.focus();
-    }
-  }, [isOpen]);
-
-  const handleSelect = useCallback((option) => {
-    setSelectedOption(option);
-    onChange(option.value);
-    setIsOpen(false);
-    setHighlightedIndex(null);
-    setSearchTerm("");
-
-    if (liveRegionRef.current) {
-      liveRegionRef.current.textContent = `Selected: ${option.label}`;
-    }
-  }, [onChange]);
-
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === "ArrowDown") {
-      setHighlightedIndex((prevIndex) =>
-        prevIndex === null ? 0 : Math.min(filteredOptions.length - 1, prevIndex + 1)
-      );
-    } else if (e.key === "ArrowUp") {
-      setHighlightedIndex((prevIndex) =>
-        prevIndex === null ? 0 : Math.max(0, prevIndex - 1)
-      );
-    } else if (e.key === "Enter" && highlightedIndex !== null) {
-      handleSelect(filteredOptions[highlightedIndex]);
-    } else if (e.key === "Escape") {
-      setIsOpen(false);
-    } else if (e.key === "Tab" && highlightedIndex !== null) {
-      // Handle tab key when dropdown is open to select an option
-      handleSelect(filteredOptions[highlightedIndex]);
-    }
-  }, [highlightedIndex, filteredOptions, handleSelect]);
-
-  const handleClickOutside = useCallback((e) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(e.target) &&
-      !buttonRef.current.contains(e.target)
-    ) {
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
     }
-  }, []);
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [handleClickOutside]);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  Drop_Down.displayName = "Drop_Down";
-  
-  const maxHeight = filteredOptions.length > maxOptionsVisible ? "180px" : "none";
+  if (!isVisible) return null;
 
-  return isVisible ? (
+  return (
     <div
-      style={{ position: "relative", display: "grid", ...style }}
-      onKeyDown={handleKeyDown}
-      aria-labelledby="dropdown-button"
+      ref={dropdownRef}
+      style={{
+        position: "relative",
+        display: "inline-block",
+        ...style,
+      }}
     >
-      {/* Dropdown button */}
+      {label && (  //add
+        <label
+          style={{
+            display: "block",
+            // marginBottom: "4px",
+            color: "#333",
+            fontWeight: "bold",
+          }}
+        >
+          {label}
+        </label> // add
+      )}
       <button
-        id="dropdown-button"
-        onClick={toggleDropdown}
-        ref={buttonRef}
+        onClick={() => setIsOpen(!isOpen)}
         style={{
+          padding: "8px 12px",
           backgroundColor: "green",
-          color: "White",
+          color: "white",
+          border: "none",
           cursor: "pointer",
-          display: "grid",
-          ...style,
         }}
-        aria-haspopup="listbox"
-        aria-expanded={isOpen}
-        aria-controls="dropdown-menu"
       >
-        {selectedOption ? selectedOption.label : label}
-        <span style={{ display:"grid"}}>▼</span>
+        ▼
       </button>
 
-      {/* Live region for ARIA announcements */}
-      <div ref={liveRegionRef} aria-live="assertive" role="status" style={{ position: "relative", top: "-9999px" }}></div>
-
-      {/* Dropdown menu */}
       {isOpen && (
         <div
-          id="dropdown-menu"
-          ref={dropdownRef}
           style={{
-            
+            position: "absolute",
             top: "100%",
-            left: "0",
-            width: "100%",
-            zIndex: "1000",
-            maxHeight: maxHeight,
-            overflowY: filteredOptions.length > maxOptionsVisible ? "auto" : "visible",
-            ...style,
+            left: 0,
+            zIndex: 9999,
+            backgroundColor: "#fff",
+            border: "1px solid #ccc",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+            minWidth: "100px",
           }}
-          role="listbox"
-          aria-labelledby="dropdown-button"
         >
-          {/* Search input */}
-          <input
-            ref={inputRef}
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              width: "100%",
-            
-            }}
-            aria-label="Search options"
-          />
-
-          {/* Option rendering */}
-          {filteredOptions.length === 0 && (
-            <div style={{}}>No options found</div>
-          )}
-
-          {filteredOptions.map((option, index) => (
+          {options.map((option) => (
             <div
-              key={index}
-              onClick={() => handleSelect(option)}
-              style={{
-                // padding: "10px",
-                cursor: "pointer",
-                borderBottom: index !== filteredOptions.length - 1 ? "1px solid #ddd" : "none",
-                // backgroundColor: highlightedIndex === index ? "#f1f1f1" : "#fff",
-                transition: "background 0.2s",
-                ...style,
+              key={option.value}
+              onClick={() => {
+                onChange?.(option);
+                setIsOpen(false);
               }}
-              onMouseEnter={() => setHighlightedIndex(index)}
-              onMouseLeave={() => setHighlightedIndex(null)}
-              role="option"
-              aria-selected={selectedOption?.value === option.value}
+              style={{
+                // padding: "8px 12px",
+                cursor: "pointer",
+                borderBottom: "1px solid #eee",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#f5f5f5")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#fff")
+              }
             >
               {option.label}
             </div>
@@ -171,9 +89,10 @@ const Drop_Down = React.memo(({ options, label, onChange, style, maxOptionsVisib
         </div>
       )}
     </div>
-  ): null;
-});
+  );
 
+  
+};
 Drop_Down.propTypes = {
   options: PropTypes.array.isRequired,
   label: PropTypes.string.isRequired,
@@ -182,7 +101,7 @@ Drop_Down.propTypes = {
   gridRows: PropTypes.number,
   style: PropTypes.object,
   maxOptionsVisible: PropTypes.number,
-  isVisible:PropTypes.bool
+  isVisible: PropTypes.bool,
 };
 
 Drop_Down.defaultProps = {
@@ -190,9 +109,8 @@ Drop_Down.defaultProps = {
   gridRows: 1,
   style: {},
   isVisible: false,
-  gridTemplateColumn: 'repeat(36, 1fr)',
-  gridTemplateRow: 'repeat(36, 1fr)',
-    
-}
+  label: ""
+ 
+};
 
 export default Drop_Down;

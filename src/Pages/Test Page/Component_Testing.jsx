@@ -16,17 +16,14 @@ const Component_Testing = () => {
         { label: "Review",path:"/Course_Review"}
     ]
   
+    const L_Links = []
     return (
       <>
         <T_Navbar links={T_Links} />
-      
-        <Main_Container style={{ gridColumn: '1 / 38', gridRow: '4 / 38' }}>
-          
-        </Main_Container>
-        
-        
-        
-       
+        <L_Navbar links={L_Links} />
+        <Main_Container
+          style={{ gridColumn: "1 / 38", gridRow: "1/38" }}
+        ></Main_Container>
       </>
     );
 }

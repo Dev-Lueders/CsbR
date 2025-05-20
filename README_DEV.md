@@ -1,7 +1,11 @@
-<!-- Last working on what section and where and what was I doing -->
+<!-- Last working on what section and where and what was I doing 
+working on the review course file getting the drop downs to show properly has an issue
+
+
+-->
 
 ## TODO 
-- [ ] When a user adds two different skins or UGC content that match together they can select if a prior post is related to this one like a helmet and suit skin then later matching it with a car skin
+- [ ] When a user adds two different skins or UGC content that match together they can select if a prior post is related to this one like a helmet and suit skin then later matching it with a car skin content association
 - [ ] game genre expansion
 - [ ] Build Backend for routes to the profile
 - [ ] build Backend routes for UGC content

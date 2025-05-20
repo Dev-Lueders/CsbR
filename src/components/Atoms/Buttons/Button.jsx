@@ -1,9 +1,9 @@
-import React from 'react';
+import axios from "axios";
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Styles_Button from "../../Components_Data/Atom_Data/Default_Styles/Styles_Button.json"
+
 // Action Placeholder (Modify when adding logic)
 const buttonAction = (type, payload) => ({
   type,
@@ -76,7 +76,9 @@ Button_btn.propTypes = {
   children: PropTypes.node,
   navigateTo: PropTypes.string,
   gridPosition: PropTypes.object,
-  isVisible:PropTypes.bool
+  isVisible: PropTypes.bool,
+  zIndex: PropTypes.number,
+
 };
 
 export default Button_btn;

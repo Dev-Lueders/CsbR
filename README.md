@@ -3,7 +3,7 @@ Webpage Project for UGC (User Generated Content) from Games
 This repository is for a webpage designed to provide a platform for users to create, share, and interact with user-generated content (UGC) from various games like Gran Turismo 7, Minecraft, Lego 2K Drive, and many others. The goal is to provide a highly modular system that allows users to easily browse, add, and view content specific to the games they enjoy.
 
 Features
-React, Redux, Bootstrap, and Axios for building and managing the user interface and interactions.
+React, Redux, and Axios for building and managing the user interface and interactions.
 Components: Developed using a modular approach, with reusable components (e.g., buttons, checkboxes, dropdowns, inputs) placed into different sections and styles to maintain the structure and ensure easy customization.
 Search Functionality: A search function will be implemented that catalogues the most used search words. These will be indexed for quicker search results and will make the platform more responsive.
 Monetization System: Includes badges, memberships, and rewards for content creation (e.g., tutorial videos reaching certain thumbs up numbers).
