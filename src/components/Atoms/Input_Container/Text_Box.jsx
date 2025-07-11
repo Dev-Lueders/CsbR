@@ -48,7 +48,11 @@ const Text_Box = ({
   onChange={(e) => onChange(e.target.value)}
   maxLength={maxLength}
   aria-label={labelText}
-  {...props}
+        style={{
+          width: "100%",
+          height:"100%"
+  }}
+        {...props}
   />
   </div>
   );

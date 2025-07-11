@@ -2,7 +2,7 @@
   "name": "csbr",
   "private": true,
   "version": "0.0.0",
-   "scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
+    "axios": "^1.10.0",
     "bootstrap": "^5.3.3",
     "chai": "^5.2.0",
     "mocha": "^11.2.2",
