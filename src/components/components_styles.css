@@ -6,7 +6,7 @@ top right bottom left
 .Page_Grid {
   display: grid;
   grid-template-columns: repeat(36, 1fr);
-  grid-template-rows: repeat(36, 1fr);
+  grid-template-rows: repeat(36, auto);
   gap: 1px;
   width: 100vw;
   height: 100vh;

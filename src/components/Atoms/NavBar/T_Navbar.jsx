@@ -35,4 +35,12 @@ const T_Navbar = ({ links = [], children }) => {
   );
 };
 
+T_Navbar.defaultProps = {
+  style: {},
+};
+T_Navbar.propTypes = {
+  links: PropTypes.array,
+  children: PropTypes.node,
+  style: PropTypes.object,
+};
 export default T_Navbar;
