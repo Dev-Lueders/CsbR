@@ -1,0 +1,14 @@
+{
+    "Drop_Down_Italy": [
+      { "label": "Alfa Romeo", "value": "Alfa" },
+      { "label": "Ferrari", "value": "Ferrari" },
+      { "label": "Lamborghini", "value": "Lamborghini" },
+      { "label": "Fiat", "value": "Fiat" },
+      { "label": "Abarth", "value": "Abarth" },
+      { "label": "Maserati", "value": "Maserati" },
+      { "label": "Pagani", "value": "Pagani" },
+      { "label": "Zagato", "value": "Zagato" },
+      {"label":"ItalDesign","value":"ItalDesign"},
+      {"label":"BVLGari","value":"BVLGari"}
+    ]
+  }

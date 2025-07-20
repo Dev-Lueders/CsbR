@@ -14,7 +14,7 @@ const Page_Grid = ({
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(36, 1fr)",
-        gridTemplateRows: "repeat(36, 1fr)", 
+        gridTemplateRows: "repeat(36, minmax(3rem, auto))",
         // gap: "8px", // consistent spacing between items
         width: "100vw",
         minHeight: "100vh", // full height so things don't collapse

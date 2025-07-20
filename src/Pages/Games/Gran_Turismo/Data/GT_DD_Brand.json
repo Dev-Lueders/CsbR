@@ -1,0 +1,7 @@
+{
+    "Drop_Down_Brand": [
+      { "label": "America", "value": "America" },
+      { "label": "Europe", "value": "Europe" },
+      { "label": "Asia-Pacific", "value": "Asia-Pacific" }
+    ]
+}

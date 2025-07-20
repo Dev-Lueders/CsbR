@@ -1,0 +1,18 @@
+{
+    "Drop_Down_Japan": [
+      { "label": "Mitsubishi", "value": "Mitsubishi" },
+      { "label": "Suzuki", "value": "Suzuki" },
+      { "label": "Daihatsu", "value": "Daihatsu" },
+      { "label": "Lexus", "value": "Lexus" },
+      { "label": "Afeela", "value": "Afeela" },
+      { "label": "Toyota", "value": "Toyota" },
+      { "label": "Nissan", "value": "Nissan" },
+      { "label": "Honda", "value": "Honda" },
+      { "label":"Mazda","value":"Mazda"},
+      { "label": "Subaru", "value":"Subaru"},
+      { "label":"Gran Turismo", "value":"GT"},
+      { "label":"Super Formula","value":"Super_Formula"},
+      { "label":"RE Amemiya","value":"Amemiya"},
+      { "label":"Amuse","value":"Amuse"}
+    ]
+  }

@@ -1,0 +1,14 @@
+{
+    "GT_DD_Chevrolet":[
+        {"label":"Corvette C7 '14","value":"Corvette_C7_14"},
+        {"label":"Corvette Z06 (C5) '01","value":"Corvette_Z06"},
+        {"label":"Corvette C8 '20","value":"Corvette_C8_20"},
+        {"label":"Corvette ZR1 (C6) '09","value":"Corvette_ZR1_C6_09"},
+        {"label":"Corvette C7 ZR1 '19","value":"Corvette_ZR1_C7_19"},
+        {"label":"Corvette C7 Gr.3 Road Car","value":"Corvette_C7_Gr3_Road_Car"},
+        {"label":"Corvette C7 Gr.4","value":"Corvette_C7_Gr4"},
+        {"label":"Corvette C7 Gr.3","value":"Corvette_C7_Gr3"},
+        {"label":"Camaro ZL1 1LE Package '18","value":"Camaro_ZL1_18"},
+        {"label":"Camaro SS '16", "value":"Camaro_SS_16"}
+    ]
+}

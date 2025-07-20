@@ -1,0 +1,12 @@
+{
+  "Drop_Down_Germany": [
+    { "label": "Volkswagen", "value": "VW" },
+    { "label": "AMG", "value": "AMG" },
+    { "label": "Mercedes-Benz", "value": "Mercedes" },
+    { "label": "BMW", "value": "BMW" },
+    { "label": "Audi", "value": "Audi" },
+    { "label": "Mini", "value": "Mini" },
+    { "label": "Porsche", "value": "Porsche" },
+    { "label": "RUF", "value": "RUF" }
+  ]
+}

@@ -6,7 +6,7 @@ import Page_Grid from "../components/Util/Page_Grid/Page_Grid";
 
 import Component_Testing from "../Pages/Test Page/Component_Testing"
 import Show_offpage from "../Pages/Test Page/Show_offpage";
-
+import Course_Review from "../Pages/Games/PGA2K/Content/Course_Review";
 const TestingRoutes = () => {
     return (
       <>
@@ -14,11 +14,22 @@ const TestingRoutes = () => {
           <Route
             path="/Component_Testing"
             element={
-              
+              <Page_Grid>
                 <Component_Testing />
-              
+              </Page_Grid>
             }
           />
+        </Routes>
+
+        <Routes>
+          <Route
+            path="Course_Review"
+            element={
+              <Page_Grid>
+                <Course_Review />
+              </Page_Grid>
+            } />
+          
         </Routes>
       </>
     );

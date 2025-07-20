@@ -1,0 +1,10 @@
+{
+    "Drop_Down_France": [
+      { "label": "Renault", "value": "Renault" },
+      { "label": "Peugeot", "value": "Peugeot" },
+      { "label": "Citroen", "value": "Citroen" },
+      { "label": "DS Automobiles", "value": "DS" },
+      { "label": "Alpine", "value": "Alpine" },
+      { "label": "Bugatti", "value": "Bugatti" }
+    ]
+  }

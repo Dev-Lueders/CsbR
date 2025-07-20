@@ -21,7 +21,17 @@ const Adding_Form = ({ children, onSubmit }) => {
   return (
     <>
       <T_Navbar links={T_Links} />
-      <form onSubmit={onSubmit} style={{}} aria-labelledby="form" role="form">
+      
+      <form onSubmit={onSubmit}
+        style={{
+          // display: "contents",
+          gridColumn: "1/-1",
+          
+        }}
+        aria-labelledby="form"
+        role="form"
+      
+      >
         {children}
 
         <Button_btn
@@ -32,6 +42,8 @@ const Adding_Form = ({ children, onSubmit }) => {
             width: "10rem",
             marginBottom: "60px",
             marginTop: "60px",
+            gridColumn: "1/5",
+            gridRow: "1/5"
           }}
         />
       </form>

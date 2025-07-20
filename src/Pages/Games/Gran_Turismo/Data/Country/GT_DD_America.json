@@ -1,0 +1,19 @@
+{
+    "Drop_Down_": [
+      { "label": "Ford", "value": "Ford" },
+      { "label": "Chevrolet", "value": "Chevrolet" },
+      { "label": "Dodge", "value": "Dodge" },
+      { "label": "Infiniti", "value": "Infiniti" },
+      { "label": "Tesla", "value": "Tesla" },
+      { "label": "Chaparal", "value": "Chaparal" },
+      { "label": "DMC", "value": "DMC" },
+      { "label": "Greddy", "value": "Greddy" },
+      { "label": "CHC(Chris Holstom Concepts", "value": "CHC" },
+      { "label": "Eckert's: Rod & Custom", "value": "Eckert" },
+      { "label": "Roadster Shop", "value": "Roadster" },
+      { "label": "Wicked Fabrication", "value": "WF" },
+      { "label": "Greening Auto Company", "value": "GAC" },
+      {"label": "Garage_RCR", "value":"RCR"}
+
+    ]
+}

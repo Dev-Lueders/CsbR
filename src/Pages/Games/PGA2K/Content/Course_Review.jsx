@@ -8,18 +8,20 @@ import PGA_DD_Play from "./../Data/Review_Data/PGA_DD_Play.json";
 import Drop_Down from "../../../../components/Atoms/Drop_Down/Drop_Down";
 import Text_Box from "../../../../components/Atoms/Input_Container/Text_Box";
 import T_Navbar from "../../../../components/Atoms/NavBar/T_Navbar";
+import Adding_Form from "../../../../components/Molecules/Form/Adding_Form";
 const Course_Review = () => {
   
-  const T_NavLink = [
-    { path: "/login", label: "Login" },
-    { path: "/profile", label: "Profile" },
-    { path: "/course", label: "Add Course" },
-    { label: "Home", path: "/" },
-  ];
+  // const T_NavLink = [
+  //   { path: "/login", label: "Login" },
+  //   { path: "/profile", label: "Profile" },
+  //   { path: "/course", label: "Add Course" },
+  //   { label: "Home", path: "/" },
+  // ];
 
   return (
     <>
-      <T_Navbar links={T_NavLink}/>
+      <Adding_Form>
+      
       <Text_Box
         label="Designer"
         id="txt_dsnNM_crsReview"
@@ -191,7 +193,9 @@ const Course_Review = () => {
           gridColumn: "19/27",
           gridRow: "33/36"
         }}
-      />
+        />
+        
+        </Adding_Form>
     </>
   );
 };

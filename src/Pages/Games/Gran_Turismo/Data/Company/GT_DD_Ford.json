@@ -1,0 +1,19 @@
+{
+    "Drop_Down_Ford": [
+      { "label": "Focus ST '15", "value": "Focus_ST_15" },
+      { "label": "Focus RS '18", "value": "Focus_RS_18" },
+      { "label": "Mustang GT '15", "value": "Mustang_GT_15" },
+      { "label": "F-150 SVT Raptor '11", "value": "F-150_SVT_Raptor_11" },
+      { "label": "Shelby GT350R '16", "value": "Shelby_GT350R_16" },
+      { "label": "Mustang GR.3 Road Car", "value": "Mustang_GR3_road_car" },
+      { "label": "Mustang GR.4", "value": "Mustang_GR4" },
+      { "label": "Mustang Gr.3", "value": "Mustang_GR3" },
+      { "label": "Mustang GR.B Rally Car", "value": "Mustang_Rally_Car"},
+      { "label": "Focus GR.B Rally Car", "value": "Focus_Rally_Car"},
+      { "label": "Ford GT '06", "value": "Ford_GT_06"},
+      { "label": "Ford GT '17", "value": "Ford_GT_17"},
+      { "label": "Ford GT Race Car '18", "value": "Ford_Race_Car_18"},
+      { "label": "Ford GT LM Spec II Test Car", "value": "Ford_Spec_II_Test_Car"},
+      { "label": "Ford GT LM Race Car Spec II", "value": "Ford_Spec_II"}
+        ]
+  }
