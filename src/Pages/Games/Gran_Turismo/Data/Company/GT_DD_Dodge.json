@@ -1,0 +1,16 @@
+{
+    "Drop_Down_Dodge": [
+        {"label":"Viper GTS '02","value":"Viper_GTS_02"},
+        {"label":"Viper SRT10 Coupe '06","value":"Viper_SRT10"},
+        {"label":"Viper GTS '13","value":"Viper_GTS_13"},
+        {"label":"Viper Gr.4","value":"Viper_Gr4"},
+        {"label":"Viper SRT GT3-R '15","value":"Viper_GT3"},
+        {"label":"Charger SRT Hellcat '15","value":"Charger_Hellcat_15"},
+        {"label":"Charger SRT Hellcat Safety Car","value":"Charger_Hellcat_Safety"},
+        {"label":"Challenger SRT Demon '18","value":"Challenger_Demon-18"},
+        {"label":"SRT Tomahawk X VGT","value":"SRT_Tomahawk_X_VGT"},
+        {"label":"SRT Tomahawk GTS-R VGT","value":"SRT_Tomahawk_GTSR_VGT"},
+        {"label":"SRT Tomahawk S VGT","value":"SRT_Tomahawk_S_VGT"},
+        {"label":"SRT Tomahawk VGT (Gr.1)","value":"SRT_Tomahawk_GR1"}
+    ]
+}

@@ -18,7 +18,7 @@ const Full_Hole_Review = () => {
         // Theme of course
         // Type of course
         // HCP?
-        // TGC?
+        // TGC approved?
         // These below need to be repeated for each hole based on how many holes are selected
         // Distance for the  hole either being up or down from the pin at the tee position
         // Par for the hole
@@ -53,6 +53,7 @@ const Full_Hole_Review = () => {
         // What other courses are similar to this one
         // What level of play do you think this course is good for
         // What set of clubs would you recommend for this course
+        // what was the last play count for the course
 
     )
 }

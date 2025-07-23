@@ -2,7 +2,7 @@
 //NOTES SPECIFICALLY FOR GUESTS
 // The Hiearchy for Clients
 //  Guest
-//  User
+//  Creator
 //  Moderator
 //  Admin
 //  Master

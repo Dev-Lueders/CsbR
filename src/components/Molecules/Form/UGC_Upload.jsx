@@ -53,4 +53,8 @@ UGC_Upload.PropTypes = {
 // gamer tag for content
 // tip jar
 // dig and bury
+// was this on another site before (for poaching ugc) if so what is the creator/designer name, what site and if a publish date when was it published.
+// claim tag
+// copy right tag
+// Content type flag (pic/video/tutorial/walk through)
 // #tag for the contents selecting or making as many tags as wanted (this will help categorize content and build it into the search engine)

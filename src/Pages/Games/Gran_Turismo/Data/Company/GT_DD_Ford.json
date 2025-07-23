@@ -14,6 +14,8 @@
       { "label": "Ford GT '17", "value": "Ford_GT_17"},
       { "label": "Ford GT Race Car '18", "value": "Ford_Race_Car_18"},
       { "label": "Ford GT LM Spec II Test Car", "value": "Ford_Spec_II_Test_Car"},
-      { "label": "Ford GT LM Race Car Spec II", "value": "Ford_Spec_II"}
+      { "label": "Ford GT LM Race Car Spec II", "value": "Ford_Spec_II"},
+      { "label": "Mustang Mach Forty (Eckerts Rod & Custom)", "value": "Mach_Forty_ERC"}
+      
         ]
   }

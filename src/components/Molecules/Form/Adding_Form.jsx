@@ -21,16 +21,16 @@ const Adding_Form = ({ children, onSubmit }) => {
   return (
     <>
       <T_Navbar links={T_Links} />
-      
-      <form onSubmit={onSubmit}
+
+      <form
+        onSubmit={onSubmit}
         style={{
           // display: "contents",
-          gridColumn: "1/-1",
-          
+          gridColumn: "15/35",
+          gridRow: "8/12",
         }}
         aria-labelledby="form"
         role="form"
-      
       >
         {children}
 
@@ -42,8 +42,21 @@ const Adding_Form = ({ children, onSubmit }) => {
             width: "10rem",
             marginBottom: "60px",
             marginTop: "60px",
-            gridColumn: "1/5",
-            gridRow: "1/5"
+            gridColumn: "10/15",
+            gridRow: "10/15",
+          }}
+        />
+
+        <Button_btn
+          label="Reset Password"
+          onClickAction="SUBMIT_FORM"
+          type="submit"
+          style={{
+            width: "10rem",
+            marginBottom: "60px",
+            marginTop: "60px",
+            gridColumn: "1/6",
+            gridRow: "15/25",
           }}
         />
       </form>

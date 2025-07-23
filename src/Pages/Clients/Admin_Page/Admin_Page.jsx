@@ -1,10 +1,21 @@
+//*********************************THIS IS THE ADMIN PAGE*****************************************/
+//
 // The Hiearchy for Clients
 //  Guest
-//  User
+//  Creator
 //  Moderator
 //  Admin
 //  Master
 //  (A Member can be a User, Moderator, Admin, Master)
+// Permissions
+// Review flagged material
+// access to customer records
+// access to all content
+// ability to archive/(delete) content,
+// ability to suspend or ban a creator or member providing the coucil agrees
+// ability to search personal records by personal data
+// ability to send mass messages to memebers and creators
+//  
 import React from "react";
 import Page_Frame from "../../../components/Organisim/Page_Frame"
 // import T_Navbar from "../../../components/Atoms/NavBar/T_Navbar";

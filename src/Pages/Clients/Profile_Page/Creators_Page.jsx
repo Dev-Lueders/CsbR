@@ -36,66 +36,66 @@ const Creators_Page = () => {
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+       
           maxLength={15}
           containerStyle={{ display: "flex", flexDirection: "row", alignItems: "center" }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          labelStyle={{ fontWeight: "bold" }}
+        
         />
          <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+     
           maxLength={15}
           containerStyle={{ display: "flex", flexDirection: "row", alignItems: "center" }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          labelStyle={{ fontWeight: "bold" }}
+         
         />
          <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+       
           maxLength={15}
           containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          labelStyle={{ fontWeight: "bold" }}
+          
         />
          <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+    
           maxLength={15}
           containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          labelStyle={{ fontWeight: "bold" }}
+          
         />
          <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+    
           maxLength={15}
           containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          labelStyle={{ fontWeight: "bold" }}
+          
         />
          <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+        
           maxLength={15}
           containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          labelStyle={{ fontWeight: "bold" }}
+         
         />
 
         {/* Button */}

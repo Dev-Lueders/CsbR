@@ -65,11 +65,15 @@ return(
     id="phone_number"
     required/>
   
-  <Button_btn navigateTo="/Creators_SignUp">
+      <Button_btn
+        label ="Creator Profile"
+        navigateTo="/Creators_SignUp">
   Creators Profile
   </Button_btn>
   
-  <Button_btn navigateTo="/Profile_SignUp">
+      <Button_btn
+        label = "Profile Signup"
+        navigateTo="/Profile_SignUp">
   Personal Profile
   </Button_btn>
 

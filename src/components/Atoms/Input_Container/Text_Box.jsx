@@ -1,4 +1,3 @@
-
 // will need to dynamically have the grid placed
 // write some conditional statements for how much text can be received
 // This component renders a label next to an input box.
@@ -11,9 +10,8 @@
 // use teh start and end grid with gridColumn and gridRow to position the text box
 // minimize the amount of variables to pass, have one universal variable for everything that is not either gridColumn, gridRow,zIndex,isVisible, opacity, these will be the building  blocks to using the gridPage
 
-
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import "../../components_styles.css";
 
 const Text_Box = ({
@@ -22,10 +20,13 @@ const Text_Box = ({
   value,
   onChange,
   id = "def_text-box",
-  maxLength = 400,
+  maxLength = 40,
   style = {},
   className = "",
-  isVisible = false,
+  isVisible = true,
+  type = "text",
+  name = "",
+
   ...props
 }) => {
   if (!isVisible) return null;
@@ -33,28 +34,28 @@ const Text_Box = ({
   return (
     <div
       className={`text-box-container ${className}`}
-        style = {{
+      style={{
         display: "grid",
         alignItems: "center",
         ...style,
-        
       }}
-
->
-<input id={id}
-  name={name}
-  placeholder={placeholderText}
-  value={value}
-  onChange={(e) => onChange(e.target.value)}
-  maxLength={maxLength}
-  aria-label={labelText}
+    >
+      <input
+        id={id}
+        name={name}
+        placeholder={placeholderText}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        maxLength={maxLength}
+        type={type}
+        aria-label={labelText}
         style={{
-          width: "100%",
-          height:"100%"
-  }}
+          width: "80%",
+          height: "80%",
+        }}
         {...props}
-  />
-  </div>
+      />
+    </div>
   );
 };
 
@@ -68,7 +69,8 @@ Text_Box.propTypes = {
   maxLength: PropTypes.number,
   style: PropTypes.object,
   className: PropTypes.string,
-  isVisible: false,
+  isVisible: true,
+  type: PropTypes.string,
 };
 
 Text_Box.defaultProps = {
@@ -76,10 +78,11 @@ Text_Box.defaultProps = {
   placeholderText: "",
   id: "text-box",
   name: "",
-  maxLength: '400',
+  maxLength: "400",
   style: {},
   className: "",
-  isVisible:false,
-}
+  isVisible: false,
+  type: "text",
+};
 
 export default Text_Box;

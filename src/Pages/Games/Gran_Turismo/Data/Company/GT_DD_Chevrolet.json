@@ -1,5 +1,5 @@
 {
-    "GT_DD_Chevrolet":[
+    "Drop_Down_Chevrolet":[
         {"label":"Corvette C7 '14","value":"Corvette_C7_14"},
         {"label":"Corvette Z06 (C5) '01","value":"Corvette_Z06"},
         {"label":"Corvette C8 '20","value":"Corvette_C8_20"},
@@ -9,6 +9,7 @@
         {"label":"Corvette C7 Gr.4","value":"Corvette_C7_Gr4"},
         {"label":"Corvette C7 Gr.3","value":"Corvette_C7_Gr3"},
         {"label":"Camaro ZL1 1LE Package '18","value":"Camaro_ZL1_18"},
-        {"label":"Camaro SS '16", "value":"Camaro_SS_16"}
+        {"label":"Camaro SS '16", "value":"Camaro_SS_16"},
+        {"label":"'67 Nova CHC(Chris Holstrom Concepts)","value":"CHC_nova_CHC"}
     ]
 }

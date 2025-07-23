@@ -6,7 +6,7 @@ import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
 import Scroll_Bar from "../../components/Atoms/Scroll_Bar/Scroll_Bar";
 import { Container, Row, Col } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap is loaded
+import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap is loaded...take out all bootstrap
 
 const Profile_SignUp = () => {
   const T_Links = [
@@ -41,28 +41,24 @@ const Profile_SignUp = () => {
               label="First Name"
               placeholder="First Name Here"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
             />
             <Text_Box
               id="L_NAME"
               label="Last Name"
               placeholder="Last Name Here"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
             />
             <Text_Box
               id="E_MAIL"
               label="E-Mail"
               placeholder="E-Mail Here"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
             <Text_Box
               id="PHONE_NUMBER"
               label="Phone Number"
               placeholder="Phone Number Here"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
             />
     
             <Text_Box
@@ -70,21 +66,20 @@ const Profile_SignUp = () => {
               label="Your User Name"
               placeholder="Your User Name Here"
               value={userName}
-              onChange={(e) => setUserName(e.target.value)}
             />
             <Text_Box
               id="Password_id"
               label="Password"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+
             />
             <Text_Box
               id="Confirm_Password"
               label="Confirm Password"
               placeholder="Confirm Password Here"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+
             />
             <Check_Box id="ShowPassword" label="Click here to show your password" />
        

@@ -16,7 +16,14 @@ const Component_Testing = () => {
         { label: "Review",path:"/Course_Review"}
     ]
   
-    const L_Links = []
+  const L_Links = [
+    { label: "Admin", path: "/Admin_Page" },
+    { label: "Creator", path: "/Creator_Page" },
+    { label: "Member", path: "/Member_Page" },
+    { label: "Moderator", path: "/Moderator_Page" },
+    { label: "Guest", path: "/Guest_Page" },
+    { label: "Master", path: "/Master_Page" }
+    ]
     return (
       <>
         <T_Navbar links={T_Links} />
@@ -24,6 +31,7 @@ const Component_Testing = () => {
         <Main_Container
           style={{ gridColumn: "1 / 38", gridRow: "1/38" }}
         ></Main_Container>
+        
       </>
     );
 }

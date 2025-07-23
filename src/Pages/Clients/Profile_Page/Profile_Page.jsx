@@ -59,7 +59,7 @@ const Profile_Page = () => {
                 labelText="First Name"
                 placeholderText="First Name Here"
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+            
                 maxLength={15}
               />
             </Form.Group>
@@ -70,7 +70,7 @@ const Profile_Page = () => {
                 labelText="Last Name"
                 placeholderText="Last Name Here"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+            
                 maxLength={15}
               />
             </Form.Group>
@@ -81,7 +81,7 @@ const Profile_Page = () => {
                 labelText="E-Mail"
                 placeholderText="E-Mail Here"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+          
                 maxLength={50}
               />
             </Form.Group>
@@ -92,7 +92,7 @@ const Profile_Page = () => {
                 labelText="Phone Number"
                 placeholderText="Phone Number Here"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+            
                 maxLength={15}
               />
             </Form.Group>
@@ -105,7 +105,7 @@ const Profile_Page = () => {
                 labelText="Your User Name"
                 placeholderText="Your User Name Here"
                 value={userName}
-                onChange={(e) => setUserName(e.target.value)}
+           
                 maxLength={15}
               />
             </Form.Group>
@@ -116,7 +116,7 @@ const Profile_Page = () => {
                 labelText="Password"
                 placeholderText="Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+          
                 maxLength={20}
               />
             </Form.Group>
@@ -127,7 +127,7 @@ const Profile_Page = () => {
                 labelText="Confirm Password"
                 placeholderText="Confirm Password Here"
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+             
                 maxLength={20}
               />
             </Form.Group>

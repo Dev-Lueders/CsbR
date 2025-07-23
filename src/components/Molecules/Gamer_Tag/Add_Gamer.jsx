@@ -17,7 +17,7 @@ const Add_Gamer_Tag = () => {
   const [removeGT, setRemoveGT] = useState([false]); // Initialize with one false for the first GT
 
   const handleAddGamerTag = () => {
-    if (GTindex.length < 10) {
+    if (GTindex.length < 50) {
       setGTindex((prevTags) => [
         ...prevTags,
         { gamerTag, selectedSystem, selectedGame }
