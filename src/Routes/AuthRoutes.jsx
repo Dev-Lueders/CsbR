@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Page_Grid from "../components/Util/Page_Grid/Page_Grid";
+import Page_Grid from "../components/Atoms/Page_Grid/Page_Grid";
 
 import Login_Page from "../Pages/Login_Page/Login_Page";
 import Admin_Page from "../Pages/Clients/Admin_Page/Admin_Page";
