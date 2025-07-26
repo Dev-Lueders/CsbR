@@ -7,7 +7,7 @@ import Landing_Page from "../Pages/Landing_Page/Landing_Page";
 import SignUp_Page from "../Pages/SignUp_Page/SignUp_Page";
 import Creators_SignUp from "../Pages/SignUp_Page/Creators_SignUp";
 import Profile_SignUp from "../Pages/SignUp_Page/Profile_SignUp";
-const SignupRoutes = () => {
+const SignUpRoutes = () => {
   return (
     <>
       <Routes>
@@ -44,9 +44,8 @@ const SignupRoutes = () => {
             </Page_Grid>
           }
         />
-
       </Routes>
     </>
   );
 };
-export default SignupRoutes;
+export default SignUpRoutes;

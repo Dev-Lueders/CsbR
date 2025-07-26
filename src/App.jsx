@@ -6,23 +6,18 @@ import Page_Grid from "./components/Atoms/Page_Grid/Page_Grid.jsx";
 import "./components/components_styles.css";
 import "./App.css";
 
-
 import AuthRoutes from "./Routes/AuthRoutes.jsx";
 import ClientRoutes from "./Routes/ClientRoutes.jsx";
 import GameRoutes from "./Routes/GameRoutes.jsx";
 import InfoRoutes from "./Routes/InfoRoutes.jsx";
-import SignupRoutes from "./Routes/SignupRoutes";
+import SignUpRoutes from "./Routes/SignUpRoutes";
 import TestingRoutes from "./Routes/TestingRoutes";
-
-
-
 
 import ReadMe from "./Pages/Help/ReadMe.jsx";
 import Games from "./Pages/Games/Games_Page.jsx";
 import Help from "./Pages/Help/Help.jsx";
 import About from "./Pages/About/About.jsx";
 import Legal from "./Pages/Legal/Legal_Page.jsx";
-
 
 import Landing_Page from "./Pages/Landing_Page/Landing_Page.jsx";
 import Login_Page from "./Pages/Login_Page/Login_Page.jsx";
@@ -117,6 +112,16 @@ const App = () => {
           }
         />{" "}
         {/*components.css not applied */}
+        <Route>
+          <Route
+            path="/Profile_SignUp"
+            element={
+              <Page_Grid>
+                <Profile_SignUp />
+              </Page_Grid>
+            }
+          />
+        </Route>
         <Route
           path="/Creators_Page"
           element={

@@ -3,7 +3,7 @@ import T_Navbar from "../../../components/Atoms/NavBar/T_Navbar";
 import B_Navbar from "../../../components/Atoms/NavBar/B_Navbar";
 import Button_Component from "../../../components/Atoms/Buttons/Button";
 import Text_Box from "../../../components/Atoms/Input_Container/Text_Box";
-import "../../../components/components_styles.css"
+import "../../../components/components_styles.css";
 
 const Creators_Page = () => {
   const T_Links = [
@@ -13,7 +13,7 @@ const Creators_Page = () => {
   ];
 
   const B_Links = [
-    { path: "/SignUp_Page", label: "Signup" },
+    { path: "/SignUp_Page", label: "SignUp" },
     { path: "/contact", label: "Contact Us" },
     { path: "/help", label: "Help" },
     { path: "/about", label: "About" },
@@ -26,84 +26,103 @@ const Creators_Page = () => {
   return (
     <>
       <T_Navbar links={T_Links} />
-      
+
       {/* Wrapper for Layout */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem", marginTop: "2rem" }}>
-        
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "1rem",
+          marginTop: "2rem",
+        }}
+      >
         {/* Text Box */}
         <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-       
           maxLength={15}
-          containerStyle={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+          containerStyle={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
           inputStyle={{ width: "200px", padding: "10px" }}
-        
         />
-         <Text_Box
+        <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-     
           maxLength={15}
-          containerStyle={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+          containerStyle={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
           inputStyle={{ width: "200px", padding: "10px" }}
-         
         />
-         <Text_Box
+        <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-       
           maxLength={15}
-          containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+          containerStyle={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          
         />
-         <Text_Box
+        <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-    
           maxLength={15}
-          containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+          containerStyle={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          
         />
-         <Text_Box
+        <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-    
           maxLength={15}
-          containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+          containerStyle={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
           inputStyle={{ width: "200px", padding: "10px" }}
-          
         />
-         <Text_Box
+        <Text_Box
           id="username"
           labelText="Username:"
           placeholderText="Enter username..."
           value={username}
-        
           maxLength={15}
-          containerStyle={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+          containerStyle={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
           inputStyle={{ width: "200px", padding: "10px" }}
-         
         />
 
         {/* Button */}
-        <Button_Component 
-          label="Submit" 
-          variant="success" 
-          containerStyle={{ marginTop: "10px" }} 
-          style={{ padding: "10px 20px" }} 
+        <Button_Component
+          label="Submit"
+          variant="success"
+          containerStyle={{ marginTop: "10px" }}
+          style={{ padding: "10px 20px" }}
         />
       </div>
 

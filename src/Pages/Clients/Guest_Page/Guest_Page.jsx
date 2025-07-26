@@ -17,7 +17,7 @@
 // Most of the searches have either videos or pictures
 
 
-import Page_Frame from "../../../components/Organisim/Page_Frame";
+import Page_Frame from "../../../components/Organism/Page_Frame";
 const Guest_Page = () => {
 return (
   <>

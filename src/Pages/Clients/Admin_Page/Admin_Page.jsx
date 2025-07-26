@@ -17,7 +17,7 @@
 // ability to send mass messages to memebers and creators
 //  
 import React from "react";
-import Page_Frame from "../../../components/Organisim/Page_Frame"
+import Page_Frame from "../../../components/Organism/Page_Frame"
 // import T_Navbar from "../../../components/Atoms/NavBar/T_Navbar";
 // import L_Navbar from "../../../components/Atoms/NavBar/L_Navbar";
 // import B_Navbar from "../../../components/Atoms/NavBar/B_Navbar";

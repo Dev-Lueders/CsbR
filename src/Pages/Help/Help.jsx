@@ -25,7 +25,7 @@ const Games_Page = () => {
     // { label: "Pokemon", path:"Pokemon"},
   ];
   const B_Links = [
-    { path: "/SignUp_Page", label: "Signup" },
+    { path: "/SignUp_Page", label: "SignUp" },
     { path: "/Contact", label: "Contact Us" },
     { path: "/Help", label: "Help" },
     { path: "/About", label: "About" },

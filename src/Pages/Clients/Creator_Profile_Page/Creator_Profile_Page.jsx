@@ -24,26 +24,38 @@
 // Flag content for review
 // Reporting for bad behavior
 
-import react from "@vitejs/plugin-react-swc";
-import T_Navbar from "../../../components/Atoms/NavBar/T_Navbar";
-import L_Navbar from "../../../components/Atoms/NavBar/L_Navbar";
-import B_Navbar from "../../../components/Atoms/NavBar/B_Navbar";
-import Text_Box from "../../../components/Atoms/Input_Container/Text_Box";
-import Drop_Down from "../../../components/Atoms/Drop_Down/Drop_Down";
-import Button_btn from "../../../components/Buttons/Button";
-import Radio_btn from "../../../components/Buttons/Radio";
+
+import Page_Frame from "../../../components/Organism/Page_Frame";
 import Add_Gamer_Tag from "../../../components/Molecules/Gamer_Tag/Add_Gamer"; 
-
+import Check_Box from "../../../components/Atoms/Check_Box/Check_Box";
+import Text_Box from "../../../components/Atoms/Input_Container/Text_Box";
+import Add_social_Tag from "../../../components/Molecules/Social_Channels/Add_Social";
 const Creator_Profile_Page = () => {
-return(
-    <>
-        <Add_Gamer_Tag style={{ isVisible = true/>}}
-<h3>This is the Creator Profile Page</h3>
-
-
-</>
-
-)
+return (
+  <>
+    <Page_Frame>
+      <Add_Gamer_Tag isVisible={true} />
+      
+      <Check_Box label="Mobile" name="Mobile" id="mobile" />
+      <Check_Box
+        label="Playstation Series"
+        name="Game_system"
+        id="Playstation"
+      />
+      <Check_Box label="Xbox Series" name="Game_system" id="Xbox" />
+      <Check_Box label="PC" name="Game_system" id="PC" />
+      <Check_Box label="Nintendo Systems" name="Game_system" id="Nintendo" />
+      <Check_Box label="Steam" name="Game_system" id="Steam" />
+      <Text_Box
+        labelText="Bio"
+        placeholder="Enter Bio"
+        type="text"
+        name="bio"
+        id="bio"
+      />
+    </Page_Frame>
+  </>
+);
 
 
 }

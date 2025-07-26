@@ -3,21 +3,19 @@ import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
 import Adding_Form from "../../components/Molecules/Form/Adding_Form";
 const Profile_SignUp = () => {
-  
- 
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+    userName: "",
   });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
+    setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -30,14 +28,12 @@ const Profile_SignUp = () => {
     }
 
     localStorage.setItem(`user_${userName}`, JSON.stringify(formData));
-    alert("Signup successful! You can now log in");
+    alert("SignUp successful! You can now log in");
   };
 
   return (
     <>
-      
-      <Adding_Form onSubmit={handleSubmit}>
-
+      <Adding_Form onSubmit={handleSubmit} isVisible={true}>
         <Text_Box
           id="firstName"
           label="First Name"
@@ -47,7 +43,7 @@ const Profile_SignUp = () => {
         />
 
         <Text_Box
-          id="lasName"
+          id="lastName"
           label="Last Name"
           placeholder="Last Name"
           value={formData.lastName}
@@ -61,7 +57,7 @@ const Profile_SignUp = () => {
           value={formData.email}
           onChange={handleChange}
         />
-        
+
         <Text_Box
           id="phone"
           label="Phone"
@@ -79,17 +75,18 @@ const Profile_SignUp = () => {
         />
 
         <Text_Box
-          id="Password"
+          id="password"
           label="password"
-          placeholder="Password"
+          placeholder="password"
           value={formData.password}
           type={"password"}
           onChange={handleChange}
         />
-        
+
         <Text_Box
           id="confirmPassword"
-          label="confirmPassword" placeholder="Confirm Password"
+          label="confirmPassword"
+          placeholder="Confirm Password"
           value={formData.confirmPassword}
           type={"password"}
           onChange={handleChange}
@@ -97,7 +94,8 @@ const Profile_SignUp = () => {
 
         <Check_Box
           id="showPassword"
-          label=" Click here to show your password" />
+          label=" Click here to show your password"
+        />
       </Adding_Form>
     </>
   );

@@ -15,7 +15,7 @@ const Client_Front_Page = () => {
     { path: "/Master_Page", label: "Masters Page" },
     { path: "/Creator_Profile_Page", label: "Creators Page" },
     { path: "/Profile_Page", label: "Profile Page" },
-    { path: "/Signup_Page", label: "SignUp Page" },
+    { path: "/SignUp_Page", label: "SignUp Page" },
     { path: "/Member_Page", label: "Members Page" },
     { path: "/Login_Page", label: "Login" },
     { path: "/Component_Testing", label: "Test Page" },

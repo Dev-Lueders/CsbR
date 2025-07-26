@@ -6,6 +6,7 @@
     { "label": "Xbox", "value":"Xbox"},
     { "label": "Xbox One", "value":"Xbox1"},
     { "label":"Xbox 360", "value":"Xbox360"},
-    { "label":"Steam", "value":"Steam"}
+    { "label":"Steam", "value":"Steam"},
+    { "label":"Mobile","value":"Mobile"}
   ]
 }

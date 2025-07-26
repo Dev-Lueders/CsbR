@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../components_styles.css';
 
-const Pagination = ({ totalItems, itemsPerPage, currentPage, onPageChange, gridPosition }) => {
+const Pagination = ({ totalItems, itemsPerPage, currentPage, onPageChange, gridPosition, }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handlePageChange = (page) => {

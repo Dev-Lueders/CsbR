@@ -6,6 +6,9 @@
         {"label": "PGA Tour 2K25", "value":"PGA2K25"},
         {"label": "HotWheels", "value":"HotWheels"},
         {"label": "Lego Drive 2K", "value":"LegoDrive2K"},
-        {"label":"Gran Turismo 7", "value":"GT7"}
+        {"label":"Gran Turismo 7", "value":"GT7"},
+        {"label":"Minecraft (Java)","value":"MineJava"},
+        {"label":"Minecraft(Bedrock)", "value":"MineBed"},
+        {"label":"Roblox","value":"Roblox"}
           ]
 }

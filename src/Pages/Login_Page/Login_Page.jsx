@@ -25,11 +25,10 @@ const Login_Page = () => {
     } else {
       console.log("Invalid username or password");
       alert("Login Failed: invalid username or password");
-    };
+    }
 
     console.log("Logging in:", username, password);
   };
-
 
   const B_Links = [
     { label: "Home", path: "/" },
@@ -40,11 +39,9 @@ const Login_Page = () => {
     { label: "Support", path: "/Support" },
   ];
 
- 
-
   return (
     <>
-      <Adding_Form onSubmit= {handleLogin} >
+      <Adding_Form onSubmit={handleLogin}>
         <Text_Box
           id="username"
           labelText="User"
@@ -52,7 +49,6 @@ const Login_Page = () => {
           type="text"
           label="Username"
           onChange={(val) => setUsername(val)}
-          
         />
         <Text_Box
           id="Password_id"
@@ -71,9 +67,6 @@ const Login_Page = () => {
           checked={showPassword}
         />
         <Check_Box id="Remember_Me" label="Select here to Remember Me" />
-
-   
-     
       </Adding_Form>
       <B_Navbar links={B_Links} />
     </>

@@ -1,4 +1,4 @@
-const Full_Hole_Review = () => {
+const Full_Hole_Review = ({ children }) => {
     return (
         // Inform the user that this really should be used while playing the course
         // Date of review
