@@ -1,104 +1,106 @@
-import { useState } from "react";
-import Drop_Down from "../../Atoms/Drop_Down/Drop_Down";
-import Text_Box from "../../Atoms/Input_Container/Text_Box";
-import Check_Box from "../../Atoms/Check_Box/Check_Box";
-import "../../../components/components_styles.css"
-import PropTypes from 'prop-types';
+//UPdated ADD_GAMER 2:52pm
 
-import DD_Game_Options from "../../Components_Data/Atom_Data/DD_Game_Options.json";
+import React from "react";
+import PropTypes from "prop-types";
 import DD_Game_Systems from "../../Components_Data/Atom_Data/DD_Game_Systems.json";
+import "../../components_styles.css";
 
-const Add_Gamer_Tag = () => {
-  const [gamerTag, setGamerTag] = useState('');
-  const [selectedSystem, setSelectedSystem] = useState('');
-  const [selectedGame, setSelectedGame] = useState('');
-  const [addAnother, setAddAnother] = useState(false);
-  const [GTindex, setGTindex] = useState([{ gamerTag: "", selectedSystem: "", selectedGame: "" }]);
-  const [removeGT, setRemoveGT] = useState([false]); // Initialize with one false for the first GT
-
-  const handleAddGamerTag = () => {
-    if (GTindex.length < 50) {
-      setGTindex((prevTags) => [
-        ...prevTags,
-        { gamerTag, selectedSystem, selectedGame }
-      ]);
-      setRemoveGT((prevRemoveGT) => [...prevRemoveGT, false]);
-      setGamerTag('');
-      setSelectedSystem('');
-      setSelectedGame('');
-    }
-  };
-
-  const handleRemoveGamerTag = (index) => {
-    setGTindex((prevTags) => prevTags.filter((_, i) => i !== index));
-    setRemoveGT((prevRemoveGT) => prevRemoveGT.filter((_, i) => i !== index));
-  };
-
-  const handleCheckboxChange = (index) => {
-    const updatedRemoveTags = [...removeGT];
-    updatedRemoveTags[index] = !updatedRemoveTags[index];
-    setRemoveGT(updatedRemoveTags);
-
-    if (updatedRemoveTags[index]) {
-      handleRemoveGamerTag(index);
-    }
-  };
-
+const ADD_Gamer_Tag = ({
+  GT_Indi,
+  selectedSystem,
+  GT_Array,
+  onGT_IndiChange,
+  onSystemChange,
+  onAddGT,
+  onRemoveGT,
+  style = {}
+}) => {
+  if (!Array.isArray(GT_Array)) return null;
   return (
-    <div className="add-gamer-tag">
-      {GTindex.map((gt, index) => (
-        <div key={index}>
-          <Text_Box
-            value={gt.gamerTag || ""}
-            onChange={(value) => {
-              const updatedTags = [...GTindex];
-              updatedTags[index].gamerTag = value;
-              setGTindex(updatedTags);
-            }}
-          />
+    
+    <div
+      className="gamer-tag-section"
+      style={{
+        ...style
+      }}
+    >
+    
+      <div>
+        <label htmlFor="gamerTagInput">Gamer Tag:</label>
+        <input
+          type="text"
+          id="gamerTagInput"
+          value={GT_Indi}
+          onChange={(e) => onGT_IndiChange(e.target.value)}
+          className="text-input"
+          aria-label="Gamer Tag Input"
+        />
+      </div>
 
-          <Drop_Down
-            options={DD_Game_Systems.DD_Game_Systems}
-            onChange={(value) => {
-              const updatedTags = [...GTindex];
-              updatedTags[index].selectedSystem = value;
-              setGTindex(updatedTags);
-            }}
-            maxOptionsVisible={4}
-          />
+      <div>
+        <label htmlFor="systemSelect">System:</label>
+        <select
+          id="systemSelect"
+          value={selectedSystem}
+          onChange={(e) => onSystemChange(e.target.value)}
+          className="select-input"
+          aria-label="System Select"
+        >
+          <option value="">Select System</option>
+          {DD_Game_Systems.Drop_Down_Systems.map((system, idx) => (
+            <option key={idx} value={system.value}>
+              {system.label}
+            </option>
+          ))}
+        </select>
+      </div>
 
-          <Drop_Down
-            options={DD_Game_Options.DD_Game_Options}
-            onChange={(value) => {
-              const updatedTags = [...GTindex];
-              updatedTags[index].selectedGame = value;
-              setGTindex(updatedTags);
-            }}
-            maxOptionsVisible={4}
-          />
+      <div>
+        <button
+          type="button"
+          onClick={onAddGT}
+          className="add-btn"
+          style={{ marginTop: "5px" }}
+        >
+          Add Gamer Tag
+        </button>
+      </div>
 
-          <Check_Box
-            checked={removeGT[index]}
-            onChange={() => handleCheckboxChange(index)}
-            label={`Remove ${gt.gamerTag || 'this gamer tag'}`}
-          />
-        </div>
-      ))}
-      <Check_Box
-        checked={addAnother}
-        onChange={handleAddGamerTag}
-        label="Have another Gamer Tag? Check this Box"
-      />
+      <div style={{ gridColumn: "10 / span 15", marginTop: "10px" }}>
+        <ul className="gamer-tag-list">
+          {GT_Array.map((tag, index) => (
+            <li key={index}>
+              {tag.system}: {tag.GT_Indi}
+              <button
+                type="button"
+                onClick={() => onRemoveGT(index)}
+                className="remove-btn"
+                aria-label={`Remove ${tag.GT_Indi}`}
+              >
+                ❌
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
-Text_Box.PropTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  arialabel: PropTypes.string,
-  name: PropTypes.string,
+ADD_Gamer_Tag.propTypes = {
+  GT_Indi: PropTypes.string.isRequired,
+  selectedSystem: PropTypes.string.isRequired,
+  GT_Array: PropTypes.arrayOf(
+    PropTypes.shape({
+      GT_Indi: PropTypes.string,
+      system: PropTypes.string
+    })
+  ).isRequired,
+  onGT_IndiChange: PropTypes.func.isRequired,
+  onSystemChange: PropTypes.func.isRequired,
+  onAddGT: PropTypes.func.isRequired,
+  onRemoveGT: PropTypes.func.isRequired,
+  style: PropTypes.object
 };
 
-export default Add_Gamer_Tag;
+export default ADD_Gamer_Tag;

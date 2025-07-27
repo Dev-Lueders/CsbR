@@ -1,0 +1,8 @@
+{
+    "Drop_Down_Alpine": [
+        { "label": "A110 17'", "value": "A110_17" },
+        { "label": "Alpine VGT", "value": "Alpine_VGT" },
+        { "label": "Alpine VGT Race", "value": "Alpine_VGT_Race" },
+        { "label": "Alpine VGT 17'", "value": "Alpine_VGT_17" }
+    ]
+}

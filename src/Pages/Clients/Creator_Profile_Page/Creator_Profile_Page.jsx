@@ -26,7 +26,7 @@
 
 
 import Page_Frame from "../../../components/Organism/Page_Frame";
-import Add_Gamer_Tag from "../../../components/Molecules/Gamer_Tag/Add_Gamer"; 
+
 import Check_Box from "../../../components/Atoms/Check_Box/Check_Box";
 import Text_Box from "../../../components/Atoms/Input_Container/Text_Box";
 import Add_social_Tag from "../../../components/Molecules/Social_Channels/Add_Social";
@@ -34,7 +34,7 @@ const Creator_Profile_Page = () => {
 return (
   <>
     <Page_Frame>
-      <Add_Gamer_Tag isVisible={true} />
+      
       
       <Check_Box label="Mobile" name="Mobile" id="mobile" />
       <Check_Box

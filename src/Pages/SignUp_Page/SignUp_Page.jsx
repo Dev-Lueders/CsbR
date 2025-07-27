@@ -1,24 +1,5 @@
-//REFACTOR so that the text fields are built out using an array  then filter in the fields
+//REFACTOR so that the text fields are built out using an array  then filter in the fields for version 2 or 3
 
-// import React, { useState } from "react";
-// import Adding_Form from "../../components/Molecules/Form/Adding_Form";
-// import Add_Gamer_Tag from "../../components/Molecules/Gamer_Tag/Add_Gamer";
-// import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
-// import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
-
-// const Creators_SignUp = () => {
-//   const [creatorData, SetCreatorData] = useState({
-//     creatorBio: "",
-//     favoriteGames: "",
-//     platform: "",
-//     PreferedUGC: "",
-//     ChannelURL: "",
-//     ChannelName:"",
-//     gamerTags: [],
-//   });
-// };
-
-// export default Creators_SignUp;
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import "../../Pages/pages_styles.css"
 import React from "react";
@@ -85,7 +66,7 @@ return (
         type="tel"
         name="phone_number"
         id="phone_number"
-        required
+        
       />
 
       <Text_Box
@@ -94,7 +75,7 @@ return (
         type="text"
         name="address"
         id="address"
-        required
+        
       />
       <Text_Box
         labelText="City"
@@ -102,7 +83,7 @@ return (
         type="text"
         name="city"
         id="city"
-        required
+        
       />
       <Text_Box
         labelText="State"
@@ -110,7 +91,7 @@ return (
         type="text"
         name="state"
         id="state"
-        required
+        
       />
       <Text_Box
         labelText="Zip Code"
@@ -118,7 +99,7 @@ return (
         type="text"
         name="zip_code"
         id="zip_code"
-        required
+        
       />
       <Text_Box
         labelText="Country"
@@ -126,7 +107,7 @@ return (
         type="text"
         name="country"
         id="country"
-        required
+        
       />
       <Text_Box
         labelText="Profile Picture"
@@ -134,7 +115,7 @@ return (
         type="file"
         name="profile_picture"
         id="profile_picture"
-        required
+        
       />
 
       <Button_btn label="Creator Profile" navigateTo="/Creators_SignUp">

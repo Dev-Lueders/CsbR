@@ -1,0 +1,17 @@
+{
+    "Drop_Down_AMG": [
+        { "label": "Mercedes-AMG GT S ", "value": "Mercedes_AMG_GT_S" },
+        { "label": "Mercedes-AMG C 63 S 15'", "value": "Mercedes_AMG_C_63_S_15" },
+        { "label": "Mercedes-AMG GT R 17'", "value": "Mercedes_AMG_GT_R_17" },
+        { "label": "Mercedes-AMG GT Safety Car", "value": "Mercedes_AMG_GT_Safety_Car" },
+        { "label": "Mercedes-AMG GT Black Series 20'", "value": "Mercedes_AMG_Black_Series_20" },
+        { "label": "Mercedes-AMG GT3 16'", "value": "Mercedes_AMG_GT3_16" },
+        { "label": "Mercedes-AMG GT3 20'", "value": "Mercedes_AMG_GT3_20" },
+        { "label": "Mercedes-Benz AMG VGT ", "value": "Mercedes_Benz_AMG_VGT" },
+        { "label": "Mercedes-Benz AMG VGT Racing Series", "value": "Mercedes_Benz_AMG_VGT_Racing_Series" },
+        { "label": "A 45 AMG 13'", "value": "A_45_AMG_13" },
+        { "label": "SLS AMG Gr.4", "value": "SLS_AMG_Gr4" },
+        { "label": "SLS AMG 10'", "value": "SLS_AMG_10" },
+        { "label": "SLS AMG GT3 11'", "value": "SLS_AMG_GT3_11" }
+    ]
+}

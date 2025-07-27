@@ -12,19 +12,30 @@ import Add_Social_Tag from "../../components/Molecules/Social_Channels/Add_Socia
 
 const Creators_SignUp = () => {
   const [gamerTags, setGamerTags] = useState([]); // Holds the gamer tags added through Add_Gamer_Tag
+  const [formData, setFormData] = useState({
+    creatorName: "",
+    bio: "",
+    favoriteGame: "",
+  });
+  const [socialLinks, setSocialLinks] = useState([]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+    const creatorPayload = {
+      ...formData,
+      gamerTags,
+      socialLinks,
+    };
     // Handle the form submission, for example, save the gamerTags to the server
-    console.log("Form Submitted:", gamerTags);
+    console.log("Form Submitted:", creatorPayload);
   };
 
   return (
     <div className="creator-SignUp-page">
       <Adding_Form onSubmit={handleFormSubmit}>
         {/* Passing the Add_Gamer_Tag as a child component */}
-        <Add_Gamer_Tag />
-        <Add_Social_Tag />
+        <Add_Gamer_Tag gamerTags={gamerTags} setGamerTags={setGamerTags} />
+        {/* <Add_Social_Tag socialLinks={socialLinks} setSocialLinks={setSocialLinks} /> */}
       </Adding_Form>
     </div>
   );

@@ -1,38 +1,80 @@
+import React from "react";
+import PropTypes from "prop-types";
+
+import DD_Game_Systems from "../../components/Components_Data/Atom_Data/DD_Game_Systems.json";
+import Button_btn from "../../components/Atoms/Buttons/Button";
 
 
-import Adding_Form from '../../components/Molecules/Form/Adding_Form';
+const Add_Gamer_Tag = ({
+  GT_Indi,
+  selectedSystem,
+  GT_Array,
+  onGT_IndiChange,
+  onSystemChange,
+  onAddGT,
+  onRemoveGT,
+  style = {},
+}) => {
+  const handleInputChange = (e) => {
+    onGT_IndiChange(e.target.value);
+  };
 
-import "../../components/components_styles.css"
-import T_Navbar from '../../components/Atoms/NavBar/T_Navbar';
-import L_Navbar from '../../components/Atoms/NavBar/L_Navbar';
-import B_Navbar from '../../components/Atoms/NavBar/B_Navbar';
-import Main_Container from '../../components/Atoms/Main_Content/Main_Container';
-import Stats_Container from '../../components/Atoms/Stats_Content/Stats_Container';
-import Media_Container from '../../components/Atoms/Media_Content/Media_Container';
-import UGC_Card from '../../components/Atoms/UGC_Cards/UGC_Cards';
-const Component_Testing = () => {
-    const T_Links = [
-        { label: "Home", path: "/" },
-        { label: "Review",path:"/Course_Review"}
-    ]
-  
-  const L_Links = [
-    { label: "Admin", path: "/Admin_Page" },
-    { label: "Creator", path: "/Creator_Page" },
-    { label: "Member", path: "/Member_Page" },
-    { label: "Moderator", path: "/Moderator_Page" },
-    { label: "Guest", path: "/Guest_Page" },
-    { label: "Master", path: "/Master_Page" }
-    ]
-    return (
-      <>
-        <T_Navbar links={T_Links} />
-        <L_Navbar links={L_Links} />
-        <Main_Container
-          style={{ gridColumn: "1 / 38", gridRow: "1/38" }}
-        ></Main_Container>
-        
-      </>
-    );
-}
-    export default Component_Testing;
+  const handleSystemChange = (e) => {
+    onSystemChange(e.target.value);
+  };
+
+  return (
+    <div className="add-gamer-tag-container" style={style}>
+      <h3 className="section-header">Add Gamer Tag</h3>
+
+      <input
+        type="text"
+        placeholder="Enter Gamer Tag"
+        value={GT_Indi}
+        onChange={handleInputChange}
+        className="input"
+      />
+
+      <select
+        value={selectedSystem}
+        onChange={handleSystemChange}
+        className="dropdown"
+      >
+        {DD_Game_Systems.DD_Game_Systems.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+
+      <Button_btn onClick={onAddGT}>Add</Button_btn>
+
+      <ul className="tag-list">
+        {GT_Array.map((tag, index) => (
+          <li key={index} className="tag-item">
+            {tag.GT_Indi} — {tag.system}
+            <Button_btn onClick={() => onRemoveGT(index)}>✖</Button_btn>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+Add_Gamer_Tag.propTypes = {
+  GT_Indi: PropTypes.string.isRequired,
+  selectedSystem: PropTypes.string.isRequired,
+  GT_Array: PropTypes.arrayOf(
+    PropTypes.shape({
+      GT_Indi: PropTypes.string,
+      system: PropTypes.string,
+    })
+  ).isRequired,
+  onGT_IndiChange: PropTypes.func.isRequired,
+  onSystemChange: PropTypes.func.isRequired,
+  onAddGT: PropTypes.func.isRequired,
+  onRemoveGT: PropTypes.func.isRequired,
+  style: PropTypes.object,
+};
+
+export default Add_Gamer_Tag;

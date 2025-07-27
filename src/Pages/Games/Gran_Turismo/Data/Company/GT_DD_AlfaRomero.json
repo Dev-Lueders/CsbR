@@ -1,0 +1,11 @@
+{
+    "Drop_Down_AlfaRomero": [
+        { "label": "MiTo 09'", "value": "Mito_09" },
+        { "label": "4C 14'", "value": "4C_14" },
+        { "label": "Giulia GTAm 20'", "value": "Giulia_GTAm_20" },
+        { "label": "4C Gr.3 Road Car", "value": "4C_Gr3_Road_Car" },
+        { "label": "8C Competizione 08'", "value": "8C_Competozione_08" },
+        { "label": "4C Gr.4", "value": "4C_Gr4" },
+        { "label": "4C Gr.3", "value": "4C_Gr3" }
+    ]
+}
