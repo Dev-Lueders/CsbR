@@ -1,141 +1,211 @@
-//REFACTOR so that the text fields are built out using an array  then filter in the fields for version 2 or 3
+import React from "react";
+import "../../Pages/pages_styles.css";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateField,
+  resetForm,
+} from "../../redux/features/signup/signupSlice";
+import axios from "axios";
 
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
-import "../../Pages/pages_styles.css"
-import React from "react";
 import Adding_Form from "../../components/Molecules/Form/Adding_Form";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
 import Button_btn from "../../components/Atoms/Buttons/Button";
+import Calendar from "../../components/Atoms/Input_Container/Calendar";
+
+const masterClientname = "MasterMiyoto";
 
 const SignUp_Page = () => {
+  const formData = useSelector((state) => state.signup || {});
+  const dispatch = useDispatch();
 
-return (
-  <>
-    <Adding_Form>
-      <Text_Box
-        labelText="Username"
-        placeholder="Enter Username"
-        type="text"
-        name="username"
-        id="username"
-        required
-      />
-      <Text_Box
-        labelText="Email"
-        placeholder="Enter Email"
-        type="email"
-        name="email"
-        id="email"
-        required
-      />
-      <Text_Box
-        labelText="Password"
-        placeholder="Enter Password"
-        type="password"
-        name="password"
-        id="password"
-        required
-      />
-      <Text_Box
-        labelText="Confirm Password"
-        placeholder="Confirm Password"
-        type="password"
-        name="confirm_password"
-        id="confirm_password"
-        required
-      />
-      <Text_Box
-        labelText="First Name"
-        placeholder="Enter First Name"
-        type="text"
-        name="first_name"
-        id="first_name"
-        required
-      />
-      <Text_Box
-        labelText="Last Name"
-        placeholder="Enter Last Name"
-        type="text"
-        name="last_name"
-        id="last_name"
-        required
-      />
-      <Text_Box
-        labelText="Phone Number"
-        placeholder="Enter Phone Number"
-        type="tel"
-        name="phone_number"
-        id="phone_number"
-        
-      />
+  const handleChange = (e) => {
+    const { id, value, type, checked, files } = e.target;
+    const addressFields = [
+      "street",
+      "apartNo",
+      "city",
+      "state",
+      "zip_code",
+      "country",
+    ];
 
-      <Text_Box
-        labelText="Address"
-        placeholder="Enter Address"
-        type="text"
-        name="address"
-        id="address"
-        
-      />
-      <Text_Box
-        labelText="City"
-        placeholder="Enter City"
-        type="text"
-        name="city"
-        id="city"
-        
-      />
-      <Text_Box
-        labelText="State"
-        placeholder="Enter State"
-        type="text"
-        name="state"
-        id="state"
-        
-      />
-      <Text_Box
-        labelText="Zip Code"
-        placeholder="Enter Zip Code"
-        type="text"
-        name="zip_code"
-        id="zip_code"
-        
-      />
-      <Text_Box
-        labelText="Country"
-        placeholder="Enter Country"
-        type="text"
-        name="country"
-        id="country"
-        
-      />
-      <Text_Box
-        labelText="Profile Picture"
-        placeholder="Enter Profile Picture"
-        type="file"
-        name="profile_picture"
-        id="profile_picture"
-        
-      />
+    if (type === "checkbox") {
+      dispatch(updateField({ key: id, value: checked }));
+    } else if (type === "file") {
+      dispatch(updateField({ key: id, value: files[0] }));
+    } else if (addressFields.includes(id)) {
+      dispatch(updateField({ key: `address.${id}`, value }));
+    } else if (id === "clientname") {
+      const assignRole = value === masterClientname ? "master" : "creator";
+      dispatch(updateField({ key: "clientname", value }));
+      dispatch(updateField({ key: "role", value: assignRole }));
+    } else {
+      dispatch(updateField({ key: id, value }));
+    }
+  };
 
-      <Button_btn label="Creator Profile" navigateTo="/Creators_SignUp">
-        Creators Profile
-      </Button_btn>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-      <Button_btn label="Profile SignUp" navigateTo="/Profile_SignUp">
-        Personal Profile
-      </Button_btn>
-      <Check_Box
-        label="I agree to the Terms and Conditions"
-        name="terms"
-        id="terms"
-        required
-      />
+    const requiredFields = [
+      "clientname",
+      "email",
+      "password",
+      "confirm_password",
+    ];
+    for (let field of requiredFields) {
+      if (!formData[field]) {
+        alert(`missing required field: ${field}`);
+        return;
+      }
+    }
 
-    </Adding_Form>
-  </>
-);
+    localStorage.setItem("signupFormData", JSON.stringify(formData));
 
-}
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/signup",
+        formData
+      );
+      if (response.data.success) {
+        alert("Signup successfull");
+        dispatch(resetForm());
+      } else {
+        alert("Signup failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong");
+    }
+  };
+  return (
+    <>
+      <Adding_Form onSubmit={handleSubmit}>
+        <Text_Box
+          placeholderText="Enter a Unique Id"
+          id="clientname"
+          labelText="Client Name"
+          value={formData.clientname || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Email"
+          id="email"
+          labelText="email"
+          value={formData.email || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Password"
+          id="password"
+          labelText="Password"
+          value={formData.password || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Confirm Password"
+          id="confirm_password"
+          labelText="Confirm Password"
+          value={formData.confirm_password || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="First Name"
+          id="first_name"
+          labelText="First Name"
+          value={formData.first_name || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Last Name"
+          id="last_name"
+          labelText="Last Name"
+          value={formData.last_name || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Phone Number"
+          id="phone_number"
+          labelText="Phone Number"
+          value={formData.phone_number || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Street Number"
+          id="street"
+          labelText="street"
+          value={formData.address.street || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Apartment/Unit number"
+          id="apartNo"
+          labelText="apartNo"
+          value={formData.address.apartNo || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="City"
+          id="city"
+          labelText="city"
+          value={formData.address.city || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="State"
+          id="state"
+          labelText="state"
+          value={formData.address.state || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Zip Code"
+          id="zip_code"
+          labelText="Zip Code"
+          value={formData.address.zip_code || ""}
+          onChange={handleChange}
+        />
+        <Text_Box
+          placeholderText="Country"
+          id="country"
+          labelText="Country"
+          value={formData.address.country || ""}
+          onChange={handleChange}
+        />
+
+        <Calendar id="dob" value={formData.dob || ""} onChange={handleChange} />
+
+        <label htmlFor="profile_picture"> Upload Profile Picture: </label>
+        <input
+          type="file"
+          id="profile_picture"
+          accept="image/*"
+          onChange={handleChange}
+        />
+
+        {formData.clientname === masterClientname && (
+          <>
+            <label htmlFor="role">Assign Role</label>
+            <select id="role" value={formData.role} onChange={handleChange}>
+              <option value="guest">Guest</option>
+              <option value="creator">Creator</option>
+              <option value="member">Member</option>
+              <option value="moderator">Moderator</option>
+              <option value="admin">Admin</option>
+              <option value="master">Master</option>
+            </select>
+          </>
+        )}
+        <Check_Box
+          label="I agree to the Terms and Conditions"
+          id="terms"
+          onChange={handleChange}
+          checked={formData.terms}
+        ></Check_Box>
+      </Adding_Form>
+    </>
+  );
+};
 
 export default SignUp_Page;

@@ -5,15 +5,15 @@ const initialState = {
   user: null,
 };
 
-const userSlice = createSlice({
+const clientSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action) => {
+    setClient: (state, action) => {
       state.user = action.payload;
     },
   },
 });
 
-export const { setUser } = userSlice.actions;
-export default userSlice.reducer;
+export const { setClient } = clientSlice.actions;
+export default clientSlice.reducer;

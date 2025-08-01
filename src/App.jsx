@@ -31,7 +31,7 @@ import Profile_SignUp from "./Pages/SignUp_Page/Profile_SignUp.jsx";
 import Suggestion_Box from "./Pages/Suggestion_Box/Suggestion_Box.jsx";
 
 import Guest_Page from "./Pages/Clients/Guest_Page/Guest_Page.jsx";
-import User_Page from "./Pages/Clients/User_Page/User_Page.jsx";
+import Client_Page from "./Pages/Clients/Client_Page/Client_Page.jsx"
 import Moderator_Page from "./Pages/Clients/Moderator_Page/Moderator_Page.jsx";
 import Admin_Page from "./Pages/Clients/Admin_Page/Admin_Page.jsx";
 import Master_Page from "./Pages/Clients/Master_Page/Master_Page.jsx";
@@ -45,7 +45,7 @@ import Search_Page_PGA2K25 from "./Pages/Games/PGA2K/2K25/Search/Basic/Search_Pa
 import Results_Page_PGA2K25 from "./Pages/Games/PGA2K/2K25/Search/Search_Results/Results_Page_2K25.jsx";
 import Course_Review from "./Pages/Games/PGA2K/Content/Course_Review.jsx";
 
-import Client_Front_Page from "./Pages/Clients/Client_Front_Page.jsx";
+import Client_Front_Page from "./Pages/Clients/Client_Page/Client_Front_Page.jsx"
 
 import Component_Testing from "./Pages/Test Page/Component_Testing.jsx";
 import "./components/components_styles.css";
@@ -53,11 +53,11 @@ import { useSelector, useDispatch } from "react-redux";
 const App = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.settings?.theme);
-  const user = useSelector((state) => state.user?.user);
+  const client = useSelector((state) => state.client?.client);
   const isLocked = useSelector((state) => state.lock?.isLocked);
 
   console.log("Theme:", theme);
-  console.log("User:", user);
+  console.log("Client:", client);
   console.log("isLocked:", isLocked);
 
   return (
@@ -172,11 +172,11 @@ const App = () => {
           }
         />
         <Route
-          path="/User_Page"
+          path="/Client_Page"
           element={
             <Page_Grid>
               {" "}
-              <User_Page />{" "}
+              <Client_Page />{" "}
             </Page_Grid>
           }
         />

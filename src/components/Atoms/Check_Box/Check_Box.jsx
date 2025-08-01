@@ -12,7 +12,7 @@ const Check_Box = ({
   gridPosition = "auto",
 }) => {
   const handleChange = (e) => {
-    onChange(e.target.checked);
+    onChange(e);
   };
 
   return (

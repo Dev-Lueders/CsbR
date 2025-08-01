@@ -6,11 +6,11 @@ import Page_Grid from "../components/Atoms/Page_Grid/Page_Grid";
 import Creators_Page from "../Pages/Clients/Profile_Page/Creators_Page";
 import Profile_Page from "../Pages/Clients/Profile_Page/Profile_Page";
 import Guest_Page from "../Pages/Clients/Guest_Page/Guest_Page";
-import User_Page from "../Pages/Clients/User_Page/User_Page";
+import Client_Page from "../Pages/Clients/Client_Page/Client_Page";
 import Moderator_Page from "../Pages/Clients/Moderator_Page/Moderator_Page";
 import Admin_Page from "../Pages/Clients/Admin_Page/Admin_Page";
 import Master_Page from "../Pages/Clients/Master_Page/Master_Page";
-import Client_Front_Page from "../Pages/Clients/Client_Front_Page";
+import Client_Front_Page from "../Pages/Clients/Client_Page/Client_Front_Page";
 
 const ClientRoutes = () => {
   return (
@@ -41,10 +41,10 @@ const ClientRoutes = () => {
           }
         />
         <Route
-          path="/User_Page"
+          path="/Client_Page"
           element={
             <Page_Grid>
-              <User_Page />
+              <Client_Page />
             </Page_Grid>
           }
         />

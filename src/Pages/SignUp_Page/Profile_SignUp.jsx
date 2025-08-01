@@ -34,38 +34,8 @@ const Profile_SignUp = () => {
   return (
     <>
       <Adding_Form onSubmit={handleSubmit} isVisible={true}>
-        <Text_Box
-          id="firstName"
-          label="First Name"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleChange}
-        />
-
-        <Text_Box
-          id="lastName"
-          label="Last Name"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={handleChange}
-        />
-
-        <Text_Box
-          id="email"
-          label="Email"
-          placeholder="E-Mail"
-          value={formData.email}
-          onChange={handleChange}
-        />
-
-        <Text_Box
-          id="phone"
-          label="Phone"
-          placeholder="Phone Number used for 2FA and authenticating user"
-          value={formData.phone}
-          onChange={handleChange}
-        />
-
+     /
+{/* 
         <Text_Box
           id="userName"
           label="userName"
@@ -81,9 +51,9 @@ const Profile_SignUp = () => {
           value={formData.password}
           type={"password"}
           onChange={handleChange}
-        />
+        /> */}
 
-        <Text_Box
+        {/* <Text_Box
           id="confirmPassword"
           label="confirmPassword"
           placeholder="Confirm Password"
@@ -95,7 +65,7 @@ const Profile_SignUp = () => {
         <Check_Box
           id="showPassword"
           label=" Click here to show your password"
-        />
+        /> */}
       </Adding_Form>
     </>
   );

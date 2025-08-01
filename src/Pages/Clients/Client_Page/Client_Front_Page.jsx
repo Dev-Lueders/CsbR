@@ -4,7 +4,7 @@
 //  Moderator
 //  Admin
 //  Master
-import L_Navbar from "../../components/Atoms/NavBar/L_Navbar";
+import L_Navbar from "../../../components/Atoms/NavBar/L_Navbar";
 
 const Client_Front_Page = () => {
   const L_Links = [

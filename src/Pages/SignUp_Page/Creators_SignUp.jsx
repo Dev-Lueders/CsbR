@@ -17,7 +17,22 @@ const Creators_SignUp = () => {
     bio: "",
     favoriteGame: "",
   });
+  const [GT_Indi, setGT_Indi] = useState("");
+  const [selectedSystem, setSelectedSystem] = useState("");
+  const [GT_Array, setGT_Array] = useState([]);
   const [socialLinks, setSocialLinks] = useState([]);
+
+  const handleGT_IndiChange = (val) => setGT_Indi(val);
+  const handleSystemChange = (val) => setSelectedSystem(val);
+
+  const handleAddGT = () => {
+    if (!GT_Indi || !selectedSystem) return;
+    const newGT = {
+      GT_Indi, 
+      system: selectedSystem,
+    }
+  }
+
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +49,22 @@ const Creators_SignUp = () => {
     <div className="creator-SignUp-page">
       <Adding_Form onSubmit={handleFormSubmit}>
         {/* Passing the Add_Gamer_Tag as a child component */}
-        <Add_Gamer_Tag gamerTags={gamerTags} setGamerTags={setGamerTags} />
+        <Add_Gamer_Tag
+          gamerTags={gamerTags}
+          setGamerTags={setGamerTags}
+          GT_Indi={GT_Indi}
+          selectedSystem={selectedSystem}
+          GT_Array={GT_Array}
+          onGT_IndiChange={handleGT_IndiChange}
+          onSystemChange={handleSystemChange}
+          onAddGT={handleAddGT}
+          onRemoveGT={handleRemoveGT}
+          style={{
+            gridColumn: "10/20",
+            gridRow: "10/25",
+            zIndex:10,
+          }}
+        />
         {/* <Add_Social_Tag socialLinks={socialLinks} setSocialLinks={setSocialLinks} /> */}
       </Adding_Form>
     </div>

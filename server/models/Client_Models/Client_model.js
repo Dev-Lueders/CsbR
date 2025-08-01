@@ -23,7 +23,7 @@ const clientSchema = new Schema({
   // Role fields
   isMaster: { type: Boolean, default: false }, // Master Role
   isMember: { type: Boolean, default: false }, // Member Role
-  isUser: { type: Boolean, default: false }, // User Role
+  isClient: { type: Boolean, default: false }, // Client Role
   isModerator: { type: Boolean, default: false }, // Moderator Role
   isGuest: { type: Boolean, default: false }, // Guest Role
   isAdmin: { type: Boolean, default: false }, // Admin Role

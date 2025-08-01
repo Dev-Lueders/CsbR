@@ -5,9 +5,45 @@ working on the review course file getting the drop downs to show properly has an
 -->
 
 ## TODO 
-- [ ] When a user adds two different skins or UGC content that match together they can select if a prior post is related to this one like a helmet and suit skin then later matching it with a car skin content association
+------Page Specific issues or todo-----
+---About---
+---Clients---
+        ---Admin---
+            --add routes to be able look up clients by personal identification
+                    --personal ID's only the first_name and email address available
+        ---Creator Profile Page---
+        ---Master Page--- 
+        ---Guest Page---
+        ---Member Page---
+        ---Moderator Page---
+        ---Profile Page---
+                ---Creators Page---
+                ---Profile Page---
+        ---Client Page---
+---Games---
+        ---Gran Turismo---
+        ---PGA2K---
+---Help---
+---Landing Page---
+---Legal---
+---Login Page---
+        --need to link to mongo
+        --need to verify account
+        --submit button working
+        --reset button 
+        --check boxes work
+        
+---SignUp Page---
+        ---Creators Signup---
+        ---Profile Signup---
+        ---Signup Page---
+---Suggestion Box---
+---Test Page---
+
+
+- [ ] When a user adds two different skins or UGC content that match together they can select if a prior post is related to this one like a helmet and suit skin then later matching it with a car skin content association or by extension getting a set of decals that work together in to a full picture
 - [ ] game genre expansion
-- [ ] Build Backend for routes to the profile
+- [X] Build Backend for routes to the profile
 - [ ] build Backend routes for UGC content
 - [ ] build model for UGC_content profile
 - [ ] backend connect Mongo
@@ -81,11 +117,11 @@ Frontend Development
 
  Components
 
- - [ ]LocknKey Component (Game Code system)
+ - [ ]LocknKey Component (Game Code system Version 3)
 
  - [ ]Game Card Component (display game info, reviews, etc.)
 
- - [ ]Search Filter Component (by genre, title, description)
+ - [ ]Search Filter Component (by genre, title, description, across systems, across genre)
 
  - [ ]Comment Section (with User Score and Reference)
 

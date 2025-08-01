@@ -15,18 +15,17 @@ import PropTypes from "prop-types";
 import "../../components_styles.css";
 
 const Text_Box = ({
-  labelText = "",
-  placeholderText = " Add Inline styling to change this text",
+  id = "def_text-box",
+  name = "",
+  type = "text",
   value,
   onChange,
-  id = "def_text-box",
+  placeholderText = " Add Inline styling to change this text",
   maxLength = 40,
-  style = {},
   className = "",
+  style = {},
+  labelText = "",
   isVisible = true,
-  type = "text",
-  name = "",
-
   ...props
 }) => {
   if (!isVisible) return null;
@@ -43,16 +42,18 @@ const Text_Box = ({
       <input
         id={id}
         name={name}
+        className={`text-box-input ${className}`}
         placeholder={placeholderText}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        maxLength={maxLength}
-        type={type}
-        aria-label={labelText}
         style={{
           width: "80%",
           height: "80%",
         }}
+        maxLength={maxLength}
+        aria-label={labelText}
+        type={type}
+        value={value}
+        onChange={onChange}
+        
         {...props}
       />
     </div>
@@ -60,15 +61,15 @@ const Text_Box = ({
 };
 
 Text_Box.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
   labelText: PropTypes.string,
+  className: PropTypes.string,
   placeholderText: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  id: PropTypes.string,
-  name: PropTypes.string,
   maxLength: PropTypes.number,
   style: PropTypes.object,
-  className: PropTypes.string,
   isVisible: true,
   type: PropTypes.string,
 };

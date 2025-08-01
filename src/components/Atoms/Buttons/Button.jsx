@@ -12,7 +12,7 @@ const Button_btn = ({ label, onClick, navigateTo }) => {
   };
 
   return (
-    <button type="button" onClick={handleClick}>
+    <button type="type" onClick={handleClick}>
       {label}
     </button>
   );
@@ -22,6 +22,7 @@ Button_btn.propTypes = {
   label: PropTypes.string,
   onClick: PropTypes.func,
   navigateTo: PropTypes.string,
+  type: PropTypes.oneOf(["button", "submit","reset"]),
 
 };
 
@@ -29,6 +30,7 @@ Button_btn.defaultProps = {
   label: "Submit",
   onClick: () => { },
   navigateTo: "",
+  type:"button",
 };
 
 export default Button_btn;
