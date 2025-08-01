@@ -69,14 +69,14 @@ const SignUp_Page = () => {
         formData
       );
       if (response.data.success) {
-        alert("Signup successfull");
+        alert("Signup successful");
         dispatch(resetForm());
       } else {
-        alert("Signup failed");
+        alert("Signup failed" + (response.data.message || "Unknown error"));
       }
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
+      console.error("Frontend Error:", err.response?.data || err.message);
+      alert("Something went wrong" + (err.response?.data?.error || err.message));
     }
   };
   return (

@@ -28,7 +28,15 @@ const clientSchema = new Schema({
   isGuest: { type: Boolean, default: false }, // Guest Role
   isAdmin: { type: Boolean, default: false }, // Admin Role
   isActive: { type: Boolean, default: true }, //isActive for delete account or 
-  isSuspended:{type:Boolean, default:false} // a flag for violators and more direct targeting of a user other options than activated or not 
+  isSuspended: { type: Boolean, default: false }, // a flag for violators and more direct targeting of a user other options than activated or not 
+  address: {
+    street: String,
+    apartNo: String,
+    city: String,
+    zip_code: String,
+    country: String,  
+  },
+  dob: { type: Date },
 });
 
 // Middleware to update the 'updated_time' on every modification
