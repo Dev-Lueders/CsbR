@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
-import Adding_Form from "../../components/Molecules/Form/Adding_Form";
+import Generic_Form from "../../components/Molecules/Form/Generic_Form";
 const Profile_SignUp = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -33,9 +33,9 @@ const Profile_SignUp = () => {
 
   return (
     <>
-      <Adding_Form onSubmit={handleSubmit} isVisible={true}>
-     /
-{/* 
+      <Generic_Form onSubmit={handleSubmit} isVisible={true}>
+        /
+        {/* 
         <Text_Box
           id="userName"
           label="userName"
@@ -52,7 +52,6 @@ const Profile_SignUp = () => {
           type={"password"}
           onChange={handleChange}
         /> */}
-
         {/* <Text_Box
           id="confirmPassword"
           label="confirmPassword"
@@ -66,7 +65,7 @@ const Profile_SignUp = () => {
           id="showPassword"
           label=" Click here to show your password"
         /> */}
-      </Adding_Form>
+      </Generic_Form>
     </>
   );
 };

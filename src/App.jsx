@@ -83,14 +83,10 @@ const App = () => {
         />{" "}
         {/*components.css  applied */}
         <Route
-          path="/Login"
-          element={
-            <Page_Grid>
-              {" "}
-              <Login_Page />{" "}
-            </Page_Grid>
-          }
-        />{" "}
+          path="/Login_Page"
+          element={<Page_Grid><Login_Page /></Page_Grid>}
+        />
+        {" "}
         {/*components.css applied */}
         <Route
           path="/Games"

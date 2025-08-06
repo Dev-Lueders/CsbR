@@ -18,11 +18,6 @@ const AuthRoutes = () => {
         element={
           <Page_Grid>
             <Login_Page />
-            <Admin_Page />
-            <Creator_Profile_Page />
-            <Guest_Page />
-            <Moderator_Page />
-            <Member_Page />
           </Page_Grid>
         }
       />

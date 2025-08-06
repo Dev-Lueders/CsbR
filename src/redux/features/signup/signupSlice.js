@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 
 const initialState = {
   clientname: "",
@@ -40,5 +41,19 @@ const signupSlice = createSlice({
         resetForm: () => initialState,
     },
 });
+export const loginClient = createAsyncThunk(
+    'auth/loginClient',
+    async ({ clientname, password }, thunkAPI) => {
+        try {
+            const response = await axios.post('http://localhost:5000/api/login', {
+                clientname,
+                password,
+            });
+            return response.data;
+        } catch (err) {
+            return thunkAPI.rejectWithValue(err.response.data || err.message);
+        }
+    }
+)
 export const { updateField, resetForm } = signupSlice.actions;
 export default signupSlice.reducer;

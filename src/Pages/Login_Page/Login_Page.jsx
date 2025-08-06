@@ -1,75 +1,126 @@
 import React from "react";
-
+import "../../components/components_styles.css";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { loginClient } from "../../redux/features/signup/signupSlice"
 import { useState } from "react";
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Button_btn from "../../components/Atoms/Buttons/Button";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
 import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
-import Adding_Form from "../../components/Molecules/Form/Adding_Form";
+import Generic_Form from "../../components/Molecules/Form/Generic_Form";
+
+
 const Login_Page = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  // const toggleShowPassword = () => setShowPassword(prev => !prev);
+  const [showPassword, setPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    clientname: "",
+    password: ""
+  });
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const matchedUser = storedUsers.find(
-      (user) => user.username === username && user.password === password
-    );
-
-    if (matchedUser) {
-      console.log("Login Successful");
-      localStorage.setItem("LoggedInUser", JSON.stringify(matchedUser));
-    } else {
-      console.log("Invalid username or password");
-      alert("Login Failed: invalid username or password");
-    }
-
-    console.log("Logging in:", username, password);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value
+    }));
   };
 
-  const B_Links = [
-    { label: "Home", path: "/" },
-    { label: "About", path: "/About" },
-    { label: "Legal", path: "/Legal_Page" },
-    { label: "Contact Us", path: "/Contact" },
-    { label: "SignUp", path: "/SignUp_Page" },
-    { label: "Support", path: "/Support" },
-  ];
+  const toggleShowPassword = () => {
+    setPassword((prev) => !prev);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Handle submit Clientname:", formData.clientname);
+    console.log("Handle submit Password:", formData.password);
+    
+    try {
+      const result = await dispatch(loginClient({
+        clientname: formData.clientname,
+        password: formData.password
+      }));
+
+      console.log("Full result from loginClient dispatch:", result);
+
+      if (!result) {
+        console.error("No Result returned from loginClient.");
+        return;
+}
+
+      if (result.meta.requestStatus === "fulfilled") {
+        console.log("Login Success:", result.payload);
+      } else {
+        console.log("if meta block clientname", formData.clientname);
+        console.log("if meta block password",formData.password);
+        console.error("Login Failed:", result.error?.message || result.payload?.message ||JSON.stringify(result));
+      }
+    } catch (err) {
+      console.error("Login Error:", err);
+    }
+  }
+  //   try {
+  //     const res = await axios.post("http://localhost:5000/api/login", formData);
+
+  //     if (res.data.token) {
+  //       dispatch(loginClient({ token: res.data.token, clientname: formData.clientname }));
+  //       console.log("Login successful:", res.data);
+  //     } else {
+  //       console.error("Login failed:", res.data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Login error:", error.response?.data || error.message);
+  //   }
+  // };
 
   return (
-    <>
-      <Adding_Form onSubmit={handleLogin}>
+    <div className="login-page">
+
+      <h2>Login</h2>
+      <Generic_Form onSubmit={handleSubmit}
+      >
+  
         <Text_Box
-          id="username"
-          labelText="User"
-          placeholder="Enter Username"
+          id="clientname"
+          labelText="Client"
+          placeholderText="Enter Clientname"
           type="text"
-          label="Username"
-          onChange={(val) => setUsername(val)}
-        />
-        <Text_Box
-          id="Password_id"
-          labelText="Password:"
-          placeholderText="Password"
-          maxLength={36}
-          style={{ isVisible: true, display: "block" }}
-          type={showPassword ? "text" : "password"}
-          onChange={(val) => setPassword(val)}
+          name="clientname"
+          value={formData.clientname}
+          onChange={handleInputChange}
         />
 
-        <Check_Box
-          id="ShowPassword"
-          label="Click here to show your password"
-          onChange={() => setShowPassword((prev) => !prev)}
-          checked={showPassword}
+        <Text_Box
+          id="Password_id"
+          labelText="Password"
+          placeholderText="Password"
+          type={showPassword ? "text" : "password"}
+          name="password"
+          maxLength={36}
+          value={formData.password}
+          onChange={handleInputChange}
         />
-        <Check_Box id="Remember_Me" label="Select here to Remember Me" />
-      </Adding_Form>
-      <B_Navbar links={B_Links} />
-    </>
+
+        <div className="show=password-toggle">
+          <input
+            type="checkbox"
+            id="showPassword"
+            checked={showPassword}
+            onChange={() => toggleShowPassword(!showPassword)}
+          />
+    
+          <label htmlFor="showPassword"> Show Password</label>
+    
+        </div>
+        
+      </Generic_Form>
+    
+    </div>
+    
   );
 };
+
 export default Login_Page;

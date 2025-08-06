@@ -1,3 +1,5 @@
+//  BEFORE GOING LIVE REMOVE THE ROLE ASSIGN
+
 import React from "react";
 import "../../Pages/pages_styles.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,7 +10,7 @@ import {
 import axios from "axios";
 
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
-import Adding_Form from "../../components/Molecules/Form/Adding_Form";
+import Generic_Form from "../../components/Molecules/Form/Generic_Form";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
 import Button_btn from "../../components/Atoms/Buttons/Button";
 import Calendar from "../../components/Atoms/Input_Container/Calendar";
@@ -76,12 +78,14 @@ const SignUp_Page = () => {
       }
     } catch (err) {
       console.error("Frontend Error:", err.response?.data || err.message);
-      alert("Something went wrong" + (err.response?.data?.error || err.message));
+      alert(
+        "Something went wrong" + (err.response?.data?.error || err.message)
+      );
     }
   };
   return (
     <>
-      <Adding_Form onSubmit={handleSubmit}>
+      <Generic_Form onSubmit={handleSubmit}>
         <Text_Box
           placeholderText="Enter a Unique Id"
           id="clientname"
@@ -184,26 +188,23 @@ const SignUp_Page = () => {
           onChange={handleChange}
         />
 
-        {formData.clientname === masterClientname && (
-          <>
-            <label htmlFor="role">Assign Role</label>
-            <select id="role" value={formData.role} onChange={handleChange}>
-              <option value="guest">Guest</option>
-              <option value="creator">Creator</option>
-              <option value="member">Member</option>
-              <option value="moderator">Moderator</option>
-              <option value="admin">Admin</option>
-              <option value="master">Master</option>
-            </select>
-          </>
-        )}
+        <label htmlFor="role">Assign Role</label>
+        <select id="role" value={formData.role} onChange={handleChange}>
+          <option value="guest">Guest</option>
+          <option value="creator">Creator</option>
+          <option value="member">Member</option>
+          <option value="moderator">Moderator</option>
+          <option value="admin">Admin</option>
+          <option value="master">Master</option>
+        </select>
+
         <Check_Box
           label="I agree to the Terms and Conditions"
           id="terms"
           onChange={handleChange}
           checked={formData.terms}
         ></Check_Box>
-      </Adding_Form>
+      </Generic_Form>
     </>
   );
 };

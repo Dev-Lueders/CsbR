@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const bcrypt = require("bcrypt");
 
 // Define the User schema for MongoDB
 const clientSchema = new Schema({

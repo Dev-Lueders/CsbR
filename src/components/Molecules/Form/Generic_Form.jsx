@@ -4,11 +4,11 @@ import B_Navbar from "../../Atoms/NavBar/B_Navbar";
 import Button_btn from "../../Atoms/Buttons/Button";
 import PropTypes from "prop-types";
 
-const Adding_Form = ({ children, onSubmit }) => {
+const Generic_Form = ({ children, onSubmit, onChange, formData, formType }) => {
   const T_Links = [
     { label: "Home", path: "/" },
     { label: "Sign Up", path: "/SignUp_Page" },
-    { label: "Login", path: "/Login" },
+    { label: "Login", path: "/Login_Page" },
     { label: "Logout", path: "/" },
   ];
 
@@ -65,16 +65,19 @@ const Adding_Form = ({ children, onSubmit }) => {
   );
 };
 
-Adding_Form.propTypes = {
+Generic_Form.propTypes = {
   children: PropTypes.node,
+  formType: PropTypes.string,
+  formData: PropTypes.object,
+  onChange: PropTypes.func,
   onSubmit: PropTypes.func,
 };
 
-Adding_Form.defaultProps = {
+Generic_Form.defaultProps = {
   onSubmit: (e) => {
     e.preventDefault();
     console.log("Form submitted!");
   },
 };
 
-export default Adding_Form;
+export default Generic_Form;

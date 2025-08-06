@@ -6,7 +6,7 @@ import Button_Component from "../../components/Atoms/Buttons/Button";
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Drop_Down from "../../components/Atoms/Drop_Down/Drop_Down";
 import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
-import Adding_Form from "../../components/Molecules/Form/Adding_Form";
+import Generic_Form from "../../components/Molecules/Form/Generic_Form";
 import Add_Gamer_Tag from "../../components/Molecules/Gamer_Tag/Add_Gamer";
 import Add_Social_Tag from "../../components/Molecules/Social_Channels/Add_Social";
 
@@ -28,11 +28,10 @@ const Creators_SignUp = () => {
   const handleAddGT = () => {
     if (!GT_Indi || !selectedSystem) return;
     const newGT = {
-      GT_Indi, 
+      GT_Indi,
       system: selectedSystem,
-    }
-  }
-
+    };
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -47,7 +46,7 @@ const Creators_SignUp = () => {
 
   return (
     <div className="creator-SignUp-page">
-      <Adding_Form onSubmit={handleFormSubmit}>
+      <Generic_Form onSubmit={handleFormSubmit}>
         {/* Passing the Add_Gamer_Tag as a child component */}
         <Add_Gamer_Tag
           gamerTags={gamerTags}
@@ -62,11 +61,11 @@ const Creators_SignUp = () => {
           style={{
             gridColumn: "10/20",
             gridRow: "10/25",
-            zIndex:10,
+            zIndex: 10,
           }}
         />
         {/* <Add_Social_Tag socialLinks={socialLinks} setSocialLinks={setSocialLinks} /> */}
-      </Adding_Form>
+      </Generic_Form>
     </div>
   );
 };

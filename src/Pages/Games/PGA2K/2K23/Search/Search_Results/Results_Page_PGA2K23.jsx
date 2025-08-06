@@ -17,7 +17,7 @@ const Results_Page_PGA2K23 = () => {
   ];
 
   const T_NavLink = [
-    { path: "/login", label: "Login" },
+    { path: "/Login_Page", label: "Login" },
     { path: "/profile", label: "Profile" },
     { path: "/review", label: "Add Review" },
     { path: "/course", label: "Add Course" },

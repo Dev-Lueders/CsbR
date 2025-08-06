@@ -22,5 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.env
+
+
+# AWS - 
+.aws/
+.env.production
+.env.development
+.env.local
+
+#Vite Cache
+.vite/
 
 auto_commit.ps1

@@ -9,7 +9,7 @@ const Games_Page = () => {
   const T_Links = [
     { label: "Home", path: "/" },
     { label: "About", path: "/About" },
-    { label: "Log In", path: "/Login_Page" },
+    { label: "Login", path: "/Login_Page" },
   ];
   const L_Links = [
     { label: "", path: "" },
