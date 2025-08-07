@@ -144,7 +144,9 @@ Miscellaneous
 
 - [ ]Implement logging and error handling for API responses
 
-File Structure 08/06/2025
+File Structure 08/07/2025
+
+D:.
 │   .env
 │   .gitignore
 │   auto_commit.ps1
@@ -156,9 +158,12 @@ File Structure 08/06/2025
 │   README.md
 │   README_DEV.md
 │   vite.config.js
-│
+│   
+├───.vscode
+│       settings.json
+│       
 ├───public
-│       FILE_STRUCTURE08012025.txt
+│       FILE_STRUCTURE08062025.txt
 │
 ├───Road_map
 │       bury.png
@@ -233,18 +238,40 @@ File Structure 08/06/2025
 │   │
 │   ├───routes
 │   │   ├───CONNECT
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───DELETE
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───GET
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───HEAD
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───OPTIONS
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───PATCH
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───POST
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───PUT
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───RTManager
-│   │   │       index.js
-│   │   │
+│   │   │   │   index.js
+│   │   │   │
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───TRACE
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───UPDATE
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   └───_REFACTOR
 │   │       ├───Clients
 │   │       │       Admin_routes.js

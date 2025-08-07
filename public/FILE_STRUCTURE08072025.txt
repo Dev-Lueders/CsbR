@@ -1,3 +1,7 @@
+PS D:\Nicks School Work\Personal Projects\creatorsandboxreview\WebApp\csbr> tree /F                                                                         
+Folder PATH listing for volume Seagate Backup Plus Drive
+Volume serial number is 5089-E771
+D:.
 │   .env
 │   .gitignore
 │   auto_commit.ps1
@@ -9,9 +13,12 @@
 │   README.md
 │   README_DEV.md
 │   vite.config.js
-│
+│   
+├───.vscode
+│       settings.json
+│       
 ├───public
-│       FILE_STRUCTURE08012025.txt
+│       FILE_STRUCTURE08062025.txt
 │
 ├───Road_map
 │       bury.png
@@ -86,18 +93,40 @@
 │   │
 │   ├───routes
 │   │   ├───CONNECT
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───DELETE
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───GET
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───HEAD
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───OPTIONS
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───PATCH
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───POST
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───PUT
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───RTManager
-│   │   │       index.js
-│   │   │
+│   │   │   │   index.js
+│   │   │   │
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───TRACE
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   ├───UPDATE
+│   │   │   ├───Mongo
+│   │   │   └───MySQL
 │   │   └───_REFACTOR
 │   │       ├───Clients
 │   │       │       Admin_routes.js
