@@ -1,58 +1,73 @@
 //refactor after MVP complete then for DNA injection separate out success and fail states
-
-
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
+import { createSlice, createAsyncThunk } from "reduxjs/toolkit";
+import axios from "axios";
 
 export const loginClient = createAsyncThunk(
-    'auth/loginClient',
+    "auth/loginClient", "auth/loginClient",
     async ({ clientname, password }, thunkAPI) => {
         try {
-            const response = await axios.post
-                (`${import.meta.env.VITE_API_URL}/api/login`, {
-                    clientname,
-                    password,
-                });
-            return response.data;
-        } catch (err) {
-            console.error("Error in loginClient thunk:", err);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, {
+                clientname,
+                password,
+            });
 
-            if (err.response && err.response.data) {
-                return thunkAPI.rejectWithValue(err.response.data);
+            console.log("Login Axios Response:".response.data);
+
+            if (response.data.success) {
+                return response.data;
             } else {
-                return thunkAPI.rejectWithValue({ message: err.message || "Unknown error" });
+                return thunkAPI.rejectWithValue({
+                    message: response.data.message || "Login failed on server",
+                });
+            }
+            catch {(error) {
+                 
+                console.error("Login failed:", error);
+                
+                return thunkAPI.rejectWithValue({
+                    message: error.response?.data?.message || error.message || "Unknown Error",
+                });
             }
         }
-    }
-);
+        );
 
-
-            
-
+const initialState = {
+    client: null,
+    token: null,
+    status: "idle",
+    error: "null,"
+};
 
 const loginSlice = createSlice({
-    name: 'login',
-    initialState: {
-        client: null,
-        token: null,
-        status: 'idle',
-        error: null,
+    name: "auth",
+    initialState,
+    reducers: {
+        logout: (state) => {
+            state.client = null;
+            state.token = null;
+            state.status = "idle";
+            state.error = null;
+        },
     },
-    reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(loginClient.pending, (state) => {
-            state.status = 'loading';
-        })
-            .addCase(loginClient.fulfilled, (state, action) => {
-                state.status = 'succeeded';
-                state.token = action.payload.token;
-                state.client = action.payload.clientname;
+        builder
+            .addCase(loginClient.pending, (state) => {
+                state.status = "loading";
+                state.error = null;
             })
-            .addCase(loginClient.rejected, (state, action) => {
-                state.status = 'failed';
-                state.error = action.payload || 'Login failed';
+            .addCase(loginClient.fulfilled, (state, action) => {
+                state.status = "succeed";
+                state.client = action.payload.clientname;
+                state.token = action.payload.token;
+                state.error = null;
+            })
+            .addCase(loginClient.reject, (state, action) => {
+                state.status = "failed";
+                state.error = action.payload?.message || " Login Failed";
             });
     },
 });
+export const { logout } = loginSlice.actions;
 export default loginSlice.reducer;
+
+

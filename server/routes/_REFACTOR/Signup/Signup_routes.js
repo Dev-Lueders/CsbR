@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Client_model = require("../../models/Client_Models/Client_model");
+const Client_model = require("../../../models/Client_Models/Client_model");
 const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const SignupRoutes = require("./routes/Signup/Signup_routes");
-const loginRoutes = require("./auth/routes/Login/login_routes");
+const SignupRoutes = require("../_REFACTOR/Signup/Signup_routes");
+const loginRoutes = require("../_REFACTOR/Login/Login_routes"); 
 
 const cors = require("cors");
 
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 });
 
 
-
+app.get('/health', (req, res) => res.status(200).send('ok'));
 app.get('/', (req, res) => {
     res.send('CSBR API is up and running');
     });
