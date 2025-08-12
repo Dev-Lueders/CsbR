@@ -3,8 +3,9 @@
 param(
   [string]$FrontendDir = "D:\Nicks School Work\Personal Projects\creatorsandboxreview\WebApp\csbr",
   [string]$BackendDir  = "D:\Nicks School Work\Personal Projects\creatorsandboxreview\WebApp\csbr\server\routes\RTManager",
-  [string]$FrontendCmd = "npm run dev",    # Adjust if different
-  [string]$BackendCmd  = "nodemon index.js",
+  [string]$FrontendCmd = "npm run dev",        # Frontend start command
+  [string]$BackendCmd  = "nodemon index.js",   # Backend start command
+  [string]$FrontendURL = "http://localhost:5173/",
   [switch]$Install
 )
 
@@ -46,3 +47,7 @@ $pidFile = Join-Path $PSScriptRoot ".dev.pids"
 ) | Set-Content -Path $pidFile -Encoding ascii
 
 Write-Host "Done. PIDs saved to $pidFile"
+
+# Open browser to frontend URL
+Start-Process $FrontendURL
+Write-Host "Opened browser at $FrontendURL"
