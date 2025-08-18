@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 const SignupRoutes = require("../_REFACTOR/Signup/Signup_routes");
 const loginRoutes = require("../_REFACTOR/Login/Login_routes"); 
 
@@ -7,6 +8,8 @@ const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+const ORIGIN = "http://localhost:5173";
 
 app.use(cors());
 app.use(express.json());

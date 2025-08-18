@@ -1,88 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../components/components_styles.css";
 import { useDispatch } from "react-redux";
-import axios from "axios";
-import { loginClient } from "../../redux/features/signup/signupSlice"
-import { useState } from "react";
+// ⬇️ FIX: import from the LOGIN slice, not signup slice
+import { loginClient } from "../../redux/features/auth/loginSlice";
+
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Button_btn from "../../components/Atoms/Buttons/Button";
-import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
-import B_Navbar from "../../components/Atoms/NavBar/B_Navbar";
 import Generic_Form from "../../components/Molecules/Form/Generic_Form";
-
 
 const Login_Page = () => {
   const dispatch = useDispatch();
-  // const toggleShowPassword = () => setShowPassword(prev => !prev);
-  const [showPassword, setPassword] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     clientname: "",
-    password: ""
+    password: "",
+    remember: true, // set default “stay logged in” if you want
   });
+  const [error, setError] = useState(null);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-  const toggleShowPassword = () => {
-    setPassword((prev) => !prev);
-  };
+  const toggleShowPassword = () => setShowPassword((prev) => !prev);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
 
-    console.log("Handle submit Clientname:", formData.clientname);
-    console.log("Handle submit Password:", formData.password);
-    
-    try {
-      const result = await dispatch(loginClient({
-        clientname: formData.clientname,
-        password: formData.password
-      }));
+    const action = await dispatch(
+      loginClient({
+        clientname: formData.clientname.trim(),
+        password: formData.password,
+        remember: formData.remember,
+      })
+    );
 
-      console.log("Full result from loginClient dispatch:", result);
-
-      if (!result) {
-        console.error("No Result returned from loginClient.");
-        return;
-}
-
-      if (result.meta.requestStatus === "fulfilled") {
-        console.log("Login Success:", result.payload);
-      } else {
-        console.log("if meta block clientname", formData.clientname);
-        console.log("if meta block password",formData.password);
-        console.error("Login Failed:", result.error?.message || result.payload?.message ||JSON.stringify(result));
-      }
-    } catch (err) {
-      console.error("Login Error:", err);
+    if (loginClient.fulfilled.match(action)) {
+      // Success path
+      console.log("Login success:", action.payload.client);
+      // TODO: navigate('/dashboard') or set auth UI
+    } else {
+      const msg =
+        action.payload?.message || action.error?.message || "Login failed";
+      console.error("Login failed:", msg);
+      setError(msg);
     }
-  }
-  //   try {
-  //     const res = await axios.post("http://localhost:5000/api/login", formData);
-
-  //     if (res.data.token) {
-  //       dispatch(loginClient({ token: res.data.token, clientname: formData.clientname }));
-  //       console.log("Login successful:", res.data);
-  //     } else {
-  //       console.error("Login failed:", res.data.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("Login error:", error.response?.data || error.message);
-  //   }
-  // };
+  };
 
   return (
     <div className="login-page">
-
       <h2>Login</h2>
-      <Generic_Form onSubmit={handleSubmit}
-      >
-  
+
+      {/* Ensure Generic_Form renders a real <form onSubmit={...}> */}
+      <Generic_Form onSubmit={handleSubmit}>
         <Text_Box
           id="clientname"
           labelText="Client"
@@ -94,7 +70,7 @@ const Login_Page = () => {
         />
 
         <Text_Box
-          id="Password_id"
+          id="password"
           labelText="Password"
           placeholderText="Password"
           type={showPassword ? "text" : "password"}
@@ -104,22 +80,39 @@ const Login_Page = () => {
           onChange={handleInputChange}
         />
 
-        <div className="show=password-toggle">
+        <div className="show-password-toggle" style={{ margin: "8px 0" }}>
           <input
             type="checkbox"
             id="showPassword"
             checked={showPassword}
-            onChange={() => toggleShowPassword(!showPassword)}
+            onChange={toggleShowPassword} // ⬅️ just toggle, no arg
           />
-    
-          <label htmlFor="showPassword"> Show Password</label>
-    
+          <label htmlFor="showPassword" style={{ marginLeft: 6 }}>
+            Show Password
+          </label>
         </div>
-        
+
+        <div style={{ margin: "8px 0" }}>
+          <input
+            type="checkbox"
+            id="remember"
+            name="remember"
+            checked={formData.remember}
+            onChange={handleInputChange}
+          />
+          <label htmlFor="remember" style={{ marginLeft: 6 }}>
+            Stay logged in
+          </label>
+        </div>
+
+        {/* Submit button INSIDE the Generic_Form */}
+     
+
+        {error && (
+          <div style={{ color: "crimson", marginTop: 10 }}>{error}</div>
+        )}
       </Generic_Form>
-    
     </div>
-    
   );
 };
 

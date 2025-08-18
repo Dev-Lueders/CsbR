@@ -31,16 +31,17 @@ router.post("/", async (req, res) => {
     }
 
     // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create new client object
     const newClient = new Client_model({
       customId: uuidv4(),
+      clientname,
       primary_System: "placeholder",
       primary_GamerTag: clientname,
       UGC_siteTag: clientname.toLowerCase().replace(/[^a-z0-9]/g, ""),
       email,
-      password: hashedPassword,
+      password,
       first_name,
       last_name,
       address,

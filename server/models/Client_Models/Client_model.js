@@ -14,12 +14,19 @@ const clientSchema = new Schema({
     ref: "Client_model"
   }, // Mongo ObjectId, for reference
 
+  clientname: { type: String, required: true, unique: true, index: true },
+  password: { type: String, required: true, select: false },
+
   created_time: { type: Date, default: Date.now },
   updated_time: { type: Date, default: Date.now },
 
   primary_System: { type: String, required: true },
   primary_GamerTag: { type: String, required: true },
   UGC_siteTag: { type: String, required: true },
+
+  lastLoginAt: { type: Date },
+  lastLogoutAt: { type: Date },
+  sessionLog: [{ Type: { type: String }, at: { type: Date } }],
 
   // Role fields
   isMaster: { type: Boolean, default: false }, // Master Role
@@ -41,10 +48,13 @@ const clientSchema = new Schema({
 });
 
 // Middleware to update the 'updated_time' on every modification
-clientSchema.pre("save", function (next) {
-  this.updated_time = Date.now();
+clientSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next()
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
   next();
 });
+
 
 // Create the model using the schema
 const Client_model = mongoose.model("Client_model", clientSchema);
