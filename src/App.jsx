@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {Route, Routes } from "react-router-dom";
 
 import Page_Grid from "./components/Atoms/Page_Grid/Page_Grid.jsx";
 
