@@ -1,5 +1,17 @@
 {
-    "Drop_Down_": [
-        { "label": "", "value": "" }
+    "Drop_Down_Audi": [
+        { "label": "TT Coupe 3.2 quattro '03", "value": "TT_Coupe_32_Quattro_03" },
+        { "label": "TTS Coupe 09", "value": "TTS_Coupe_09" },
+        { "label": "TTS Coupe 14", "value": "TTS_Coupe_14" },
+        { "label": "R8 4.2 07", "value": "R8_42_07" },
+        { "label": "R8 Coupe V10 plus 16", "value": "R8_Coupe_V10_plus_16" },
+        { "label": "TT Cup", "value": "TT_Cup_15" },
+        { "label": "R8 LMS 15", "value": "R8_LMS_15" },
+        { "label": "R8 LMS Evo 19", "value": "R8_LMS_Evo_19" },
+        {"label":"Audi VGT", "value":"Audi_VGT"},
+        {"label":"R18 16", "value":"R18_16"},
+        {"label":"Audi e-tron VGT", "value":"Audi_e-tron_VGT"},
+        {"label":"RS 5 Turbo DTM 19", "value":"RS_Turbo_DTM_19"},
+        {"label":"R18 TDI 11", "value":"R18_TDI_11"}
     ]
 }
