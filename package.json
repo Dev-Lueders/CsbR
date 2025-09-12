@@ -7,7 +7,14 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "test:backend": "node --experimental-vm-modules ./node_modules/mocha/bin/mocha \"test/server/**/*.test.mjs\" --recursive --reporter spec",
+    "test:backend:watch": "node --experimental-vm-modules ./node_modules/mocha/bin/mocha \"test/server/**/*.test.mjs\" --recursive --watch",
+    "coverage:backend": "nyc --reporter=text --reporter=lcov npm run test:backend",
+    "test:frontend": "vitest run test/client",
+    "test:frontend:watch": "vitest test/client",
+    "test": "npm run test:backend && npm run test:frontend",
+    "coverage": "npm run coverage:backend"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
@@ -16,13 +23,11 @@
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "bootstrap": "^5.3.3",
-    "chai": "^5.2.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mocha": "^11.2.2",
     "mongoose": "^8.14.1",
     "mysql2": "^3.14.1",
     "nodemon": "^3.1.10",
@@ -40,13 +45,35 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "chai": "^6.0.1",
     "eslint": "^9.19.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
-    "vite": "^6.1.0"
+    "jsdom": "^26.1.0",
+    "mocha": "^11.7.2",
+    "mongodb-memory-server": "^10.2.0",
+    "nyc": "^17.1.0",
+    "supertest": "^7.1.4",
+    "vite": "^6.1.0",
+    "vitest": "^3.2.4"
+  },
+  "vitest": {
+    "environment": "jsdom",
+    "setupFiles": [
+      "./test/client/setupTests.js"
+    ],
+    "include": [
+      "test/client/**/*.{test,spec}.{js,jsx,ts,tsx}"
+    ],
+    "exclude": [
+      "test/server/**"
+    ]
   }
 }

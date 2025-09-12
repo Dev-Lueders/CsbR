@@ -1,0 +1,2 @@
+"timestamp","suite","backend_passing","backend_failing","backend_duration_seconds","frontend_passed","frontend_failed","frontend_testfiles","frontend_duration_seconds","exit_code"
+"2025-09-11T17:10:02","both","11","1","0","0","0","0","0","1"

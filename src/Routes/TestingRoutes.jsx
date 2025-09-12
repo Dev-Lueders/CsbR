@@ -4,12 +4,12 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Page_Grid from "../components/Atoms/Page_Grid/Page_Grid";
 
-import Component_Testing from "../Pages/Test Page/Component_Testing"
+//import Component_Testing from "../Pages/Test Page/Component_Testing"
 import Course_Review from "../Pages/Games/PGA2K/Content/Course_Review";
 const TestingRoutes = () => {
     return (
       <>
-        <Routes>
+        {/* <Routes>
           <Route
             path="/Component_Testing"
             element={
@@ -18,7 +18,7 @@ const TestingRoutes = () => {
               </Page_Grid>
             }
           />
-        </Routes>
+        </Routes> */}
 
         <Routes>
           <Route

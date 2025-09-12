@@ -1,0 +1,67 @@
+===== BACKEND =====
+
+> csbr@0.0.0 test:backend
+> node --experimental-vm-modules ./node_modules/mocha/bin/mocha "test/server/**/*.test.mjs" --recursive --reporter spec
+
+
+
+  Client_model schema
+    ✔ fails validation when required fields are missing
+    ✔ hashes password on save and hides it by default (select:false) (135ms)
+    ✔ does NOT rehash when password is unchanged (69ms)
+    ✔ rehashes when password IS changed (245ms)
+    ✔ enforces uniqueness on customId and clientname (125ms)
+    1) accepts sessionLog entries with { Type, at }
+    ✔ sets sensible boolean defaults (roles, status) (62ms)
+
+  backend smoke
+    ✔ adds
+
+  server/utils/jwt_helper
+    ✔ signClient returns a valid JWT string
+    ✔ verifyToken returns the decoded payload when token is valid
+    ✔ verifyToken throws on invalid token
+    ✔ tokens expire in about 7 days
+
+
+  11 passing (1s)
+  1 failing
+
+  1) Client_model schema
+       accepts sessionLog entries with { Type, at }:
+
+      AssertionError: expected { Type: 'login', …(2) } to contain keys 'Type', and 'at'
+      + expected - actual
+
+       [
+      -  "$__"
+      -  "$__parent"
+      -  "$isNew"
+      -  "__index"
+      -  "__parentArray"
+      -  "_doc"
+      -  Symbol(mongoose#documentArrayParent)
+      +  "Type"
+      +  "at"
+       ]
+      
+      at Context.<anonymous> (file:///D:/Nicks%20School%20Work/Personal%20Projects/creatorsandboxreview/WebApp/csbr/test/server/models/client_models/Client_model.test.mjs:146:48)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+
+
+===== FRONTEND =====
+
+> csbr@0.0.0 test:frontend
+> vitest run test/client
+
+The CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+
+ RUN  v3.2.4 D:/Nicks School Work/Personal Projects/creatorsandboxreview/WebApp/csbr
+
+No test files found, exiting with code 1
+
+filter: test/client
+include: **/*.{test,spec}.?(c|m)[jt]s?(x)
+exclude:  **/node_modules/**, **/dist/**, **/cypress/**, **/.{idea,git,cache,output,temp}/**, **/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*
+System.Management.Automation.RemoteException

@@ -47,7 +47,7 @@ import Course_Review from "./Pages/Games/PGA2K/Content/Course_Review.jsx";
 
 import Client_Front_Page from "./Pages/Clients/Client_Page/Client_Front_Page.jsx"
 
-import Component_Testing from "./Pages/Test Page/Component_Testing.jsx";
+//import Component_Testing from "./Pages/Test Page/Component_Testing.jsx";
 import "./components/components_styles.css";
 import { useSelector, useDispatch } from "react-redux";
 const App = () => {
@@ -63,7 +63,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route
+        {/* <Route
           path="/Component_Testing"
           element={
             <Page_Grid>
@@ -71,7 +71,7 @@ const App = () => {
             </Page_Grid>
           }
         />{" "}
-        {/*components.css applied */}
+        components.css applied */}
         <Route
           path="/"
           element={

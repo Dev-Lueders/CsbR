@@ -1,29 +1,40 @@
+// server/utils/jwt_helper.js
 const jwt = require("jsonwebtoken");
-const SECRET = process.env.JWT_SECRET;
-if (!SECRET) throw new Error("Missing env JWT_SECRET");
 
-function signClient(client) {
-  // keep token small, don’t shove the whole document in here
+/** Accepts either {member:true} or {isMember:true} and emits flat keys */
+function normalizeRoles(u = {}) {
+  return {
+    guest: u.guest ?? u.isGuest ?? false,
+    creator: u.creator ?? u.isCreator ?? false,
+    member: u.member ?? u.isMember ?? false,
+    admin: u.admin ?? u.isAdmin ?? false,
+    moderator: u.moderator ?? u.isModerator ?? false,
+    master: u.master ?? u.isMaster ?? false,
+  };
+}
+
+function getSecret() {
+  const s = process.env.JWT_SECRET;
+  if (!s) throw new Error("Missing env JWT_SECRET");
+  return s;
+}
+
+/** Small, internal app token (HS256). Keep payload lean. */
+function signClient(user) {
+  const roles = normalizeRoles(user);
   return jwt.sign(
     {
-      sub: client._id.toString(),
-      clientname: client.clientname,
-      roles: {
-        isMaster: client.isMaster,
-        isMember: client.isMember,
-        isClient: client.isClient,
-        isModerator: client.isModerator,
-        isGuest: client.isGuest,
-        isAdmin: client.isAdmin,
-      },
+      sub: String(user._id),
+      clientname: user.clientname,
+      roles,
     },
-    SECRET,
-    { expiresIn: "7d" }
+    getSecret(),
+    { expiresIn: "7d", algorithm: "HS256" }
   );
 }
 
 function verifyToken(token) {
-  return jwt.verify(token, SECRET);
+  return jwt.verify(token, getSecret(), { algorithms: ["HS256"] });
 }
 
-module.exports = { signClient, verifyToken };
+module.exports = { signClient, verifyToken, normalizeRoles };

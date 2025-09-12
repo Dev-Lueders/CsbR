@@ -1,7 +1,7 @@
 /*THIS LANDING PAGE IS THE PRIMARY PAGE FOR WHEN YOU ARE DIRECTED TO THE CREATORSANDBOXREVIEW SITE THIS WILL BE THE FIRST THING A GUEST SEES 
 ALL COMPONENTS WILL BE BUILT SEPARATELY USE ID TO DIRECTLY STYLE THEM THERE IS A CSS FILE FOR COMPONENTS AND A CSS FILE FOR PAGES AND FOR MORE DIRECT STYLING USE THE INLINE 
 */
-import Component_Testing from "../Test Page/Component_Testing.jsx";
+//import Component_Testing from "../Test Page/Component_Testing.jsx";
 import React from "react";
 import "../pages_styles.css";
 import ReadMe from "../Help/ReadMe.jsx";
