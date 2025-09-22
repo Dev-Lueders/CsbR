@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "nodemon index.js",
+    "test:ui": "vitest --environment jsdom --globals",
     "test:backend": "node --experimental-vm-modules ./node_modules/mocha/bin/mocha \"test/server/**/*.test.mjs\" --recursive --reporter spec",
     "test:backend:watch": "node --experimental-vm-modules ./node_modules/mocha/bin/mocha \"test/server/**/*.test.mjs\" --recursive --watch",
     "coverage:backend": "nyc --reporter=text --reporter=lcov npm run test:backend",
@@ -17,7 +18,6 @@
     "coverage": "npm run coverage:backend"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.5.1",
     "@vitejs/plugin-react": "^4.7.0",
     "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@reduxjs/toolkit": "^2.9.0",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -60,6 +61,7 @@
     "mocha": "^11.7.2",
     "mongodb-memory-server": "^10.2.0",
     "nyc": "^17.1.0",
+    "sinon": "^21.0.0",
     "supertest": "^7.1.4",
     "vite": "^6.1.0",
     "vitest": "^3.2.4"

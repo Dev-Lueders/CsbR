@@ -1,167 +1,201 @@
-// Test/Server/models/Client_Models/Client_model.test.mjs
+// test/server/models/client_models/Client_model.test.mjs
 import { expect } from "chai";
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
 import { MongoMemoryServer } from "mongodb-memory-server";
+import bcrypt from "bcrypt";
 
-// Import the CommonJS model from ESM: default is the export value
-import ClientModel from "../../../../server/models/Client_Models/Client_model.js";
+// Import the CJS model from an ESM test
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const Client_model = require("../../../../server/models/Client_Models/Client_model.js");
 
 describe("Client_model schema", function () {
-  this.timeout(20000); // give mongodb-memory-server room on Windows
+  this.timeout(10000);
 
-  let mongod;
-  const requiredBase = {
-    customId: "uuid-123",
-    clientname: "nick",
-    password: "Plaintext#1",
-    primary_System: "PS5",
-    primary_GamerTag: "N1CK",
-    UGC_siteTag: "csbr-nick",
-  };
+  let mongo;
 
   before(async () => {
-    mongod = await MongoMemoryServer.create();
-    const uri = mongod.getUri();
-    await mongoose.connect(uri, { dbName: "csbr-test" });
-    // Build indexes for unique checks
-    await ClientModel.init();
+    mongo = await MongoMemoryServer.create();
+    const uri = mongo.getUri();
+    await mongoose.connect(uri, {
+      dbName: "testdb",
+    });
+    // Ensure unique indexes are built before running uniqueness tests
+    await Client_model.init();
   });
 
   after(async () => {
     await mongoose.disconnect();
-    await mongod.stop();
+    if (mongo) await mongo.stop();
   });
 
   afterEach(async () => {
-    await ClientModel.deleteMany({});
+    // Clean collections after each test
+    const { collections } = mongoose.connection;
+    await Promise.all(Object.values(collections).map((c) => c.deleteMany({})));
   });
 
-  it("fails validation when required fields are missing", async () => {
-    const doc = new ClientModel({
-      // customId missing
-      clientname: "a",
-      password: "p",
-      primary_System: "sys",
-      primary_GamerTag: "gt",
-      UGC_siteTag: "tag",
-    });
+  function baseClient(overrides = {}) {
+    return {
+      customId: "uuid-1",
+      clientname: "testuser",
+      password: "plain-secret",
+      primary_System: "PC",
+      primary_GamerTag: "GamerX",
+      UGC_siteTag: "gx",
+      ...overrides,
+    };
+  }
 
+  it("fails validation when required fields are missing", async () => {
+    const doc = new Client_model({}); // missing requireds
+    let err;
     try {
-      await doc.save();
-      throw new Error("Expected validation to fail");
-    } catch (err) {
-      expect(err.name).to.equal("ValidationError");
-      expect(err.errors).to.have.property("customId");
+      await doc.validate();
+    } catch (e) {
+      err = e;
     }
+    expect(err).to.exist;
+    // A few required fields we expect to be mentioned:
+    expect(err.errors).to.have.property("customId");
+    expect(err.errors).to.have.property("clientname");
+    expect(err.errors).to.have.property("password");
+    expect(err.errors).to.have.property("primary_System");
+    expect(err.errors).to.have.property("primary_GamerTag");
+    expect(err.errors).to.have.property("UGC_siteTag");
   });
 
   it("hashes password on save and hides it by default (select:false)", async () => {
-    const created = await ClientModel.create(requiredBase);
+    // create and save
+    const doc = new Client_model(baseClient());
+    await doc.save();
 
-    // Default query: password must be excluded
-    const fetched = await ClientModel.findById(created._id);
+    // default query should NOT return password
+    const fetched = await Client_model.findOne({ customId: "uuid-1" });
     expect(fetched).to.exist;
-    expect(fetched.password).to.equal(undefined);
+    expect(fetched.password).to.be.undefined;
 
-    // Explicitly select password to verify hashing
-    const fetchedWithPwd = await ClientModel.findById(created._id).select(
-      "+password"
-    );
-    expect(fetchedWithPwd.password)
-      .to.be.a("string")
-      .and.not.equal(requiredBase.password);
-    const matches = await bcrypt.compare(
-      requiredBase.password,
-      fetchedWithPwd.password
-    );
-    expect(matches).to.equal(true);
+    // explicitly select to verify it's hashed
+    const fetchedWithSecret = await Client_model.findOne({
+      customId: "uuid-1",
+    }).select("+password");
+
+    expect(fetchedWithSecret.password).to.be.a("string");
+    expect(fetchedWithSecret.password).to.match(/^\$2[aby]\$/); // bcrypt-ish
+    const ok = await bcrypt.compare("plain-secret", fetchedWithSecret.password);
+    expect(ok).to.equal(true);
   });
 
   it("does NOT rehash when password is unchanged", async () => {
-    const created = await ClientModel.create(requiredBase);
-    const original = await ClientModel.findById(created._id).select(
+    const doc = new Client_model(baseClient());
+    await doc.save();
+
+    // Fetch with password and keep the hash
+    let user = await Client_model.findOne({ customId: "uuid-1" }).select(
       "+password"
     );
-    const originalHash = original.password;
+    const hash1 = user.password;
 
-    // Update unrelated field only
-    created.primary_System = "PC";
-    await created.save();
+    // Update an unrelated field and save
+    user.primary_GamerTag = "GamerY";
+    await user.save();
 
-    const after = await ClientModel.findById(created._id).select("+password");
-    expect(after.password).to.equal(originalHash); // unchanged
+    // Fetch again to compare hash
+    user = await Client_model.findOne({ customId: "uuid-1" }).select(
+      "+password"
+    );
+    const hash2 = user.password;
+
+    expect(hash2).to.equal(hash1);
   });
 
   it("rehashes when password IS changed", async () => {
-    const created = await ClientModel.create(requiredBase);
-    const first = await ClientModel.findById(created._id).select("+password");
-    const firstHash = first.password;
+    const doc = new Client_model(baseClient());
+    await doc.save();
 
-    created.password = "NewSecret#2";
-    await created.save();
+    // Fetch with password
+    let user = await Client_model.findOne({ customId: "uuid-1" }).select(
+      "+password"
+    );
+    const oldHash = user.password;
 
-    const second = await ClientModel.findById(created._id).select("+password");
-    expect(second.password).to.be.a("string").and.not.equal(firstHash);
+    // Change password and save
+    user.password = "new-secret";
+    await user.save();
 
-    const okOld = await bcrypt.compare("Plaintext#1", second.password);
-    const okNew = await bcrypt.compare("NewSecret#2", second.password);
-    expect(okOld).to.equal(false);
-    expect(okNew).to.equal(true);
+    // Re-fetch
+    user = await Client_model.findOne({ customId: "uuid-1" }).select(
+      "+password"
+    );
+    const newHash = user.password;
+
+    expect(newHash).to.be.a("string");
+    expect(newHash).to.not.equal(oldHash);
+    const ok = await bcrypt.compare("new-secret", newHash);
+    expect(ok).to.equal(true);
   });
 
   it("enforces uniqueness on customId and clientname", async () => {
-    await ClientModel.create(requiredBase);
+    await new Client_model(
+      baseClient({ customId: "dup-1", clientname: "nick" })
+    ).save();
 
-    // Duplicate customId and clientname
-    const dup = new ClientModel({
-      ...requiredBase,
-      password: "Another#3",
-    });
-
+    let dupErr1;
     try {
-      await dup.save();
-      throw new Error("Expected duplicate key error");
-    } catch (err) {
-      // MongoServerError with code 11000 for dup key
-      expect(err).to.have.property("code", 11000);
-      // either customId or clientname may surface in the keyValue depending on index build order
-      const key = Object.keys(err.keyValue || {})[0];
-      expect(["customId", "clientname"]).to.include(key);
+      await new Client_model(
+        baseClient({ customId: "dup-1", clientname: "another" })
+      ).save();
+    } catch (e) {
+      dupErr1 = e;
     }
+    expect(dupErr1).to.exist;
+    // Mongo duplicate key error
+    expect(dupErr1).to.have.property("code", 11000);
+
+    let dupErr2;
+    try {
+      await new Client_model(
+        baseClient({ customId: "unique-2", clientname: "nick" })
+      ).save();
+    } catch (e) {
+      dupErr2 = e;
+    }
+    expect(dupErr2).to.exist;
+    expect(dupErr2).to.have.property("code", 11000);
   });
 
   it("accepts sessionLog entries with { Type, at }", async () => {
-    const created = await ClientModel.create({
-      ...requiredBase,
-      customId: "uuid-456",
-      clientname: "nick2",
-    });
+    const doc = new Client_model(baseClient());
+    doc.sessionLog.push({ Type: "login", at: new Date() });
+    await doc.save();
 
-    created.sessionLog.push({ Type: "login", at: new Date() });
-    await created.save();
+    const saved = await Client_model.findOne({ customId: "uuid-1" });
+    expect(saved.sessionLog).to.be.an("array").with.lengthOf(1);
 
-    const refetched = await ClientModel.findById(created._id);
-    expect(refetched.sessionLog).to.have.length(1);
-    expect(refetched.sessionLog[0]).to.include.keys(["Type", "at"]);
-    expect(refetched.sessionLog[0].Type).to.equal("login");
-    expect(refetched.sessionLog[0].at).to.be.instanceOf(Date);
+    // Mongoose array item is a subdocument; unwrap to a plain object
+    const entryDoc = saved.sessionLog[0];
+    const entry = entryDoc?.toObject ? entryDoc.toObject() : entryDoc;
+
+    // Subdocs usually include an _id unless disabled; don't assert exact keys
+    expect(entry).to.include.keys("Type", "at");
+    expect(entry.Type).to.equal("login");
+    expect(entry.at).to.be.instanceOf(Date);
   });
 
   it("sets sensible boolean defaults (roles, status)", async () => {
-    const created = await ClientModel.create({
-      ...requiredBase,
-      customId: "uuid-789",
-      clientname: "nick3",
-    });
+    const doc = new Client_model(baseClient());
+    await doc.save();
 
-    expect(created.isActive).to.equal(true);
-    expect(created.isMember).to.equal(false);
-    expect(created.isClient).to.equal(false);
-    expect(created.isAdmin).to.equal(false);
-    expect(created.isModerator).to.equal(false);
-    expect(created.isGuest).to.equal(false);
-    expect(created.isMaster).to.equal(false);
-    expect(created.isSuspended).to.equal(false);
+    const saved = await Client_model.findOne({ customId: "uuid-1" }).lean();
+    // role flags
+    expect(saved.isMaster).to.equal(false);
+    expect(saved.isMember).to.equal(false);
+    expect(saved.isClient).to.equal(false);
+    expect(saved.isModerator).to.equal(false);
+    expect(saved.isGuest).to.equal(false);
+    expect(saved.isAdmin).to.equal(false);
+    // status flags
+    expect(saved.isActive).to.equal(true);
+    expect(saved.isSuspended).to.equal(false);
   });
 });

@@ -7,9 +7,18 @@ import { loginClient } from "../../redux/features/auth/loginSlice";
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
 import Button_btn from "../../components/Atoms/Buttons/Button";
 import Generic_Form from "../../components/Molecules/Form/Generic_Form";
-
+import { logout } from "../../../server/utils/logout";
 const Login_Page = () => {
   const dispatch = useDispatch();
+
+ const handleLogout = async () => {
+    await logout({
+      revokeUrl: "/api/auth/logout", // optional; remove if you don't have it yet
+      navigateTo: "/Login_Page",     // where to land after logout
+       axios: api,                 // pass your axios instance if you want
+       onAfter: () => dispatch({ type: "auth/clear" }), // optional: clear Redux
+    });
+  };
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
