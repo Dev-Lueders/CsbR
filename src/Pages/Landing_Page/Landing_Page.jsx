@@ -15,10 +15,12 @@ import B_Navbar from "../../components/Atoms/NavBar/B_Navbar.jsx";
 
 const Landing_Page = () => {
   const T_Links = [
-    { label: "Home", path: "/" },
-    { label: "About", path: "/About" },
-    { label: "Login", path: "/Login_Page" },
-    { label: "Testing Components", path: "/Component_Testing" },
+  
+    { path: "/", label: "Home" },
+    { path: "/About", label: "About" },
+    { path: "/Login_Page", label: "Login" },
+    { path: "/Component_Testing", label: "Component Testing" }
+    
   ];
 
   const L_links = [
