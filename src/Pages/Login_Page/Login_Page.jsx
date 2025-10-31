@@ -11,18 +11,18 @@ import { logout } from "../../../server/utils/logout";
 const Login_Page = () => {
   const dispatch = useDispatch();
 
- const handleLogout = async () => {
+  const handleLogout = async () => {
     await logout({
       revokeUrl: "/api/auth/logout", // optional; remove if you don't have it yet
-      navigateTo: "/Login_Page",     // where to land after logout
-       axios: api,                 // pass your axios instance if you want
-       onAfter: () => dispatch({ type: "auth/clear" }), // optional: clear Redux
+      navigateTo: "/Login_Page", // where to land after logout
+      axios: api, // pass your axios instance if you want
+      onAfter: () => dispatch({ type: "auth/clear" }), // optional: clear Redux
     });
   };
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    clientname: "",
+    CsbR_Client_Tag: "",
     password: "",
     remember: true, // set default “stay logged in” if you want
   });
@@ -44,7 +44,7 @@ const Login_Page = () => {
 
     const action = await dispatch(
       loginClient({
-        clientname: formData.clientname.trim(),
+        CsbR_Client_Tag: formData.CsbR_Client_Tag.trim(),
         password: formData.password,
         remember: formData.remember,
       })
@@ -69,12 +69,12 @@ const Login_Page = () => {
       {/* Ensure Generic_Form renders a real <form onSubmit={...}> */}
       <Generic_Form onSubmit={handleSubmit}>
         <Text_Box
-          id="clientname"
+          id="CsbR_Client_Tag"
           labelText="Client"
-          placeholderText="Enter Clientname"
+          placeholderText="Enter CsbR_Client_Tag"
           type="text"
-          name="clientname"
-          value={formData.clientname}
+          name="CsbR_Client_Tag"
+          value={formData.CsbR_Client_Tag}
           onChange={handleInputChange}
         />
 
@@ -115,7 +115,6 @@ const Login_Page = () => {
         </div>
 
         {/* Submit button INSIDE the Generic_Form */}
-     
 
         {error && (
           <div style={{ color: "crimson", marginTop: 10 }}>{error}</div>

@@ -67,7 +67,7 @@ describe("Login_Page", () => {
     // default dispatch: simulate a successful login result
     dispatchImpl = async () => ({
       type: "auth/login/fulfilled",
-      payload: { client: { clientname: "testuser" } },
+      payload: { client: { CsbR_Client_Tag: "testuser" } },
     });
   });
 
@@ -92,7 +92,7 @@ describe("Login_Page", () => {
 
     // payload captured from mocked loginClient
     expect(capturedLoginPayload).toEqual({
-      clientname: "nick",
+      CsbR_Client_Tag: "nick",
       password: "s3cret!",
       remember: true, // default in component state
     });
@@ -117,7 +117,7 @@ describe("Login_Page", () => {
     await user.click(screen.getByRole("button", { name: /login/i }));
 
     expect(capturedLoginPayload).toEqual({
-      clientname: "jane",
+      CsbR_Client_Tag: "jane",
       password: "hunter2",
       remember: false,
     });
@@ -142,7 +142,7 @@ describe("Login_Page", () => {
     expect(screen.getByText(/invalid credentials/i)).toBeInTheDocument();
   });
 
-  it("trims clientname before dispatching", async () => {
+  it("trims CsbR_Client_Tag before dispatching", async () => {
     const user = userEvent.setup();
     render(<Login_Page />);
 
@@ -150,6 +150,6 @@ describe("Login_Page", () => {
     await user.type(screen.getByLabelText(/^password$/i), "pw");
     await user.click(screen.getByRole("button", { name: /login/i }));
 
-    expect(capturedLoginPayload.clientname).toBe("spaced");
+    expect(capturedLoginPayload.CsbR_Client_Tag).toBe("spaced");
   });
 });

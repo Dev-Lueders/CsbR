@@ -14,7 +14,7 @@ const clientSchema = new Schema({
     ref: "Client_model"
   }, // Mongo ObjectId, for reference
 
-  clientname: { type: String, required: true, unique: true, index: true },
+  CsbR_Client_Tag: { type: String, required: true, unique: true, index: true },
   password: { type: String, required: true, select: false },
 
   created_time: { type: Date, default: Date.now },

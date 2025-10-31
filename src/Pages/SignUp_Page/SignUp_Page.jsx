@@ -15,7 +15,7 @@ import Check_Box from "../../components/Atoms/Check_Box/Check_Box";
 import Button_btn from "../../components/Atoms/Buttons/Button";
 import Calendar from "../../components/Atoms/Input_Container/Calendar";
 
-const masterClientname = "MasterMiyoto";
+const masterCsbR_Client_Tag = "MasterMiyoto";
 
 const SignUp_Page = () => {
   const formData = useSelector((state) => state.signup || {});
@@ -38,9 +38,9 @@ const SignUp_Page = () => {
       dispatch(updateField({ key: id, value: files[0] }));
     } else if (addressFields.includes(id)) {
       dispatch(updateField({ key: `address.${id}`, value }));
-    } else if (id === "clientname") {
-      const assignRole = value === masterClientname ? "master" : "creator";
-      dispatch(updateField({ key: "clientname", value }));
+    } else if (id === "CsbR_Client_Tag") {
+      const assignRole = value === masterCsbR_Client_Tag ? "master" : "creator";
+      dispatch(updateField({ key: "CsbR_Client_Tag", value }));
       dispatch(updateField({ key: "role", value: assignRole }));
     } else {
       dispatch(updateField({ key: id, value }));
@@ -51,7 +51,7 @@ const SignUp_Page = () => {
     e.preventDefault();
 
     const requiredFields = [
-      "clientname",
+      "CsbR_Client_Tag",
       "email",
       "password",
       "confirm_password",
@@ -62,7 +62,12 @@ const SignUp_Page = () => {
         return;
       }
     }
-
+    if (!formData.terms) {
+      alert(
+        "Read, Accept, and understand Terms & Conditions, you shall. For selecting Not to accept, is the journey to the Dark Side. "
+      );
+      return;
+    }
     localStorage.setItem("signupFormData", JSON.stringify(formData));
 
     try {
@@ -88,9 +93,9 @@ const SignUp_Page = () => {
       <Generic_Form onSubmit={handleSubmit}>
         <Text_Box
           placeholderText="Enter a Unique Id"
-          id="clientname"
-          labelText="Client Name"
-          value={formData.clientname || ""}
+          id="CsbR_Client_Tag"
+          labelText="CsbR_Client_Tag"
+          value={formData.CsbR_Client_Tag || ""}
           onChange={handleChange}
         />
         <Text_Box

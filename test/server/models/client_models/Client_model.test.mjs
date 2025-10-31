@@ -38,7 +38,7 @@ describe("Client_model schema", function () {
   function baseClient(overrides = {}) {
     return {
       customId: "uuid-1",
-      clientname: "testuser",
+      CsbR_Client_Tag: "testuser",
       password: "plain-secret",
       primary_System: "PC",
       primary_GamerTag: "GamerX",
@@ -58,7 +58,7 @@ describe("Client_model schema", function () {
     expect(err).to.exist;
     // A few required fields we expect to be mentioned:
     expect(err.errors).to.have.property("customId");
-    expect(err.errors).to.have.property("clientname");
+    expect(err.errors).to.have.property("CsbR_Client_Tag");
     expect(err.errors).to.have.property("password");
     expect(err.errors).to.have.property("primary_System");
     expect(err.errors).to.have.property("primary_GamerTag");
@@ -135,15 +135,15 @@ describe("Client_model schema", function () {
     expect(ok).to.equal(true);
   });
 
-  it("enforces uniqueness on customId and clientname", async () => {
+  it("enforces uniqueness on customId and CsbR_Client_Tag", async () => {
     await new Client_model(
-      baseClient({ customId: "dup-1", clientname: "nick" })
+      baseClient({ customId: "dup-1", CsbR_Client_Tag: "nick" })
     ).save();
 
     let dupErr1;
     try {
       await new Client_model(
-        baseClient({ customId: "dup-1", clientname: "another" })
+        baseClient({ customId: "dup-1", CsbR_Client_Tag: "another" })
       ).save();
     } catch (e) {
       dupErr1 = e;
@@ -155,7 +155,7 @@ describe("Client_model schema", function () {
     let dupErr2;
     try {
       await new Client_model(
-        baseClient({ customId: "unique-2", clientname: "nick" })
+        baseClient({ customId: "unique-2", CsbR_Client_Tag: "nick" })
       ).save();
     } catch (e) {
       dupErr2 = e;

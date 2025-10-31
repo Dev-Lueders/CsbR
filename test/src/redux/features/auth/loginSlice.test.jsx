@@ -39,7 +39,7 @@ describe("auth/loginSlice", () => {
   it("hydrate loads client/token from localStorage (happy path)", () => {
     const initial = { client: null, token: null, status: "idle", error: null };
     const preloaded = {
-      client: { id: "1", clientname: "nick" },
+      client: { id: "1", CsbR_Client_Tag: "nick" },
       token: "tok123",
     };
     localStorage.setItem("csbr_auth", JSON.stringify(preloaded));
@@ -60,7 +60,7 @@ describe("auth/loginSlice", () => {
 
   it("localLogout clears client/token and removes storage", () => {
     const populated = {
-      client: { id: "1", clientname: "nick" },
+      client: { id: "1", CsbR_Client_Tag: "nick" },
       token: "tok",
       status: "succeeded",
       error: "x",
@@ -68,7 +68,7 @@ describe("auth/loginSlice", () => {
 
     const state = reducer(populated, localLogout());
 
-    // Intended behavior (note: current slice sets state.clientname=null, which is a bug)
+    // Intended behavior (note: current slice sets state.CsbR_Client_Tag=null, which is a bug)
     expect(state.client).toBeNull(); // will FAIL until you fix reducer to clear `client`
     expect(state.token).toBeNull();
     expect(state.status).toBe("idle");
@@ -84,18 +84,18 @@ describe("auth/loginSlice", () => {
       data: {
         success: true,
         token: "TKN",
-        client: { id: "1", clientname: "nick" },
+        client: { id: "1", CsbR_Client_Tag: "nick" },
       },
     });
 
     const thunk = store.dispatch(
-      loginClient({ clientname: "nick", password: "pw", remember: true })
+      loginClient({ CsbR_Client_Tag: "nick", password: "pw", remember: true })
     );
     await thunk;
 
     const state = store.getState().auth;
     expect(state.status).toBe("succeeded");
-    expect(state.client).toEqual({ id: "1", clientname: "nick" });
+    expect(state.client).toEqual({ id: "1", CsbR_Client_Tag: "nick" });
     expect(state.token).toBe("TKN");
     expect(localStorage.setItem).toHaveBeenCalledWith(
       "csbr_auth",
@@ -103,7 +103,7 @@ describe("auth/loginSlice", () => {
     );
     expect(axios.post).toHaveBeenCalledWith(
       expect.stringMatching(/\/api\/login$/),
-      { clientname: "nick", password: "pw", remember: true },
+      { CsbR_Client_Tag: "nick", password: "pw", remember: true },
       { withCredentials: false }
     );
   });
@@ -115,7 +115,7 @@ describe("auth/loginSlice", () => {
     });
 
     const action = await store.dispatch(
-      loginClient({ clientname: "nick", password: "nope" })
+      loginClient({ CsbR_Client_Tag: "nick", password: "nope" })
     );
 
     // thunk result
@@ -133,7 +133,7 @@ describe("auth/loginSlice", () => {
     axios.post.mockRejectedValue({ response: { data: { message: "Boom" } } });
 
     const action = await store.dispatch(
-      loginClient({ clientname: "nick", password: "nope" })
+      loginClient({ CsbR_Client_Tag: "nick", password: "nope" })
     );
 
     expect(action.type).toMatch(/rejected$/);
@@ -161,7 +161,7 @@ describe("auth/loginSlice", () => {
 
     axios.post.mockResolvedValue({ data: { success: true } });
 
-    await store.dispatch(logoutClient({ clientname: "nick" }));
+    await store.dispatch(logoutClient({ CsbR_Client_Tag: "nick" }));
 
     const state = store.getState().auth;
     expect(state.client).toBeNull();
@@ -171,7 +171,7 @@ describe("auth/loginSlice", () => {
     expect(localStorage.removeItem).toHaveBeenCalledWith("csbr_auth");
     expect(axios.post).toHaveBeenCalledWith(
       expect.stringMatching(/\/api\/logout$/),
-      { clientname: "nick" },
+      { CsbR_Client_Tag: "nick" },
       { withCredentials: true }
     );
   });
@@ -188,7 +188,9 @@ describe("auth/loginSlice", () => {
       response: { data: { message: "Server down" } },
     });
 
-    const action = await store.dispatch(logoutClient({ clientname: "nick" }));
+    const action = await store.dispatch(
+      logoutClient({ CsbR_Client_Tag: "nick" })
+    );
     expect(action.type).toMatch(/rejected$/);
     expect(action.payload).toEqual({ message: "Server down" });
 

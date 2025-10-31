@@ -16,7 +16,7 @@ describe("server/utils/jwt_helper", () => {
     process.env.JWT_SECRET = "test-secret";
     user = {
       _id: "507f1f77bcf86cd799439011",
-      clientname: "testuser",
+      CsbR_Client_Tag: "testuser",
       // Use your actual roles (no "isClient"):
       master: false,
       member: true,
@@ -33,7 +33,7 @@ describe("server/utils/jwt_helper", () => {
 
     const decoded = jwt.decode(token);
     expect(decoded.sub).to.equal(user._id);
-    expect(decoded.clientname).to.equal(user.clientname);
+    expect(decoded.CsbR_Client_Tag).to.equal(user.CsbR_Client_Tag);
     // Expect role keys without the "is" prefix:
     expect(decoded.roles).to.deep.equal({
       guest: false,
@@ -52,7 +52,7 @@ describe("server/utils/jwt_helper", () => {
     const token = signClient(user);
     const decoded = verifyToken(token);
     expect(decoded.sub).to.equal(user._id);
-    expect(decoded.clientname).to.equal(user.clientname);
+    expect(decoded.CsbR_Client_Tag).to.equal(user.CsbR_Client_Tag);
     expect(decoded.roles.member).to.equal(true);
   });
 

@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 router.post("/", async (req, res) => {
   try {
     const {
-      clientname,
+      CsbR_Client_Tag,
       email,
       password,
       confirm_password,
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     } = req.body;
 
     // Check required fields
-    if (!clientname || !email || !password || !confirm_password) {
+    if (!CsbR_Client_Tag || !email || !password || !confirm_password) {
       return res
         .status(400)
         .json({ success: false, message: "Missing required fields" });
@@ -36,10 +36,10 @@ router.post("/", async (req, res) => {
     // Create new client object
     const newClient = new Client_model({
       customId: uuidv4(),
-      clientname,
+      CsbR_Client_Tag,
       primary_System: "placeholder",
-      primary_GamerTag: clientname,
-      UGC_siteTag: clientname.toLowerCase().replace(/[^a-z0-9]/g, ""),
+      primary_GamerTag: CsbR_Client_Tag,
+      UGC_siteTag: CsbR_Client_Tag.toLowerCase().replace(/[^a-z0-9]/g, ""),
       email,
       password,
       first_name,

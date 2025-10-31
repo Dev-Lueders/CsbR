@@ -25,7 +25,7 @@ function signClient(user) {
   return jwt.sign(
     {
       sub: String(user._id),
-      clientname: user.clientname,
+      CsbR_Client_Tag: user.CsbR_Client_Tag,
       roles,
     },
     getSecret(),

@@ -15,10 +15,10 @@ const REFRESH_TTL_SHORT = "14d";
 const REFRESH_TTL_LONG = "30d";
 
 router.post("/", async (req, res) => {
-  const { clientname, password, remember } = req?.body ?? {};
+  const { CsbR_Client_Tag, password, remember } = req?.body ?? {};
   const rememberBool = Boolean(remember);
 
-  if (!nameOk(clientname) || !passOk(password)) {
+  if (!nameOk(CsbR_Client_Tag) || !passOk(password)) {
     return res
       .status(400)
       .json({ success: false, message: "Invalid credentials format" });
@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
   }
 
   try {
-    const user = await Client.findOne({ clientname }).select("+password");
+    const user = await Client.findOne({ CsbR_Client_Tag }).select("+password");
     if (!user) {
       return res
         .status(401)
@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
     }
 
     const token = jwt.sign(
-      { sub: String(user._id), clientname: user.clientname },
+      { sub: String(user._id), CsbR_Client_Tag: user.CsbR_Client_Tag },
       process.env.JWT_SECRET,
       { expiresIn: ACCESS_TTL }
     );
@@ -74,7 +74,7 @@ router.post("/", async (req, res) => {
     return res.json({
       success: true,
       token,
-      client: { id: String(user._id), clientname: user.clientname },
+      client: { id: String(user._id), CsbR_Client_Tag: user.CsbR_Client_Tag },
     });
   } catch (e) {
     console.error("Login error:", e);

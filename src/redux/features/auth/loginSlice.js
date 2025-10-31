@@ -6,16 +6,19 @@ const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 /**
  * POST /api/login
- * body: { clientname, password, remember }
- * success: { success:true, token, client:{ id, clientname } }
+ * body: { CsbR_Client_Tag, password, remember }
+ * success: { success:true, token, client:{ id, CsbR_Client_Tag } }
  */
 export const loginClient = createAsyncThunk(
   "auth/loginClient",
-  async ({ clientname, password, remember = false }, { rejectWithValue }) => {
+  async (
+    { CsbR_Client_Tag, password, remember = false },
+    { rejectWithValue }
+  ) => {
     try {
       const { data } = await axios.post(
         `${API}/api/login`,
-        { clientname, password, remember },
+        { CsbR_Client_Tag, password, remember },
         { withCredentials: false }
       );
       if (!data?.success) {
@@ -32,15 +35,15 @@ export const loginClient = createAsyncThunk(
 
 /**
  * POST /api/logout
- * body: { clientname }  (or omit if your server reads from token)
+ * body: { CsbR_Client_Tag }  (or omit if your server reads from token)
  */
 export const logoutClient = createAsyncThunk(
   "auth/logoutClient",
-  async ({ clientname }, { rejectWithValue }) => {
+  async ({ CsbR_Client_Tag }, { rejectWithValue }) => {
     try {
       await axios.post(
         `${API}/api/logout`,
-        { clientname },
+        { CsbR_Client_Tag },
         { withCredentials: true }
       );
       return { success: true };
@@ -53,7 +56,7 @@ export const logoutClient = createAsyncThunk(
 );
 
 const initialState = {
-  client: null, // { id, clientname }
+  client: null, // { id, CsbR_Client_Tag }
   token: null, // 15m access token
   status: "idle",
   error: null,
@@ -76,7 +79,7 @@ const authSlice = createSlice({
       }
     },
     localLogout(state) {
-      state.clientname = null;
+      state.CsbR_Client_Tag = null;
       state.token = null;
       state.status = "idle";
       state.error = null;

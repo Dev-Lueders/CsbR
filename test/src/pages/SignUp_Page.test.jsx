@@ -85,7 +85,7 @@ describe("SignUp_Page", () => {
   beforeEach(() => {
     dispatchMock = vi.fn();
     selectorSignupState = {
-      clientname: "",
+      CsbR_Client_Tag: "",
       email: "",
       password: "",
       confirm_password: "",
@@ -120,7 +120,7 @@ describe("SignUp_Page", () => {
     expect(last.payload).toEqual({ key: "address.street", value: "123 Main" });
   });
 
-  it("auto-assigns role=master when clientname === MasterMiyoto, else creator", async () => {
+  it("auto-assigns role=master when CsbR_Client_Tag === MasterMiyoto, else creator", async () => {
     const user = userEvent.setup();
     render(<SignUp_Page />);
 
@@ -128,7 +128,7 @@ describe("SignUp_Page", () => {
     await user.clear(screen.getByLabelText(/client name/i));
     await user.type(screen.getByLabelText(/client name/i), "MasterMiyoto");
 
-    // Find the two relevant dispatches (clientname + role)
+    // Find the two relevant dispatches (CsbR_Client_Tag + role)
     const roleSet = dispatchMock.mock.calls
       .map(([a]) => a)
       .filter((a) => a.type.match(/updateField/) && a.payload.key === "role")
@@ -174,10 +174,10 @@ describe("SignUp_Page", () => {
   });
 
   it("blocks submit and alerts when required fields are missing", async () => {
-    // Only set clientname and password; omit email -> should alert for email
+    // Only set CsbR_Client_Tag and password; omit email -> should alert for email
     selectorSignupState = {
       ...selectorSignupState,
-      clientname: "nick",
+      CsbR_Client_Tag: "nick",
       password: "pw",
       confirm_password: "pw",
     };
@@ -195,7 +195,7 @@ describe("SignUp_Page", () => {
   it("submits to axios, stores form, alerts success, and dispatches resetForm on success", async () => {
     selectorSignupState = {
       ...selectorSignupState,
-      clientname: "nick",
+      CsbR_Client_Tag: "nick",
       email: "n@x.com",
       password: "pw",
       confirm_password: "pw",
@@ -237,7 +237,7 @@ describe("SignUp_Page", () => {
   it("alerts failure message when api returns success:false", async () => {
     selectorSignupState = {
       ...selectorSignupState,
-      clientname: "nick",
+      CsbR_Client_Tag: "nick",
       email: "n@x.com",
       password: "pw",
       confirm_password: "pw",
@@ -256,7 +256,7 @@ describe("SignUp_Page", () => {
   it("alerts catch error message on axios error", async () => {
     selectorSignupState = {
       ...selectorSignupState,
-      clientname: "nick",
+      CsbR_Client_Tag: "nick",
       email: "n@x.com",
       password: "pw",
       confirm_password: "pw",
