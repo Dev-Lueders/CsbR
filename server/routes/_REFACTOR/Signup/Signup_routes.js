@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
       customId: uuidv4(),
       CsbR_Client_Tag,
       primary_System: "placeholder",
-      primary_GamerTag: CsbR_Client_Tag,
+      primary_GamerTag: "placeholder",
       UGC_siteTag: CsbR_Client_Tag.toLowerCase().replace(/[^a-z0-9]/g, ""),
       email,
       password,

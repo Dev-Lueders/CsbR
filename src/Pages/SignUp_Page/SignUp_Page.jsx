@@ -21,6 +21,7 @@ const SignUp_Page = () => {
   const formData = useSelector((state) => state.signup || {});
   const dispatch = useDispatch();
 
+  const address = formData.address || {}
   const handleChange = (e) => {
     const { id, value, type, checked, files } = e.target;
     const addressFields = [
@@ -90,11 +91,11 @@ const SignUp_Page = () => {
   };
   return (
     <>
-      <Generic_Form onSubmit={handleSubmit}>
+      <Generic_Form onSubmit={handleSubmit}> 
         <Text_Box
           placeholderText="Enter a Unique Id"
           id="CsbR_Client_Tag"
-          labelText="CsbR_Client_Tag"
+          labelText="Your Unique Tag for CsbR"
           value={formData.CsbR_Client_Tag || ""}
           onChange={handleChange}
         />

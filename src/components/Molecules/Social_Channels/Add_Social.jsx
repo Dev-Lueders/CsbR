@@ -106,7 +106,7 @@ Text_Box.PropTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  arialabel: PropTypes.string,
+  ariaLabel: PropTypes.string,
   name: PropTypes.string,
 };
 

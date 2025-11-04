@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-import logout from "../../../utils/logout";
+import logout from "../Mol_Button/Button_Logout";
 
 const LogoutButton = ({
   label,

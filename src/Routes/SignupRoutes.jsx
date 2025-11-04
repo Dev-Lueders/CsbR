@@ -5,20 +5,20 @@ import Page_Grid from "../components/Atoms/Page_Grid/Page_Grid";
 
 import Landing_Page from "../Pages/Landing_Page/Landing_Page";
 import SignUp_Page from "../Pages/SignUp_Page/SignUp_Page";
-import Creators_SignUp from "../Pages/SignUp_Page/Creators_SignUp";
-import Profile_SignUp from "../Pages/SignUp_Page/Profile_SignUp";
+// import Creators_SignUp from "../Pages/SignUp_Page/Creators_SignUp";
+// import Profile_SignUp from "../Pages/SignUp_Page/Profile_SignUp";
 const SignUpRoutes = () => {
   return (
     <>
       <Routes>
-        <Route
+        {/* <Route
           path="/Creators_SignUp"
           element={
             <Page_Grid>
               <Creators_SignUp />
             </Page_Grid>
           }
-        />
+        /> */}
         <Route
           path="/SignUp_Page"
           element={
@@ -36,14 +36,14 @@ const SignUpRoutes = () => {
           }
         />
 
-        <Route
+        {/* <Route
           path="/Profile_SignUp"
           element={
             <Page_Grid>
               <Profile_SignUp />
             </Page_Grid>
           }
-        />
+        /> */}
       </Routes>
     </>
   );

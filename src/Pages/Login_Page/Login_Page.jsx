@@ -5,20 +5,20 @@ import { useDispatch } from "react-redux";
 import { loginClient } from "../../redux/features/auth/loginSlice";
 
 import Text_Box from "../../components/Atoms/Input_Container/Text_Box";
-import Button_btn from "../../components/Atoms/Buttons/Button";
+// import Button_btn from "../../components/Atoms/Buttons/Button";
 import Generic_Form from "../../components/Molecules/Form/Generic_Form";
-import { logout } from "../../../server/utils/logout";
+import LogoutButton from "../../components/Molecules/Mol_Button/Button_Logout";
 const Login_Page = () => {
   const dispatch = useDispatch();
 
-  const handleLogout = async () => {
-    await logout({
-      revokeUrl: "/api/auth/logout", // optional; remove if you don't have it yet
-      navigateTo: "/Login_Page", // where to land after logout
-      axios: api, // pass your axios instance if you want
-      onAfter: () => dispatch({ type: "auth/clear" }), // optional: clear Redux
-    });
-  };
+  // const handleLogout = async () => {
+  //   await logout({
+  //     revokeUrl: "/api/auth/logout", // optional; remove if you don't have it yet
+  //     navigateTo: "/Login_Page", // where to land after logout
+  //     axios: api, // pass your axios instance if you want
+  //     onAfter: () => dispatch({ type: "auth/clear" }), // optional: clear Redux
+  //   });
+  // };
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -51,8 +51,8 @@ const Login_Page = () => {
     );
 
     if (loginClient.fulfilled.match(action)) {
-      // Success path
-      console.log("Login success:", action.payload.client);
+      // Success path: need to add Client preferred name variable to store
+      console.log(`Are You Ready${``}, Your credentials have been verified.`, action.payload.client);
       // TODO: navigate('/dashboard') or set auth UI
     } else {
       const msg =
@@ -71,7 +71,7 @@ const Login_Page = () => {
         <Text_Box
           id="CsbR_Client_Tag"
           labelText="Client"
-          placeholderText="Enter CsbR_Client_Tag"
+          placeholderText="Enter a unique name"
           type="text"
           name="CsbR_Client_Tag"
           value={formData.CsbR_Client_Tag}
@@ -114,12 +114,20 @@ const Login_Page = () => {
           </label>
         </div>
 
-        {/* Submit button INSIDE the Generic_Form */}
-
         {error && (
           <div style={{ color: "crimson", marginTop: 10 }}>{error}</div>
         )}
       </Generic_Form>
+      <LogoutButton
+        className="logout-button"
+        navigateTo="/"
+        onAfter={() => dispatch({ type: "auth/clear" })}
+        onError={(err) =>
+          setError(
+            err?.response?.data?.message || err?.message || "Logout failed"
+          )
+        }
+      />
     </div>
   );
 };
