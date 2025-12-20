@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import UGC_Card_FBase from "../Front Card/UGC_Card_FBase";
-import UGC_Card_FTop from "../Front Card/UGC_Card_FTop";
-import UGC_Card_FBottom from "../Front Card/UGC_Card_FBottom";
+import UGC_Card_FBase from "../Front_Card/UGC_Card_FBase";
+import UGC_Card_FTop from "../Front_Card/UGC_Card_FTop";
+import UGC_Card_FBottom from "../Front_Card/UGC_Card_FBottom";
 
 /**
  * Renders the **front face** of the UGC card.
@@ -37,6 +37,7 @@ const UGC_Card_Front_Render = ({
         userSelect: "none",
         background:
           "linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02))",
+        zIndex: "5",
       }}
     >
       UGC MEDIA
@@ -52,7 +53,7 @@ const UGC_Card_Front_Render = ({
       borderColor="#1f2937"
       onOpen={() => {}}
     >
-      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      <div style={{ position: "relative", width: "100%", height: "100%", zIndex: "5" }}>
         {media}
 
         <UGC_Card_FTop
@@ -73,7 +74,7 @@ const UGC_Card_Front_Render = ({
             bottom: 56,
             display: "flex",
             gap: 10,
-            zIndex: 3,
+            zIndex: 5,
           }}
         >
           <button type="button" onClick={onDig} aria-label="Dig this">

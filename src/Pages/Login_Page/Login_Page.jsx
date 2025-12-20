@@ -24,7 +24,7 @@ const Login_Page = () => {
   const [formData, setFormData] = useState({
     CsbR_Client_Tag: "",
     password: "",
-    remember: true, // set default “stay logged in” if you want
+    remember: false, // set default “stay logged in” if you want
   });
   const [error, setError] = useState(null);
 
@@ -66,12 +66,12 @@ const Login_Page = () => {
     <div className="login-page">
       <h2>Login</h2>
 
-      {/* Ensure Generic_Form renders a real <form onSubmit={...}> */}
+      {/* Ensure Generic_Form renders */}
       <Generic_Form onSubmit={handleSubmit}>
         <Text_Box
           id="CsbR_Client_Tag"
           labelText="Client"
-          placeholderText="Enter a unique name"
+          placeholderText="CsbR Tag"
           type="text"
           name="CsbR_Client_Tag"
           value={formData.CsbR_Client_Tag}
@@ -94,7 +94,7 @@ const Login_Page = () => {
             type="checkbox"
             id="showPassword"
             checked={showPassword}
-            onChange={toggleShowPassword} // ⬅️ just toggle, no arg
+            onChange={toggleShowPassword} 
           />
           <label htmlFor="showPassword" style={{ marginLeft: 6 }}>
             Show Password

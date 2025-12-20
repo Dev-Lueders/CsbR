@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import UGC_Card_BBase from "../Back Card/UGC_Card_BBase";
-import UGC_Card_BTop from "../Back Card/UGC_Card_BTop";
-import UGC_Card_BBottom from "../Back Card/UGC_Card_BBottom";
+import UGC_Card_BBase from "../Back_Card/UGC_Card_BBase";
+import UGC_Card_BTop from "../Back_Card/UGC_Card_BTop";
+import UGC_Card_BBottom from "../Back_Card/UGC_Card_BBottom";
 
 /**
  * Renders the **back face** of the UGC card.
@@ -33,6 +33,7 @@ const UGC_Card_Back_Render = ({
           width: "100%",
           height: "100%",
           color: "#e6eef6",
+          zIndex: "5",
         }}
       >
         <UGC_Card_BTop
@@ -53,6 +54,7 @@ const UGC_Card_Back_Render = ({
             border: "1px solid rgba(255,255,255,0.06)",
             borderRadius: 12,
             padding: 16,
+            zIndex: "5",
           }}
         >
           <div>

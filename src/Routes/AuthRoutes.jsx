@@ -6,10 +6,11 @@ import Page_Grid from "../components/Atoms/Page_Grid/Page_Grid";
 
 import Login_Page from "../Pages/Login_Page/Login_Page";
 import Admin_Page from "../Pages/Clients/Admin_Page/Admin_Page";
-import Creator_Profile_Page from "../Pages/Clients/Creator_Profile_Page/Creator_Profile_Page";
-import Guest_Page from "../Pages/Clients/Guest_Page/Guest_Page";
+
+import Client_Page from "../Pages/Clients/Guest_Page/Client_Page";
 import Moderator_Page from "../Pages/Clients/Moderator_Page/Moderator_Page";
 import Member_Page from "../Pages/Clients/Member_Page/Member_Page";
+import Master_Page from "../Pages/Clients/Master_Page/Master_Page";
 const AuthRoutes = () => {
   return (
     <Routes>
@@ -21,7 +22,43 @@ const AuthRoutes = () => {
           </Page_Grid>
         }
       />
-    </Routes>
+      <Route 
+        path="/Admin_Page"
+        element={
+          <Page_Grid>
+            <Admin_Page/>
+        </Page_Grid>
+      }
+      />
+      <Route path="/Moderator_Page"
+        element={
+          <Page_Grid>
+            <Moderator_Page/>
+        </Page_Grid>
+      }
+      />
+      <Route path="/Member_Page"
+        element={
+          <Page_Grid>
+            <Member_Page/>
+        </Page_Grid>
+      }
+      />
+      <Route path="/Client_Page"
+        element={
+          <Page_Grid>
+            <Client_Page/>
+        </Page_Grid>
+      }
+      />
+      <Route path="/Master_Page"
+        element={
+          <Page_Grid>
+            <Master_Page/>
+        </Page_Grid>
+      }
+      />
+      </Routes>
   );
 };
 export default AuthRoutes;

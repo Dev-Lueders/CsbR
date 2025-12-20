@@ -49,14 +49,15 @@ const Generic_Form = ({ children, onSubmit, onChange, formData, formType }) => {
 
         <Button_btn
           label="Reset Password"
-          onClickAction="SUBMIT_FORM"
-          type="submit"
+          onClickAction="Reset_Password"
+          type="button"
           style={{
             width: "10rem",
             marginBottom: "60px",
             marginTop: "60px",
             gridColumn: "1/6",
             gridRow: "15/25",
+            isVisible:"false",
           }}
         />
       </form>

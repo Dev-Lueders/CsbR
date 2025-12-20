@@ -21,9 +21,9 @@ import Page_Frame from "../../../components/Organism/Page_Frame";
 const Guest_Page = () => {
 return (
   <>
-    <Page_Frame>
+   
       <h3>This is the Guest Page</h3>
-    </Page_Frame>
+
   </>
 );
 

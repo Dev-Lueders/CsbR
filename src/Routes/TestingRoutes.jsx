@@ -18,9 +18,7 @@ const TestingRoutes = () => {
               </Page_Grid>
             }
           />
-        </Routes>
-
-        <Routes>
+      
           <Route
             path="Course_Review"
             element={

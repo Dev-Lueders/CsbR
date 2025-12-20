@@ -5,8 +5,8 @@ import Page_Frame from "../../components/Organism/Page_Frame.jsx";
 import UGC_Card_Flipper from "../../components/Molecules/UGC/UGC_Card/UGC_Card_Flipper.jsx";
 
 // >>> Only these two faces <<<
-import UGC_Card_Front_Render from "../../components/Molecules/UGC/UGC_Card/Front Card/UGC_Card_Front_Render.jsx";
-import UGC_Card_Back_Render from "../../components/Molecules/UGC/UGC_Card/Back Card/UGC_Card_Back_Render.jsx";
+import UGC_Card_Front_Render from "../../components/Molecules/UGC/UGC_Card/Front_Card/UGC_Card_Front_Render.jsx";
+import UGC_Card_Back_Render from "../../components/Molecules/UGC/UGC_Card/Back_Card/UGC_Card_Back_Render.jsx";
 
 export default function Testing_Components() {
   const [saved, setSaved] = useState(false);
@@ -66,7 +66,7 @@ export default function Testing_Components() {
             gridTemplateColumns: "repeat(36, 1fr)",
             gridAutoRows: "minmax(24px, 1fr)",
             minHeight: "70vh",
-            zIndex: "1",
+            zIndex: "0",
           }}
         >
           <UGC_Card_Flipper

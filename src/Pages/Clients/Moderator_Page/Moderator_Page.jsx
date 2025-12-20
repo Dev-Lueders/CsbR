@@ -17,14 +17,14 @@
 // can flag material but cannot review the material they flagged
 //
 import React from "react";
-import Page_Frame from "../../../components/Organism/Page_Frame";
+
 
 const Moderator_Page = () => {
   return (
     <>
-      <Page_Frame>
+     
         <h3>This is the Moderators Page</h3>
-      </Page_Frame>
+   
     </>
   );
 };

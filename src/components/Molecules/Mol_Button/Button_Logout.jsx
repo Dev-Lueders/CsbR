@@ -1,7 +1,9 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import Button_btn from "../../Atoms/Buttons/Button";
 
 import logout from "../Mol_Button/Button_Logout";
+
 
 const LogoutButton = ({
   label,
@@ -39,14 +41,14 @@ const LogoutButton = ({
   };
 
   return (
-    <button
+    <Button_btn
       type="button"
       className={className}
       onClick={handleClick}
       disabled={disabled || isLoading}
     >
       {isLoading ? loadingLabel : label}
-    </button>
+    </Button_btn>
   );
 };
 
